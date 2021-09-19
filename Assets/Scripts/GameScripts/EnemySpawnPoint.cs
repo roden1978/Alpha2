@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GameScripts
 {
     [ExecuteInEditMode]
-    public class SpawnPoint : MonoBehaviour
+    public class EnemySpawnPoint : MonoBehaviour
     {
         [SerializeField] private GameObject _prefab;
         private float _radius;
