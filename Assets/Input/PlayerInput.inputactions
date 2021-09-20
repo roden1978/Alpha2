@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "6d01d89e-5cd7-48bb-9189-72b9e3661da9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -90,17 +98,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "ac6ebac2-c77c-440e-a371-303ff1ba6608",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "1D Axis",
                     "id": "215293aa-71d1-4ca0-b9c8-2dd0e5a7f5e6",
                     "path": "1DAxis",
@@ -135,12 +132,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2cbbc3a6-740d-460d-a1fd-5f984834afdd",
+                    "id": "0a912489-b416-445a-b35b-147bcf6678cd",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "098efb36-f5d3-46eb-83d3-bbda988c8845",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Move",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

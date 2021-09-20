@@ -1,4 +1,5 @@
 using System.Collections;
+using Input;
 using PlayerScripts;
 using UnityEngine;
 
@@ -12,15 +13,7 @@ namespace GameScripts
         {
             var spawnPoint = _playerSpawnPoint ? _playerSpawnPoint.transform.position : Vector3.zero;
             StartCoroutine(CreatePlayer(_player, spawnPoint));
-        }
-
-        private IEnumerator CreatePlayer(Player playerPrefab, Vector3 spawnPoint)
-        {
-            if(spawnPoint == Vector3.zero) 
-                spawnPoint =  new FloatingPlayerSpawnPoint().Value();
-            var player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
-            player.name = "Player";
-            yield return null;
+            StartCoroutine(CreateCrowBar());
         }
 
         private void OnValidate()
@@ -32,5 +25,22 @@ namespace GameScripts
                 transform.position = Vector3.zero;
         }
 
+        private IEnumerator CreatePlayer(Player playerPrefab, Vector3 spawnPoint)
+        {
+            yield return null;
+            if(spawnPoint == Vector3.zero) 
+                spawnPoint =  new FloatingPlayerSpawnPoint().Value();
+            var player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
+            player.name = "Player";
+        }
+
+        private IEnumerator CreateCrowBar()
+        {
+            yield return null;
+            var crowbar = new GameObject("Crowbar");
+            Instantiate(crowbar, Vector3.zero, Quaternion.identity, transform);
+            crowbar.AddComponent<Crowbar>();
+            crowbar.AddComponent<DevicesInput>();
+        }
     }
 }
