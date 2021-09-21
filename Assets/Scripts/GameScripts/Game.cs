@@ -38,7 +38,7 @@ namespace GameScripts
         {
             yield return null;
             var crowbar = new GameObject("Crowbar");
-            Instantiate(crowbar, Vector3.zero, Quaternion.identity, transform);
+            crowbar.transform.SetParent(transform);
             crowbar.AddComponent<Crowbar>();
             crowbar.AddComponent<DevicesInput>();
         }
