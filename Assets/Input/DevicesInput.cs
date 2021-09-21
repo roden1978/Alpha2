@@ -5,8 +5,10 @@ namespace Input
     public class DevicesInput : MonoBehaviour
     {
         private PlayerInput _input;
-        private float _direction;
         private float _jump;
+        public float Direction { get; private set; }
+        public float Jump { get; private set; }
+
 
         private void Awake()
         {
@@ -27,8 +29,7 @@ namespace Input
 
         private void OnJump()
         {
-            _jump = _input.Player.Jump.ReadValue<float>();
-            Debug.Log($"Jump {_jump}");
+            Jump = _input.Player.Jump.ReadValue<float>();
         }
 
         private void OnSoot()
@@ -38,13 +39,7 @@ namespace Input
 
         private void Update()
         {
-            _direction = _input.Player.Move.ReadValue<float>();
-            Move(_direction);
-        }
-
-        private void Move(float direction)
-        {
-            Debug.Log($"Direction {direction}");
+            Direction = _input.Player.Move.ReadValue<float>();
         }
     }
 }
