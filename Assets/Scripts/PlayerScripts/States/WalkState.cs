@@ -6,31 +6,39 @@ namespace PlayerScripts.States
 {
     public class WalkState : BaseState
     {
-        private Animator _animator;
-        public WalkState(GameObject gameObject) : base(gameObject)
+        private readonly Animator _animator;
+        private Vector3 _prevPosition;
+        private static readonly int Walk = Animator.StringToHash("Walk");
+
+        public WalkState(GameObject gameObject, StateMachine stateMachine) 
+            : base(gameObject, stateMachine)
         {
             GameObject = gameObject;
-            _animator.GetComponentInChildren<Animator>();
+            StateMachine = stateMachine;
+            _animator = gameObject.GetComponentInChildren<Animator>();
         }
 
-        protected override void Enter()
+        public override void Enter()
         {
-            _animator.SetBool(0, true);
+            _animator.SetBool(Walk, true);
         }
 
-        public override Type Tick()
+        public override void Tick()
         {
-            throw new NotImplementedException();
+            if((_prevPosition - GameObject.transform.position).magnitude == 0)
+                StateMachine.PushState(typeof(WalkState));
+            _prevPosition = GameObject.transform.position;
         }
 
-        public override Type FixedTick()
+        public override void FixedTick()
         {
-            throw new NotImplementedException();
+            
         }
 
-        protected override void Exit()
+        public override void Exit()
         {
-            throw new NotImplementedException();
+            _animator.SetBool(Walk, false);
+            StateMachine.PopState();
         }
     }
 }

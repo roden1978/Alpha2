@@ -6,29 +6,29 @@ namespace PlayerScripts.States
 {
     public class IdleState : BaseState
     {
-        public IdleState(GameObject gameObject) : base(gameObject)
+        private Vector3 _prevPosition;
+        public IdleState(GameObject gameObject, StateMachine stateMachine) : base(gameObject, stateMachine)
         {
             GameObject = gameObject;
+            StateMachine = stateMachine;
         }
 
-        protected override void Enter()
+       public override void Tick()
         {
+            if((int)(_prevPosition - GameObject.transform.position).magnitude != 0)
+                StateMachine.PushState(typeof(WalkState));
+            _prevPosition = GameObject.transform.position;
             
         }
 
-        public override Type Tick()
-        {
-            throw new NotImplementedException();
-        }
+       public override void FixedTick()
+       {
+           
+       }
 
-        public override Type FixedTick()
+       public override void Exit()
         {
-            throw new NotImplementedException();
-        }
-
-        protected override void Exit()
-        {
-            throw new NotImplementedException();
+            StateMachine.PopState();
         }
     }
 }
