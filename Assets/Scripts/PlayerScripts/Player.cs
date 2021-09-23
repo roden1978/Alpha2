@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Common;
-using PlayerScripts.States;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -10,7 +6,6 @@ namespace PlayerScripts
     public class Player : MonoBehaviour
     {
         private float _health;
-
         private void ChangeHealth(float delta)
         {
             

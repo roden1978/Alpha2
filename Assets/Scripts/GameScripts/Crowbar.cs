@@ -11,14 +11,17 @@ namespace GameScripts
     [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
+        private float _playerSpeed = 50f;
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
         private Rigidbody2D _rigidbody;
+        private PlayerSurfaceNormal _playerSurfaceNormal;
 
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
+            _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
         }
 
         private void Start()
@@ -40,9 +43,28 @@ namespace GameScripts
             Move();
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(_player.transform.position, _player.transform.position + _playerSurfaceNormal.Value().normalized);
+            Gizmos.color = Color.yellow;
+            var direction = new Vector3(_input.Direction, _player.transform.position.y, _player.transform.position.z);
+            Gizmos.DrawLine(_player.transform.position, _player.transform.position + Project(direction).normalized);
+        }
+
         private void Move()
         {
-           _rigidbody.MovePosition(_player.transform.position + new Vector3(_input.Direction,0,0) * 20 * Time.deltaTime);
+            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
+            var direction = new Vector3(_input.Direction, 0, _player.transform.position.z);
+            var directionAlongSurface = Project(direction.normalized);
+            var offset = directionAlongSurface * (_playerSpeed * Time.deltaTime);
+            _rigidbody.MovePosition(_player.transform.position + offset);
+        }
+
+        private Vector3 Project(Vector3 direction)
+        {
+            return direction - Vector3.Dot(direction,
+                _playerSurfaceNormal.Value()) * _playerSurfaceNormal.Value();
         }
     }
 }
