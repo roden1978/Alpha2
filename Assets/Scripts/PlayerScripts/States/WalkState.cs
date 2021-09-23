@@ -25,9 +25,11 @@ namespace PlayerScripts.States
 
         public override void Tick()
         {
-            if((_prevPosition - GameObject.transform.position).magnitude == 0)
-                StateMachine.PushState(typeof(WalkState));
-            _prevPosition = GameObject.transform.position;
+            Debug.Log($"Abs: {Mathf.Abs(_prevPosition.x - GameObject.transform.position.x)}");
+            /*if (Mathf.Abs(_prevPosition.x - GameObject.transform.position.x) == 0)
+                StateMachine.PushState(typeof(IdleState));*/
+            
+            _prevPosition.x = GameObject.transform.position.x;
         }
 
         public override void FixedTick()

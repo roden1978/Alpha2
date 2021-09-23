@@ -30,15 +30,13 @@ namespace Common
 
         public void PushState(Type nextState)
         {
-            if (nextState !=null && nextState != GetCurrentState()?.GetType())
-            {
-                GetCurrentState().Exit();
-                _stack.Push(_availableStates[nextState]);
-                GetCurrentState().Enter();
-            }
+            if (nextState == null || nextState == GetCurrentState()?.GetType()) return;
+            GetCurrentState().Exit();
+            _stack.Push(_availableStates[nextState]);
+            GetCurrentState().Enter();
         }
 
-        public BaseState PopState() => _stack.Pop();
+        public void PopState() => _stack.Pop();
 
         private BaseState GetCurrentState() => _stack?.FirstOrDefault();
     }

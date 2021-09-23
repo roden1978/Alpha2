@@ -1,4 +1,3 @@
-using System;
 using Common;
 using UnityEngine;
 
@@ -11,14 +10,15 @@ namespace PlayerScripts.States
         {
             GameObject = gameObject;
             StateMachine = stateMachine;
+            _prevPosition = gameObject.transform.position;
         }
 
        public override void Tick()
         {
-            if((int)(_prevPosition - GameObject.transform.position).magnitude != 0)
+            if(Mathf.Abs(_prevPosition.x - GameObject.transform.position.x) > 0)
                 StateMachine.PushState(typeof(WalkState));
-            _prevPosition = GameObject.transform.position;
             
+            _prevPosition.x = GameObject.transform.position.x;
         }
 
        public override void FixedTick()

@@ -5,6 +5,7 @@ using Input;
 using PlayerScripts;
 using PlayerScripts.States;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GameScripts
 {
@@ -45,20 +46,22 @@ namespace GameScripts
 
         private void OnDrawGizmos()
         {
+            var position = _player.transform.position;
             Gizmos.color = Color.white;
-            Gizmos.DrawLine(_player.transform.position, _player.transform.position + _playerSurfaceNormal.Value().normalized);
+            Gizmos.DrawLine(position, position + _playerSurfaceNormal.Value().normalized);
             Gizmos.color = Color.yellow;
-            var direction = new Vector3(_input.Direction, _player.transform.position.y, _player.transform.position.z);
-            Gizmos.DrawLine(_player.transform.position, _player.transform.position + Project(direction).normalized);
+            var direction = new Vector3(_input.Direction, position.y, position.z);
+            Gizmos.DrawLine(position, position + Project(direction).normalized);
         }
 
         private void Move()
         {
-            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
-            var direction = new Vector3(_input.Direction, 0, _player.transform.position.z);
-            var directionAlongSurface = Project(direction.normalized);
+            if (_input.Direction == 0) return;
+            var position = _player.transform.position;
+            var direction = new Vector3(_input.Direction, 0, 0);
+            var directionAlongSurface = Project(direction);
             var offset = directionAlongSurface * (_playerSpeed * Time.deltaTime);
-            _rigidbody.MovePosition(_player.transform.position + offset);
+            _rigidbody.MovePosition(position + offset);
         }
 
         private Vector3 Project(Vector3 direction)

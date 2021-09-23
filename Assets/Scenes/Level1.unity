@@ -579,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7346589287040846103, guid: a851fb7eaebf2d640a1c91bd91f02468, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -2.88
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2233032984609313220, guid: a851fb7eaebf2d640a1c91bd91f02468, type: 3}
@@ -602,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2857801988707606002, guid: 3f65e7e674f622941a89f39d656d3ef7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.71
+      value: -4.36
       objectReference: {fileID: 0}
     - target: {fileID: 2857801988707606002, guid: 3f65e7e674f622941a89f39d656d3ef7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 1904216521}
   - component: {fileID: 1904216520}
   - component: {fileID: 1904216519}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
