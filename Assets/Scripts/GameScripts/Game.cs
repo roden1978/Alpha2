@@ -1,5 +1,4 @@
-using System.Collections;
-using Common;
+using Cinemachine;
 using Input;
 using PlayerScripts;
 using UnityEngine;
@@ -10,11 +9,13 @@ namespace GameScripts
     {
         [SerializeField] private Player _player;
         [SerializeField] private PlayerSpawnPoint _playerSpawnPoint;
+        [SerializeField] private CinemachineVirtualCamera _vCamera;
         private void Start()
         {
             var spawnPoint = _playerSpawnPoint ? _playerSpawnPoint.transform.position : Vector3.zero;
-            CreatePlayer(_player, spawnPoint);
+            var player = CreatePlayer(_player, spawnPoint);
             CreateCrowBar();
+            _vCamera.Follow = player.transform;
         }
 
         private void OnValidate()
@@ -26,12 +27,13 @@ namespace GameScripts
                 transform.position = Vector3.zero;
         }
 
-        private void CreatePlayer(Player playerPrefab, Vector3 spawnPoint)
+        private Player CreatePlayer(Player playerPrefab, Vector3 spawnPoint)
         {
             if(spawnPoint == Vector3.zero) 
                 spawnPoint =  new FloatingPlayerSpawnPoint().Value();
             var player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
             player.name = "Player";
+            return player;
         }
 
         private void CreateCrowBar()
