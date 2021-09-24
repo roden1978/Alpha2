@@ -5,14 +5,12 @@ using Input;
 using PlayerScripts;
 using PlayerScripts.States;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace GameScripts
 {
     [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
-        private float _playerSpeed = 50f;
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
@@ -56,18 +54,22 @@ namespace GameScripts
 
         private void Move()
         {
-            if (_input.Direction == 0) return;
-            var position = _player.transform.position;
-            var direction = new Vector3(_input.Direction, 0, 0);
-            var directionAlongSurface = Project(direction);
-            var offset = directionAlongSurface * (_playerSpeed * Time.deltaTime);
-            _rigidbody.MovePosition(position + offset);
+            if ((_playerSurfaceNormal.Value() - Vector3.zero).magnitude == 0) return;
+            _rigidbody.MovePosition(_player.transform.position + CalculateOffset());
         }
 
         private Vector3 Project(Vector3 direction)
         {
-            return direction - Vector3.Dot(direction,
-                _playerSurfaceNormal.Value()) * _playerSurfaceNormal.Value();
+            return direction 
+                   - Vector3.Dot(direction,_playerSurfaceNormal.Value()) 
+                   * _playerSurfaceNormal.Value();
+        }
+
+        private Vector3 CalculateOffset()
+        {
+            var direction = new Vector3(_input.Direction, 0, 0);
+            var directionAlongSurface = Project(direction);
+            return directionAlongSurface * (_player.Speed * Time.deltaTime); 
         }
     }
 }
