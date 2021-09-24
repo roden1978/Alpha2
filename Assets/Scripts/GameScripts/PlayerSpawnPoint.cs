@@ -5,16 +5,18 @@ using UnityEngine;
 namespace GameScripts
 {
     [ExecuteInEditMode]
+   
     public class PlayerSpawnPoint : MonoBehaviour
     {
         [SerializeField] private Player _player;
         private float _radius;
+        
         private void OnDrawGizmos()
         {
             if (_player != null)
             {
-                var spriteRenderer = _player.GetComponentInChildren<SpriteRenderer>();
-                _radius = spriteRenderer.bounds.size.y / 2;
+                var prefabSpriteRenderer = _player.GetComponentInChildren<SpriteRenderer>();
+                _radius = prefabSpriteRenderer.bounds.size.y / 2;
                 Gizmos.color = Color.green;
                 Gizmos.DrawWireSphere(transform.position, _radius);
             }
@@ -30,5 +32,6 @@ namespace GameScripts
             if(_player == null)
                 Debug.LogError("Add Player to Player spawn point");
         }
+        
     }
 }

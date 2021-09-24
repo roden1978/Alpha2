@@ -7,14 +7,16 @@ namespace GameScripts
     {
         [SerializeField] private GameObject _prefab;
         private float _radius;
+
         private void OnDrawGizmos()
         {
             if (_prefab != null)
             {
-                var spriteRenderer = _prefab.GetComponentInChildren<SpriteRenderer>();
-                _radius = spriteRenderer.bounds.size.y / 2;
-                Gizmos.color = Color.green;
+                var prefabSpriteRenderer = _prefab.GetComponentInChildren<SpriteRenderer>();
+                _radius = prefabSpriteRenderer.bounds.size.y / 2;
+                Gizmos.color = Color.blue;
                 Gizmos.DrawWireSphere(transform.position, _radius);
+               
             }
             else
             {
@@ -22,6 +24,7 @@ namespace GameScripts
                 Gizmos.DrawWireSphere(transform.position, Vector3.one.magnitude); 
             }
         }
+        
         public GameObject Prefab {get => _prefab; set => _prefab = value;}
     }
 }
