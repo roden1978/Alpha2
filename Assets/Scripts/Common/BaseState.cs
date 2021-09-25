@@ -12,7 +12,7 @@ namespace Common
             GameObject = gameObject;
             StateMachine = stateMachine;
         }
-
+     
         public virtual void Enter(){}
         public abstract void Tick();
         public abstract void FixedTick();
