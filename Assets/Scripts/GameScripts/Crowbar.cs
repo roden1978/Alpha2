@@ -14,13 +14,17 @@ namespace GameScripts
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
-        private Rigidbody2D _rigidbody;
         private PlayerSurfaceNormal _playerSurfaceNormal;
+        private PlayerView _playerView;
+        private FlipView _flipView;
+        private Rigidbody2D _rigidbody;
 
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
             _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
+            _playerView = _player.GetComponentInChildren<PlayerView>();
+            _flipView = new FlipView(_playerView);
         }
 
         private void Start()
@@ -29,32 +33,33 @@ namespace GameScripts
             _stateMachine = GetComponent<StateMachine>();
             _input = GetComponent<DevicesInput>();
             
-            var playerGameObject = _player.gameObject;
+            var player = _player.gameObject;
             _stateMachine.Initialize(new Dictionary<Type, BaseState>
             {
-                {typeof(IdleState), new IdleState(playerGameObject, _stateMachine)},
-                {typeof(WalkState), new WalkState(playerGameObject, _stateMachine)}
+                {typeof(IdleState), new IdleState(player, _stateMachine)},
+                {typeof(WalkState), new WalkState(player, _stateMachine, _input)}
             });
         }
 
         private void Update()
         {
             Move();
+            FLip();
         }
 
         private void OnDrawGizmos()
         {
             var position = _player.transform.position;
             Gizmos.color = Color.white;
-            Gizmos.DrawLine(position, position + _playerSurfaceNormal.Value().normalized);
+            Gizmos.DrawLine(position, position + _playerSurfaceNormal.Value());
             Gizmos.color = Color.yellow;
-            var direction = new Vector3(_input.Direction, position.y, position.z);
-            Gizmos.DrawLine(position, position + Project(direction).normalized);
+            var direction = new Vector3(_input.Direction, 0, 0);
+            Gizmos.DrawLine(position, position + Project(direction));
         }
 
         private void Move()
         {
-            if ((_playerSurfaceNormal.Value() - Vector3.zero).magnitude == 0) return;
+            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
             _rigidbody.MovePosition(_player.transform.position + CalculateOffset());
         }
 
@@ -70,6 +75,11 @@ namespace GameScripts
             var direction = new Vector3(_input.Direction, 0, 0);
             var directionAlongSurface = Project(direction);
             return directionAlongSurface * (_player.Speed * Time.deltaTime); 
+        }
+
+        private void FLip()
+        {
+            _flipView.FLippingPlayerView(_input.Direction);
         }
     }
 }

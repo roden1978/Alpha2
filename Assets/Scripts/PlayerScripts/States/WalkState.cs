@@ -1,5 +1,5 @@
-﻿using System;
-using Common;
+﻿using Common;
+using Input;
 using UnityEngine;
 
 namespace PlayerScripts.States
@@ -7,14 +7,15 @@ namespace PlayerScripts.States
     public class WalkState : BaseState
     {
         private readonly Animator _animator;
-        private Vector3 _prevPosition;
+        private readonly DevicesInput _devicesInput;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
-        public WalkState(GameObject gameObject, StateMachine stateMachine) 
+        public WalkState(GameObject gameObject, StateMachine stateMachine, DevicesInput devicesInput) 
             : base(gameObject, stateMachine)
         {
             GameObject = gameObject;
             StateMachine = stateMachine;
+            _devicesInput = devicesInput;
             _animator = gameObject.GetComponentInChildren<Animator>();
         }
 
@@ -25,13 +26,13 @@ namespace PlayerScripts.States
 
         public override void Tick()
         {
-            _prevPosition.x = GameObject.transform.position.x; 
+            if (Mathf.Abs(_devicesInput.Direction) == 0)
+                StateMachine.PushState(typeof(IdleState));
         }
 
         public override void FixedTick()
         {
-            if (Mathf.Abs(_prevPosition.x - GameObject.transform.position.x) == 0)
-                StateMachine.PushState(typeof(IdleState));
+                
         }
 
         public override void Exit()
