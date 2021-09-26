@@ -6,16 +6,14 @@ namespace Common
     public abstract class BaseState
     {
         protected GameObject GameObject;
-        protected StateMachine StateMachine;
-        protected BaseState(GameObject gameObject, StateMachine stateMachine)
+        protected BaseState(GameObject gameObject)
         {
             GameObject = gameObject;
-            StateMachine = stateMachine;
         }
      
         public virtual void Enter(){}
-        public abstract void Tick();
-        public abstract void FixedTick();
+        public abstract Type Tick();
+        public abstract Type FixedTick();
         public virtual void Exit(){}
     }
 }

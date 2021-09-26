@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using System;
+using Common;
 using Input;
 using UnityEngine;
 
@@ -10,11 +11,10 @@ namespace PlayerScripts.States
         private readonly DevicesInput _devicesInput;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
-        public WalkState(GameObject gameObject, StateMachine stateMachine, DevicesInput devicesInput) 
-            : base(gameObject, stateMachine)
+        public WalkState(GameObject gameObject, DevicesInput devicesInput) 
+            : base(gameObject)
         {
             GameObject = gameObject;
-            StateMachine = stateMachine;
             _devicesInput = devicesInput;
             _animator = gameObject.GetComponentInChildren<Animator>();
         }
@@ -24,21 +24,19 @@ namespace PlayerScripts.States
             _animator.SetBool(Walk, true);
         }
 
-        public override void Tick()
+        public override Type Tick()
         {
-            if (Mathf.Abs(_devicesInput.Direction) == 0)
-                StateMachine.PushState(typeof(IdleState));
+            return Mathf.Abs(_devicesInput.Direction) == 0 ? typeof(IdleState) : typeof(EmptyState);
         }
 
-        public override void FixedTick()
+        public override Type FixedTick()
         {
-                
+            return typeof(EmptyState);
         }
 
         public override void Exit()
         {
             _animator.SetBool(Walk, false);
-            StateMachine.PopState();
         }
     }
 }

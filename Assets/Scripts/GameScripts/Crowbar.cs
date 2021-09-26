@@ -36,8 +36,8 @@ namespace GameScripts
             var player = _player.gameObject;
             _stateMachine.Initialize(new Dictionary<Type, BaseState>
             {
-                {typeof(IdleState), new IdleState(player, _stateMachine)},
-                {typeof(WalkState), new WalkState(player, _stateMachine, _input)}
+                {typeof(IdleState), new IdleState(player)},
+                {typeof(WalkState), new WalkState(player, _input)}
             });
         }
 

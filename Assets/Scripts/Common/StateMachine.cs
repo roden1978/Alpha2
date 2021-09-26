@@ -19,24 +19,39 @@ namespace Common
 
         private void Update()
         { 
-            GetCurrentState()?.Tick();
-            //Debug.Log(GetCurrentState());
+            var state = GetCurrentState()?.Tick();
+            AnalyzeState(state);
         }
 
         private void FixedUpdate()
         {
-            GetCurrentState()?.FixedTick();
+            var state = GetCurrentState()?.FixedTick();
+            AnalyzeState(state);
         }
 
-        public void PushState(Type nextState)
+        private void AnalyzeState(Type state)
         {
-            if (nextState == null || nextState == GetCurrentState()?.GetType()) return;
-            GetCurrentState().Exit();
-            _stack.Push(_availableStates[nextState]);
+            if (state == typeof(EmptyState)) return;
+            if (state == GetCurrentState()?.GetType())
+            {
+                GetCurrentState().Exit();
+                PopState();
+                PushState(_stack?.FirstOrDefault()?.GetType());
+            }
+            else
+            {
+                GetCurrentState().Exit();
+                PushState(state);
+            }
+        }
+
+        private void PushState(Type state)
+        {
+            _stack.Push(_availableStates[state]);
             GetCurrentState().Enter();
         }
 
-        public void PopState() => _stack.Pop();
+        private void PopState() => _stack.Pop();
 
         private BaseState GetCurrentState() => _stack?.FirstOrDefault();
     }

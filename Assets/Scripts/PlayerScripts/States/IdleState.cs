@@ -1,3 +1,4 @@
+using System;
 using Common;
 using UnityEngine;
 
@@ -6,29 +7,29 @@ namespace PlayerScripts.States
     public class IdleState : BaseState
     {
         private Vector3 _prevPosition;
-        public IdleState(GameObject gameObject, StateMachine stateMachine) : base(gameObject, stateMachine)
+        public IdleState(GameObject gameObject) : base(gameObject)
         {
             GameObject = gameObject;
-            StateMachine = stateMachine;
             _prevPosition = gameObject.transform.position;
         }
 
-       public override void Tick()
+       public override Type Tick()
         {
             if(Mathf.Abs(_prevPosition.x - GameObject.transform.position.x) > 0)
-                StateMachine.PushState(typeof(WalkState));
+                return typeof(WalkState);
             
             _prevPosition.x = GameObject.transform.position.x;
+            return typeof(EmptyState);
         }
 
-       public override void FixedTick()
+       public override Type FixedTick()
        {
-           
+           return typeof(EmptyState);
        }
 
        public override void Exit()
         {
-            StateMachine.PopState();
+            
         }
     }
 }
