@@ -9,7 +9,7 @@ namespace Common
     {
         private Dictionary<Type, BaseState> _availableStates;
         private Stack<BaseState> _stack;
-
+        
         public void Initialize(Dictionary<Type, BaseState> states)
         {
             _availableStates = states;
@@ -36,7 +36,7 @@ namespace Common
             {
                 CompletionAndDeleteCurrentState();
                 var prevState = PopState();
-                PushState(prevState?.GetType());
+                PushState(prevState);
             }
             else
             {
@@ -47,17 +47,17 @@ namespace Common
 
         private void CompletionAndDeleteCurrentState()
         {
-            GetCurrentState().Exit();
+            GetCurrentState()?.Exit();
             PopState();
         }
 
         private void PushState(Type state)
         {
-            _stack.Push(_availableStates[state]);
-            GetCurrentState().Enter();
+            _stack?.Push(_availableStates[state]);
+            GetCurrentState()?.Enter();
         }
 
-        private BaseState PopState() => _stack.Pop();
+        private Type PopState()=> _stack?.Count > 0 ? _stack?.Pop().GetType() : typeof(EmptyState);
 
         private BaseState GetCurrentState() => _stack?.FirstOrDefault();
     }

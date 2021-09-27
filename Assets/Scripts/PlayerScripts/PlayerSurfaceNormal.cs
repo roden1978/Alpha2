@@ -1,37 +1,38 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace PlayerScripts
 {
     public class PlayerSurfaceNormal
     {
-        private readonly Player _player;
         private readonly CapsuleCollider2D _collider;
-        private readonly List<ContactPoint2D> _list;
+        private readonly List<ContactPoint2D> _contactPoints;
         private const int GroundLayerMask = 1 << 7;
         private readonly ContactFilter2D _filter;
+        private readonly Bounds _colliderBounds;
 
-        public PlayerSurfaceNormal(Player player)
+        public PlayerSurfaceNormal(Component player)
         {
-            _player = player;
             _filter = new ContactFilter2D();
             _filter.SetLayerMask(GroundLayerMask);
-            _list = new List<ContactPoint2D>();
-            if (_player.TryGetComponent(out CapsuleCollider2D collider))
-            {
-                _collider = collider;
-            }
+            _contactPoints = new List<ContactPoint2D>();
+            if (!player.TryGetComponent(out CapsuleCollider2D collider)) return;
+            _collider = collider;
+            _colliderBounds = _collider.bounds;
         }
 
         public Vector3 Value()
         {
-            if (!_collider || _collider.GetContacts(_filter, _list) <= 0) return Vector3.zero;
-            foreach (var contactPoint in _list
-                .Where(contactPoint => contactPoint.point.y < _player.transform.position.y))
+            if (!_collider || _collider.GetContacts(_filter, _contactPoints) <= 0) return Vector3.zero;
+            var colliderCenterPoint = _colliderBounds.center.y;
+            var colliderHalfHeight = _colliderBounds.size.y / 2;
+
+            for (var i = 0; i < _contactPoints.Count; i++)
             {
-                return contactPoint.normal;
+                if(_contactPoints[i].point.y <= colliderCenterPoint - colliderHalfHeight)
+                    return _contactPoints[i].normal;
             }
+           
             return Vector3.zero;
         }
     }

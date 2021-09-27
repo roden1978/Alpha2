@@ -6,30 +6,20 @@ namespace PlayerScripts.States
 {
     public class IdleState : BaseState
     {
-        private Vector3 _prevPosition;
+        private readonly Rigidbody2D _rigidbody;
         public IdleState(GameObject gameObject) : base(gameObject)
         {
             GameObject = gameObject;
-            _prevPosition = gameObject.transform.position;
+            _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         }
 
-       public override Type Tick()
-        {
-            if(Mathf.Abs(_prevPosition.x - GameObject.transform.position.x) > 0)
-                return typeof(WalkState);
-            
-            _prevPosition.x = GameObject.transform.position.x;
-            return typeof(EmptyState);
-        }
+       public override Type Tick() => Mathf.Abs(_rigidbody.velocity.x) > 0.3f 
+           ? typeof(WalkState) 
+           : typeof(EmptyState);
+       
 
-       public override Type FixedTick()
-       {
-           return typeof(EmptyState);
-       }
+       public override Type FixedTick() => typeof(EmptyState);
 
-       public override void Exit()
-        {
-            
-        }
+       public override void Exit(){}
     }
 }

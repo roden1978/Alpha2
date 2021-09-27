@@ -1,21 +1,21 @@
 ﻿using System;
 using Common;
-using Input;
 using UnityEngine;
 
 namespace PlayerScripts.States
 {
+    
     public class WalkState : BaseState
     {
         private readonly Animator _animator;
-        private readonly DevicesInput _devicesInput;
+        private readonly Rigidbody2D _rigidbody;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
-        public WalkState(GameObject gameObject, DevicesInput devicesInput) 
+        public WalkState(GameObject gameObject) 
             : base(gameObject)
         {
             GameObject = gameObject;
-            _devicesInput = devicesInput;
+            _rigidbody = gameObject.GetComponent<Rigidbody2D>();
             _animator = gameObject.GetComponentInChildren<Animator>();
         }
 
@@ -24,15 +24,12 @@ namespace PlayerScripts.States
             _animator.SetBool(Walk, true);
         }
 
-        public override Type Tick()
-        {
-            return Mathf.Abs(_devicesInput.Direction) == 0 ? typeof(IdleState) : typeof(EmptyState);
-        }
+        public override Type Tick() => Mathf.Abs(_rigidbody.velocity.x) < 0.1f 
+            ? typeof(IdleState) 
+            : typeof(EmptyState);
 
-        public override Type FixedTick()
-        {
-            return typeof(EmptyState);
-        }
+        public override Type FixedTick() => typeof(EmptyState);
+        
 
         public override void Exit()
         {

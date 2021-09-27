@@ -11,6 +11,7 @@ namespace GameScripts
     [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
+        [SerializeField] private float _xMoveDamping = 0.3f;
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
@@ -37,14 +38,18 @@ namespace GameScripts
             _stateMachine.Initialize(new Dictionary<Type, BaseState>
             {
                 {typeof(IdleState), new IdleState(player)},
-                {typeof(WalkState), new WalkState(player, _input)}
+                {typeof(WalkState), new WalkState(player)}
             });
         }
 
         private void Update()
         {
-            Move();
             FLip();
+        }
+
+        private void FixedUpdate()
+        {
+            Move();
         }
 
         private void OnDrawGizmos()
@@ -59,8 +64,14 @@ namespace GameScripts
 
         private void Move()
         {
-            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
-            _rigidbody.MovePosition(_player.transform.position + CalculateOffset());
+            //if (_playerSurfaceNormal.Value() == Vector3.zero) return;
+            _rigidbody.AddForce(CalculateDirection() * _player.Speed, ForceMode2D.Impulse);
+            var maxVelocity = _player.MaxVelocity;
+            var velocity = new Vector2(
+                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity),
+                _rigidbody.velocity.y
+            );
+            _rigidbody.velocity = Math.Abs(velocity.x) > _xMoveDamping ? velocity : Vector2.zero;
         }
 
         private Vector3 Project(Vector3 direction)
@@ -70,11 +81,11 @@ namespace GameScripts
                    * _playerSurfaceNormal.Value();
         }
 
-        private Vector3 CalculateOffset()
+        private Vector3 CalculateDirection()
         {
             var direction = new Vector3(_input.Direction, 0, 0);
             var directionAlongSurface = Project(direction);
-            return directionAlongSurface * (_player.Speed * Time.deltaTime); 
+            return directionAlongSurface;
         }
 
         private void FLip()
