@@ -9,6 +9,8 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
+        private readonly Player _player;
+        private readonly PlayerSurfaceNormal _playerSurfaceNormal;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
         public WalkState(GameObject gameObject) 
@@ -17,6 +19,8 @@ namespace PlayerScripts.States
             GameObject = gameObject;
             _rigidbody = gameObject.GetComponent<Rigidbody2D>();
             _animator = gameObject.GetComponentInChildren<Animator>();
+            _player = gameObject.GetComponent<Player>();
+            _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
         }
 
         public override void Enter()
@@ -24,9 +28,13 @@ namespace PlayerScripts.States
             _animator.SetBool(Walk, true);
         }
 
-        public override Type Tick() => Mathf.Abs(_rigidbody.velocity.x) < 0.1f 
-            ? typeof(IdleState) 
-            : typeof(EmptyState);
+        public override Type Tick()
+        {
+            if (Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping)
+                return typeof(IdleState);
+
+            return _playerSurfaceNormal.Value() == Vector3.zero ? typeof(JumpState) : typeof(EmptyState);
+        }
 
         public override Type FixedTick() => typeof(EmptyState);
         

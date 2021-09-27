@@ -7,9 +7,15 @@ namespace PlayerScripts
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocity;
+        [SerializeField] private float _jumpForce;
+        [SerializeField] private float _xMoveDamping = 0.3f;
+        [SerializeField] private float _yMoveDamping = 0.3f;
         private float _health;
         public float Speed => _speed;
         public float MaxVelocity => _maxVelocity;
+        public float JumpForce => _jumpForce;
+        public float XMoveDamping => _xMoveDamping;
+        public float YMoveDamping => _yMoveDamping;
 
         private void ChangeHealth(float delta)
         {
