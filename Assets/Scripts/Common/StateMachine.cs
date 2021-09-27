@@ -34,15 +34,21 @@ namespace Common
             if (state == typeof(EmptyState)) return;
             if (state == GetCurrentState()?.GetType())
             {
-                GetCurrentState().Exit();
-                PopState();
-                PushState(_stack?.FirstOrDefault()?.GetType());
+                CompletionAndDeleteCurrentState();
+                var prevState = PopState();
+                PushState(prevState?.GetType());
             }
             else
             {
-                GetCurrentState().Exit();
+                CompletionAndDeleteCurrentState();
                 PushState(state);
             }
+        }
+
+        private void CompletionAndDeleteCurrentState()
+        {
+            GetCurrentState().Exit();
+            PopState();
         }
 
         private void PushState(Type state)
@@ -51,7 +57,7 @@ namespace Common
             GetCurrentState().Enter();
         }
 
-        private void PopState() => _stack.Pop();
+        private BaseState PopState() => _stack.Pop();
 
         private BaseState GetCurrentState() => _stack?.FirstOrDefault();
     }
