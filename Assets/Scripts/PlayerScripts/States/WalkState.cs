@@ -10,7 +10,6 @@ namespace PlayerScripts.States
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
-        private readonly PlayerSurfaceNormal _playerSurfaceNormal;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
         public WalkState(GameObject gameObject) 
@@ -20,7 +19,6 @@ namespace PlayerScripts.States
             _rigidbody = gameObject.GetComponent<Rigidbody2D>();
             _animator = gameObject.GetComponentInChildren<Animator>();
             _player = gameObject.GetComponent<Player>();
-            _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
         }
 
         public override void Enter()
@@ -30,13 +28,15 @@ namespace PlayerScripts.States
 
         public override Type Tick()
         {
-            if (Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping)
-                return typeof(IdleState);
-
-            return _playerSurfaceNormal.Value() == Vector3.zero ? typeof(JumpState) : typeof(EmptyState);
+            return Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping 
+                ? typeof(IdleState) 
+                : typeof(EmptyState);
         }
 
-        public override Type FixedTick() => typeof(EmptyState);
+        public override Type FixedTick()
+        {
+            return !_player.StayOnGround() ? typeof(JumpState) : typeof(EmptyState);
+        }
         
 
         public override void Exit()

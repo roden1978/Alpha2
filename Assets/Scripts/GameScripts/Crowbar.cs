@@ -80,7 +80,7 @@ namespace GameScripts
 
         private void Jump()
         {
-            if(_playerSurfaceNormal.Value() != Vector3.zero)
+            if(_player.StayOnGround())
             {
                 var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
                 _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);

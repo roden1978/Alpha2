@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/PhysicsMaterials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PhysicsMaterials/GroundMaterial.physicsMaterial2D" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PhysicsMaterials/GroundMaterial.physicsMaterial2D.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PhysicsMaterials/PlayerMaterial.physicsMaterial2D" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PhysicsMaterials/PlayerMaterial.physicsMaterial2D.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/StayOnGroundMarker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/StayOnGroundMarker.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player Animation/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Player Animation/Player.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/StateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Crowbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Crowbar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerSurfaceNormal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerSurfaceNormal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,10 +64,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10044">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10044" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -96,6 +91,7 @@
       <workItem from="1632391831033" duration="900000" />
       <workItem from="1632395880891" duration="3479000" />
       <workItem from="1632725874262" duration="12771000" />
+      <workItem from="1632820853574" duration="9517000" />
     </task>
     <servers />
   </component>

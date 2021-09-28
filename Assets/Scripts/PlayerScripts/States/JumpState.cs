@@ -8,7 +8,6 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly Player _player;
-        private readonly PlayerSurfaceNormal _playerSurfaceNormal;
         private static readonly int Jump = Animator.StringToHash("Jump");
         
         public JumpState(GameObject gameObject) : base(gameObject)
@@ -16,8 +15,6 @@ namespace PlayerScripts.States
             GameObject = gameObject;
             _animator = gameObject.GetComponentInChildren<Animator>();
             _player = gameObject.GetComponent<Player>();
-            //_rigidbody = gameObject.GetComponent<Rigidbody2D>();
-            _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
         }
 
         public override void Enter()
@@ -27,12 +24,12 @@ namespace PlayerScripts.States
 
         public override Type Tick()
         {
-            return _playerSurfaceNormal.Value() != Vector3.zero ? typeof(JumpState) : typeof(EmptyState);
+            return typeof(EmptyState); //!_player.StayOnGround() ? typeof(JumpState) :
         }
 
         public override Type FixedTick()
         {
-            return typeof(EmptyState);
+            return _player.StayOnGround() ? typeof(IdleState) : typeof(EmptyState);
         }
 
         public override void Exit()

@@ -70,7 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _maxVelocity: 4
-  _jumpForce: 2
+  _jumpForce: 5
+  _xMoveDamping: 0.5
+  _yMoveDamping: 0.5
 --- !u!70 &1085142949310770209
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
