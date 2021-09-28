@@ -15,6 +15,12 @@ namespace Input
             _input = new PlayerInput();
             _input.Player.Shoot.performed += ctx => OnSoot();
             _input.Player.Jump.performed += ctx => OnJump();
+            _input.Player.Jump.canceled += ctx => OnStopJump();
+        }
+
+        private void OnStopJump()
+        {
+            Jump = _input.Player.Jump.ReadValue<float>();
         }
 
         private void OnEnable()

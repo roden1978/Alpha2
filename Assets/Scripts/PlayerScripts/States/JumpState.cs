@@ -24,7 +24,7 @@ namespace PlayerScripts.States
 
         public override Type Tick()
         {
-            return typeof(EmptyState); //!_player.StayOnGround() ? typeof(JumpState) :
+            return typeof(EmptyState);
         }
 
         public override Type FixedTick()

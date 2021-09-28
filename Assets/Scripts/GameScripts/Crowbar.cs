@@ -66,25 +66,20 @@ namespace GameScripts
 
         private void Move()
         {
-            if(_playerSurfaceNormal.Value() != Vector3.zero)
-            {
-                _rigidbody.AddForce(CalculateDirection() * _player.Speed, ForceMode2D.Impulse);
-                var maxVelocity = _player.MaxVelocity;
-                var velocity = new Vector2(
-                    Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity),
-                    _rigidbody.velocity.y
-                );
-                _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
-            }
+            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
+            _rigidbody.AddForce(CalculateDirection() * _player.Speed, ForceMode2D.Impulse);
+            var maxVelocity = _player.MaxVelocity;
+            var velocity = new Vector2(
+                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), _rigidbody.velocity.y
+            );
+            _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
         }
 
         private void Jump()
         {
-            if(_player.StayOnGround())
-            {
-                var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
-                _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
-            }
+            if (_player.StayOnGround() == false) return;
+            var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
         private Vector3 Project(Vector3 direction)

@@ -26,7 +26,8 @@ namespace PlayerScripts.States
 
        public override Type FixedTick()
        {
-           return !_player.StayOnGround() ? typeof(JumpState) : typeof(EmptyState);
+           return !_player.StayOnGround() &&
+               _rigidbody.velocity.y > _player.YMoveDamping? typeof(JumpState) : typeof(EmptyState);
        } 
 
        public override void Exit(){}
