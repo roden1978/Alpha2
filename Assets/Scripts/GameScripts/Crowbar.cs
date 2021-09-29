@@ -11,10 +11,10 @@ namespace GameScripts
     [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
+       
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
-        private PlayerSurfaceNormal _playerSurfaceNormal;
         private PlayerView _playerView;
         private FlipView _flipView;
         private Rigidbody2D _rigidbody;
@@ -22,7 +22,6 @@ namespace GameScripts
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
-            _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
             _playerView = _player.GetComponentInChildren<PlayerView>();
             _flipView = new FlipView(_playerView);
         }
@@ -36,47 +35,42 @@ namespace GameScripts
             var player = _player.gameObject;
             _stateMachine.Initialize(new Dictionary<Type, BaseState>
             {
-                {typeof(IdleState), new IdleState(player, _stateMachine)},
-                {typeof(WalkState), new WalkState(player, _stateMachine, _input)}
+                {typeof(IdleState), new IdleState(player)},
+                {typeof(WalkState), new WalkState(player)},
+                {typeof(JumpState), new JumpState(player)}
             });
         }
 
         private void Update()
         {
-            Move();
             FLip();
         }
 
-        private void OnDrawGizmos()
+        private void FixedUpdate()
         {
-            var position = _player.transform.position;
-            Gizmos.color = Color.white;
-            Gizmos.DrawLine(position, position + _playerSurfaceNormal.Value());
-            Gizmos.color = Color.yellow;
-            var direction = new Vector3(_input.Direction, 0, 0);
-            Gizmos.DrawLine(position, position + Project(direction));
+            Move();
+            Jump();
         }
-
+        
         private void Move()
         {
-            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
-            _rigidbody.MovePosition(_player.transform.position + CalculateOffset());
-        }
+            if (_player.StayOnGround() == false) return;
+            _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
+            var maxVelocity = _player.MaxVelocity;
+            var velocity = new Vector2(
+                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), 0
+            );
+            _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
+        } 
 
-        private Vector3 Project(Vector3 direction)
+        private void Jump()
         {
-            return direction 
-                   - Vector3.Dot(direction,_playerSurfaceNormal.Value()) 
-                   * _playerSurfaceNormal.Value();
+            if (_player.StayOnGround() == false) return;
+            var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+            Debug.Log(jumpForce);
+            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
-
-        private Vector3 CalculateOffset()
-        {
-            var direction = new Vector3(_input.Direction, 0, 0);
-            var directionAlongSurface = Project(direction);
-            return directionAlongSurface * (_player.Speed * Time.deltaTime); 
-        }
-
+        
         private void FLip()
         {
             _flipView.FLippingPlayerView(_input.Direction);

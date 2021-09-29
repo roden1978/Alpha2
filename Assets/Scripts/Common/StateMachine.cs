@@ -9,7 +9,7 @@ namespace Common
     {
         private Dictionary<Type, BaseState> _availableStates;
         private Stack<BaseState> _stack;
-
+        
         public void Initialize(Dictionary<Type, BaseState> states)
         {
             _availableStates = states;
@@ -19,24 +19,45 @@ namespace Common
 
         private void Update()
         { 
-            GetCurrentState()?.Tick();
-            //Debug.Log(GetCurrentState());
+            var state = GetCurrentState()?.Tick();
+            AnalyzeState(state);
         }
 
         private void FixedUpdate()
         {
-            GetCurrentState()?.FixedTick();
+            var state = GetCurrentState()?.FixedTick();
+            AnalyzeState(state);
         }
 
-        public void PushState(Type nextState)
+        private void AnalyzeState(Type state)
         {
-            if (nextState == null || nextState == GetCurrentState()?.GetType()) return;
-            GetCurrentState().Exit();
-            _stack.Push(_availableStates[nextState]);
-            GetCurrentState().Enter();
+            if (state == typeof(EmptyState)) return;
+            if (state == GetCurrentState()?.GetType())
+            {
+                CompletionAndDeleteCurrentState();
+                var prevState = PopState();
+                PushState(prevState);
+            }
+            else
+            {
+                CompletionAndDeleteCurrentState();
+                PushState(state);
+            }
         }
 
-        public void PopState() => _stack.Pop();
+        private void CompletionAndDeleteCurrentState()
+        {
+            GetCurrentState()?.Exit();
+            PopState();
+        }
+
+        private void PushState(Type state)
+        {
+            _stack?.Push(_availableStates[state]);
+            GetCurrentState()?.Enter();
+        }
+
+        private Type PopState()=> _stack?.Count > 0 ? _stack?.Pop().GetType() : typeof(EmptyState);
 
         private BaseState GetCurrentState() => _stack?.FirstOrDefault();
     }

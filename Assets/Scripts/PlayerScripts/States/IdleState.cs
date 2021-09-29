@@ -1,3 +1,4 @@
+using System;
 using Common;
 using UnityEngine;
 
@@ -5,30 +6,29 @@ namespace PlayerScripts.States
 {
     public class IdleState : BaseState
     {
-        private Vector3 _prevPosition;
-        public IdleState(GameObject gameObject, StateMachine stateMachine) : base(gameObject, stateMachine)
+        private readonly Rigidbody2D _rigidbody;
+        private readonly Player _player;
+        public IdleState(GameObject player) : base(player)
         {
-            GameObject = gameObject;
-            StateMachine = stateMachine;
-            _prevPosition = gameObject.transform.position;
+            _rigidbody = player.GetComponent<Rigidbody2D>();
+            _player = player.GetComponent<Player>();
         }
 
-       public override void Tick()
-        {
-            if(Mathf.Abs(_prevPosition.x - GameObject.transform.position.x) > 0)
-                StateMachine.PushState(typeof(WalkState));
-            
-            _prevPosition.x = GameObject.transform.position.x;
-        }
-
-       public override void FixedTick()
+       public override Type Tick()
        {
+           if(Mathf.Abs(_rigidbody.velocity.x) > _player.XMoveDamping)
+               return typeof(WalkState);
            
+           return typeof(EmptyState);
        }
+       
 
-       public override void Exit()
-        {
-            StateMachine.PopState();
-        }
+       public override Type FixedTick()
+       {
+           return !_player.StayOnGround() &&
+               _rigidbody.velocity.y > _player.YMoveDamping? typeof(JumpState) : typeof(EmptyState);
+       } 
+
+       public override void Exit(){}
     }
 }
