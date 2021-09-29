@@ -31,18 +31,12 @@ namespace Common
 
         private void AnalyzeState(Type state)
         {
-            if (state == typeof(EmptyState)) return;
-            if (state == GetCurrentState()?.GetType())
-            {
-                CompletionAndDeleteCurrentState();
-                var prevState = PopState();
-                PushState(prevState);
-            }
-            else
-            {
-                CompletionAndDeleteCurrentState();
-                PushState(state);
-            }
+            if (state == typeof(EmptyState)
+                || state == GetCurrentState()?.GetType()) return;
+            
+            CompletionAndDeleteCurrentState();
+            PushState(state);
+            
         }
 
         private void CompletionAndDeleteCurrentState()
@@ -57,7 +51,7 @@ namespace Common
             GetCurrentState()?.Enter();
         }
 
-        private Type PopState()=> _stack?.Count > 0 ? _stack?.Pop().GetType() : typeof(EmptyState);
+        private void PopState() => _stack?.Pop();
 
         private BaseState GetCurrentState() => _stack?.FirstOrDefault();
     }

@@ -16,7 +16,7 @@ namespace GameScripts
         private DevicesInput _input;
         private Player _player;
         private PlayerView _playerView;
-        private FlipView _flipView;
+        private IFlipView _flipView;
         private Rigidbody2D _rigidbody;
 
         private void Awake()

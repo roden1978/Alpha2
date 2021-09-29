@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 namespace PlayerScripts
 {
-    public class FlipView
+    public class FlipView: IFlipView
     {
         private readonly PlayerView _playerView;
         private float _prevDirection;

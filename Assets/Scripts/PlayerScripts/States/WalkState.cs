@@ -10,14 +10,13 @@ namespace PlayerScripts.States
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
-        private readonly PlayerView _playerView;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
         public WalkState(GameObject player) : base(player)
         {
             _rigidbody = player.GetComponent<Rigidbody2D>();
-            _playerView = player.GetComponentInChildren<PlayerView>();
-            if (_playerView.TryGetComponent(out Animator animator)) _animator = animator;
+            var playerView = player.GetComponentInChildren<PlayerView>();
+            if (playerView.TryGetComponent(out Animator animator)) _animator = animator;
             _player = player.GetComponent<Player>();
         }
 

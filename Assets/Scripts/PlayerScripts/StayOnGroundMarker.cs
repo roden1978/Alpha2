@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    public class StayOnGroundMarker
+    public class StayOnGroundMarker : IStayOnGroundMarker
     {
         private readonly BoxCollider2D _boxCollider;
 
@@ -18,7 +18,6 @@ namespace PlayerScripts
 
         public bool Value()
         {
-            //Debug.Log(_boxCollider.IsTouchingLayers(GroundLayerMask));
             return _boxCollider.IsTouchingLayers(GroundLayerMask);
         }
     }

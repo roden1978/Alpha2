@@ -12,7 +12,7 @@ namespace PlayerScripts
         [SerializeField] private float _xMoveDamping = 0.3f;
         [SerializeField] private float _yMoveDamping = 0.3f;
 
-        private StayOnGroundMarker _groundMarker;
+        private IStayOnGroundMarker _groundMarker;
 
         private void Awake()
         {
