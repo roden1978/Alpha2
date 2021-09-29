@@ -8,13 +8,15 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly Player _player;
+        private readonly PlayerView _playerView;
         private static readonly int Jump = Animator.StringToHash("Jump");
         
-        public JumpState(GameObject gameObject) : base(gameObject)
+        public JumpState(GameObject player) : base(player)
         {
-            GameObject = gameObject;
-            _animator = gameObject.GetComponentInChildren<Animator>();
-            _player = gameObject.GetComponent<Player>();
+            player.TryGetComponent(out _player);
+            _playerView = player.GetComponentInChildren<PlayerView>();
+            if (_playerView.TryGetComponent(out Animator animator)) _animator = animator;
+
         }
 
         public override void Enter()

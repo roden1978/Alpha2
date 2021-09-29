@@ -8,11 +8,10 @@ namespace PlayerScripts.States
     {
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
-        public IdleState(GameObject gameObject) : base(gameObject)
+        public IdleState(GameObject player) : base(player)
         {
-            GameObject = gameObject;
-            _rigidbody = gameObject.GetComponent<Rigidbody2D>();
-            _player = gameObject.GetComponent<Player>();
+            _rigidbody = player.GetComponent<Rigidbody2D>();
+            _player = player.GetComponent<Player>();
         }
 
        public override Type Tick()

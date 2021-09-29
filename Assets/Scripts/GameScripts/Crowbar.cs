@@ -15,7 +15,6 @@ namespace GameScripts
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
-        private PlayerSurfaceNormal _playerSurfaceNormal;
         private PlayerView _playerView;
         private FlipView _flipView;
         private Rigidbody2D _rigidbody;
@@ -23,7 +22,6 @@ namespace GameScripts
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
-            _playerSurfaceNormal = new PlayerSurfaceNormal(_player);
             _playerView = _player.GetComponentInChildren<PlayerView>();
             _flipView = new FlipView(_playerView);
         }
@@ -53,49 +51,26 @@ namespace GameScripts
             Move();
             Jump();
         }
-
-        private void OnDrawGizmos()
-        {
-            var position = _player.transform.position;
-            Gizmos.color = Color.white;
-            Gizmos.DrawLine(position, position + _playerSurfaceNormal.Value());
-            Gizmos.color = Color.yellow;
-            var direction = new Vector3(_input.Direction, 0, 0);
-            Gizmos.DrawLine(position, position + Project(direction));
-        }
-
+        
         private void Move()
         {
-            if (_playerSurfaceNormal.Value() == Vector3.zero) return;
-            _rigidbody.AddForce(CalculateDirection() * _player.Speed, ForceMode2D.Impulse);
+            if (_player.StayOnGround() == false) return;
+            _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
             var maxVelocity = _player.MaxVelocity;
             var velocity = new Vector2(
-                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), _rigidbody.velocity.y
+                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), 0
             );
             _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
-        }
+        } 
 
         private void Jump()
         {
             if (_player.StayOnGround() == false) return;
             var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+            Debug.Log(jumpForce);
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
-
-        private Vector3 Project(Vector3 direction)
-        {
-            return direction 
-                   - Vector3.Dot(direction,_playerSurfaceNormal.Value()) 
-                   * _playerSurfaceNormal.Value();
-        }
-
-        private Vector3 CalculateDirection()
-        {
-            var direction = new Vector3(_input.Direction, 0, 0);
-            var directionAlongSurface = Project(direction);
-            return directionAlongSurface;
-        }
-
+        
         private void FLip()
         {
             _flipView.FLippingPlayerView(_input.Direction);
