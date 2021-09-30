@@ -1,6 +1,6 @@
 ﻿namespace GameObjectsScripts
 {
-    public class Crystal : PickableObject
+    public class Food : PickableObject
     {
         private void Update()
         {
