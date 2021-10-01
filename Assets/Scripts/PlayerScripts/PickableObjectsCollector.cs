@@ -25,10 +25,9 @@ namespace PlayerScripts
             };
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D otherCollider)
         {
-            if (!collision.gameObject.TryGetComponent(out PickableObject pickableObject)) return;
-            
+            if (!otherCollider.gameObject.TryGetComponent(out PickableObject pickableObject)) return;
             foreach (var action in _actions
                 .Where(action => action.Key == pickableObject.GetType()))
             {
