@@ -67,7 +67,6 @@ namespace GameScripts
         {
             if (_player.StayOnGround() == false) return;
             var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
-            Debug.Log(jumpForce);
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
         
