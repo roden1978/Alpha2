@@ -2,44 +2,351 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalAnimation.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalAnimation/Crystal.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalAnimation/Crystal.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalAnimation/CrystalAnimation.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalAnimation/CrystalAnimation.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal01.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal02.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal03.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal04.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal05.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal06.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal07.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/CrystalSprites/crystal08.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Crystal.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Crystal.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Crystal.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Crystal.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PickableObjectsCollector.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PickableObjectsCollector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Background_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Background_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Background_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Background_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Bone_M_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Bone_M_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Bone_R_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Bone_R_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Bone_S_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Bone_S_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Cloud_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Cloud_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Evergreen_4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Hills_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Hills_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mountain_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mountain_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mountain_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mountain_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_5.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_5.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_6.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Mushroom_6.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Palm_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Palm_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Palm_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Palm_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Palm_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Palm_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tile_Corner_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tile_Corner_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/TreeStump.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/TreeStump.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_4.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_5.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_5.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_6.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Tree_6.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Treestump_1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Treestump_1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Vulcan.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Prefabs/Vulcan.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_A_Level_Sprites_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_A_Level_Sprites_0000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_Backgrounds_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_Backgrounds_0000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_Food_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_Food_0000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/AXE_ICON_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/AXE_ICON_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Hammer_Double_ICON_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Hammer_Double_ICON_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Hammer_ICON_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Hammer_ICON_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Quader_Energy_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Quader_Energy_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Quader_Energy_0002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Quader_Energy_0002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/STONE_ICON_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/STONE_ICON_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Stoneage_Man_ICON_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Stoneage_Man_ICON_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Arrow_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Arrow_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Arrow_0002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Arrow_0002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Gear_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Gear_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Herz_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Herz_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Herz_0002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Herz_0002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Herz_0003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Symbol_Herz_0003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Wood_Club_ICON_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/Single_Sprites/Wood_Club_ICON_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Ananas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Ananas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Bananas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Bananas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Cocos.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Cocos.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Crystal.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Crystal.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/GreenApple.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/GreenApple.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Ham.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Ham.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Melon.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Melon.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Peach.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Peach.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Pear.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Pear.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/RedApple.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/RedApple.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Ribs.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Ribs.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Shin.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Shin.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Bubble_0000.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Bubble_0000.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Tar_Bubbles.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Tar_Bubbles.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Water.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Water.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Water.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Water.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Waterfall.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Waterfall.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Waterfall.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Animations/Waterfall.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs/Tar.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs/Tar.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs/Water.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs/Water.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs/Waterfall.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Prefabs/Waterfall.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Atlas_Water.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Atlas_Water.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Bubble_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Bubble_0000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Water_Color_0004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_0040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_Start_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Water_2D/Sprites/Waterfall_Start_0000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SpriteSheets/ATLAS_Food_0000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SpriteSheets/ATLAS_Food_0000.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhysicsMaterials/GroundMaterial.physicsMaterial2D" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PhysicsMaterials/GroundMaterial.physicsMaterial2D" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Background_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Background_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Background_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Background_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Bone_M_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Bone_M_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Bone_R_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Bone_R_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Bone_S_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Bone_S_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Cloud_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Cloud_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Evergreen_4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Hills_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Hills_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mountain_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mountain_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mountain_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mountain_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_6.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Mushroom_6.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Palm_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Palm_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Palm_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Palm_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Palm_3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Palm_3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tile_Corner_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tile_Corner_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/TreeStump.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/TreeStump.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_6.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Tree_6.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Treestump_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Treestump_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Vulcan.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Prefabs/Vulcan.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/ATLAS_A_Level_Sprites_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/ATLAS_A_Level_Sprites_0000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/ATLAS_Backgrounds_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/ATLAS_Backgrounds_0000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/ATLAS_Food_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/ATLAS_Food_0000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/AXE_ICON_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/AXE_ICON_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Hammer_Double_ICON_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Hammer_Double_ICON_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Hammer_ICON_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Hammer_ICON_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Quader_Energy_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Quader_Energy_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Quader_Energy_0002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Quader_Energy_0002.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/STONE_ICON_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/STONE_ICON_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Stoneage_Man_ICON_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Stoneage_Man_ICON_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Arrow_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Arrow_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Arrow_0002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Arrow_0002.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Gear_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Gear_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Herz_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Herz_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Herz_0002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Herz_0002.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Herz_0003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Symbol_Herz_0003.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Wood_Club_ICON_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/A-Level/Sprites/Single_Sprites/Wood_Club_ICON_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Bubble_0000.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Bubble_0000.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Tar_Bubbles.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Tar_Bubbles.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Water.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Water.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Water.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Water.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Waterfall.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Waterfall.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Waterfall.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Animations/Waterfall.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs/Tar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs/Tar.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs/Water.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs/Water.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs/Waterfall.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Prefabs/Waterfall.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Atlas_Water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Atlas_Water.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Bubble_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Bubble_0000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0002.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0003.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Water_Color_0004.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0005.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0010.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0015.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0020.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0025.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0030.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0030.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0035.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_0040.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_Start_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_STONE AGE WORLD/Assets/Water_2D/Sprites/Waterfall_Start_0000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Crystal.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Crystal.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Crowbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Crowbar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PickableObjectsCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PickableObjectsCollector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +432,8 @@
       <workItem from="1632820853574" duration="9517000" />
       <workItem from="1632898101522" duration="6706000" />
       <workItem from="1632992365171" duration="9795000" />
+      <workItem from="1633080700250" duration="131000" />
+      <workItem from="1633080955189" duration="2354000" />
     </task>
     <servers />
   </component>
