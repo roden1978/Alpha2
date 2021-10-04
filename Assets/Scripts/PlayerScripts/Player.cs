@@ -3,6 +3,7 @@ using UnityEngine;
 namespace PlayerScripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(CapsuleCollider2D))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private float _speed;
@@ -11,11 +12,11 @@ namespace PlayerScripts
         [SerializeField] private float _xMoveDamping = 0.3f;
         [SerializeField] private float _yMoveDamping = 0.3f;
 
-        private IStayOnGroundMarker _groundMarker;
+        private Dipstick _dipstick;
 
         private void Awake()
         {
-            _groundMarker = new StayOnGroundMarker(this);
+            _dipstick = new Dipstick(this);
         }
 
         private float _health;
@@ -37,9 +38,8 @@ namespace PlayerScripts
 
         public bool StayOnGround()
         {
-            return _groundMarker.Value();
+            return _dipstick.Contact();
         }
-        
-        
+
     }
 }
