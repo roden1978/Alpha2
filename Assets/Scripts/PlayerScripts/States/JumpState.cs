@@ -15,7 +15,6 @@ namespace PlayerScripts.States
             player.TryGetComponent(out _player);
             var playerView = player.GetComponentInChildren<PlayerView>();
             if (playerView.TryGetComponent(out Animator animator)) _animator = animator;
-
         }
 
         public override void Enter()

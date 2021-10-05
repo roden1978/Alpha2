@@ -27,12 +27,14 @@ namespace PlayerScripts
 
         private void OnTriggerEnter2D(Collider2D otherCollider)
         {
-            if (!otherCollider.gameObject.TryGetComponent(out PickableObject pickableObject)) return;
-            foreach (var action in _actions
-                .Where(action => action.Key == pickableObject.GetType()))
+            if (otherCollider.gameObject.TryGetComponent(out PickableObject pickableObject))
             {
-                action.Value.Invoke(pickableObject.Value);
-                pickableObject.gameObject.SetActive(false);
+                foreach (var action in _actions
+                    .Where(action => action.Key == pickableObject.GetType()))
+                {
+                    action.Value.Invoke(pickableObject.Value);
+                    pickableObject.gameObject.SetActive(false);
+                }
             }
         }
 
