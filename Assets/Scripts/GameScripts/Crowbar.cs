@@ -54,24 +54,20 @@ namespace GameScripts
         
         private void Move()
         {
-            if (_player.StayOnGround() == false) return;
-            if(Mathf.Abs(_rigidbody.velocity.magnitude)  > _player.MaxVelocity) return;
-            _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
-                
-                /*= Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
-            
-            var maxVelocity = _player.MaxVelocity;
-            var velocity = new Vector2(
-                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), 0
-            );
-            _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;*/
+            if (_player.StayOnGround() && _input.Direction != 0)
+            {
+                if (Mathf.Abs(_rigidbody.velocity.magnitude) > _player.MaxVelocity) return;
+                _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
+            }
         } 
 
         private void Jump()
         {
-            if (_player.StayOnGround() == false) return;
-            var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
-            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+            if (_player.StayOnGround() && _input.Jump != 0)
+            {
+                var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+                _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+            }
         }
         
         private void FLip()
