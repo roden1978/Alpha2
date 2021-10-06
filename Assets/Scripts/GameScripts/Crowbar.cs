@@ -55,12 +55,16 @@ namespace GameScripts
         private void Move()
         {
             if (_player.StayOnGround() == false) return;
+            if(Mathf.Abs(_rigidbody.velocity.magnitude)  > _player.MaxVelocity) return;
             _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
+                
+                /*= Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
+            
             var maxVelocity = _player.MaxVelocity;
             var velocity = new Vector2(
                 Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), 0
             );
-            _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
+            _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;*/
         } 
 
         private void Jump()
