@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9155459078149032779}
   - component: {fileID: 6792734599455753374}
   - component: {fileID: 5510198582704635747}
+  - component: {fileID: 9087065445793167998}
   m_Layer: 8
   m_Name: Ham
   m_TagString: Food
@@ -123,5 +124,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 20
-  _height: 0.3
   _speed: 2
+  _height: 0.3
+--- !u!50 &9087065445793167998
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155459078149032778}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
