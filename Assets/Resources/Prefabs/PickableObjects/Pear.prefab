@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6510248690976059812}
   - component: {fileID: 407456647730397310}
   - component: {fileID: 2303918733637378795}
+  - component: {fileID: -1211801250987362217}
   m_Layer: 0
   m_Name: Pear
   m_TagString: Untagged
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 15
-  _height: 0.3
   _speed: 2
+  _height: 0.3
 --- !u!61 &2303918733637378795
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +126,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31644154, y: 0.4852481}
   m_EdgeRadius: 0
+--- !u!50 &-1211801250987362217
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058262561931591726}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

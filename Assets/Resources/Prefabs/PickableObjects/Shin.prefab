@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 748864286605346825}
   - component: {fileID: 748864286605346824}
   - component: {fileID: 748864286605346839}
+  - component: {fileID: 6320701950888051229}
   m_Layer: 8
   m_Name: Shin
   m_TagString: Food
@@ -123,5 +124,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 15
-  _height: 0.3
   _speed: 2
+  _height: 0.3
+--- !u!50 &6320701950888051229
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748864286605346838}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -9,7 +9,7 @@ namespace PlayerScripts
     public class InteractableObjectsCollector : MonoBehaviour
     {
         private Dictionary<Type, Action<int>> _actions;
-
+        
         public event Action<int> OnCrystalCollect;
         public event Action<int> OnFruitCollect;
         public event Action<int> OnFoodCollect;
@@ -26,7 +26,7 @@ namespace PlayerScripts
             };
         }
 
-        private void OnTriggerEnter2D(Collider2D otherCollider)
+        private void OnCollisionEnter2D(Collision2D otherCollider)
         {
             if (otherCollider.gameObject.TryGetComponent(out InteractableObject interactableObject))
             {

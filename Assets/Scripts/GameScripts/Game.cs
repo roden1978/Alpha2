@@ -38,11 +38,7 @@ namespace GameScripts
 
         private void CreateCrowBar()
         {
-            var crowbar = new GameObject(
-                          "Crowbar",
-                typeof(Crowbar),
-                               typeof(DevicesInput)
-                );
+            var crowbar = new GameObject("Crowbar", typeof(Crowbar));
             crowbar.transform.SetParent(transform);
         }
     }

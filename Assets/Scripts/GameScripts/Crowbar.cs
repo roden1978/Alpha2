@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace GameScripts
 {
-    [RequireComponent(typeof(StateMachine))]
+    [RequireComponent(typeof(StateMachine), typeof(DevicesInput))]
     public class Crowbar : MonoBehaviour
     {
        
@@ -54,25 +54,31 @@ namespace GameScripts
         
         private void Move()
         {
-            if (_player.StayOnGround() == false) return;
-            _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
-            var maxVelocity = _player.MaxVelocity;
-            var velocity = new Vector2(
-                Mathf.Clamp(_rigidbody.velocity.x, -maxVelocity, maxVelocity), 0
-            );
-            _rigidbody.velocity = Math.Abs(velocity.x) > _player.XMoveDamping ? velocity : Vector2.zero;
+            if (_player.StayOnGround() && _input.Direction != 0)
+            {
+                if (Mathf.Abs(_rigidbody.velocity.magnitude) > _player.MaxVelocity) return;
+                _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
+            }
         } 
 
         private void Jump()
         {
-            if (_player.StayOnGround() == false) return;
-            var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
-            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+            if (_player.StayOnGround() && _input.Jump != 0)
+            {
+                ResetYVelocity();
+                var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+                _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+            }
         }
         
         private void FLip()
         {
             _flipView.FLippingPlayerView(_input.Direction);
+        }
+
+        private void ResetYVelocity()
+        {
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
         }
     }
 }
