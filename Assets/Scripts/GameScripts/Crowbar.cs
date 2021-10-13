@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace GameScripts
 {
-    [RequireComponent(typeof(StateMachine))]
+    [RequireComponent(typeof(StateMachine), typeof(DevicesInput))]
     public class Crowbar : MonoBehaviour
     {
        
@@ -65,6 +65,7 @@ namespace GameScripts
         {
             if (_player.StayOnGround() && _input.Jump != 0)
             {
+                ResetYVelocity();
                 var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
                 _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
             }
@@ -73,6 +74,11 @@ namespace GameScripts
         private void FLip()
         {
             _flipView.FLippingPlayerView(_input.Direction);
+        }
+
+        private void ResetYVelocity()
+        {
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
         }
     }
 }

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _maxVelocity: 4
-  _jumpForce: 3
+  _jumpForce: 6
   _xMoveDamping: 0.5
   _yMoveDamping: 0.5
 --- !u!70 &1085142949310770209
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a571c4643229b41aeefc0d77fbcf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider2D: {fileID: 0}
 --- !u!1 &1085142949364207504
 GameObject:
   m_ObjectHideFlags: 0
