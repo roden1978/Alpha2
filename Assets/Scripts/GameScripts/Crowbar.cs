@@ -19,6 +19,9 @@ namespace GameScripts
         private IFlipView _flipView;
         private Rigidbody2D _rigidbody;
 
+        private Vector2 _prevVelocity;
+        private bool _doubleJump;
+
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
@@ -50,6 +53,8 @@ namespace GameScripts
         {
             Move();
             Jump();
+            DoubleJump();
+            //Debug.Log(Vector2.Dot(_rigidbody.velocity, Vector2.up));
         }
         
         private void Move()
@@ -58,6 +63,7 @@ namespace GameScripts
             {
                 if (Mathf.Abs(_rigidbody.velocity.magnitude) > _player.MaxVelocity) return;
                 _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
+                _doubleJump = true;
             }
         } 
 
@@ -66,11 +72,21 @@ namespace GameScripts
             if (_player.StayOnGround() && _input.Jump != 0)
             {
                 ResetYVelocity();
-                var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
-                _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+                AddForceToJump();
+                _doubleJump = true;
+            }
+            
+        }
+
+        private void DoubleJump()
+        {
+            if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 && _input.Jump != 0 && _doubleJump)
+            {
+                AddForceToJump();
+                _doubleJump = false;
             }
         }
-        
+
         private void FLip()
         {
             _flipView.FLippingPlayerView(_input.Direction);
@@ -80,5 +96,12 @@ namespace GameScripts
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
         }
+
+        private void AddForceToJump()
+        {
+            var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+        }
+
     }
 }
