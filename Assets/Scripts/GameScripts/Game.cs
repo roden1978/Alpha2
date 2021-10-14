@@ -1,5 +1,4 @@
 using Cinemachine;
-using Input;
 using PlayerScripts;
 using UnityEngine;
 
@@ -8,10 +7,12 @@ namespace GameScripts
     public class Game : MonoBehaviour
     {
         [SerializeField] private Player _player;
-        [SerializeField] private PlayerSpawnPoint _playerSpawnPoint;
         [SerializeField] private CinemachineVirtualCamera _vCamera;
+        private PlayerSpawnPoint _playerSpawnPoint;
+
         private void Start()
         {
+            _playerSpawnPoint = FindObjectOfType<PlayerSpawnPoint>();
             var spawnPoint = _playerSpawnPoint ? _playerSpawnPoint.transform.position : Vector3.zero;
             var player = CreatePlayer(_player, spawnPoint);
             CreateCrowBar();
