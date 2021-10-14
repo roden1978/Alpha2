@@ -13,8 +13,7 @@ namespace PlayerScripts.States
         public JumpState(GameObject player) : base(player)
         {
             player.TryGetComponent(out _player);
-            var playerView = player.GetComponentInChildren<PlayerView>();
-            if (playerView.TryGetComponent(out Animator animator)) _animator = animator;
+            _animator = player.GetComponentInChildren<Animator>();
         }
 
         public override void Enter()

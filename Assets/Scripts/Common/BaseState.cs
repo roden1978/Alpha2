@@ -5,10 +5,10 @@ namespace Common
 {
     public abstract class BaseState
     {
-        protected GameObject GameObject;
-        protected BaseState(GameObject gameObject)
+        private readonly GameObject _gameObject;
+        protected BaseState(GameObject player)
         {
-            GameObject = gameObject;
+            _gameObject = player;
         }
      
         public virtual void Enter(){}
