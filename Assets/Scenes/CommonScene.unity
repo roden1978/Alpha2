@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 1, z: -10}
+  m_FollowOffset: {x: 0, y: 2, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -470,11 +470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308109431806656052, guid: a851fb7eaebf2d640a1c91bd91f02468, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.23
+      value: -19.85
       objectReference: {fileID: 0}
     - target: {fileID: 5308109431806656052, guid: a851fb7eaebf2d640a1c91bd91f02468, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.21
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 5308109431806656054, guid: a851fb7eaebf2d640a1c91bd91f02468, type: 3}
       propertyPath: m_Layer
