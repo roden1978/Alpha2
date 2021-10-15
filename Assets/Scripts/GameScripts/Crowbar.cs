@@ -20,7 +20,8 @@ namespace GameScripts
         private Rigidbody2D _rigidbody;
 
         private bool _doubleJump;
-
+        private bool _shoot;
+        
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
@@ -47,6 +48,7 @@ namespace GameScripts
         private void Update()
         {
             FLip();
+            Shoot();
         }
 
         private void FixedUpdate()
@@ -55,7 +57,8 @@ namespace GameScripts
             Jump();
             DoubleJump();
         }
-        
+
+      
         private void Move()
         {
             if (_player.StayOnGround() && _input.Direction != 0)
@@ -104,5 +107,19 @@ namespace GameScripts
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
+        private void Shoot()
+        {
+           if(_input.Shoot > 0 && !_shoot)
+           {
+               Debug.Log("Shoot");
+               _shoot = true;
+           }
+
+           if (_input.Shoot == 0 && _shoot)
+           {
+               _shoot = false;
+           }
+        }
+        
     }
 }

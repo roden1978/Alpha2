@@ -5,22 +5,19 @@ namespace Input
     public class DevicesInput : MonoBehaviour
     {
         private PlayerInput _input;
-        private float _jump;
         public float Direction { get; private set; }
         public float Jump { get; private set; }
+        
+        public float Shoot { get; private set; }
 
 
         private void Awake()
         {
             _input = new PlayerInput();
-            _input.Player.Shoot.performed += ctx => OnSoot();
-            _input.Player.Jump.performed += ctx => OnJump();
-            _input.Player.Jump.canceled += ctx => OnStopJump();
-        }
-
-        private void OnStopJump()
-        {
-            Jump = _input.Player.Jump.ReadValue<float>();
+            _input.Player.Shoot.performed += _ => OnShoot();
+            _input.Player.Shoot.canceled += _ => OnShoot();
+            _input.Player.Jump.started += _ => OnJump();
+            _input.Player.Jump.canceled += _ => OnJump();
         }
 
         private void OnEnable()
@@ -38,9 +35,9 @@ namespace Input
             Jump = _input.Player.Jump.ReadValue<float>();
         }
 
-        private void OnSoot()
+        private void OnShoot()
         {
-            Debug.Log("Soot");
+            Shoot = _input.Player.Shoot.ReadValue<float>();
         }
 
         private void Update()
