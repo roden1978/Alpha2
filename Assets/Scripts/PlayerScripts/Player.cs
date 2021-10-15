@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -13,6 +14,8 @@ namespace PlayerScripts
         [SerializeField] private float _yMoveDamping = 0.3f;
 
         private Dipstick _dipstick;
+
+        public event Action OnShoot;
 
         private void Awake()
         {
@@ -39,6 +42,11 @@ namespace PlayerScripts
         public bool StayOnGround()
         {
             return _dipstick.Contact();
+        }
+
+        public void InvokeShootAction()
+        {
+            OnShoot?.Invoke();
         }
 
     }

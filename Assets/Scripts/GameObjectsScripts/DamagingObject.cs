@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-namespace GameObjectsScripts
+﻿namespace GameObjectsScripts
 {
     public class DamagingObject : InteractableObject
     {

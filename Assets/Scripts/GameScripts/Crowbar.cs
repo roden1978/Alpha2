@@ -111,7 +111,7 @@ namespace GameScripts
         {
            if(_input.Shoot > 0 && !_shoot)
            {
-               Debug.Log("Shoot");
+               _player.InvokeShootAction();
                _shoot = true;
            }
 

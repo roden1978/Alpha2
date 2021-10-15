@@ -1,6 +1,7 @@
 using System;
 using Common;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 namespace PlayerScripts.States
 {
@@ -20,19 +21,23 @@ namespace PlayerScripts.States
             _animator.SetTrigger(_idleThrow);
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
-
         public override Type Tick()
         {
-            throw new NotImplementedException();
+            Debug.Log(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
+                typeof(IdleState) : 
+                typeof(EmptyState);
         }
 
         public override Type FixedTick()
         {
-            throw new NotImplementedException();
+            return typeof(EmptyState);
+        }
+
+        public override void Exit()
+        {
+            Debug.Log("Exit Throw");
+            _animator.SetTrigger(_idleThrow);
         }
     }
 }
