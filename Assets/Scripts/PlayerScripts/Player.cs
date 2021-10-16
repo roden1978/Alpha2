@@ -5,6 +5,7 @@ namespace PlayerScripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(CapsuleCollider2D))]
+    [RequireComponent(typeof(Throw))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private float _speed;

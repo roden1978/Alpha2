@@ -1,5 +1,6 @@
 ﻿using System;
 using Common;
+using UnityEditor;
 using UnityEngine;
 
 namespace PlayerScripts.States
@@ -11,6 +12,7 @@ namespace PlayerScripts.States
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
         private static readonly int Walk = Animator.StringToHash("Walk");
+        private bool _isShoot;
 
         public WalkState(GameObject player) : base(player)
         {
@@ -23,13 +25,19 @@ namespace PlayerScripts.States
         public override void Enter()
         {
             _animator.SetBool(Walk, true);
+            _player.OnShoot += Shoot;
+        }
+
+        private void Shoot()
+        {
+            _isShoot = true;
         }
 
         public override Type Tick()
         {
-            return Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping 
-                ? typeof(IdleState) 
-                : typeof(EmptyState);
+            if(Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping) 
+                return typeof(IdleState); 
+            return _isShoot ? typeof(IdleThrowState) : typeof(EmptyState);
         }
 
         public override Type FixedTick()
@@ -40,6 +48,8 @@ namespace PlayerScripts.States
 
         public override void Exit()
         {
+            _isShoot = false;
+            _player.OnShoot -= Shoot;
             _animator.SetBool(Walk, false);
         }
     }

@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8496870684875873748}
+  - component: {fileID: 4171628852495872756}
   m_Layer: 0
   m_Name: ShootPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -27,9 +28,21 @@ Transform:
   m_LocalPosition: {x: 0.286, y: 0.501, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1085142949310770212}
+  m_Father: {fileID: 1085142949364207501}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4171628852495872756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424154484666172631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1604512658d336d41aaf20322ec7ae24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1085142949310770213
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +56,7 @@ GameObject:
   - component: {fileID: 1085142949310770211}
   - component: {fileID: 1085142949310770209}
   - component: {fileID: 7286059842400962694}
+  - component: {fileID: 4625860390184953952}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -61,7 +75,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8496870684875873748}
   - {fileID: 1085142949364207501}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -132,6 +145,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a571c4643229b41aeefc0d77fbcf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4625860390184953952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085142949310770213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42bdd7586b551f4b87629f82415f98c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
+  _force: 10
 --- !u!1 &1085142949364207504
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,9 +188,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8496870684875873748}
   m_Father: {fileID: 1085142949310770212}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1085142949364207502
 Animator:
