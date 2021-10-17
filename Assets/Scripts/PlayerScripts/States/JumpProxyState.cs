@@ -1,26 +1,25 @@
-using System;
+﻿using System;
 using Common;
 using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class IdleThrowState : BaseState
+    public class JumpProxyState : BaseState
     {
         private readonly Animator _animator;
-
-        public IdleThrowState(GameObject player) : base(player)
+        
+        public JumpProxyState(GameObject player) : base(player)
         {
             _animator = player.GetComponentInChildren<Animator>();
         }
 
-        public override void Enter()
-        {
-            _animator.SetBool(IdleThrow, true);
-        }
-
         public override Type Tick()
         {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
+            if (_animator.GetBool(JumpThrow) &&
+                !_animator.GetBool(Jump)) 
+                return typeof(JumpThrowState);
+            
+            return _animator.GetBool(Jump) == false ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
         }
@@ -28,11 +27,6 @@ namespace PlayerScripts.States
         public override Type FixedTick()
         {
             return typeof(EmptyState);
-        }
-
-        public override void Exit()
-        {
-            _animator.SetBool(IdleThrow, false);
         }
     }
 }

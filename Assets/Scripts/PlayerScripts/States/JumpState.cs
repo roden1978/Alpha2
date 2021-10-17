@@ -8,12 +8,11 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly Player _player;
-        private static readonly int Jump = Animator.StringToHash("Jump");
         private bool _isShoot;
 
         public JumpState(GameObject player) : base(player)
         {
-            _player = player.TryGetComponent(out _player) ? player.GetComponent<Player>() : null;
+            _player = player.GetComponent<Player>();
             _animator = player.GetComponentInChildren<Animator>();
         }
 
@@ -30,12 +29,17 @@ namespace PlayerScripts.States
 
         public override Type Tick()
         {
-            return _isShoot ? typeof(IdleThrowState) : typeof(EmptyState);
+            if (_isShoot) 
+            {
+                _animator.SetBool(JumpThrow, true);
+                return typeof(JumpProxyState);
+            } 
+            return typeof(EmptyState);
         }
 
         public override Type FixedTick()
         {
-            return _player.StayOnGround() ? typeof(IdleState) : typeof(EmptyState);
+            return _player.StayOnGround() ? typeof(JumpProxyState) : typeof(EmptyState);
         }
 
         public override void Exit()

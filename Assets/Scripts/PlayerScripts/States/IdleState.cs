@@ -9,6 +9,7 @@ namespace PlayerScripts.States
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
         private bool _isShoot;
+
         public IdleState(GameObject player) : base(player)
         {
             _rigidbody = player.GetComponent<Rigidbody2D>();
@@ -18,7 +19,6 @@ namespace PlayerScripts.States
         public override void Enter()
         {
             _player.OnShoot += Shoot;
-            //Debug.Log("Enter idle");
         }
 
         public override Type Tick()
@@ -37,7 +37,6 @@ namespace PlayerScripts.States
 
        public override void Exit()
        {
-           //Debug.Log("Exit idle");
            _isShoot = false;
            _player.OnShoot -= Shoot;
        }
@@ -45,7 +44,6 @@ namespace PlayerScripts.States
        private void Shoot()
        {
            _isShoot = true;
-           //Debug.Log("Idle shoot");
        }
     }
 }

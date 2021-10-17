@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleThrowWithAxe
+  m_Name: JumpThrowWithAxe
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,19 +20,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 75ed96f44c58998449819048ea0035f2, type: 3}
+      value: {fileID: 21300000, guid: 1dc09451a2074d74585c4ca32fa6b3c8, type: 3}
     - time: 0.05
-      value: {fileID: 21300000, guid: dcc1b471e7be1664cb245eec96569264, type: 3}
+      value: {fileID: 21300000, guid: b4d66e9459cb43143a6ffc97c08a22f6, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: 388cd69b928f2fe41ad050b8f5f106e1, type: 3}
+      value: {fileID: 21300000, guid: c72cad59fe5e6f548bc7b26b20251daf, type: 3}
     - time: 0.15
-      value: {fileID: 21300000, guid: 51102fbb2ea059640b315edfdf0f26ef, type: 3}
+      value: {fileID: 21300000, guid: fb5c84afa771da44b80b643f4cc86557, type: 3}
     - time: 0.26666668
-      value: {fileID: 21300000, guid: e986c66a6f9b9094b995a240c7997aed, type: 3}
+      value: {fileID: 21300000, guid: 02bd36519003274459e39ab3c72117a0, type: 3}
     - time: 0.28333333
-      value: {fileID: 21300000, guid: 7a587da97cdbf00408ef398023fc3e23, type: 3}
+      value: {fileID: 21300000, guid: ec374a1b7ccc08147ad02d8d0a52d400, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 484f71e0c0b69e948b468a1ae9d5d430, type: 3}
+      value: {fileID: 21300000, guid: 839b3cdbe2ed64641991f4e9c89ab18d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,13 +52,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 75ed96f44c58998449819048ea0035f2, type: 3}
-    - {fileID: 21300000, guid: dcc1b471e7be1664cb245eec96569264, type: 3}
-    - {fileID: 21300000, guid: 388cd69b928f2fe41ad050b8f5f106e1, type: 3}
-    - {fileID: 21300000, guid: 51102fbb2ea059640b315edfdf0f26ef, type: 3}
-    - {fileID: 21300000, guid: e986c66a6f9b9094b995a240c7997aed, type: 3}
-    - {fileID: 21300000, guid: 7a587da97cdbf00408ef398023fc3e23, type: 3}
-    - {fileID: 21300000, guid: 484f71e0c0b69e948b468a1ae9d5d430, type: 3}
+    - {fileID: 21300000, guid: 1dc09451a2074d74585c4ca32fa6b3c8, type: 3}
+    - {fileID: 21300000, guid: b4d66e9459cb43143a6ffc97c08a22f6, type: 3}
+    - {fileID: 21300000, guid: c72cad59fe5e6f548bc7b26b20251daf, type: 3}
+    - {fileID: 21300000, guid: fb5c84afa771da44b80b643f4cc86557, type: 3}
+    - {fileID: 21300000, guid: 02bd36519003274459e39ab3c72117a0, type: 3}
+    - {fileID: 21300000, guid: ec374a1b7ccc08147ad02d8d0a52d400, type: 3}
+    - {fileID: 21300000, guid: 839b3cdbe2ed64641991f4e9c89ab18d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -83,11 +83,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.25
-    functionName: TrowWeapon
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

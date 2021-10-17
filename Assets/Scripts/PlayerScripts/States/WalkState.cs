@@ -1,6 +1,5 @@
 ﻿using System;
 using Common;
-using UnityEditor;
 using UnityEngine;
 
 namespace PlayerScripts.States
@@ -11,14 +10,12 @@ namespace PlayerScripts.States
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
-        private static readonly int Walk = Animator.StringToHash("Walk");
         private bool _isShoot;
 
         public WalkState(GameObject player) : base(player)
         {
             _rigidbody = player.GetComponent<Rigidbody2D>();
-            var playerView = player.GetComponentInChildren<PlayerView>();
-            if (playerView.TryGetComponent(out Animator animator)) _animator = animator;
+            _animator = player.GetComponentInChildren<Animator>();
             _player = player.GetComponent<Player>();
         }
 
