@@ -10,26 +10,35 @@ namespace PlayerScripts.States
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
-        private static readonly int Walk = Animator.StringToHash("Walk");
+        private bool _isShoot;
 
         public WalkState(GameObject player) : base(player)
         {
             _rigidbody = player.GetComponent<Rigidbody2D>();
-            var playerView = player.GetComponentInChildren<PlayerView>();
-            if (playerView.TryGetComponent(out Animator animator)) _animator = animator;
+            _animator = player.GetComponentInChildren<Animator>();
             _player = player.GetComponent<Player>();
         }
 
         public override void Enter()
         {
+            _player.OnShoot += Shoot;
             _animator.SetBool(Walk, true);
+        }
+
+        private void Shoot()
+        {
+            _isShoot = true;
         }
 
         public override Type Tick()
         {
-            return Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping 
-                ? typeof(IdleState) 
-                : typeof(EmptyState);
+            if(_isShoot)
+            {
+                _animator.SetBool(WalkThrow, true);
+                return typeof(WalkProxyState);
+            }
+
+            return Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping ? typeof(IdleState) : typeof(EmptyState);
         }
 
         public override Type FixedTick()
@@ -40,6 +49,8 @@ namespace PlayerScripts.States
 
         public override void Exit()
         {
+            _isShoot = false;
+            _player.OnShoot -= Shoot;
             _animator.SetBool(Walk, false);
         }
     }

@@ -5,10 +5,16 @@ namespace Common
 {
     public abstract class BaseState
     {
-        protected GameObject GameObject;
-        protected BaseState(GameObject gameObject)
+        private readonly GameObject _gameObject;
+        protected readonly int Walk = Animator.StringToHash("Walk");
+        protected readonly int Jump = Animator.StringToHash("Jump");
+        protected readonly int IdleThrow = Animator.StringToHash("IdleThrow");
+        protected readonly int WalkThrow = Animator.StringToHash("WalkThrow");
+        protected readonly int JumpThrow = Animator.StringToHash("JumpThrow");
+
+        protected BaseState(GameObject player)
         {
-            GameObject = gameObject;
+            _gameObject = player;
         }
      
         public virtual void Enter(){}

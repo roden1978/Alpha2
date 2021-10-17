@@ -19,9 +19,9 @@ namespace GameScripts
         private IFlipView _flipView;
         private Rigidbody2D _rigidbody;
 
-        private Vector2 _prevVelocity;
         private bool _doubleJump;
-
+        private bool _shoot;
+        
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
@@ -40,13 +40,19 @@ namespace GameScripts
             {
                 {typeof(IdleState), new IdleState(player)},
                 {typeof(WalkState), new WalkState(player)},
-                {typeof(JumpState), new JumpState(player)}
+                {typeof(JumpState), new JumpState(player)},
+                {typeof(IdleThrowState), new IdleThrowState(player)},
+                {typeof(JumpThrowState), new JumpThrowState(player)},
+                {typeof(JumpProxyState), new JumpProxyState(player)},
+                {typeof(WalkThrowState), new WalkThrowState(player)},
+                {typeof(WalkProxyState), new WalkProxyState(player)}
             });
         }
 
         private void Update()
         {
             FLip();
+            Shoot();
         }
 
         private void FixedUpdate()
@@ -54,9 +60,9 @@ namespace GameScripts
             Move();
             Jump();
             DoubleJump();
-            //Debug.Log(Vector2.Dot(_rigidbody.velocity, Vector2.up));
         }
-        
+
+      
         private void Move()
         {
             if (_player.StayOnGround() && _input.Direction != 0)
@@ -80,7 +86,9 @@ namespace GameScripts
 
         private void DoubleJump()
         {
-            if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 && _input.Jump != 0 && _doubleJump)
+            if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 && 
+                _input.Jump != 0 && 
+                _doubleJump)
             {
                 AddForceToJump();
                 _doubleJump = false;
@@ -103,5 +111,19 @@ namespace GameScripts
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
+        private void Shoot()
+        {
+           if(_input.Shoot > 0 && !_shoot)
+           {
+               _player.InvokeShootAction();
+               _shoot = true;
+           }
+
+           if (_input.Shoot == 0 && _shoot)
+           {
+               _shoot = false;
+           }
+        }
+        
     }
 }

@@ -14,7 +14,7 @@ namespace Common
         {
             _availableStates = states;
             _stack = new Stack<BaseState>();
-            _stack.Push(_availableStates.Values.First());
+            PushState(_availableStates.Values.First().GetType());
         }
 
         private void Update()
@@ -36,7 +36,6 @@ namespace Common
             
             CompletionAndDeleteCurrentState();
             PushState(state);
-            
         }
 
         private void CompletionAndDeleteCurrentState()
