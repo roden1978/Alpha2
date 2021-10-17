@@ -21,7 +21,6 @@ namespace Common
         { 
             var state = GetCurrentState()?.Tick();
             AnalyzeState(state);
-            Debug.Log(GetCurrentState());
         }
 
         private void FixedUpdate()

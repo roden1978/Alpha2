@@ -21,8 +21,8 @@ namespace PlayerScripts.States
 
         public override void Enter()
         {
-            _animator.SetBool(Walk, true);
             _player.OnShoot += Shoot;
+            _animator.SetBool(Walk, true);
         }
 
         private void Shoot()
@@ -32,9 +32,13 @@ namespace PlayerScripts.States
 
         public override Type Tick()
         {
-            if(Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping) 
-                return typeof(IdleState); 
-            return _isShoot ? typeof(IdleThrowState) : typeof(EmptyState);
+            if(_isShoot)
+            {
+                _animator.SetBool(WalkThrow, true);
+                return typeof(WalkProxyState);
+            }
+
+            return Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping ? typeof(IdleState) : typeof(EmptyState);
         }
 
         public override Type FixedTick()

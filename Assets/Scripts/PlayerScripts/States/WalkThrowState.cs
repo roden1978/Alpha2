@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class JumpThrowState : BaseState
+    public class WalkThrowState : BaseState
     {
         private readonly Animator _animator;
 
-        public JumpThrowState(GameObject player) : base(player)
+        public WalkThrowState(GameObject player) : base(player)
         {
             _animator = player.GetComponentInChildren<Animator>();
         }
@@ -16,7 +16,7 @@ namespace PlayerScripts.States
         public override Type Tick()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(JumpState) : 
+                typeof(WalkState) : 
                 typeof(EmptyState);
         }
 
@@ -27,7 +27,7 @@ namespace PlayerScripts.States
 
         public override void Exit()
         {
-            _animator.SetBool(JumpThrow, false);
+            _animator.SetBool(WalkThrow, false);
         }
     }
 }

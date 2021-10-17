@@ -43,7 +43,9 @@ namespace GameScripts
                 {typeof(JumpState), new JumpState(player)},
                 {typeof(IdleThrowState), new IdleThrowState(player)},
                 {typeof(JumpThrowState), new JumpThrowState(player)},
-                {typeof(JumpProxyState), new JumpProxyState(player)}
+                {typeof(JumpProxyState), new JumpProxyState(player)},
+                {typeof(WalkThrowState), new WalkThrowState(player)},
+                {typeof(WalkProxyState), new WalkProxyState(player)}
             });
         }
 
