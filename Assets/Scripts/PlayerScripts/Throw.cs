@@ -7,7 +7,6 @@ namespace PlayerScripts
     public class Throw : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
-        [SerializeField] private float _force;
         private SpriteRenderer _spriteRenderer;
         private Vector3 _center;
         private void Start()
@@ -25,7 +24,7 @@ namespace PlayerScripts
             var weapon = Instantiate(_weapon, shootPoint.position, Quaternion.identity);
             var weaponRigidbody = weapon.GetComponent<Rigidbody2D>();
             var direction = Direction(shootPoint);
-            weaponRigidbody.AddForce(direction * _force, ForceMode2D.Impulse);
+            weaponRigidbody.AddForce(direction * _weapon.Speed, ForceMode2D.Impulse);
             StartCoroutine(AxeDie(weapon));
         }
 
@@ -38,6 +37,11 @@ namespace PlayerScripts
         {
             yield return new WaitForSeconds(2);
             Destroy(weapon.gameObject);
+        }
+
+        public void ChangeWeapon(Weapon newWeapon)
+        {
+            _weapon = newWeapon;
         }
     }
 }
