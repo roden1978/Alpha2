@@ -1,19 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
-using GameObjectsScripts;
 using UnityEngine;
 
-public class Axe : Weapon
+namespace GameObjectsScripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Axe : Weapon
     {
-        
-    }
+        private void OnEnable()
+        {
+            StartCoroutine(ReturnToPool());
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            gameObject.SetActive(false);
+        }
+
+        private IEnumerator ReturnToPool()
+        {
+            yield return new WaitForSeconds(LifeTime);
+            gameObject.SetActive(false);
+        }
+                
     }
 }

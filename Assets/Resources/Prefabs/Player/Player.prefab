@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604512658d336d41aaf20322ec7ae24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _throw: {fileID: 4625860390184953952}
 --- !u!1 &1085142949310770213
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
-  _force: 10
 --- !u!1 &1085142949364207504
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1085142949364207501}
   - component: {fileID: 1085142949364207502}
   - component: {fileID: 1085142949364207503}
-  - component: {fileID: 7085523271484921525}
+  - component: {fileID: 9025148493700913212}
   m_Layer: 6
   m_Name: View
   m_TagString: Untagged
@@ -263,7 +263,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7085523271484921525
+--- !u!114 &9025148493700913212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,3 +275,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89eee25820fefba42945a89e76e12f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 4171628852495872756}

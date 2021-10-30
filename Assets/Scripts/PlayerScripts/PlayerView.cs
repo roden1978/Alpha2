@@ -4,18 +4,11 @@ namespace PlayerScripts
 {
     public class PlayerView : MonoBehaviour
     {
-        private Throw _throw;
-        private ShootPoint _shootPoint;
-        private void Start()
-        {
-            _throw = gameObject.GetComponentInParent<Throw>();
-            _shootPoint = _throw.GetComponentInChildren<ShootPoint>();
-        }
+        [SerializeField] private ShootPoint _shootPoint;
 
-        private void TrowWeapon()
+        public void ThrowWeapon()
         {
-            var shootPointTransform = _shootPoint.transform; 
-            _throw.ThrowAxe(shootPointTransform);
+            _shootPoint.Throw();
         }
     }
 }
