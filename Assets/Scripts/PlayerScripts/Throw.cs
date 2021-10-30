@@ -1,4 +1,4 @@
-using System.Collections;
+using Common;
 using GameObjectsScripts;
 using UnityEngine;
 
@@ -7,11 +7,25 @@ namespace PlayerScripts
     public class Throw : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
+        private WeaponPools _weaponPools;
         private SpriteRenderer _spriteRenderer;
         private Vector3 _center;
+
         private void Start()
         {
-            _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _weaponPools = FindObjectOfType<WeaponPools>();
+        }
+
+        public void ThrowWeapon(Transform shootPoint)
+        {
+            var weapon = _weaponPools.GetPooledObject(_weapon.GetType());
+            if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
+            {
+                weapon.transform.position = shootPoint.position;
+                var direction = Direction(shootPoint);
+                weaponRigidbody.AddForce(direction * _weapon.Speed, ForceMode2D.Impulse);
+            }                
         }
 
         private void FixedUpdate()
@@ -19,24 +33,9 @@ namespace PlayerScripts
             _center = _spriteRenderer.bounds.center;
         }
 
-        public void ThrowAxe(Transform shootPoint)
-        {
-            var weapon = Instantiate(_weapon, shootPoint.position, Quaternion.identity);
-            var weaponRigidbody = weapon.GetComponent<Rigidbody2D>();
-            var direction = Direction(shootPoint);
-            weaponRigidbody.AddForce(direction * _weapon.Speed, ForceMode2D.Impulse);
-            StartCoroutine(AxeDie(weapon));
-        }
-
         private Vector2 Direction(Transform shootPoint)
         {
             return (_center.x - shootPoint.position.x) > 0 ? Vector2.left : Vector2.right;
-        }
-
-        private IEnumerator AxeDie(Component weapon)
-        {
-            yield return new WaitForSeconds(2);
-            Destroy(weapon.gameObject);
         }
 
         public void ChangeWeapon(Weapon newWeapon)

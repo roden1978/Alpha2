@@ -8,7 +8,7 @@ namespace PlayerScripts
         
         public void Throw()
         {
-            _throw.ThrowAxe(transform);
+            _throw.ThrowWeapon(transform);
         }
     }
 }

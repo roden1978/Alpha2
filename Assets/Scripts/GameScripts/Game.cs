@@ -14,9 +14,11 @@ namespace GameScripts
         {
             _playerSpawnPoint = FindObjectOfType<PlayerSpawnPoint>();
             var spawnPoint = _playerSpawnPoint ? _playerSpawnPoint.transform.position : Vector3.zero;
+            
             var player = CreatePlayer(_player, spawnPoint);
-            CreateCrowBar();
             _vCamera.Follow = player.transform;
+            
+            CreateCrowBar();
         }
 
         private void OnValidate()
