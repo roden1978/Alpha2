@@ -4,6 +4,7 @@ namespace GameObjectsScripts
     public abstract class PickableObject : InteractableObject
     {
         [SerializeField] private float _height;
+        [SerializeField] protected float _speed;
         private float _startY;
         protected virtual void Start()
         {

@@ -1,7 +1,10 @@
 ﻿namespace GameObjectsScripts
 {
-    public class DamagingObject : InteractableObject
+    public abstract class DamagingObject : InteractableObject
     {
-        
+        protected virtual void Start()
+        {
+            
+        }
     }
 }

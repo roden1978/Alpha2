@@ -33,7 +33,9 @@ namespace PlayerScripts
             if (otherCollider.gameObject.TryGetComponent(out InteractableObject interactableObject))
             {
                 foreach (var action in _actions
-                    .Where(action => action.Key == interactableObject.GetType()))
+                    .Where(action => 
+                        action.Key == interactableObject.GetType().BaseType || 
+                        action.Key == interactableObject.GetType())) 
                 {
                     action.Value.Invoke(interactableObject.Value);
                     interactableObject.gameObject.SetActive(false);

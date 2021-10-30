@@ -8,17 +8,8 @@ namespace Common
 {
     public class WeaponPools : MonoBehaviour
     {
-        [Serializable]
-        public class Pool
-        {
-            [SerializeField] private Weapon _weapon;
-
-            [SerializeField] private int _size;
-            public int Capacity => _size;
-            public Weapon Weapon => _weapon;
-        }
-
         [SerializeField] private List<Pool> _pools;
+
         private Dictionary<Type, Queue<Weapon>> _poolsRepository;
         private int _index;
         private void Start()
@@ -58,6 +49,16 @@ namespace Common
             _poolsRepository[type].Enqueue(weapon);
             
             return weapon;
+        }
+        
+        [Serializable]
+        private class Pool
+        {
+            [SerializeField] private Weapon _weapon;
+
+            [SerializeField] private int _size;
+            public int Capacity => _size;
+            public Weapon Weapon => _weapon;
         }
     }
 }

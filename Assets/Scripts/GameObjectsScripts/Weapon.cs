@@ -8,6 +8,6 @@ namespace GameObjectsScripts
         [SerializeField] private int _lifeTime;
 
         public float Speed => _speed;
-        public int LifeTime => _lifeTime;
+        protected int LifeTime => _lifeTime;
     }
 }
