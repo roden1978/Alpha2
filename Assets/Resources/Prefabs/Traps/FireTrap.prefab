@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 181932484823767669}
   - component: {fileID: 181932484823767671}
   - component: {fileID: 181932484823767668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181932484823767674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.463, y: -0.616, z: 0}
+  m_LocalPosition: {x: 0, y: -0.104, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 181932485518723182}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181932485518723182}
   - component: {fileID: 786348098266031477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,10 +144,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.11840987, y: -0.16869617}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -158,5 +158,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8140702, y: 0.49979353}
   m_EdgeRadius: 0
