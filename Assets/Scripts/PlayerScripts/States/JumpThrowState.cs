@@ -4,30 +4,34 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class JumpThrowState : BaseState
+    public class JumpThrowState : IState
     {
         private readonly Animator _animator;
 
-        public JumpThrowState(GameObject player) : base(player)
+        public JumpThrowState(Component player)
         {
             _animator = player.GetComponentInChildren<Animator>();
         }
 
-        public override Type Tick()
+        public void Enter()
+        {
+        }
+
+        public Type Tick()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
                 typeof(JumpState) : 
                 typeof(EmptyState);
         }
 
-        public override Type FixedTick()
+        public Type FixedTick()
         {
             return typeof(EmptyState);
         }
 
-        public override void Exit()
+        public void Exit()
         {
-            _animator.SetBool(JumpThrow, false);
+            _animator.SetBool(PlayerAnimationConstants.JumpThrow, false);
         }
     }
 }

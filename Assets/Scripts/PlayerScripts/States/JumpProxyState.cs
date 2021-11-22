@@ -4,29 +4,37 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class JumpProxyState : BaseState
+    public class JumpProxyState : IState
     {
         private readonly Animator _animator;
         
-        public JumpProxyState(GameObject player) : base(player)
+        public JumpProxyState(Component player)
         {
             _animator = player.GetComponentInChildren<Animator>();
         }
 
-        public override Type Tick()
+        public void Enter()
         {
-            if (_animator.GetBool(JumpThrow) &&
-                !_animator.GetBool(Jump)) 
+        }
+
+        public Type Tick()
+        {
+            if (_animator.GetBool(PlayerAnimationConstants.JumpThrow) &&
+                !_animator.GetBool(PlayerAnimationConstants.Jump)) 
                 return typeof(JumpThrowState);
             
-            return _animator.GetBool(Jump) == false ? 
+            return _animator.GetBool(PlayerAnimationConstants.Jump) == false ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
         }
 
-        public override Type FixedTick()
+        public Type FixedTick()
         {
             return typeof(EmptyState);
+        }
+
+        public void Exit()
+        {
         }
     }
 }

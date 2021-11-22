@@ -11,7 +11,6 @@ namespace GameScripts
     [RequireComponent(typeof(StateMachine), typeof(DevicesInput))]
     public class Crowbar : MonoBehaviour
     {
-       
         private StateMachine _stateMachine;
         private DevicesInput _input;
         private Player _player;
@@ -35,17 +34,16 @@ namespace GameScripts
             _stateMachine = GetComponent<StateMachine>();
             _input = GetComponent<DevicesInput>();
             
-            var player = _player.gameObject;
-            _stateMachine.Initialize(new Dictionary<Type, BaseState>
+            _stateMachine.Initialize(new Dictionary<Type, IState>
             {
-                {typeof(IdleState), new IdleState(player)},
-                {typeof(WalkState), new WalkState(player)},
-                {typeof(JumpState), new JumpState(player)},
-                {typeof(IdleThrowState), new IdleThrowState(player)},
-                {typeof(JumpThrowState), new JumpThrowState(player)},
-                {typeof(JumpProxyState), new JumpProxyState(player)},
-                {typeof(WalkThrowState), new WalkThrowState(player)},
-                {typeof(WalkProxyState), new WalkProxyState(player)}
+                {typeof(IdleState), new IdleState(_player)},
+                {typeof(WalkState), new WalkState(_player)},
+                {typeof(JumpState), new JumpState(_player)},
+                {typeof(IdleThrowState), new IdleThrowState(_player)},
+                {typeof(JumpThrowState), new JumpThrowState(_player)},
+                {typeof(JumpProxyState), new JumpProxyState(_player)},
+                {typeof(WalkThrowState), new WalkThrowState(_player)},
+                {typeof(WalkProxyState), new WalkProxyState(_player)}
             });
         }
 

@@ -7,13 +7,13 @@ namespace Common
 {
     public class StateMachine : MonoBehaviour
     {
-        private Dictionary<Type, BaseState> _availableStates;
-        private Stack<BaseState> _stack;
+        private Dictionary<Type, IState> _availableStates;
+        private Stack<IState> _stack;
         
-        public void Initialize(Dictionary<Type, BaseState> states)
+        public void Initialize(Dictionary<Type, IState> states)
         {
             _availableStates = states;
-            _stack = new Stack<BaseState>();
+            _stack = new Stack<IState>();
             PushState(_availableStates.Values.First().GetType());
         }
 
@@ -52,6 +52,7 @@ namespace Common
 
         private void PopState() => _stack?.Pop();
 
-        private BaseState GetCurrentState() => _stack?.FirstOrDefault();
+        private IState GetCurrentState() => _stack?.FirstOrDefault();
     }
+    
 }
