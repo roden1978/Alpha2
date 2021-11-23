@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Input/IPlayerInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Input/IPlayerInput.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/IState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/IState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/DevicesInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/KeyboardInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/DevicesInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/KeyboardInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Crowbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Crowbar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/IdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/IdleThrowState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/IdleThrowState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpProxyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpProxyState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpThrowState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpThrowState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkProxyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkProxyState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkThrowState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/WalkThrowState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +106,7 @@
       <workItem from="1634202980551" duration="6912000" />
       <workItem from="1634278342864" duration="10963000" />
       <workItem from="1637379470567" duration="6431000" />
-      <workItem from="1637635368655" duration="1601000" />
+      <workItem from="1637635368655" duration="6670000" />
     </task>
     <servers />
   </component>

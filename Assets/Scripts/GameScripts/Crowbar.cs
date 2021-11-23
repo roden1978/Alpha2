@@ -8,11 +8,11 @@ using UnityEngine;
 
 namespace GameScripts
 {
-    [RequireComponent(typeof(StateMachine), typeof(DevicesInput))]
+    [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
         private StateMachine _stateMachine;
-        private DevicesInput _input;
+        private IPlayerInput _input;
         private Player _player;
         private PlayerView _playerView;
         private IFlipView _flipView;
@@ -21,15 +21,20 @@ namespace GameScripts
 
         private bool _doubleJump;
         private bool _shoot;
-        
-       private void Start()
+
+        private void Awake()
+        {
+            _input = new KeyboardInput();
+        }
+
+        private void Start()
         {
             _playerView = _player.GetComponentInChildren<PlayerView>();
             _flipView = new FlipView(_playerView);
             _animator = _player.GetComponentInChildren<Animator>();
             _rigidbody = _player.GetComponent<Rigidbody2D>();
             _stateMachine = GetComponent<StateMachine>();
-            _input = GetComponent<DevicesInput>();
+            
             
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
@@ -65,17 +70,17 @@ namespace GameScripts
       
         private void Move()
         {
-            if (_player.StayOnGround() && _input.Direction != 0)
+            if (_player.StayOnGround() && _input.Move() != 0)
             {
                 if (Mathf.Abs(_rigidbody.velocity.magnitude) > _player.MaxVelocity) return;
-                _rigidbody.AddForce(new Vector2(_input.Direction, 0) * _player.Speed, ForceMode2D.Impulse);
+                _rigidbody.AddForce(new Vector2(_input.Move(), 0) * _player.Speed, ForceMode2D.Impulse);
                 _doubleJump = true;
             }
         } 
 
         private void Jump()
         {
-            if (_player.StayOnGround() && _input.Jump != 0)
+            if (_player.StayOnGround() && _input.Jump() != 0)
             {
                 ResetYVelocity();
                 AddForceToJump();
@@ -87,7 +92,7 @@ namespace GameScripts
         private void DoubleJump()
         {
             if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 && 
-                _input.Jump != 0 && 
+                _input.Jump() != 0 && 
                 _doubleJump)
             {
                 AddForceToJump();
@@ -97,7 +102,7 @@ namespace GameScripts
 
         private void FLip()
         {
-            _flipView.FLippingPlayerView(_input.Direction);
+            _flipView.FLippingPlayerView(_input.Move());
         }
 
         private void ResetYVelocity()
@@ -107,19 +112,19 @@ namespace GameScripts
 
         private void AddForceToJump()
         {
-            var jumpForce = new Vector2(0, _input.Jump) * _player.JumpForce;
+            var jumpForce = new Vector2(0, _input.Jump()) * _player.JumpForce;
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
         private void Shoot()
         {
-           if(_input.Shoot > 0 && !_shoot)
+           if(_input.Shoot() > 0 && !_shoot)
            {
                _player.InvokeShootAction();
                _shoot = true;
            }
 
-           if (_input.Shoot == 0 && _shoot)
+           if (_input.Shoot() == 0 && _shoot)
            {
                _shoot = false;
            }
