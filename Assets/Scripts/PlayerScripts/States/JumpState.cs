@@ -10,10 +10,10 @@ namespace PlayerScripts.States
         private readonly Player _player;
         private bool _isShoot;
 
-        public JumpState(Player player)
+        public JumpState(Player player, Animator animator)
         {
             _player = player;
-            _animator = player.GetComponentInChildren<Animator>();
+            _animator = animator;
         }
 
         public void Enter()

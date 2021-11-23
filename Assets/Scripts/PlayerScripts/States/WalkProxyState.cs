@@ -8,9 +8,9 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         
-        public WalkProxyState(Component player)
+        public WalkProxyState(Animator animator)
         {
-            _animator = player.GetComponentInChildren<Animator>();
+            _animator = animator;
         }
 
         public void Enter()

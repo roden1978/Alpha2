@@ -10,10 +10,10 @@ namespace PlayerScripts.States
         private readonly Player _player;
         private bool _isShoot;
 
-        public IdleState(Player player)
+        public IdleState(Player player, Rigidbody2D rigidbody2D)
         {
             _player = player;
-            _rigidbody = player.GetComponent<Rigidbody2D>();
+            _rigidbody = rigidbody2D;
         }
 
         public void Enter()

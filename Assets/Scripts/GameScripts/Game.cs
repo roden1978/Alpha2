@@ -18,7 +18,7 @@ namespace GameScripts
             var player = CreatePlayer(_player, spawnPoint);
             _vCamera.Follow = player.transform;
             
-            CreateCrowBar();
+            CreateCrowBar(player);
         }
 
         private void OnValidate()
@@ -39,10 +39,11 @@ namespace GameScripts
             return player;
         }
 
-        private void CreateCrowBar()
+        private void CreateCrowBar(Player player)
         {
             var crowbar = new GameObject("Crowbar", typeof(Crowbar));
             crowbar.transform.SetParent(transform);
+            crowbar.GetComponent<Crowbar>().Inject(player);
         }
     }
 }

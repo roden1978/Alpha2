@@ -8,9 +8,9 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
 
-        public IdleThrowState(Component player)
+        public IdleThrowState(Animator animator)
         {
-            _animator = player.GetComponentInChildren<Animator>();
+            _animator = animator;
         }
 
         public void Enter()

@@ -12,11 +12,11 @@ namespace PlayerScripts.States
         private readonly Player _player;
         private bool _isShoot;
 
-        public WalkState(Player player)
+        public WalkState(Player player, Rigidbody2D rigidbody2D, Animator animator)
         {
             _player = player;
-            _rigidbody = _player.GetComponent<Rigidbody2D>();
-            _animator = _player.GetComponentInChildren<Animator>();
+            _rigidbody = rigidbody2D;
+            _animator = animator;
         }
 
         public void Enter()

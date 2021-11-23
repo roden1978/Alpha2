@@ -17,33 +17,30 @@ namespace GameScripts
         private PlayerView _playerView;
         private IFlipView _flipView;
         private Rigidbody2D _rigidbody;
+        private Animator _animator;
 
         private bool _doubleJump;
         private bool _shoot;
         
-        private void Awake()
+       private void Start()
         {
-            _player = FindObjectOfType<Player>();
             _playerView = _player.GetComponentInChildren<PlayerView>();
             _flipView = new FlipView(_playerView);
-        }
-
-        private void Start()
-        {
+            _animator = _player.GetComponentInChildren<Animator>();
             _rigidbody = _player.GetComponent<Rigidbody2D>();
             _stateMachine = GetComponent<StateMachine>();
             _input = GetComponent<DevicesInput>();
             
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
-                {typeof(IdleState), new IdleState(_player)},
-                {typeof(WalkState), new WalkState(_player)},
-                {typeof(JumpState), new JumpState(_player)},
-                {typeof(IdleThrowState), new IdleThrowState(_player)},
-                {typeof(JumpThrowState), new JumpThrowState(_player)},
-                {typeof(JumpProxyState), new JumpProxyState(_player)},
-                {typeof(WalkThrowState), new WalkThrowState(_player)},
-                {typeof(WalkProxyState), new WalkProxyState(_player)}
+                {typeof(IdleState), new IdleState(_player, _rigidbody)},
+                {typeof(WalkState), new WalkState(_player, _rigidbody, _animator)},
+                {typeof(JumpState), new JumpState(_player, _animator)},
+                {typeof(IdleThrowState), new IdleThrowState(_animator)},
+                {typeof(JumpThrowState), new JumpThrowState(_animator)},
+                {typeof(JumpProxyState), new JumpProxyState(_animator)},
+                {typeof(WalkThrowState), new WalkThrowState(_animator)},
+                {typeof(WalkProxyState), new WalkProxyState(_animator)}
             });
         }
 
@@ -58,6 +55,11 @@ namespace GameScripts
             Move();
             Jump();
             DoubleJump();
+        }
+
+        public void Inject(Player player)
+        {
+            _player = player;
         }
 
       
