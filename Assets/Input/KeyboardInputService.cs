@@ -2,11 +2,11 @@ using System;
 
 namespace Input
 {
-    public class KeyboardInput : IDisposable, IPlayerInput
+    public class KeyboardInputService : IDisposable, IInputService
     {
         private readonly PlayerInput _input;
 
-        public KeyboardInput()
+        public KeyboardInputService()
         {
             _input = new PlayerInput();
             _input.Enable();

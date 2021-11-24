@@ -1,6 +1,6 @@
 ﻿namespace Input
 {
-    public interface IPlayerInput
+    public interface IInputService
     {
         float Jump();
         float Shoot();
