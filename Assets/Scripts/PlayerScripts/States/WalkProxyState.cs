@@ -4,28 +4,36 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class WalkProxyState : BaseState
+    public class WalkProxyState : IState
     {
         private readonly Animator _animator;
         
-        public WalkProxyState(GameObject player) : base(player)
+        public WalkProxyState(Animator animator)
         {
-            _animator = player.GetComponentInChildren<Animator>();
+            _animator = animator;
         }
 
-        public override Type Tick()
+        public void Enter()
         {
-            if (_animator.GetBool(WalkThrow) &&
-                !_animator.GetBool(Walk)) return typeof(WalkThrowState);
+        }
+
+        public Type Tick()
+        {
+            if (_animator.GetBool(PlayerAnimationConstants.WalkThrow) &&
+                !_animator.GetBool(PlayerAnimationConstants.Walk)) return typeof(WalkThrowState);
             
-            return _animator.GetBool(Walk) == false ? 
+            return _animator.GetBool(PlayerAnimationConstants.Walk) == false ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
         }
 
-        public override Type FixedTick()
+        public Type FixedTick()
         {
             return typeof(EmptyState);
+        }
+
+        public void Exit()
+        {
         }
     }
 }

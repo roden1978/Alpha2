@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class JumpState : BaseState
+    public class JumpState : IState
     {
         private readonly Animator _animator;
         private readonly Player _player;
         private bool _isShoot;
 
-        public JumpState(GameObject player) : base(player)
+        public JumpState(Player player, Animator animator)
         {
-            _player = player.GetComponent<Player>();
-            _animator = player.GetComponentInChildren<Animator>();
+            _player = player;
+            _animator = animator;
         }
 
-        public override void Enter()
+        public void Enter()
         {
             _player.OnShoot += Shoot;
-            _animator.SetBool(Jump, true);
+            _animator.SetBool(PlayerAnimationConstants.Jump, true);
         }
 
         private void Shoot()
@@ -27,26 +27,26 @@ namespace PlayerScripts.States
             _isShoot = true;
         }
 
-        public override Type Tick()
+        public Type Tick()
         {
             if (_isShoot) 
             {
-                _animator.SetBool(JumpThrow, true);
+                _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);
                 return typeof(JumpProxyState);
             } 
             return typeof(EmptyState);
         }
 
-        public override Type FixedTick()
+        public Type FixedTick()
         {
             return _player.StayOnGround() ? typeof(JumpProxyState) : typeof(EmptyState);
         }
 
-        public override void Exit()
+        public void Exit()
         {
             _isShoot = false;
             _player.OnShoot -= Shoot;
-            _animator.SetBool(Jump, false);
+            _animator.SetBool(PlayerAnimationConstants.Jump, false);
         }
     }
 }

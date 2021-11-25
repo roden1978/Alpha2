@@ -4,35 +4,35 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class IdleThrowState : BaseState
+    public class IdleThrowState : IState
     {
         private readonly Animator _animator;
 
-        public IdleThrowState(GameObject player) : base(player)
+        public IdleThrowState(Animator animator)
         {
-            _animator = player.GetComponentInChildren<Animator>();
+            _animator = animator;
         }
 
-        public override void Enter()
+        public void Enter()
         {
-            _animator.SetBool(IdleThrow, true);
+            _animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
         }
 
-        public override Type Tick()
+        public Type Tick()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
         }
 
-        public override Type FixedTick()
+        public Type FixedTick()
         {
             return typeof(EmptyState);
         }
 
-        public override void Exit()
+        public void Exit()
         {
-            _animator.SetBool(IdleThrow, false);
+            _animator.SetBool(PlayerAnimationConstants.IdleThrow, false);
         }
     }
 }

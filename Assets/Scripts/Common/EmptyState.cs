@@ -1,20 +1,25 @@
 ﻿using System;
-using UnityEngine;
 
 namespace Common
 {
-    public class EmptyState: BaseState
+    public class EmptyState: IState
     {
-        public EmptyState(GameObject gameObject) : base(gameObject)
-        {
-        }
-
-        public override Type Tick()
+        public void Enter()
         {
             throw new NotImplementedException();
         }
 
-        public override Type FixedTick()
+        public Type Tick()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Type FixedTick()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Exit()
         {
             throw new NotImplementedException();
         }

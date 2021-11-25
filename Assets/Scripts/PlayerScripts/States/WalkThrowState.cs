@@ -4,30 +4,34 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    public class WalkThrowState : BaseState
+    public class WalkThrowState : IState
     {
         private readonly Animator _animator;
 
-        public WalkThrowState(GameObject player) : base(player)
+        public WalkThrowState(Animator animator)
         {
-            _animator = player.GetComponentInChildren<Animator>();
+            _animator = animator;
         }
 
-        public override Type Tick()
+        public void Enter()
+        {
+        }
+
+        public Type Tick()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
                 typeof(WalkState) : 
                 typeof(EmptyState);
         }
 
-        public override Type FixedTick()
+        public Type FixedTick()
         {
             return typeof(EmptyState);
         }
 
-        public override void Exit()
+        public void Exit()
         {
-            _animator.SetBool(WalkThrow, false);
+            _animator.SetBool(PlayerAnimationConstants.WalkThrow, false);
         }
     }
 }
