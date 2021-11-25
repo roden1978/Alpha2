@@ -24,9 +24,9 @@ namespace GameScripts
 
         private void Awake()
         {
-            /*if(Application.isEditor)
+            if(Application.isEditor)
                 _inputService = new KeyboardInputService();
-            else*/
+            else
                 _inputService = new UiInputService();
         }
 
