@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _maxVelocity: 3
-  _jumpForce: 6
+  _maxVelocity: 4
+  _jumpForce: 6.5
   _xMoveDamping: 0.1
   _yMoveDamping: 0.1
 --- !u!70 &1085142949310770209
