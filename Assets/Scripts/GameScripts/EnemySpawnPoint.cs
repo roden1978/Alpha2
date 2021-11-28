@@ -20,13 +20,8 @@ namespace GameScripts
 
         private void Update()
         {
-            if (_position != transform.position)
                 _position = transform.position;
-            
-            if (_rotation != transform.rotation)
                 _rotation = transform.rotation;
-            
-            if (_name != null && _name != gameObject.name)
                 _name = gameObject.name;
         }
         private void OnDrawGizmos()
