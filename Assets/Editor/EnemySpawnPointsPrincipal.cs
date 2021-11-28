@@ -183,7 +183,7 @@ namespace Editor.Scripts
                 
                 int id = item.Value._prefab.instanceID;
                 GameObject obj = (GameObject) EditorUtility.InstanceIDToObject(id);
-                enemySpawnPoint._prefab = obj;
+                enemySpawnPoint.EnemyPrefab = obj;
             }
 
             _mountButtonEnable = false;
