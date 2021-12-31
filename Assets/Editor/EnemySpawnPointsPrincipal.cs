@@ -15,13 +15,15 @@ namespace Editor.Scripts
         private int _count;
         private bool _saveButtonEnable;
         private bool _deleteButtonEnable;
+        private bool _mountButtonEnable;
         private string _resultString;
         private string _sceneName;
         private void Awake()
         {
-            _spawnPoints = FindObjectsOfType<EnemySpawnPoint>();
             _resultString = string.Empty;
+            _spawnPoints = Array.Empty<EnemySpawnPoint>();
             _sceneName = SceneManager.GetActiveScene().name;
+            _deleteButtonEnable = true;
         }
 
         [MenuItem("Window/Enemy Spawn Points Principal")]
@@ -37,24 +39,13 @@ namespace Editor.Scripts
             
             if (GUILayout.Button("Find"))
             {
-                _spawnPoints = FindObjectsOfType<EnemySpawnPoint>();
-                if (_spawnPoints != null)
-                {
-                    _count = _spawnPoints.Length;
-                    _saveButtonEnable = true;
-                    _deleteButtonEnable = true;
-                }
-
-                _resultString = BuildJsonString(_spawnPoints);
+                FindPoints();
+                ShowPointsString();
             }
 
             if (GUILayout.Button("Clear list"))
             {
-                _spawnPoints = Array.Empty<EnemySpawnPoint>();
-                _count = 0;
-                _saveButtonEnable = false;
-                _resultString = string.Empty;
-                
+                ClearPointsList();
             }
             GUILayout.EndHorizontal();
 
@@ -75,15 +66,17 @@ namespace Editor.Scripts
 
             GUILayout.Label("Mounting/Delete", EditorStyles.boldLabel);
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Mount Points To Scene"))
+            GUI.enabled = _mountButtonEnable;
+            if (GUILayout.Button("Mount points"))
             {
                 InstantiatePoints();
                 _resultString = string.Empty;
             }
             GUI.enabled = _deleteButtonEnable;
-            if (GUILayout.Button("Delete Point From Scene"))
+            if (GUILayout.Button("Delete points"))
             {
-                if (_spawnPoints?.Length != 0)
+                
+                if (FindPoints() != 0)
                 {
                     for (var i = 0; i < _spawnPoints?.Length; i++)
                     {
@@ -100,43 +93,82 @@ namespace Editor.Scripts
             GUILayout.TextArea(_resultString);
         }
 
+        private void ClearPointsList()
+        {
+            _spawnPoints = Array.Empty<EnemySpawnPoint>();
+            _count = 0;
+            _saveButtonEnable = false;
+            _deleteButtonEnable = false;
+            _resultString = string.Empty;
+        }
+
+        private int FindPoints()
+        {
+            if (_spawnPoints.Length > 0)
+            {
+                _spawnPoints = Array.Empty<EnemySpawnPoint>();
+                _resultString = string.Empty;
+            }
+            _spawnPoints = FindObjectsOfType<EnemySpawnPoint>();
+            if (_spawnPoints != null)
+            {
+                _count = _spawnPoints.Length;
+                _saveButtonEnable = true;
+                _mountButtonEnable = false;
+                _deleteButtonEnable = true;
+            }
+            return _spawnPoints?.Length ?? 0;
+        }
+
+        private void ShowPointsString()
+        {
+            _resultString = BuildJsonString(_spawnPoints);
+        }
+
         private string BuildJsonString(IReadOnlyList<EnemySpawnPoint> spawnPoints)
         {
-            for (var i = 0; i < spawnPoints.Count; i++)
+            foreach (EnemySpawnPoint point in spawnPoints)
             {
-                _resultString += '"' + spawnPoints[i].name + 
+                _resultString += '"' + point.name + 
                                  '"' + 
                                  ":" + 
-                                 JsonUtility.ToJson(spawnPoints[i]) + 
+                                 JsonUtility.ToJson(point) + 
                                  ",";
             }
-            
+
             return _resultString;
         }
         
         private void SaveData()
         {
-            File.WriteAllText(Application.persistentDataPath + "/" + _sceneName + "_enemySpawnPoints.json", _resultString);
+            File.WriteAllText(Application.persistentDataPath 
+                              + "/" 
+                              + _sceneName 
+                              + "_enemySpawnPoints.json", _resultString);
             Debug.Log("Saved " + Application.persistentDataPath);
         }
  
         private void LoadData()
         {
-            var readAllText = File.ReadAllText(Application.persistentDataPath + "/" + _sceneName + "_enemySpawnPoints.json");
-            var index = readAllText.IndexOf('"');
+            string readAllText = File.ReadAllText(Application.persistentDataPath 
+                                                  + "/" 
+                                                  + _sceneName 
+                                                  + "_enemySpawnPoints.json");
+            int index = readAllText.IndexOf('"');
             
             _resultString = "{" + readAllText.Substring(index) + "}";
+            if (_resultString.Length > 0) _mountButtonEnable = true;
         }
 
         private void InstantiatePoints()
         {
             dynamic parsed = JObject.Parse(_resultString);
-            foreach (var item in parsed)
+            foreach (dynamic item in parsed)
             {
                 string goName = item.Value._name;
-                var go = new GameObject(goName);
-                var enemySpawnPoint = go.AddComponent<EnemySpawnPoint>();
-                var pointTransform = enemySpawnPoint.transform;
+                GameObject go = new GameObject(goName);
+                EnemySpawnPoint enemySpawnPoint = go.AddComponent<EnemySpawnPoint>();
+                Transform pointTransform = enemySpawnPoint.transform;
 
                 float x = item.Value._position.x;
                 float y = item.Value._position.y;
@@ -150,9 +182,12 @@ namespace Editor.Scripts
                 pointTransform.rotation = new Quaternion(rotationX, rotationY, rotationZ, rotationW);
                 
                 int id = item.Value._prefab.instanceID;
-                var obj = (GameObject) EditorUtility.InstanceIDToObject(id);
-                enemySpawnPoint._prefab = obj;
+                GameObject obj = (GameObject) EditorUtility.InstanceIDToObject(id);
+                enemySpawnPoint.EnemyPrefab = obj;
             }
+
+            _mountButtonEnable = false;
+            ClearPointsList();
         }
     }
 }
