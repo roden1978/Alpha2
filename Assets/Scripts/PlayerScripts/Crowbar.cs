@@ -1,0 +1,127 @@
+﻿using System;
+using System.Collections.Generic;
+using Common;
+using Input;
+using PlayerScripts;
+using PlayerScripts.States;
+using UnityEngine;
+
+namespace Infrastructure
+{
+    [RequireComponent(typeof(StateMachine))]
+    public class Crowbar : MonoBehaviour
+    {
+        private Player _player;
+        private StateMachine _stateMachine;
+        private IInputService _inputService;
+        private PlayerView _playerView;
+        private IFlipView _flipView;
+        private Rigidbody2D _rigidbody;
+        private Animator _animator;
+
+        private bool _doubleJump;
+        private bool _shoot;
+
+        private void Awake()
+        {
+            _player = GetComponent<Player>();
+        }
+
+        private void Start()
+        {
+            
+            _playerView = _player.GetComponentInChildren<PlayerView>();
+            _flipView = new FlipView(_playerView);
+            _animator = _player.GetComponentInChildren<Animator>();
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _stateMachine = GetComponent<StateMachine>();
+            _inputService = Game.InputService;
+
+            _stateMachine.Initialize(new Dictionary<Type, IState>
+            {
+                { typeof(IdleState), new IdleState(_player, _rigidbody) },
+                { typeof(WalkState), new WalkState(_player, _rigidbody, _animator) },
+                { typeof(JumpState), new JumpState(_player, _animator) },
+                { typeof(IdleThrowState), new IdleThrowState(_animator) },
+                { typeof(JumpThrowState), new JumpThrowState(_animator) },
+                { typeof(JumpProxyState), new JumpProxyState(_animator) },
+                { typeof(WalkThrowState), new WalkThrowState(_animator) },
+                { typeof(WalkProxyState), new WalkProxyState(_animator) }
+            });
+        }
+
+        private void Update()
+        {
+            FLip();
+            Shoot();
+        }
+
+        private void FixedUpdate()
+        {
+            Move();
+            Jump();
+            DoubleJump();
+        }
+
+        private void Move()
+        {
+            if (_player.StayOnGround() && _inputService.Move() != 0)
+            {
+                if (Mathf.Abs(_rigidbody.velocity.magnitude) > _player.MaxVelocity) return;
+                _rigidbody.AddForce(new Vector2(_inputService.Move(), 0) * _player.Speed, ForceMode2D.Impulse);
+                _doubleJump = true;
+            }
+        }
+
+        private void Jump()
+        {
+            if (_player.StayOnGround() && _inputService.Jump() != 0)
+            {
+                ResetYVelocity();
+                AddForceToJump();
+                _doubleJump = true;
+            }
+        }
+
+        private void DoubleJump()
+        {
+            if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 &&
+                _inputService.Jump() != 0 &&
+                _doubleJump)
+            {
+                AddForceToJump();
+                _doubleJump = false;
+            }
+        }
+
+        private void FLip()
+        {
+            _flipView.FLippingPlayerView(_inputService.Move());
+        }
+
+        private void ResetYVelocity()
+        {
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
+        }
+
+        private void AddForceToJump()
+        {
+            Vector2 jumpForce = new Vector2(0, _inputService.Jump()) * _player.JumpForce;
+            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+        }
+
+        private void Shoot()
+        {
+            if (_inputService.Shoot() > 0 && !_shoot)
+            {
+                _player.InvokeShootAction();
+                _shoot = true;
+            }
+
+            if (_inputService.Shoot() == 0 && _shoot)
+            {
+                _shoot = false;
+            }
+        }
+    }
+}
