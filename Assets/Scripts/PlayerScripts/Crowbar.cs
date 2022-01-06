@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common;
+using Infrastructure;
 using Input;
-using PlayerScripts;
 using PlayerScripts.States;
 using UnityEngine;
 
-namespace Infrastructure
+namespace PlayerScripts
 {
     [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
+        [SerializeField] private float _speed;
+        [SerializeField] private float _maxVelocity;
+        [SerializeField] private float _jumpForce;
+        //[SerializeField] private float _xMoveDamping = 0.3f;
+        //[SerializeField] private float _yMoveDamping = 0.3f;
+        [SerializeField] private Vector2 _damping;
+        
+        //public event Action OnShoot;
+        
         private Player _player;
         private StateMachine _stateMachine;
         private IInputService _inputService;
@@ -18,9 +27,10 @@ namespace Infrastructure
         private IFlipView _flipView;
         private Rigidbody2D _rigidbody;
         private Animator _animator;
+        private IDipstick _dipstick;
 
         private bool _doubleJump;
-        private bool _shoot;
+        //private bool _shoot;
 
         private void Awake()
         {
@@ -29,19 +39,22 @@ namespace Infrastructure
 
         private void Start()
         {
-            
+            _dipstick = new Dipstick(_player);
             _playerView = _player.GetComponentInChildren<PlayerView>();
             _flipView = new FlipView(_playerView);
             _animator = _player.GetComponentInChildren<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _stateMachine = GetComponent<StateMachine>();
             _inputService = Game.InputService;
+            _inputService.OnJump += Jump;
+            _inputService.OnShoot += Shoot;
+            PlayerStateData.Damping = _damping;
 
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
-                { typeof(IdleState), new IdleState(_player, _rigidbody) },
-                { typeof(WalkState), new WalkState(_player, _rigidbody, _animator) },
-                { typeof(JumpState), new JumpState(_player, _animator) },
+                { typeof(IdleState), new IdleState(_rigidbody) },
+                { typeof(WalkState), new WalkState(_rigidbody, _animator) },
+                { typeof(JumpState), new JumpState(_animator) },
                 { typeof(IdleThrowState), new IdleThrowState(_animator) },
                 { typeof(JumpThrowState), new JumpThrowState(_animator) },
                 { typeof(JumpProxyState), new JumpProxyState(_animator) },
@@ -53,40 +66,40 @@ namespace Infrastructure
         private void Update()
         {
             FLip();
-            Shoot();
         }
 
         private void FixedUpdate()
         {
             Move();
-            Jump();
-            DoubleJump();
         }
 
         private void Move()
         {
-            if (_player.StayOnGround() && _inputService.Move() != 0)
+            if (StayOnGround() && _inputService.Move() != 0)
             {
-                if (Mathf.Abs(_rigidbody.velocity.magnitude) > _player.MaxVelocity) return;
-                _rigidbody.AddForce(new Vector2(_inputService.Move(), 0) * _player.Speed, ForceMode2D.Impulse);
+                if (Mathf.Abs(_rigidbody.velocity.magnitude) > _maxVelocity) return;
+                _rigidbody.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
                 _doubleJump = true;
             }
         }
 
         private void Jump()
         {
-            if (_player.StayOnGround() && _inputService.Jump() != 0)
+            if (StayOnGround())
             {
-                ResetYVelocity();
+                //ResetYVelocity();
                 AddForceToJump();
                 _doubleJump = true;
+            }
+            else
+            {
+                DoubleJump();
             }
         }
 
         private void DoubleJump()
         {
             if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 &&
-                _inputService.Jump() != 0 &&
                 _doubleJump)
             {
                 AddForceToJump();
@@ -96,7 +109,8 @@ namespace Infrastructure
 
         private void FLip()
         {
-            _flipView.FLippingPlayerView(_inputService.Move());
+            float direction = _inputService.Move();
+            _flipView.FLippingPlayerView(direction);
         }
 
         private void ResetYVelocity()
@@ -106,22 +120,31 @@ namespace Infrastructure
 
         private void AddForceToJump()
         {
-            Vector2 jumpForce = new Vector2(0, _inputService.Jump()) * _player.JumpForce;
+            Vector2 jumpForce = Vector2.up * _jumpForce;
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
         private void Shoot()
         {
-            if (_inputService.Shoot() > 0 && !_shoot)
-            {
-                _player.InvokeShootAction();
-                _shoot = true;
-            }
-
-            if (_inputService.Shoot() == 0 && _shoot)
-            {
-                _shoot = false;
-            }
+            PlayerStateData.IsShoot = true;
         }
+
+       // public float XDamping => _xMoveDamping;
+        //public float YDamping => _yMoveDamping;
+        
+
+        private bool StayOnGround()
+        {
+            PlayerStateData.IsOnGround = _dipstick.Contact();
+            return PlayerStateData.IsOnGround;
+        }
+
+        
+    }
+    public static class PlayerStateData
+    {
+        public static bool IsShoot { get; set; }
+        public static bool IsOnGround { get; set; }
+        public static Vector2 Damping { get; set; }
     }
 }

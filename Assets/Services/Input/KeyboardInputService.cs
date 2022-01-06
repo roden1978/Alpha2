@@ -5,21 +5,24 @@ namespace Input
     public class KeyboardInputService : IDisposable, IInputService
     {
         private readonly PlayerInput _input;
-
+        public event Action OnShoot;
+        public event Action OnJump;
         public KeyboardInputService()
         {
             _input = new PlayerInput();
             _input.Enable();
+            _input.Player.Shoot.performed += _ => Shoot();
+            _input.Player.Jump.performed += _ => Jump();
         }
 
-       public float Jump()
+       public void Jump()
         {
-            return _input.Player.Jump.ReadValue<float>();
+            OnJump?.Invoke();
         }
 
-        public float Shoot()
+        public void Shoot()
         {
-            return _input.Player.Shoot.ReadValue<float>();
+            OnShoot?.Invoke();
         }
 
         public float Move()

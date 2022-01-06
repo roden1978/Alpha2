@@ -1,5 +1,6 @@
 using System;
 using GameScripts;
+using Infrastructure;
 using UnityEngine;
 
 namespace Infrastracture
@@ -11,6 +12,7 @@ namespace Infrastracture
         private void Awake()
         {
             _game = new Game();
+            DontDestroyOnLoad(this);
         }
     }
 }

@@ -1,9 +1,13 @@
-﻿namespace Input
+﻿using System;
+
+namespace Input
 {
     public interface IInputService
     {
-        float Jump();
-        float Shoot();
+        public event Action OnShoot;
+        public event Action OnJump;
+        void Jump();
+        void Shoot();
         float Move();
     }
 }

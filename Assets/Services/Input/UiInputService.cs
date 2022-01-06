@@ -6,21 +6,23 @@ namespace Input
     public class UiInputService : IDisposable, IInputService
     {
         private readonly UIInput _input;
-
+        public event Action OnJump;
+        public event Action OnShoot;
         public UiInputService()
         {
             _input = new UIInput();
             _input.Enable();
+            _input.Joystick.Jump.performed += _ => Jump();
         }
 
-       public float Jump()
+       public void Jump()
        {
-           return Mathf.Round(_input.Joystick.Jump.ReadValue<float>());
+           OnJump?.Invoke();
         }
 
-        public float Shoot()
+        public void Shoot()
         {
-            return 0f; //_input.Joystick.Shoot.ReadValue<float>();
+            OnShoot?.Invoke();
         }
 
         public float Move()

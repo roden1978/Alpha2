@@ -7,43 +7,38 @@ namespace PlayerScripts.States
     public class IdleState : IState
     {
         private readonly Rigidbody2D _rigidbody;
-        private readonly Player _player;
-        private bool _isShoot;
+        //private readonly IDipstick _dipstick;
+        //private bool _isShoot;
 
-        public IdleState(Player player, Rigidbody2D rigidbody2D)
+        public IdleState(Rigidbody2D rigidbody2D)
         {
-            _player = player;
             _rigidbody = rigidbody2D;
         }
 
         public void Enter()
         {
-            _player.OnShoot += Shoot;
+            //_dipstick.OnShoot += Shoot;
         }
 
         public Type Tick()
         {
-            if (Mathf.Abs(_rigidbody.velocity.x) > _player.XMoveDamping)
+            if (Mathf.Abs(_rigidbody.velocity.x) > PlayerStateData.Damping.x)
                 return typeof(WalkState);
-            return _isShoot ? typeof(IdleThrowState) : typeof(EmptyState);
+            return PlayerStateData.IsShoot ? typeof(IdleThrowState) : typeof(EmptyState);
         }
        
 
        public Type FixedTick()
        {
-           return !_player.StayOnGround() &&
-               _rigidbody.velocity.y > _player.YMoveDamping ? typeof(JumpState) : typeof(EmptyState);
+           return !PlayerStateData.IsOnGround &&
+               _rigidbody.velocity.y > PlayerStateData.Damping.y ? typeof(JumpState) : typeof(EmptyState);
        }
 
        public void Exit()
        {
-           _isShoot = false;
-           _player.OnShoot -= Shoot;
+           if (PlayerStateData.IsShoot) PlayerStateData.IsShoot = false;
+           //_dipstick.OnShoot -= Shoot;
        }
-
-       private void Shoot()
-       {
-           _isShoot = true;
-       }
+       
     }
 }

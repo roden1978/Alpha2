@@ -9,27 +9,23 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
-        private readonly Player _player;
+        //private readonly Player _player;
         private bool _isShoot;
 
-        public WalkState(Player player, Rigidbody2D rigidbody2D, Animator animator)
+        public WalkState(Rigidbody2D rigidbody2D, Animator animator)
         {
-            _player = player;
+            //_player = player;
             _rigidbody = rigidbody2D;
             _animator = animator;
         }
 
         public void Enter()
         {
-            _player.OnShoot += Shoot;
+            //_player.OnShoot += Shoot;
             _animator.SetBool(PlayerAnimationConstants.Walk, true);
         }
 
-        private void Shoot()
-        {
-            _isShoot = true;
-        }
-
+       
         public Type Tick()
         {
             if(_isShoot)
@@ -38,19 +34,21 @@ namespace PlayerScripts.States
                 return typeof(WalkProxyState);
             }
 
-            return Mathf.Abs(_rigidbody.velocity.x) < _player.XMoveDamping ? typeof(IdleState) : typeof(EmptyState);
+            return Mathf.Abs(_rigidbody.velocity.x) < PlayerStateData.Damping.x ? typeof(IdleState) : typeof(EmptyState);
         }
 
         public Type FixedTick()
         {
-            return !_player.StayOnGround() ? typeof(JumpState) : typeof(EmptyState);
+            return !PlayerStateData.IsOnGround &&
+                   _rigidbody.velocity.y > PlayerStateData.Damping.y ? typeof(JumpState) : typeof(EmptyState);
         }
         
 
         public void Exit()
         {
-            _isShoot = false;
-            _player.OnShoot -= Shoot;
+            //_isShoot = false;
+            //_player.OnShoot -= Shoot;
+            if (PlayerStateData.IsShoot) PlayerStateData.IsShoot = false;
             _animator.SetBool(PlayerAnimationConstants.Walk, false);
         }
     }
