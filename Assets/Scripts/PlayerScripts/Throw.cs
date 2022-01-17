@@ -1,30 +1,32 @@
 using Common;
 using GameObjectsScripts;
+using Infrastructure;
+using Services.Pools;
 using UnityEngine;
 
 namespace PlayerScripts
 {
     public class Throw : MonoBehaviour
     {
-        [SerializeField] private Weapon _weapon;
-        private WeaponPools _weaponPools;
+        [SerializeField] private Axe _pooledObject;
+        private IPoolService _weaponPools;
         private SpriteRenderer _spriteRenderer;
         private Vector3 _center;
 
         private void Start()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _weaponPools = FindObjectOfType<WeaponPools>();
+            _weaponPools = Game.PoolService;
         }
 
         public void ThrowWeapon(Transform shootPoint)
         {
-            var weapon = _weaponPools.GetPooledObject(_weapon.GetType());
+            var weapon = _weaponPools.GetPooledObject(_pooledObject.GetType());
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 weapon.transform.position = shootPoint.position;
                 var direction = Direction(shootPoint);
-                weaponRigidbody.AddForce(direction * _weapon.Speed, ForceMode2D.Impulse);
+                weaponRigidbody.AddForce(direction * _pooledObject.Speed, ForceMode2D.Impulse);
             }                
         }
 
@@ -37,10 +39,6 @@ namespace PlayerScripts
         {
             return (_center.x - shootPoint.position.x) > 0 ? Vector2.left : Vector2.right;
         }
-
-        public void ChangeWeapon(Weapon newWeapon)
-        {
-            _weapon = newWeapon;
-        }
+        
     }
 }
