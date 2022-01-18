@@ -1,25 +1,34 @@
 using System.Collections;
+using Services.Pools;
 using UnityEngine;
 
 namespace GameObjectsScripts
 {
-    public class Axe : Weapon
+    public class Axe : PooledObject, IDamaging
     {
-        private void OnEnable()
+        [SerializeField] private int _damage;
+        [SerializeField] private float _speed;
+        [SerializeField] private int _lifeTime;
+
+        private Coroutine _coroutine;
+        public float Speed => _speed;
+        public int Damage => _damage;
+
+        private void Start()
         {
-            StartCoroutine(ReturnToPool());
+            _coroutine = StartCoroutine(LifeTime(_lifeTime));
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        public override void ReturnToPool()
         {
-            gameObject.SetActive(false);
+            Hide();
         }
 
-        private IEnumerator ReturnToPool()
+        private IEnumerator LifeTime(int lifeTime)
         {
-            yield return new WaitForSeconds(LifeTime);
-            gameObject.SetActive(false);
+            yield return new WaitForSeconds(lifeTime);
+            StopCoroutine(_coroutine);
+            ReturnToPool();
         }
-                
     }
 }

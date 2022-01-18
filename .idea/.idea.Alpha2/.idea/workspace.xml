@@ -3,10 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Scripts/EnemySpawnPointsPrincipal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Scripts/EnemySpawnPointsPrincipal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CommonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CommonScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/EnemySpawnPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/EnemySpawnPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Poison.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Poison.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Axe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Axe.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Throw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Throw.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/IPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/IPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/IPoolService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Services/Pools/IPoolService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/Pool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/Pool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/PoolService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Services/Pools/PoolService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +27,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351e49e2a5bf4fd6beabb458ce2255f3ff600/ca/7363510e/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Tar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InteractableObjectsCollector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.10/Runtime/Behaviours/CinemachineConfiner.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -107,6 +115,12 @@
       <workItem from="1637635368655" duration="6670000" />
       <workItem from="1637812185937" duration="1371000" />
       <workItem from="1638074764838" duration="4053000" />
+      <workItem from="1640925791097" duration="9021000" />
+      <workItem from="1641186140295" duration="7303000" />
+      <workItem from="1641446691854" duration="16043000" />
+      <workItem from="1642438013917" duration="18000" />
+      <workItem from="1642438062947" duration="3473000" />
+      <workItem from="1642520033759" duration="1698000" />
     </task>
     <servers />
   </component>

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    public class Dipstick
+    public class Dipstick : IDipstick
     {
         private const int RayCount = 4;
         private readonly RaycastHit2D[] _results;
@@ -23,16 +23,16 @@ namespace PlayerScripts
 
         private int DrawDipsticks()
         {
-            var bounds = _capsule.bounds;
-            var height = bounds.size.y;
-            var center = bounds.center;
-            var leftEdgePoint = new Vector3(center.x - _width / 2, center.y, 0);
-            var touchCount = 0;
+            Bounds bounds = _capsule.bounds;
+            float height = bounds.size.y;
+            Vector3 center = bounds.center;
+            Vector3 leftEdgePoint = new Vector3(center.x - _width / 2, center.y, 0);
+            int touchCount = 0;
             
-            for (var i = 0; i < RayCount; i++)
+            for (int i = 0; i < RayCount; i++)
             {
-                var startPointV3 = new Vector3(leftEdgePoint.x + _width / RayCount * i, leftEdgePoint.y, 0);
-                var startPoint = new Vector2(leftEdgePoint.x + _width / RayCount * i, leftEdgePoint.y);
+                Vector3 startPointV3 = new Vector3(leftEdgePoint.x + _width / RayCount * i, leftEdgePoint.y, 0);
+                Vector2 startPoint = new Vector2(leftEdgePoint.x + _width / RayCount * i, leftEdgePoint.y);
                 Debug.DrawRay(startPointV3, Vector3.down * height / 1.8f, Color.red);
                 touchCount += Physics2D.RaycastNonAlloc(startPoint, Vector2.down, _results, height / 1.8f, GroundLayerMask);
             }
