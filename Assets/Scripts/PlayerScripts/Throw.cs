@@ -8,20 +8,19 @@ namespace PlayerScripts
 {
     public class Throw : MonoBehaviour
     {
+        [SerializeField] private PoolService _poolService;
         [SerializeField] private Axe _pooledObject;
-        private IPoolService _weaponPools;
         private SpriteRenderer _spriteRenderer;
         private Vector3 _center;
 
         private void Start()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _weaponPools = Game.PoolService;
         }
 
         public void ThrowWeapon(Transform shootPoint)
         {
-            var weapon = _weaponPools.GetPooledObject(_pooledObject.GetType());
+            var weapon = _poolService.GetPooledObject(_pooledObject.GetType());
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 weapon.transform.position = shootPoint.position;

@@ -1,5 +1,4 @@
 using System.Collections;
-using Common;
 using Services.Pools;
 using UnityEngine;
 
@@ -7,17 +6,29 @@ namespace GameObjectsScripts
 {
     public class Axe : PooledObject, IDamaging
     {
-        [SerializeField] private int _damage = 5;
-        [SerializeField] private float _speed = 10;
-        [SerializeField] private int _lifeTime = 2;
+        [SerializeField] private int _damage;
+        [SerializeField] private float _speed;
+        [SerializeField] private int _lifeTime;
 
+        private Coroutine _coroutine;
         public float Speed => _speed;
-        public int LifeTime => _lifeTime;
         public int Damage => _damage;
+
+        private void Start()
+        {
+            _coroutine = StartCoroutine(LifeTime(_lifeTime));
+        }
 
         public override void ReturnToPool()
         {
             Hide();
+        }
+
+        private IEnumerator LifeTime(int lifeTime)
+        {
+            yield return new WaitForSeconds(lifeTime);
+            StopCoroutine(_coroutine);
+            ReturnToPool();
         }
     }
 }

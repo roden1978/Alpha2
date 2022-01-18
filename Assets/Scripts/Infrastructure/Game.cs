@@ -15,7 +15,6 @@ namespace Infrastructure
         public Game()
         {
             RegisterInputService();
-            RegisterPoolsService();
         }
         
         private void RegisterInputService()
@@ -26,17 +25,5 @@ namespace Infrastructure
                 InputService = new UiInputService();
         }
 
-        private void RegisterPoolsService()
-        {
-            GameObject go = new GameObject(typeof(Axe).ToString(), typeof(Axe));
-            Axe axe = go.GetComponent<Axe>();
-            List<IPool> pools = new List<IPool>
-            {
-                new Pool(axe, 10)
-            };
-
-            PoolService = new PoolService(pools);
-            PoolService.Initialize();
-        }
     }
 }
