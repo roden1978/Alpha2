@@ -7,13 +7,11 @@ namespace PlayerScripts.States
     public class JumpState : IState
     {
         private readonly Animator _animator;
-        //private readonly Player _player;
-        //private bool _isShoot;
-
-        public JumpState(Animator animator)
+        private readonly PlayerStateData _playerStateData;
+        public JumpState(Animator animator, PlayerStateData playerStateData)
         {
-            //_player = player;
             _animator = animator;
+            _playerStateData = playerStateData;
         }
 
         public void Enter()
@@ -24,24 +22,18 @@ namespace PlayerScripts.States
 
         public Type Tick()
         {
-            if (PlayerStateData.IsShoot) 
+            if (_playerStateData.IsShoot) 
             {
                 _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);
                 return typeof(JumpProxyState);
-            } 
-            return typeof(EmptyState);
-        }
-
-        public Type FixedTick()
-        {
-            return PlayerStateData.IsOnGround ? typeof(JumpProxyState) : typeof(EmptyState);
+            }
+            
+            return _playerStateData.IsOnGround ? typeof(JumpProxyState) : typeof(EmptyState);
         }
 
         public void Exit()
         {
-            //_isShoot = false;
-            //_player.OnShoot -= Shoot;
-            if (PlayerStateData.IsShoot) PlayerStateData.IsShoot = false;
+            if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
             _animator.SetBool(PlayerAnimationConstants.Jump, false);
         }
     }

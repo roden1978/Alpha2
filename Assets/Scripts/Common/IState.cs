@@ -7,7 +7,6 @@ namespace Common
     {
         public void Enter();
         public Type Tick();
-        public Type FixedTick();
         public void Exit();
     }
     

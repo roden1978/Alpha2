@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Common
 {
-    public class StateMachine : MonoBehaviour
+    public sealed class StateMachine
     {
         private Dictionary<Type, IState> _availableStates;
         private Stack<IState> _stack;
@@ -17,15 +16,9 @@ namespace Common
             PushState(_availableStates.Values.First().GetType());
         }
 
-        private void Update()
+        public void Update()
         { 
-            var state = GetCurrentState()?.Tick();
-            AnalyzeState(state);
-        }
-
-        private void FixedUpdate()
-        {
-            var state = GetCurrentState()?.FixedTick();
+            Type state = GetCurrentState()?.Tick();
             AnalyzeState(state);
         }
 

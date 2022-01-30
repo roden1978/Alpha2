@@ -11,7 +11,6 @@ namespace Infrastructure
     public class Game
     {
         public static IInputService InputService;
-        public static IPoolService PoolService;
         public Game()
         {
             RegisterInputService();
