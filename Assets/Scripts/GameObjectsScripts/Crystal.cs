@@ -8,10 +8,5 @@
             base.Start();
             Value = CrystalValue;
         }
-
-        private void Update()
-        {
-            FloatingMove();
-        }
     }
 }

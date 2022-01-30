@@ -11,11 +11,5 @@ namespace GameObjectsScripts
             base.Start();
             Value = _health;
         }
-
-        private void Update()
-        {
-            FloatingMove();
-        }
- 
     }
 }

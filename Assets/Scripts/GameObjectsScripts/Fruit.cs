@@ -11,11 +11,5 @@ namespace GameObjectsScripts
             base.Start();
             Value = _scores;
         }
-
-        private void Update()
-        {
-            FloatingMove();
-        }
- 
     }
 }
