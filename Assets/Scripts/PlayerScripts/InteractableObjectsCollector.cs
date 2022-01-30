@@ -28,19 +28,15 @@ namespace PlayerScripts
             };
         }
 
-        private void OnCollisionEnter2D(Collision2D otherCollider)
+        public void Collect(InteractableObject interactableObject)
         {
-            if (otherCollider.gameObject.TryGetComponent(out InteractableObject interactableObject))
-            {
-                foreach (var action in _actions
-                    .Where(action => 
-                        action.Key == interactableObject.GetType().BaseType || 
+            foreach (var action in _actions
+                    .Where(action =>
                         action.Key == interactableObject.GetType())) 
                 {
                     action.Value.Invoke(interactableObject.Value);
                     interactableObject.gameObject.SetActive(false);
                 }
-            }
         }
 
         private void CrystalCollect(int crystals)

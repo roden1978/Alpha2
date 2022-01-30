@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PlayerScripts;
+using UnityEngine;
 namespace GameObjectsScripts
 {
     public abstract class PickableObject : InteractableObject
@@ -11,11 +12,24 @@ namespace GameObjectsScripts
             _startY = transform.position.y;
         }
         
-        protected virtual void FloatingMove()
+        private void Update()
         {
-            var position = transform.position;
-            var newY = _startY + _height * Mathf.Sin(Time.time * _speed);
-            transform.position = new Vector3(position.x, newY, 0);
+            FloatingMove();
+        }
+
+        private void FloatingMove()
+        {
+            if(_speed > 0)
+            {
+                Vector3 position = transform.position;
+                float newY = _startY + _height * Mathf.Sin(Time.time * _speed);
+                transform.position = new Vector3(position.x, newY, 0);
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.TryGetComponent(out InteractableObjectsCollector collector))
+                collector.Collect(this);
         }
     }
 }

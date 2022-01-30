@@ -8,10 +8,5 @@ namespace GameObjectsScripts
             base.Start();
             Value = LifeValue;
         }
-
-        private void Update()
-        {
-            FloatingMove();        
-        }
     }
 }
