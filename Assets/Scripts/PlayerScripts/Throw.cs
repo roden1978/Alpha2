@@ -1,6 +1,4 @@
-using Common;
 using GameObjectsScripts;
-using Infrastructure;
 using Services.Pools;
 using UnityEngine;
 
@@ -20,11 +18,11 @@ namespace PlayerScripts
 
         public void ThrowWeapon(Transform shootPoint)
         {
-            var weapon = _poolService.GetPooledObject(_pooledObject.GetType());
+            PooledObject weapon = _poolService.GetPooledObject(_pooledObject.GetType());
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 weapon.transform.position = shootPoint.position;
-                var direction = Direction(shootPoint);
+                Vector2 direction = Direction(shootPoint);
                 weaponRigidbody.AddForce(direction * _pooledObject.Speed, ForceMode2D.Impulse);
             }                
         }

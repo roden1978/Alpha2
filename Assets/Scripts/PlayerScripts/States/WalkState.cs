@@ -9,46 +9,38 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
-        //private readonly Player _player;
-        private bool _isShoot;
+        private readonly PlayerStateData _playerStateData;
 
-        public WalkState(Rigidbody2D rigidbody2D, Animator animator)
+        public WalkState(Rigidbody2D rigidbody2D, Animator animator, PlayerStateData playerStateData)
         {
-            //_player = player;
             _rigidbody = rigidbody2D;
             _animator = animator;
+            _playerStateData = playerStateData;
         }
 
         public void Enter()
         {
-            //_player.OnShoot += Shoot;
             _animator.SetBool(PlayerAnimationConstants.Walk, true);
         }
 
        
         public Type Tick()
         {
-            if(_isShoot)
+            if (_playerStateData.IsShoot) 
             {
                 _animator.SetBool(PlayerAnimationConstants.WalkThrow, true);
                 return typeof(WalkProxyState);
             }
 
-            return Mathf.Abs(_rigidbody.velocity.x) < PlayerStateData.Damping.x ? typeof(IdleState) : typeof(EmptyState);
+            if (!_playerStateData.IsOnGround && _rigidbody.velocity.y > _playerStateData.Damping.y)
+                return typeof(JumpState);
+            
+            return Mathf.Abs(_rigidbody.velocity.x) < _playerStateData.Damping.x ? typeof(IdleState) : typeof(EmptyState);
         }
-
-        public Type FixedTick()
-        {
-            return !PlayerStateData.IsOnGround &&
-                   _rigidbody.velocity.y > PlayerStateData.Damping.y ? typeof(JumpState) : typeof(EmptyState);
-        }
-        
 
         public void Exit()
         {
-            //_isShoot = false;
-            //_player.OnShoot -= Shoot;
-            if (PlayerStateData.IsShoot) PlayerStateData.IsShoot = false;
+            if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
             _animator.SetBool(PlayerAnimationConstants.Walk, false);
         }
     }

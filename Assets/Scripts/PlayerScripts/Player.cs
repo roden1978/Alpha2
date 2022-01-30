@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -8,25 +6,11 @@ namespace PlayerScripts
     [RequireComponent(typeof(InteractableObjectsCollector))]
     public class Player : MonoBehaviour
     {
-       
-
-        private float _health;
-       private void ChangeHealth(float delta)
-        {
-            
-        }
-
+       private float _health;
+      
         private void TakeDamage(float delta)
         {
             _health -= delta;
         }
-
-        
-
-        public void InvokeShootAction()
-        {
-            
-        }
-
     }
 }

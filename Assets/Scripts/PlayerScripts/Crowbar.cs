@@ -2,24 +2,18 @@
 using System.Collections.Generic;
 using Common;
 using Infrastructure;
-using Input;
 using PlayerScripts.States;
 using Services.Input;
 using UnityEngine;
 
 namespace PlayerScripts
 {
-    [RequireComponent(typeof(StateMachine))]
     public class Crowbar : MonoBehaviour
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocity;
         [SerializeField] private float _jumpForce;
-        //[SerializeField] private float _xMoveDamping = 0.3f;
-        //[SerializeField] private float _yMoveDamping = 0.3f;
         [SerializeField] private Vector2 _damping;
-        
-        //public event Action OnShoot;
         
         private Player _player;
         private StateMachine _stateMachine;
@@ -29,13 +23,14 @@ namespace PlayerScripts
         private Rigidbody2D _rigidbody;
         private Animator _animator;
         private IDipstick _dipstick;
+        private PlayerStateData _playerStateData;
 
         private bool _doubleJump;
-        //private bool _shoot;
 
         private void Awake()
         {
             _player = GetComponent<Player>();
+            _stateMachine = new StateMachine();
         }
 
         private void Start()
@@ -45,17 +40,19 @@ namespace PlayerScripts
             _flipView = new FlipView(_playerView);
             _animator = _player.GetComponentInChildren<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();
-            _stateMachine = GetComponent<StateMachine>();
             _inputService = Game.InputService;
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
-            PlayerStateData.Damping = _damping;
+            _playerStateData = new PlayerStateData
+            {
+                Damping = _damping
+            };
 
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
-                { typeof(IdleState), new IdleState(_rigidbody) },
-                { typeof(WalkState), new WalkState(_rigidbody, _animator) },
-                { typeof(JumpState), new JumpState(_animator) },
+                { typeof(IdleState), new IdleState(_rigidbody, _playerStateData) },
+                { typeof(WalkState), new WalkState(_rigidbody, _animator, _playerStateData) },
+                { typeof(JumpState), new JumpState(_animator, _playerStateData) },
                 { typeof(IdleThrowState), new IdleThrowState(_animator) },
                 { typeof(JumpThrowState), new JumpThrowState(_animator) },
                 { typeof(JumpProxyState), new JumpProxyState(_animator) },
@@ -66,12 +63,19 @@ namespace PlayerScripts
 
         private void Update()
         {
+            _stateMachine.Update();
             FLip();
         }
 
         private void FixedUpdate()
         {
             Move();
+        }
+
+        private void OnDestroy()
+        {
+            _inputService.OnJump -= Jump;
+            _inputService.OnShoot -= Shoot;
         }
 
         private void Move()
@@ -88,7 +92,6 @@ namespace PlayerScripts
         {
             if (StayOnGround())
             {
-                //ResetYVelocity();
                 AddForceToJump();
                 _doubleJump = true;
             }
@@ -114,12 +117,7 @@ namespace PlayerScripts
             _flipView.FLippingPlayerView(direction);
         }
 
-        private void ResetYVelocity()
-        {
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-        }
-
-        private void AddForceToJump()
+       private void AddForceToJump()
         {
             Vector2 jumpForce = Vector2.up * _jumpForce;
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
@@ -127,25 +125,13 @@ namespace PlayerScripts
 
         private void Shoot()
         {
-            PlayerStateData.IsShoot = true;
+            _playerStateData.IsShoot = true;
         }
-
-       // public float XDamping => _xMoveDamping;
-        //public float YDamping => _yMoveDamping;
-        
 
         private bool StayOnGround()
         {
-            PlayerStateData.IsOnGround = _dipstick.Contact();
-            return PlayerStateData.IsOnGround;
+            _playerStateData.IsOnGround = _dipstick.Contact();
+            return _playerStateData.IsOnGround;
         }
-
-        
-    }
-    public static class PlayerStateData
-    {
-        public static bool IsShoot { get; set; }
-        public static bool IsOnGround { get; set; }
-        public static Vector2 Damping { get; set; }
     }
 }
