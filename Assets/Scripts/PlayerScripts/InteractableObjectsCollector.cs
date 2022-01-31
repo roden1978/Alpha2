@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using GameObjectsScripts;
 using UnityEngine;
 
@@ -10,11 +9,11 @@ namespace PlayerScripts
     {
         private Dictionary<Type, Action<int>> _actions;
         
-        public event Action<int> OnCrystalCollect;
-        public event Action<int> OnFruitCollect;
-        public event Action<int> OnFoodCollect;
-        public event Action<int> OnDamage;
-        public event Action<int> OnLifeCollect;
+        public event Action<int> CrystalCollecting;
+        public event Action<int> FruitCollecting;
+        public event Action<int> FoodCollecting;
+        public event Action<int> DamageCollecting;
+        public event Action<int> LifeCollecting;
 
         private void Start()
         {
@@ -30,9 +29,8 @@ namespace PlayerScripts
 
         public void Collect(InteractableObject interactableObject)
         {
-            foreach (var action in _actions
-                    .Where(action =>
-                        action.Key == interactableObject.GetType())) 
+            foreach (var action in _actions)
+                if(action.Key == interactableObject.GetType()) 
                 {
                     action.Value.Invoke(interactableObject.Value);
                     interactableObject.gameObject.SetActive(false);
@@ -42,31 +40,30 @@ namespace PlayerScripts
         private void CrystalCollect(int crystals)
         {
             Debug.Log($"crystals {crystals}");
-            OnCrystalCollect?.Invoke(crystals);
+            CrystalCollecting?.Invoke(crystals);
         }
 
         private void FruitCollect(int scores)
         {
-            Debug.Log($"scores {scores}");
-            OnFruitCollect?.Invoke(scores);
+            FruitCollecting?.Invoke(scores);
         }
 
         private void FoodCollect(int health)
         {
             Debug.Log($"health {health}");
-            OnFoodCollect?.Invoke(health);
+            FoodCollecting?.Invoke(health);
         }
 
         private void DamageCollect(int damage)
         {
             Debug.Log($"damage {damage}");
-            OnDamage?.Invoke(damage);
+            DamageCollecting?.Invoke(damage);
         }
 
         private void LifeCollect(int life)
         {
             Debug.Log($"life {life}");
-            OnLifeCollect?.Invoke(life);
+            LifeCollecting?.Invoke(life);
         }
     }
 }
