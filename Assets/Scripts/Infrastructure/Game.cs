@@ -5,6 +5,7 @@ using Input;
 using PlayerScripts;
 using Services.Input;
 using Services.Pools;
+using UnityEditor;
 using UnityEngine;
 
 namespace Infrastructure
@@ -39,6 +40,16 @@ namespace Infrastructure
             GamePlayerData gamePlayerData = new GamePlayerData(playerData);
             gamePlayerData.InitializeGamePlayerData();
             return gamePlayerData;
+        }
+
+        public static void Pause()
+        {
+            Time.timeScale = 0;
+        }
+
+        public static void Resume()
+        {
+            Time.timeScale = 1;
         }
 
     }

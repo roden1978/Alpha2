@@ -10,6 +10,7 @@ namespace Infrastructure
         public int CurrentHealth;
         public int CurrentFruitScoresAmount;
         public int CurrentCrystalsAmount;
+        public int CurrentScene;
         
         public GamePlayerData(PlayerData playerData)
         {
@@ -22,6 +23,7 @@ namespace Infrastructure
             CurrentCrystalsAmount = _playerData.CrystalsAmount;
             CurrentLivesAmount = _playerData.LivesAmount;
             CurrentFruitScoresAmount = _playerData.FruitScoresAmount;
+            CurrentScene = _playerData.SceneIndex;
         }
     }
 }
