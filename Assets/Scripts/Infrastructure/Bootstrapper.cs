@@ -1,5 +1,3 @@
-using System;
-using GameScripts;
 using Infrastructure;
 using UnityEngine;
 

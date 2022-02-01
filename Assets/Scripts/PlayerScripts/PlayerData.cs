@@ -9,5 +9,6 @@ namespace PlayerScripts
         public int Health;
         public int FruitScoresAmount;
         public int CrystalsAmount;
+        public int SceneIndex = 1;
     }
 }

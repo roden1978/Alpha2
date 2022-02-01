@@ -1,18 +1,22 @@
+using Infrastructure;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField] private Button _startButton;
+        [SerializeField] private ScenesPrincipal _principal;
         private void Start()
         {
-            Time.timeScale = 0;
+            _startButton.onClick.AddListener(OnStartButton);
         }
 
-        public void OnStartButton()
+        private void OnStartButton()
         {
             gameObject.SetActive(false);
-            Time.timeScale = 1;
+            _principal.LoadLevel(Game.GamePlayerData.CurrentScene);
         }
     }
 }
