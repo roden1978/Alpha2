@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 181932484823767669}
   - component: {fileID: 181932484823767671}
   - component: {fileID: 181932484823767668}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181932485518723182}
   - component: {fileID: 786348098266031477}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: FireTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
