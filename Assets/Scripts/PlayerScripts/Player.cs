@@ -1,4 +1,5 @@
 using System;
+using Infrastructure;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -8,8 +9,14 @@ namespace PlayerScripts
     public class Player : MonoBehaviour
     {
        private float _health;
-       public Action Transition; 
-        private void TakeDamage(float delta)
+       public Action Transition;
+
+       private void Start()
+       {
+           _health = Game.GamePlayerData.CurrentHealth;
+       }
+
+       private void TakeDamage(float delta)
         {
             _health -= delta;
         }

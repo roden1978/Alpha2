@@ -29,7 +29,9 @@ namespace GameObjectsScripts
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out InteractableObjectsCollector collector))
+            {
                 collector.Collect(this);
+            }
         }
     }
 }

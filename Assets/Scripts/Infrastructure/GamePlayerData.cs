@@ -11,6 +11,8 @@ namespace Infrastructure
         public int CurrentFruitScoresAmount;
         public int CurrentCrystalsAmount;
         public int CurrentScene;
+        public int MaxHealth;
+        public int MaxBonusLivesCount;
         
         public GamePlayerData(PlayerData playerData)
         {
@@ -24,6 +26,8 @@ namespace Infrastructure
             CurrentLivesAmount = _playerData.LivesAmount;
             CurrentFruitScoresAmount = _playerData.FruitScoresAmount;
             CurrentScene = _playerData.SceneIndex;
+            MaxHealth = _playerData.MaxHealth;
+            MaxBonusLivesCount = _playerData.MaxBonusLivesCount;
         }
     }
 }

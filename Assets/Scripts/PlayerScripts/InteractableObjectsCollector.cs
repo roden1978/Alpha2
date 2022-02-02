@@ -19,11 +19,11 @@ namespace PlayerScripts
         {
             _actions = new Dictionary<Type, Action<int>>
             {
-                {typeof(Crystal), CrystalCollect},
-                {typeof(Fruit), FruitCollect},
-                {typeof(Food), FoodCollect},
-                {typeof(Bullet), DamageCollect},
-                {typeof(Life), LifeCollect}
+                { typeof(Crystal), CrystalCollect },
+                { typeof(Fruit), FruitCollect },
+                { typeof(Food), FoodCollect },
+                { typeof(Bullet), DamageCollect },
+                { typeof(Life), LifeCollect }
             };
         }
 
@@ -39,7 +39,6 @@ namespace PlayerScripts
 
         private void CrystalCollect(int crystals)
         {
-            Debug.Log($"crystals {crystals}");
             CrystalCollecting?.Invoke(crystals);
         }
 
@@ -50,19 +49,17 @@ namespace PlayerScripts
 
         private void FoodCollect(int health)
         {
-            Debug.Log($"health {health}");
             FoodCollecting?.Invoke(health);
         }
 
         private void DamageCollect(int damage)
         {
-            Debug.Log($"damage {damage}");
+            Debug.Log($"Damage {damage.ToString()}");
             DamageCollecting?.Invoke(damage);
         }
 
         private void LifeCollect(int life)
         {
-            Debug.Log($"life {life}");
             LifeCollecting?.Invoke(life);
         }
     }
