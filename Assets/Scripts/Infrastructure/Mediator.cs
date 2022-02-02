@@ -9,17 +9,20 @@ namespace Infrastructure
         [SerializeField] private InteractableObjectsCollector _interactableObjectsCollector;
         [SerializeField] private Hud _hud;
         [SerializeField] private Button _pauseButton;
+        [SerializeField] private ScenesPrincipal _principal;
         private const int BonusScores = 1000;
         private const int BonusCrystals = 10;
         private GamePlayerData _gamePlayerData;
+
         private void Start()
         {
             _interactableObjectsCollector.FruitCollecting += OnFruitCollecting;
             _interactableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting += OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting += OnLivesCollecting;
+            _principal.UpdateHud += UpdateHud;
             _gamePlayerData = Game.GamePlayerData;
-            StartHud(Game.GamePlayerData);
+            UpdateHud();
             _pauseButton.onClick.AddListener(OnGamePause);
         }
 
@@ -29,6 +32,7 @@ namespace Infrastructure
             _interactableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting -= OnLivesCollecting;
+            _principal.UpdateHud -= UpdateHud;
         }
 
         private void OnLivesCollecting(int amount)
@@ -58,9 +62,18 @@ namespace Infrastructure
 
         private void InitializeBonusLifeAmount(int currentLivesAmount)
         {
-            for (int i = 0; i < currentLivesAmount; i++)
+            if (_hud.LivesPanel.transform.childCount != Game.GamePlayerData.CurrentLivesAmount)
             {
-                Instantiate(_hud.LivesPanel.BonusLifeUI, _hud.LivesPanel.transform);
+                var items = _hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
+                foreach (Component item in items)
+                {
+                    Destroy(item.gameObject);
+                }
+
+                for (int i = 0; i < currentLivesAmount; i++)
+                {
+                    Instantiate(_hud.LivesPanel.BonusLifeUI, _hud.LivesPanel.transform);
+                }
             }
         }
 
@@ -100,13 +113,14 @@ namespace Infrastructure
             _hud.FruitsAmount.text = amount.ToString();
         }
 
-        private void StartHud(GamePlayerData gamePlayerData)
+        private void UpdateHud()
         {
-            UpdateFruitAmount(gamePlayerData.CurrentFruitScoresAmount);
-            UpdateCrystalsAmount(gamePlayerData.CurrentCrystalsAmount);
-            InitializeBonusLifeAmount(gamePlayerData.CurrentLivesAmount);
-            UpdateHealthBar(gamePlayerData.CurrentHealth);
+            UpdateFruitAmount(_gamePlayerData.CurrentFruitScoresAmount);
+            UpdateCrystalsAmount(_gamePlayerData.CurrentCrystalsAmount);
+            InitializeBonusLifeAmount(_gamePlayerData.CurrentLivesAmount);
+            UpdateHealthBar(_gamePlayerData.CurrentHealth);
         }
+        
 
         private void OnGamePause()
         {

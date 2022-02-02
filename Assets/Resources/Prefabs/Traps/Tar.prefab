@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4350192382224346}
   - component: {fileID: 212006725909975618}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble_0000 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4102974877033692}
   - component: {fileID: 212765526318253902}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble_0000 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4388552420736366}
   - component: {fileID: 212623397558748548}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble_0000 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 4976087851456080}
   - component: {fileID: 212286817402464634}
   - component: {fileID: 95824408829227632}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4044953442872930}
   - component: {fileID: 212804338351525222}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble_0000 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545896243736216}
   - component: {fileID: 212472371732457198}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Water_Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4308314866018068}
   - component: {fileID: 212612245766411666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bubble_0000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 4334263990546180}
   - component: {fileID: -4996259678047168444}
   - component: {fileID: 1640189783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

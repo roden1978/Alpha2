@@ -155,6 +155,7 @@ MonoBehaviour:
   _interactableObjectsCollector: {fileID: 1643596027}
   _hud: {fileID: 881122147}
   _pauseButton: {fileID: 118878936}
+  _principal: {fileID: 783650857}
 --- !u!4 &622636
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,6 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1909227714}
   _fader: {fileID: 621090647}
+  _camera: {fileID: 978535280}
 --- !u!4 &783650858
 Transform:
   m_ObjectHideFlags: 0

@@ -1,11 +1,6 @@
-using System.Collections.Generic;
-using Common;
-using GameObjectsScripts;
 using Input;
 using PlayerScripts;
 using Services.Input;
-using Services.Pools;
-using UnityEditor;
 using UnityEngine;
 
 namespace Infrastructure

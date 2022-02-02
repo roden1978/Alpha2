@@ -10,20 +10,37 @@ namespace PlayerScripts
     {
        private float _health;
        public Action Transition;
+       public Action Death;
 
        private void Start()
        {
            _health = Game.GamePlayerData.CurrentHealth;
        }
 
-       private void TakeDamage(float delta)
+       public void TakeDamage(float delta)
         {
             _health -= delta;
+            if(_health < 0)
+            {
+                Game.GamePlayerData.CurrentLivesAmount -= 1;
+                if(Game.GamePlayerData.CurrentLivesAmount < 0) Debug.Log("GameOver");
+                Death?.Invoke();
+            }
         }
 
         public void TransitionToNextScene()
         {
+            SaveProgress();
             Transition?.Invoke();
+        }
+
+        private void SaveProgress()
+        {
+            Game.PlayerData.Health = Game.GamePlayerData.CurrentHealth;
+            Game.PlayerData.CrystalsAmount = Game.GamePlayerData.CurrentCrystalsAmount;
+            Game.PlayerData.FruitScoresAmount = Game.GamePlayerData.CurrentFruitScoresAmount;
+            Game.GamePlayerData.CurrentLivesAmount = Game.GamePlayerData.CurrentLivesAmount;
+            Game.PlayerData.SceneIndex = Game.GamePlayerData.CurrentScene;
         }
         
     }
