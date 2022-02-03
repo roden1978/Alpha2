@@ -1,6 +1,6 @@
 ﻿namespace GameObjectsScripts
 {
-    public interface ISwitchable
+    public interface IShowable
     {
         public void Show();
         public void Hide();

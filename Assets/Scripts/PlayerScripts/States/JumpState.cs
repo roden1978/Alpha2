@@ -16,7 +16,6 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
-            //_player.OnShoot += Shoot;
             _animator.SetBool(PlayerAnimationConstants.Jump, true);
         }
 

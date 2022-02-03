@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 993597815508040516}
   - component: {fileID: 7335992753901305778}
+  - component: {fileID: 6011203490932415058}
+  - component: {fileID: 1547285455976333456}
   m_Layer: 6
   m_Name: DoubleJumpSign
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 339413555610667722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.7950001, y: -0.37100005, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 1085142949364207501}
   m_RootOrder: 1
@@ -82,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6011203490932415058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339413555610667722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8771f54f1ceba43a00defc954c8fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1547285455976333456
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339413555610667722}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c26ff43359a084248910853862653326, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &424154484666172631
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +288,7 @@ MonoBehaviour:
   _maxVelocity: 4
   _jumpForce: 6.5
   _damping: {x: 0.3, y: 4}
+  _doubleSingWaitTime: 0
 --- !u!1 &1085142949364207504
 GameObject:
   m_ObjectHideFlags: 0

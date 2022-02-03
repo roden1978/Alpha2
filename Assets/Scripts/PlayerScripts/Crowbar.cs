@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Common;
 using Infrastructure;
@@ -14,6 +15,7 @@ namespace PlayerScripts
         [SerializeField] private float _maxVelocity;
         [SerializeField] private float _jumpForce;
         [SerializeField] private Vector2 _damping;
+        [SerializeField] [Range(1f, 1.5f)]private float _doubleSingWaitTime;
         
         private Player _player;
         private StateMachine _stateMachine;
@@ -24,8 +26,11 @@ namespace PlayerScripts
         private Animator _animator;
         private IDipstick _dipstick;
         private PlayerStateData _playerStateData;
+        private DoubleJumpSign _doubleJumpSign;
+        private WaitForSeconds _waitForSeconds;
 
         private bool _doubleJump;
+        
 
         private void Awake()
         {
@@ -37,6 +42,7 @@ namespace PlayerScripts
         {
             _dipstick = new Dipstick(_player);
             _playerView = _player.GetComponentInChildren<PlayerView>();
+            _doubleJumpSign = _playerView.GetComponentInChildren<DoubleJumpSign>();
             _flipView = new FlipView(_playerView);
             _animator = _player.GetComponentInChildren<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -59,6 +65,8 @@ namespace PlayerScripts
                 { typeof(WalkThrowState), new WalkThrowState(_animator) },
                 { typeof(WalkProxyState), new WalkProxyState(_animator) }
             });
+            
+            _waitForSeconds = new WaitForSeconds(_doubleSingWaitTime);
         }
 
         private void Update()
@@ -84,7 +92,6 @@ namespace PlayerScripts
             {
                 if (Mathf.Abs(_rigidbody.velocity.magnitude) > _maxVelocity) return;
                 _rigidbody.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
-                _doubleJump = true;
             }
         }
 
@@ -93,6 +100,7 @@ namespace PlayerScripts
             if (StayOnGround())
             {
                 AddForceToJump();
+                StartCoroutine(DoubleJumpSignShow());
                 _doubleJump = true;
             }
             else
@@ -103,8 +111,9 @@ namespace PlayerScripts
 
         private void DoubleJump()
         {
-            if (Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0 &&
-                _doubleJump)
+            bool canJump = Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0;
+            
+            if (canJump && _doubleJump)
             {
                 AddForceToJump();
                 _doubleJump = false;
@@ -130,8 +139,17 @@ namespace PlayerScripts
 
         private bool StayOnGround()
         {
-            _playerStateData.IsOnGround = _dipstick.Contact();
-            return _playerStateData.IsOnGround;
+            bool result = _dipstick.Contact();
+            _playerStateData.IsOnGround = result;
+            
+            return result;
+        }
+
+        private IEnumerator DoubleJumpSignShow()
+        {
+            _doubleJumpSign.Show();
+            yield return _waitForSeconds;
+            _doubleJumpSign.Hide();
         }
     }
 }

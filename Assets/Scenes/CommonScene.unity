@@ -3700,5 +3700,9 @@ PrefabInstance:
       propertyPath: _principal
       value: 
       objectReference: {fileID: 783650857}
+    - target: {fileID: 6470427447805259431, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
+      propertyPath: _doubleSingWaitTime
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
