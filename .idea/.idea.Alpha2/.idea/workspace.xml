@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/BonusLifeUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/BonusLifeUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LivesPanel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LivesPanel.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/BonusLifeUI.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/BonusLifeUI.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/DoubleJumpSign.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/DoubleJumpSign.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/DoubleJumpSignAnimation.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/DoubleJumpSignAnimation.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/DoubleJumpSignController.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/DoubleJumpSignController.controller.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CommonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CommonScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GamePlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GamePlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Hud.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Hud.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Mediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Mediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InteractableObjectsCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InteractableObjectsCollector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/ISwitchable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/IShowable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/ISwitchable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/IShowable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Crowbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Crowbar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Services/Pools/PooledObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Services/Pools/PooledObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +146,9 @@
       <workItem from="1643695560911" duration="5078000" />
       <workItem from="1643705335027" duration="6814000" />
       <workItem from="1643727316181" duration="4555000" />
+      <workItem from="1643777850837" duration="9046000" />
+      <workItem from="1643817532073" duration="2899000" />
+      <workItem from="1643821077197" duration="6646000" />
     </task>
     <servers />
   </component>
