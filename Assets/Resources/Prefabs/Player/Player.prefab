@@ -272,6 +272,10 @@ MonoBehaviour:
   _poolService: {fileID: 0}
   _pooledObject: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
   _shootPoint: {fileID: 4171628852495872756}
+  _radarDistance: 0
+  _deltaDegree: 0
+  _startDegree: 0
+  _crosshair: {fileID: 0}
 --- !u!114 &6470427447805259431
 MonoBehaviour:
   m_ObjectHideFlags: 0
