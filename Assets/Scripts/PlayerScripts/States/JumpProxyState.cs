@@ -17,7 +17,7 @@ namespace PlayerScripts.States
         {
         }
 
-        public Type Tick()
+        public Type Update()
         {
             if (_animator.GetBool(PlayerAnimationConstants.JumpThrow) &&
                 !_animator.GetBool(PlayerAnimationConstants.Jump)) 
@@ -26,11 +26,6 @@ namespace PlayerScripts.States
             return _animator.GetBool(PlayerAnimationConstants.Jump) == false ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
-        }
-
-        public Type FixedTick()
-        {
-            return typeof(EmptyState);
         }
 
         public void Exit()

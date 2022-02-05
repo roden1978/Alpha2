@@ -6,7 +6,7 @@ namespace Common
     public interface IState
     {
         public void Enter();
-        public Type Tick();
+        public Type Update();
         public void Exit();
     }
     

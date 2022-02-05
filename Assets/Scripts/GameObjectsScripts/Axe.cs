@@ -10,13 +10,12 @@ namespace GameObjectsScripts
         [SerializeField] private float _speed;
         [SerializeField] private int _lifeTime;
 
-        private Coroutine _coroutine;
         public float Speed => _speed;
         public int Damage => _damage;
 
-        private void Start()
+        private void OnEnable()
         {
-            _coroutine = StartCoroutine(LifeTime(_lifeTime));
+            StartCoroutine(LifeTime(_lifeTime));
         }
 
         public override void ReturnToPool()
@@ -27,7 +26,6 @@ namespace GameObjectsScripts
         private IEnumerator LifeTime(int lifeTime)
         {
             yield return new WaitForSeconds(lifeTime);
-            StopCoroutine(_coroutine);
             ReturnToPool();
         }
     }

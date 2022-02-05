@@ -18,7 +18,7 @@ namespace PlayerScripts.States
         {
         }
 
-        public Type Tick()
+        public Type Update()
         {
             if (Mathf.Abs(_rigidbody.velocity.x) > _playerStateData.Damping.x)
                 return typeof(WalkState);

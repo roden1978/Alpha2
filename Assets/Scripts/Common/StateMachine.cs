@@ -18,7 +18,7 @@ namespace Common
 
         public void Update()
         { 
-            Type state = GetCurrentState()?.Tick();
+            Type state = GetCurrentState()?.Update();
             AnalyzeState(state);
         }
 

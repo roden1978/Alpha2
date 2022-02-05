@@ -18,16 +18,11 @@ namespace PlayerScripts.States
             _animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
         }
 
-        public Type Tick()
+        public Type Update()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
-        }
-
-        public Type FixedTick()
-        {
-            return typeof(EmptyState);
         }
 
         public void Exit()

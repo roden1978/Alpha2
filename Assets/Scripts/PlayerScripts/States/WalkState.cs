@@ -24,7 +24,7 @@ namespace PlayerScripts.States
         }
 
        
-        public Type Tick()
+        public Type Update()
         {
             if (_playerStateData.IsShoot) 
             {

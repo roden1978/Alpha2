@@ -17,7 +17,7 @@ namespace PlayerScripts.States
         {
         }
 
-        public Type Tick()
+        public Type Update()
         {
             if (_animator.GetBool(PlayerAnimationConstants.WalkThrow) &&
                 !_animator.GetBool(PlayerAnimationConstants.Walk)) return typeof(WalkThrowState);
@@ -25,11 +25,6 @@ namespace PlayerScripts.States
             return _animator.GetBool(PlayerAnimationConstants.Walk) == false ? 
                 typeof(IdleState) : 
                 typeof(EmptyState);
-        }
-
-        public Type FixedTick()
-        {
-            return typeof(EmptyState);
         }
 
         public void Exit()
