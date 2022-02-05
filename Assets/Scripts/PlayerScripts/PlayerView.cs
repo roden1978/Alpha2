@@ -4,11 +4,11 @@ namespace PlayerScripts
 {
     public class PlayerView : MonoBehaviour
     {
-        [SerializeField] private ShootPoint _shootPoint;
+        [SerializeField] private Throw _throw;
 
         public void ThrowWeapon()
         {
-            _shootPoint.Throw();
+            _throw.ThrowWeapon();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace PlayerScripts.States
             _animator.SetBool(PlayerAnimationConstants.Jump, true);
         }
 
-        public Type Tick()
+        public Type Update()
         {
             if (_playerStateData.IsShoot) 
             {

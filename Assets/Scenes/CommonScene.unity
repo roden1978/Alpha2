@@ -3693,9 +3693,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625860390184953952, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
+      propertyPath: _deltaDegree
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625860390184953952, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
       propertyPath: _poolService
       value: 
       objectReference: {fileID: 808168702}
+    - target: {fileID: 4625860390184953952, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
+      propertyPath: _startDegree
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625860390184953952, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
+      propertyPath: _radarDistance
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4755137219272357230, guid: 1064e120b0470ed429593eba15ee875a, type: 3}
       propertyPath: _principal
       value: 
