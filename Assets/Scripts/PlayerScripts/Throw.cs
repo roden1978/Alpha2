@@ -12,6 +12,7 @@ namespace PlayerScripts
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
         [SerializeField] [Range(1, 10)] private int _deltaDegree;
         [SerializeField] [Range(45, 90)] private int _startDegree;
+        [SerializeField] [Range(1, 3)] private int _releaseDistance;
         [SerializeField] private Crosshair _crosshair;
         private SpriteRenderer _spriteRenderer;
         private Radar _radar;
@@ -22,7 +23,7 @@ namespace PlayerScripts
         private void Start()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _radar = new Radar(_radarDistance, _deltaDegree, _startDegree);
+            _radar = new Radar(_radarDistance, _deltaDegree, _startDegree, _releaseDistance);
         }
         private void Update()
         {

@@ -11,7 +11,8 @@ namespace PlayerScripts
         private readonly int _delta;
         private readonly int _endDegree;
         private readonly int _degree;
-        
+        private readonly int _releaseDistance;
+
         private int _currentDegree;
         
         private Vector3 _direction;
@@ -19,10 +20,11 @@ namespace PlayerScripts
         
         private bool _clockwise;
         
-        public Radar(float distance, int delta, int degree)
+        public Radar(float distance, int delta, int degree, int releaseDistance)
         {
             _distance = distance;
             _degree = degree;
+            _releaseDistance = releaseDistance;
             _endDegree = FullDegree - _degree;
             _currentDegree = _degree;
             _delta = delta;
@@ -38,11 +40,10 @@ namespace PlayerScripts
             if (_currentHit != Vector2.zero)
             {
                 Vector2 direction = (_currentHit - new Vector2(position.x * lookDirection, position.y));
-                hit = Physics2D.Raycast(position, direction, _distance,
-                    EnemyLayerMask);
+                hit = Physics2D.Raycast(position, direction, _distance, EnemyLayerMask);
             }
             
-            if(hit.collider != null)
+            if(hit.collider != null && Vector2.Distance(position, hit.point) > _releaseDistance)
             {
                 _currentHit = hit.point;
                 return _currentHit;
