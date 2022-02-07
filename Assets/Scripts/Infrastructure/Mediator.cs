@@ -1,4 +1,5 @@
 ﻿using PlayerScripts;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,11 @@ namespace Infrastructure
     {
         [SerializeField] private InteractableObjectsCollector _interactableObjectsCollector;
         [SerializeField] private Hud _hud;
-        [SerializeField] private Button _pauseButton;
+        [SerializeField] private ControlPanel _controlPanel;
         [SerializeField] private ScenesPrincipal _principal;
+        [SerializeField] private Crowbar _crowbar;
+        [SerializeField] private Button _pauseButton;
+        [SerializeField] private Button _shootButton;
         private const int BonusScores = 1000;
         private const int BonusCrystals = 10;
         private GamePlayerData _gamePlayerData;
@@ -23,7 +27,15 @@ namespace Infrastructure
             _principal.UpdateHud += UpdateHud;
             _gamePlayerData = Game.GamePlayerData;
             UpdateHud();
+            _shootButton.onClick.AddListener(OnShoot);
             _pauseButton.onClick.AddListener(OnGamePause);
+            if(Game.Mobile)
+                _controlPanel.Show();
+        }
+
+        private void OnShoot()
+        {
+            _crowbar.Shoot();
         }
 
         private void OnDestroy()

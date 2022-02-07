@@ -132,7 +132,7 @@ namespace PlayerScripts
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        private void Shoot()
+        public void Shoot()
         {
             _playerStateData.IsShoot = true;
         }

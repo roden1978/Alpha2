@@ -7,12 +7,15 @@ namespace Common
     public sealed class StateMachine
     {
         private Dictionary<Type, IState> _availableStates;
-        private Stack<IState> _stack;
-        
+        private readonly Stack<IState> _stack;
+
+        public StateMachine()
+        {
+            _stack = new Stack<IState>();
+        }
         public void Initialize(Dictionary<Type, IState> states)
         {
             _availableStates = states;
-            _stack = new Stack<IState>();
             PushState(_availableStates.Values.First().GetType());
         }
 
@@ -27,11 +30,11 @@ namespace Common
             if (state == typeof(EmptyState)
                 || state == GetCurrentState()?.GetType()) return;
             
-            CompletionAndDeleteCurrentState();
+            CompletionAndRemoveCurrentState();
             PushState(state);
         }
 
-        private void CompletionAndDeleteCurrentState()
+        private void CompletionAndRemoveCurrentState()
         {
             GetCurrentState()?.Exit();
             PopState();
@@ -45,7 +48,7 @@ namespace Common
 
         private void PopState() => _stack?.Pop();
 
-        private IState GetCurrentState() => _stack?.FirstOrDefault();
+        private IState GetCurrentState() => _stack?.Peek();
     }
     
 }
