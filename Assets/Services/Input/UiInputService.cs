@@ -1,8 +1,7 @@
 using System;
-using Services.Input;
 using UnityEngine;
 
-namespace Input
+namespace Services.Input
 {
     public class UiInputService : IDisposable, IInputService
     {

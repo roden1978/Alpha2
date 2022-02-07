@@ -10,6 +10,7 @@ namespace Infrastructure
         public static IInputService InputService;
         public static PlayerData PlayerData;
         public static GamePlayerData GamePlayerData;
+        public static bool Mobile;
         public Game()
         {
             RegisterInputService();
@@ -22,7 +23,10 @@ namespace Infrastructure
             if (Application.isEditor)
                 InputService = new KeyboardInputService();
             else
+            {
                 InputService = new UiInputService();
+                Mobile = true;
+            }
         }
 
         private PlayerData CreatePlayerData()
