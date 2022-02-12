@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour
 {
-    [SerializeField] private ScenesPrincipal _principal;
+    /*[SerializeField] private SceneLoader _principal;
     [SerializeField] private Player _player;
     private AsyncOperation _operation;
     private void Start()
@@ -20,5 +20,5 @@ public class Transition : MonoBehaviour
         _operation = _principal.LoadLevel(newSceneIndex);
         Game.GamePlayerData.CurrentScene = newSceneIndex;
         _principal.LevelStart(_operation);
-    }
+    }*/
 }

@@ -272,10 +272,11 @@ MonoBehaviour:
   _poolService: {fileID: 0}
   _pooledObject: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
   _shootPoint: {fileID: 4171628852495872756}
-  _radarDistance: 0
-  _deltaDegree: 0
-  _startDegree: 0
-  _crosshair: {fileID: 0}
+  _radarDistance: 8
+  _deltaDegree: 1
+  _startDegree: 45
+  _releaseDistance: 2
+  _crosshair: {fileID: 1154161320125755912, guid: af957f851db69134e81c57a8303ee834, type: 3}
 --- !u!114 &6470427447805259431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +293,7 @@ MonoBehaviour:
   _maxVelocity: 4
   _jumpForce: 6.5
   _damping: {x: 0.3, y: 4}
-  _doubleSingWaitTime: 0
+  _doubleSingWaitTime: 1.2
 --- !u!1 &1085142949364207504
 GameObject:
   m_ObjectHideFlags: 0

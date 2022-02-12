@@ -10,7 +10,7 @@ namespace Infrastructure
         [SerializeField] private InteractableObjectsCollector _interactableObjectsCollector;
         [SerializeField] private Hud _hud;
         [SerializeField] private ControlPanel _controlPanel;
-        [SerializeField] private ScenesPrincipal _principal;
+        [SerializeField] private SceneLoader _principal;
         [SerializeField] private Crowbar _crowbar;
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _shootButton;
