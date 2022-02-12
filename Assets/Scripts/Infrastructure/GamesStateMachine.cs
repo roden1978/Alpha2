@@ -17,6 +17,7 @@ namespace Infrastructure
                 [typeof(InputInitializeState)] = new InputInitializeState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this),
+                [typeof(PositionPlayerState)] = new PositionPlayerState(this),
                 [typeof(CreateHudState)] = new CreateHudState(this),
             };
         }

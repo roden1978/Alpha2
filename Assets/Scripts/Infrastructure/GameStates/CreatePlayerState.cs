@@ -1,5 +1,6 @@
 ﻿using System;
 using Common;
+using PlayerScripts;
 using UnityEngine;
 
 namespace Infrastructure.GameStates
@@ -14,14 +15,15 @@ namespace Infrastructure.GameStates
         }
         public void Enter(string path)
         {
-            GameObject player = CreatePlayer(path, OnLoaded);
+            CreatePlayer(path, OnLoaded);
         }
 
-        private static GameObject CreatePlayer(string path, Action onLoaded)
+        private static void CreatePlayer(string path, Action<Player> onLoaded)
         {
             GameObject playerPrefab = Resources.Load<GameObject>(path);
-            onLoaded?.Invoke();
-            return UnityEngine.Object.Instantiate(playerPrefab);
+            Player player = UnityEngine.Object.Instantiate(playerPrefab).GetComponent<Player>();
+            //player.gameObject.SetActive(false);
+            onLoaded?.Invoke(player);
         }
 
         public Type Update()
@@ -34,9 +36,9 @@ namespace Infrastructure.GameStates
             
         }
 
-        private void OnLoaded()
+        private void OnLoaded(Player player)
         {
-            _stateMachine.Enter<CreateHudState, string>(@"Prefabs/UI/HUD");
+            _stateMachine.Enter<PositionPlayerState, Player>(player);
         }
         
     }
