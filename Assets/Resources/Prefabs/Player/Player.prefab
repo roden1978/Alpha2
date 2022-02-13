@@ -172,7 +172,6 @@ GameObject:
   - component: {fileID: 1085142949310770209}
   - component: {fileID: 7286059842400962694}
   - component: {fileID: 4625860390184953952}
-  - component: {fileID: 6470427447805259431}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -269,30 +268,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42bdd7586b551f4b87629f82415f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolService: {fileID: 0}
+  PoolService: {fileID: 0}
+  Crosshair: {fileID: 0}
   _pooledObject: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
   _shootPoint: {fileID: 4171628852495872756}
-  _radarDistance: 0
-  _deltaDegree: 0
-  _startDegree: 0
-  _crosshair: {fileID: 0}
---- !u!114 &6470427447805259431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085142949310770213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c3b0b4350284ed0adfe3a03e483a340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1
-  _maxVelocity: 4
-  _jumpForce: 6.5
-  _damping: {x: 0.3, y: 4}
-  _doubleSingWaitTime: 0
+  _radarDistance: 8
+  _deltaDegree: 1
+  _startDegree: 45
+  _releaseDistance: 2
 --- !u!1 &1085142949364207504
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using Input;
 using PlayerScripts;
 using Services.Input;
 using UnityEngine;
@@ -11,23 +10,16 @@ namespace Infrastructure
         public static PlayerData PlayerData;
         public static GamePlayerData GamePlayerData;
         public static bool Mobile;
-        public Game()
+        public GamesStateMachine GamesStateMachine;
+
+        public Game(ICoroutineRunner coroutineRunner)
         {
-            RegisterInputService();
+            GamesStateMachine = new GamesStateMachine(new SceneLoader(coroutineRunner));
             PlayerData = CreatePlayerData();
             GamePlayerData = InitializeGamePlayerData(PlayerData);
         }
         
-        private void RegisterInputService()
-        {
-            if (Application.isEditor)
-                InputService = new KeyboardInputService();
-            else
-            {
-                InputService = new UiInputService();
-                Mobile = true;
-            }
-        }
+        
 
         private PlayerData CreatePlayerData()
         {

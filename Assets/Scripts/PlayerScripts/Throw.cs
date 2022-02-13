@@ -6,14 +6,16 @@ namespace PlayerScripts
 {
     public class Throw : MonoBehaviour
     {
-        [SerializeField] private PoolService _poolService;
+        public PoolService PoolService;
+        public Crosshair Crosshair;
+        
         [SerializeField] private Axe _pooledObject;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
         [SerializeField] [Range(1, 10)] private int _deltaDegree;
         [SerializeField] [Range(45, 90)] private int _startDegree;
         [SerializeField] [Range(1, 3)] private int _releaseDistance;
-        [SerializeField] private Crosshair _crosshair;
+        
         private SpriteRenderer _spriteRenderer;
         private Radar _radar;
         private float _lastDirection = Vector2.right.x;
@@ -43,7 +45,7 @@ namespace PlayerScripts
 
         public void ThrowWeapon()
         {
-            PooledObject weapon = _poolService.GetPooledObject(_pooledObject.GetType());
+            PooledObject weapon = PoolService.GetPooledObject(_pooledObject.GetType());
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 Vector3 position = _shootPoint.transform.position;
@@ -71,12 +73,12 @@ namespace PlayerScripts
         {
             if(_crosshairPrevPosition != position && position != Vector2.zero)
             {
-                _crosshair.transform.position = position;
-                _crosshair.Show();
+                Crosshair.transform.position = position;
+                Crosshair.Show();
             }
             
-            if(_crosshair.gameObject.activeInHierarchy && position == Vector2.zero)
-                _crosshair.Hide();
+            if(Crosshair.gameObject.activeInHierarchy && position == Vector2.zero)
+                Crosshair.Hide();
 
             _crosshairPrevPosition = position;
         }

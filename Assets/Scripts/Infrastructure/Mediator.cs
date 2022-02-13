@@ -10,7 +10,7 @@ namespace Infrastructure
         [SerializeField] private InteractableObjectsCollector _interactableObjectsCollector;
         [SerializeField] private Hud _hud;
         [SerializeField] private ControlPanel _controlPanel;
-        [SerializeField] private ScenesPrincipal _principal;
+        [SerializeField] private SceneLoader _principal;
         [SerializeField] private Crowbar _crowbar;
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _shootButton;
@@ -24,7 +24,7 @@ namespace Infrastructure
             _interactableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting += OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting += OnLivesCollecting;
-            _principal.UpdateHud += UpdateHud;
+            //_principal.UpdateHud += UpdateHud;
             _gamePlayerData = Game.GamePlayerData;
             UpdateHud();
             _shootButton.onClick.AddListener(OnShoot);
@@ -44,7 +44,7 @@ namespace Infrastructure
             _interactableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting -= OnLivesCollecting;
-            _principal.UpdateHud -= UpdateHud;
+            //_principal.UpdateHud -= UpdateHud;
         }
 
         private void OnLivesCollecting(int amount)
