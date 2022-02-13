@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour
 {
-    /*[SerializeField] private SceneLoader _principal;
+    /*private ISceneLoader _sceneLoader;
     [SerializeField] private Player _player;
     private AsyncOperation _operation;
     private void Start()
     {
         _player.Transition += Transit;
+        //_sceneLoader = new SceneLoader()
     }
 
     private void Transit()
