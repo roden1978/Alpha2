@@ -6,7 +6,7 @@ namespace PlayerScripts
 {
     public class Throw : MonoBehaviour
     {
-        [SerializeField] private PoolService _poolService;
+        public PoolService PoolService;
         [SerializeField] private Axe _pooledObject;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
@@ -43,7 +43,7 @@ namespace PlayerScripts
 
         public void ThrowWeapon()
         {
-            PooledObject weapon = _poolService.GetPooledObject(_pooledObject.GetType());
+            PooledObject weapon = PoolService.GetPooledObject(_pooledObject.GetType());
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 Vector3 position = _shootPoint.transform.position;

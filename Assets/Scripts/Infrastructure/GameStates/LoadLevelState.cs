@@ -1,16 +1,14 @@
 ﻿using System;
 using Common;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
     public class LoadLevelState : IPayloadState<int>
     {
-        private readonly SceneLoader _sceneLoader;
+        private readonly ISceneLoader _sceneLoader;
         private readonly GamesStateMachine _stateMachine;
         
-        public LoadLevelState(GamesStateMachine stateMachine, SceneLoader sceneLoader)
+        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
             _stateMachine = stateMachine;
@@ -32,7 +30,7 @@ namespace Infrastructure.GameStates
         
         private void OnLoaded()
         {
-            _stateMachine.Enter<CreatePlayerState, string>(@"Prefabs/Player/Player");
+            _stateMachine.Enter<InitializePoolState, string>(@"Prefabs/Common/PlayersPools");
         }
         
     }

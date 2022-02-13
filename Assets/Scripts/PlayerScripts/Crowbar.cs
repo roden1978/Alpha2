@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Common;
 using Infrastructure;
 using PlayerScripts.States;
@@ -15,9 +15,9 @@ namespace PlayerScripts
         [SerializeField] private float _maxVelocity;
         [SerializeField] private float _jumpForce;
         [SerializeField] private Vector2 _damping;
-        [SerializeField] [Range(1f, 1.5f)]private float _doubleSingWaitTime;
-        
-        private Player _player;
+        private const int DoubleSingWaitTime = 1200;
+
+        public Player Player;
         private StateMachine _stateMachine;
         private IInputService _inputService;
         private PlayerView _playerView;
@@ -27,25 +27,23 @@ namespace PlayerScripts
         private IDipstick _dipstick;
         private PlayerStateData _playerStateData;
         private DoubleJumpSign _doubleJumpSign;
-        private WaitForSeconds _waitForSeconds;
 
         private bool _doubleJump;
         
 
         private void Awake()
         {
-            _player = GetComponent<Player>();
             _stateMachine = new StateMachine();
         }
 
         private void Start()
         {
-            _dipstick = new Dipstick(_player);
-            _playerView = _player.GetComponentInChildren<PlayerView>();
-            _doubleJumpSign = _playerView.GetComponentInChildren<DoubleJumpSign>();
+            _dipstick = new Dipstick(Player);
+            _playerView = Player.GetComponentInChildren<PlayerView>();
+            _doubleJumpSign = _playerView.GetComponentInChildren<DoubleJumpSign>(true);
             _flipView = new FlipView(_playerView);
-            _animator = _player.GetComponentInChildren<Animator>();
-            _rigidbody = GetComponent<Rigidbody2D>();
+            _animator = Player.GetComponentInChildren<Animator>();
+            _rigidbody = Player.GetComponent<Rigidbody2D>();
             _inputService = Game.InputService;
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
@@ -65,8 +63,6 @@ namespace PlayerScripts
                 { typeof(WalkThrowState), new WalkThrowState(_animator) },
                 { typeof(WalkProxyState), new WalkProxyState(_animator) }
             });
-            
-            _waitForSeconds = new WaitForSeconds(_doubleSingWaitTime);
         }
 
         private void Update()
@@ -100,7 +96,7 @@ namespace PlayerScripts
             if (StayOnGround())
             {
                 AddForceToJump();
-                StartCoroutine(DoubleJumpSignShow());
+                DoubleJumpSignShow();
                 _doubleJump = true;
             }
             else
@@ -145,11 +141,12 @@ namespace PlayerScripts
             return result;
         }
 
-        private IEnumerator DoubleJumpSignShow()
+        private async void DoubleJumpSignShow()
         {
             _doubleJumpSign.Show();
-            yield return _waitForSeconds;
+            await Task.Delay(DoubleSingWaitTime) ;
             _doubleJumpSign.Hide();
         }
+       
     }
 }

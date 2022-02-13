@@ -11,13 +11,17 @@ namespace Infrastructure
         private void Awake()
         {
             _game = new Game(this);
-            _game.GamesStateMachine.Enter<InputInitializeState>();
             DontDestroyOnLoad(this);
         }
 
         private void Update()
         {
-            _game.GamesStateMachine.Update();
+            //_game.GamesStateMachine.Update();
+        }
+
+        public void StartGame()
+        {
+            _game.GamesStateMachine.Enter<InputInitializeState>();
         }
     }
 }

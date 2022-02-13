@@ -24,7 +24,7 @@ namespace Infrastructure
             _interactableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting += OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting += OnLivesCollecting;
-            _principal.UpdateHud += UpdateHud;
+            //_principal.UpdateHud += UpdateHud;
             _gamePlayerData = Game.GamePlayerData;
             UpdateHud();
             _shootButton.onClick.AddListener(OnShoot);
@@ -44,7 +44,7 @@ namespace Infrastructure
             _interactableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting -= OnLivesCollecting;
-            _principal.UpdateHud -= UpdateHud;
+            //_principal.UpdateHud -= UpdateHud;
         }
 
         private void OnLivesCollecting(int amount)

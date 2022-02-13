@@ -1,28 +1,30 @@
 ﻿using System;
 using Common;
 using PlayerScripts;
+using Services.Pools;
 using UnityEngine;
 
 namespace Infrastructure.GameStates
 {
-    public class CreatePlayerState : IPayloadState<string>
+    public class CreatePlayerState : IPayloadState<PoolService>
     {
         private readonly GamesStateMachine _stateMachine;
-
+        private const string Path = @"Prefabs/Player/Player";
         public CreatePlayerState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
         }
-        public void Enter(string path)
+        public void Enter(PoolService pool)
         {
-            CreatePlayer(path, OnLoaded);
+            CreatePlayer(pool, OnLoaded);
         }
 
-        private static void CreatePlayer(string path, Action<Player> onLoaded)
+        private static void CreatePlayer(PoolService poolService, Action<Player> onLoaded)
         {
-            GameObject playerPrefab = Resources.Load<GameObject>(path);
+            GameObject playerPrefab = Resources.Load<GameObject>(Path);
             Player player = UnityEngine.Object.Instantiate(playerPrefab).GetComponent<Player>();
-            //player.gameObject.SetActive(false);
+            Throw playerThrow = player.GetComponent<Throw>();
+            playerThrow.PoolService = poolService;
             onLoaded?.Invoke(player);
         }
 

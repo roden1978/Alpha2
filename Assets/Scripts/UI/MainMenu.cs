@@ -7,7 +7,7 @@ namespace UI
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private Button _startButton;
-        //[SerializeField] private SceneLoader _principal;
+        [SerializeField] private Bootstrapper _bootstrapper;
         private void Start()
         {
             _startButton.onClick.AddListener(OnStartButton);
@@ -16,7 +16,7 @@ namespace UI
         private void OnStartButton()
         {
             gameObject.SetActive(false);
-            //_principal.LoadLevel(Game.GamePlayerData.CurrentScene);
+            _bootstrapper.StartGame();
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Infrastructure.GameStates
     public class InputInitializeState : IState
     {
         private readonly GamesStateMachine _stateMachine;
-        private bool isDone = false;
         public InputInitializeState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;

@@ -10,14 +10,16 @@ namespace Infrastructure
         private readonly Dictionary<Type, IUpdateableState> _states;
         private IUpdateableState _activeState;
 
-        public GamesStateMachine(SceneLoader sceneLoader)
+        public GamesStateMachine(ISceneLoader sceneLoader)
         {
             _states = new Dictionary<Type, IUpdateableState>
             {
                 [typeof(InputInitializeState)] = new InputInitializeState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+                [typeof(InitializePoolState)] = new  InitializePoolState(this),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this),
                 [typeof(PositionPlayerState)] = new PositionPlayerState(this),
+                [typeof(CreateCrowbarState)] = new CreateCrowbarState(this),
                 [typeof(CreateHudState)] = new CreateHudState(this),
             };
         }

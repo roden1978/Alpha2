@@ -11,8 +11,9 @@ namespace Infrastructure.GameStates
     public class PositionPlayerState : IPayloadState<Player>
     {
         private readonly GamesStateMachine _stateMachine;
-        private Camera _camera;
+        private readonly Camera _camera;
         private ICinemachineCamera _virtualCamera;
+        private Player _player;
 
         public PositionPlayerState(GamesStateMachine stateMachine)
         {
@@ -21,6 +22,7 @@ namespace Infrastructure.GameStates
         }
         public void Enter(Player player)
         {
+            _player = player;
             PositionPlayer(player, OnLoaded);
         }
 
@@ -41,13 +43,13 @@ namespace Infrastructure.GameStates
             _virtualCamera = await GetVCamera();
             _virtualCamera.Follow = playerTransform;
             _virtualCamera.LookAt = playerTransform;
-            //player.gameObject.SetActive(true);
             onLoaded?.Invoke();
         }
 
         private void OnLoaded()
         {
-            _stateMachine.Enter<CreateHudState, string>(@"Prefabs/UI/HUD");
+            
+            _stateMachine.Enter<CreateCrowbarState, Player>(_player);
         }
         
         private async Task<ICinemachineCamera> GetVCamera()
