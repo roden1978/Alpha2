@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class ControlPanel : MonoBehaviour, IShowable
+    public class ControlsPanel : MonoBehaviour, IShowable
     {
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _shootButton;

@@ -6,30 +6,29 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
-    public class CreateCrowbarState : IPayloadState<Player>
+    public class CreateCrowbarState : IPayloadState<StatesPayload>
     {
         private const string Path = @"Prefabs/Common/Crowbar";
         private readonly GamesStateMachine _stateMachine;
-        private MediatorData _mediatorData;
+        
         public CreateCrowbarState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
-            _mediatorData = new MediatorData();
-
+        
         }
-        public void Enter(Player player)
+        public void Enter(StatesPayload statesPayload)
         {
-            CreateCrowbar(player, OnLoaded);
+            CreateCrowbar(statesPayload, OnLoaded);
         }
 
-        private void CreateCrowbar(Player player, Action<MediatorData> onLoaded)
+        private void CreateCrowbar(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
         {
             GameObject prefab = Resources.Load<GameObject>(Path);
             Crowbar crowbar = Object.Instantiate(prefab).GetComponent<Crowbar>();
-            crowbar.Player = player;
-            _mediatorData.InteractableObjectsCollector = player.GetComponent<InteractableObjectsCollector>();
-            _mediatorData.Crowbar = crowbar;
-            onLoaded?.Invoke(_mediatorData);
+            crowbar.Player = statesPayload.Player;
+            statesPayload.InteractableObjectsCollector = statesPayload.Player.GetComponent<InteractableObjectsCollector>();
+            statesPayload.Crowbar = crowbar;
+            onLoaded?.Invoke(statesPayload);
         }
 
         public Type Update()
@@ -42,9 +41,9 @@ namespace Infrastructure.GameStates
            
         }
 
-        private void OnLoaded(MediatorData mediatorData)
+        private void OnLoaded(StatesPayload statesPayload)
         {
-            _stateMachine.Enter<CreateHudState, MediatorData>(mediatorData);
+            _stateMachine.Enter<CreateHudState, StatesPayload>(statesPayload);
         }
     }
 }

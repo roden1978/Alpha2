@@ -3,19 +3,22 @@ using Common;
 
 namespace Infrastructure.GameStates
 {
-    public class LoadLevelState : IPayloadState<int>
+    public class LoadLevelState : IPayloadState<StatesPayload>
     {
+        private const int DefaultLevelIndex = 1;
         private readonly ISceneLoader _sceneLoader;
         private readonly GamesStateMachine _stateMachine;
+        private StatesPayload _statesPayload;
         
         public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
             _stateMachine = stateMachine;
         }
-        public void Enter(int sceneIndex)
+        public void Enter(StatesPayload statesPayload)
         {
-            _sceneLoader.Load(sceneIndex, OnLoaded);
+            _statesPayload = statesPayload;
+            LoadScene(DefaultLevelIndex, OnLoaded);
         }
 
         public Type Update()
@@ -30,7 +33,12 @@ namespace Infrastructure.GameStates
         
         private void OnLoaded()
         {
-            _stateMachine.Enter<InitializePoolState, string>(@"Prefabs/Common/PlayersPools");
+            _stateMachine.Enter<InitializePoolState, StatesPayload>(_statesPayload);
+        }
+
+        private void LoadScene(int sceneIndex, Action onLoaded)
+        {
+            _sceneLoader.Load(sceneIndex, onLoaded);
         }
         
     }

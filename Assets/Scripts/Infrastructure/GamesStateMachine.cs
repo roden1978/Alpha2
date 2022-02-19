@@ -12,9 +12,11 @@ namespace Infrastructure
 
         public GamesStateMachine(ISceneLoader sceneLoader)
         {
+            StatesPayload statesPayload = new StatesPayload();
             _states = new Dictionary<Type, IUpdateableState>
             {
-                [typeof(InputInitializeState)] = new InputInitializeState(this),
+                [typeof(InputInitializeState)] = new InputInitializeState(this, statesPayload),
+                [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
                 [typeof(InitializePoolState)] = new  InitializePoolState(this),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this),
