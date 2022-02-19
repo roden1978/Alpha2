@@ -5,7 +5,7 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
-    public class CreateMediatorState : IPayloadState<MediatorData>
+    public class CreateMediatorState : IPayloadState<StatesPayload>
     {
         private const string Path = @"Prefabs/Common/Mediator";
         private readonly GamesStateMachine _stateMachine;
@@ -15,9 +15,9 @@ namespace Infrastructure.GameStates
             _stateMachine = stateMachine;
         }
 
-        public void Enter(MediatorData mediatorData)
+        public void Enter(StatesPayload statesPayload)
         {
-            CreateMediator(mediatorData, OnLoaded);
+            CreateMediator(statesPayload, OnLoaded);
         }
 
         private void OnLoaded()
@@ -35,13 +35,14 @@ namespace Infrastructure.GameStates
             throw new NotImplementedException();
         }
 
-        private void CreateMediator(MediatorData mediatorData, Action onLoaded)
+        private void CreateMediator(StatesPayload statesPayload, Action onLoaded)
         {
             GameObject prefab = Resources.Load<GameObject>(Path);
             Mediator mediator = Object.Instantiate(prefab).GetComponent<Mediator>();
-            mediator.InteractableObjectsCollector = mediatorData.InteractableObjectsCollector;
-            mediator.Hud = mediatorData.Hud;
-            mediator.Crowbar = mediatorData.Crowbar;
+            mediator.InteractableObjectsCollector = statesPayload.InteractableObjectsCollector;
+            mediator.Hud = statesPayload.Hud;
+            mediator.Crowbar = statesPayload.Crowbar;
+            mediator.ControlsPanel = statesPayload.ControlsPanel;
             onLoaded?.Invoke();
         }
     }

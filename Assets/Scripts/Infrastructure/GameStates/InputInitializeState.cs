@@ -9,9 +9,12 @@ namespace Infrastructure.GameStates
     public class InputInitializeState : IState
     {
         private readonly GamesStateMachine _stateMachine;
-        public InputInitializeState(GamesStateMachine stateMachine)
+        private readonly StatesPayload _statesPayload;
+        private bool _mobile;
+        public InputInitializeState(GamesStateMachine stateMachine, StatesPayload statesPayload)
         {
             _stateMachine = stateMachine;
+            _statesPayload = statesPayload;
         }
         public void Enter()
         {
@@ -28,23 +31,26 @@ namespace Infrastructure.GameStates
             
         }
 
-        private void RegisterServices(Action callback = null)
+        private void RegisterServices(Action<bool> callback = null)
         {
             Game.InputService = RegisterInputService();
-            callback?.Invoke();
+            callback?.Invoke(_mobile);
         }
         private IInputService RegisterInputService()
         {
             if (Application.isEditor)
                 return new KeyboardInputService();
 
-            Game.Mobile = true;
+            _mobile = true;
             return new UiInputService();
         }
 
-        private void NextState()
+        private void NextState(bool mobile)
         {
-            _stateMachine.Enter<LoadLevelState, int>(1);
+            if (_mobile)
+                _stateMachine.Enter<LoadControlsPanelState, StatesPayload>(_statesPayload);
+            else
+                _stateMachine.Enter<LoadLevelState, StatesPayload>(_statesPayload);
         }
     }
 }

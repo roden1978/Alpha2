@@ -1,7 +1,6 @@
 ﻿using PlayerScripts;
 using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Infrastructure
 {
@@ -10,9 +9,8 @@ namespace Infrastructure
         public InteractableObjectsCollector InteractableObjectsCollector;
         public Hud Hud;
         public Crowbar Crowbar;
-        [SerializeField] private ControlPanel _controlPanel;
-        [SerializeField] private Button _pauseButton;
-        [SerializeField] private Button _shootButton;
+        public ControlsPanel ControlsPanel;
+        
         private const int BonusScores = 1000;
         private const int BonusCrystals = 10;
         private GamePlayerData _gamePlayerData;
@@ -23,13 +21,10 @@ namespace Infrastructure
             InteractableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
             InteractableObjectsCollector.FoodCollecting += OnFoodCollecting;
             InteractableObjectsCollector.LifeCollecting += OnLivesCollecting;
-            //_principal.UpdateHud += UpdateHud;
             _gamePlayerData = Game.GamePlayerData;
             UpdateHud();
-            _shootButton.onClick.AddListener(OnShoot);
-            _pauseButton.onClick.AddListener(OnGamePause);
-            if(Game.Mobile)
-                _controlPanel.Show();
+            if(ControlsPanel != null)
+                ControlsPanel.Show();
         }
 
         private void OnShoot()
@@ -43,7 +38,6 @@ namespace Infrastructure
             InteractableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             InteractableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             InteractableObjectsCollector.LifeCollecting -= OnLivesCollecting;
-            //_principal.UpdateHud -= UpdateHud;
         }
 
         private void OnLivesCollecting(int amount)

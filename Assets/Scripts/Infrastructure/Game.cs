@@ -10,7 +10,6 @@ namespace Infrastructure
         public static PlayerData PlayerData;
         public static GamePlayerData GamePlayerData;
         public static SceneLoader SceneLoader;
-        public static bool Mobile;
         public GamesStateMachine GamesStateMachine;
        
 

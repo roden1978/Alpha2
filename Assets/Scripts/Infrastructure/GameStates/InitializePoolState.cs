@@ -6,18 +6,18 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
-    public class InitializePoolState : IPayloadState<string>
+    public class InitializePoolState : IPayloadState<StatesPayload>
     {
         private readonly GamesStateMachine _stateMachine;
-
+        private const string Path = @"Prefabs/Common/PlayersPools";
         public InitializePoolState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
         }
 
-        public void Enter(string payload)
+        public void Enter(StatesPayload statesPayload)
         {
-            InitializePool(payload, OnLoaded);
+            InitializePool(statesPayload, OnLoaded);
         }
 
         public Type Update()
@@ -30,16 +30,17 @@ namespace Infrastructure.GameStates
             
         }
 
-        private void InitializePool(string payload, Action<PoolService> onLoaded)
+        private void InitializePool(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
         {
-            GameObject prefab = Resources.Load<GameObject>(payload);
+            GameObject prefab = Resources.Load<GameObject>(Path);
             PoolService pool = Object.Instantiate(prefab).GetComponent<PoolService>();
-            onLoaded?.Invoke(pool);
+            statesPayload.Pool = pool;
+            onLoaded?.Invoke(statesPayload);
         }
 
-        private void OnLoaded(PoolService poolService)
+        private void OnLoaded(StatesPayload statesPayload)
         {
-            _stateMachine.Enter<CreatePlayerState, PoolService>(poolService);
+            _stateMachine.Enter<CreatePlayerState, StatesPayload>(statesPayload);
             
         }
     }

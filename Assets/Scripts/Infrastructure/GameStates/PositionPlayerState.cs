@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Resources;
 using System.Threading.Tasks;
 using Cinemachine;
 using Common;
@@ -8,22 +9,20 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
-    public class PositionPlayerState : IPayloadState<Player>
+    public class PositionPlayerState : IPayloadState<StatesPayload>
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly Camera _camera;
         private ICinemachineCamera _virtualCamera;
-        private Player _player;
 
         public PositionPlayerState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
             _camera = Camera.main;
         }
-        public void Enter(Player player)
+        public void Enter(StatesPayload statesPayload)
         {
-            _player = player;
-            PositionPlayer(player, OnLoaded);
+            PositionPlayer(statesPayload, OnLoaded);
         }
 
         public Type Update()
@@ -35,10 +34,10 @@ namespace Infrastructure.GameStates
         {
         }
 
-        private async void PositionPlayer(Component player, Action onLoaded)
+        private async void PositionPlayer(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
         {
             PlayerSpawnPoint spawnPoint = Object.FindObjectOfType<PlayerSpawnPoint>();
-            Transform playerTransform = player.transform;
+            Transform playerTransform = statesPayload.Player.transform;
             playerTransform.position = spawnPoint.transform.position;
             _virtualCamera = await GetVCamera();
             _virtualCamera.VirtualCameraGameObject.SetActive(false);
@@ -46,13 +45,12 @@ namespace Infrastructure.GameStates
             _virtualCamera.Follow = playerTransform;
             _virtualCamera.LookAt = playerTransform;
             _virtualCamera.VirtualCameraGameObject.SetActive(true);
-            onLoaded?.Invoke();
+            onLoaded?.Invoke(statesPayload);
         }
 
-        private void OnLoaded()
+        private void OnLoaded(StatesPayload statesPayload)
         {
-            
-            _stateMachine.Enter<CreateCrowbarState, Player>(_player);
+            _stateMachine.Enter<CreateCrowbarState, StatesPayload>(statesPayload);
         }
         
         private async Task<ICinemachineCamera> GetVCamera()
