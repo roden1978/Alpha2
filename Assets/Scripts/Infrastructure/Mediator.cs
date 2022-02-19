@@ -7,11 +7,10 @@ namespace Infrastructure
 {
     public class Mediator : MonoBehaviour
     {
-        [SerializeField] private InteractableObjectsCollector _interactableObjectsCollector;
-        [SerializeField] private Hud _hud;
+        public InteractableObjectsCollector InteractableObjectsCollector;
+        public Hud Hud;
+        public Crowbar Crowbar;
         [SerializeField] private ControlPanel _controlPanel;
-        [SerializeField] private SceneLoader _principal;
-        [SerializeField] private Crowbar _crowbar;
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _shootButton;
         private const int BonusScores = 1000;
@@ -20,10 +19,10 @@ namespace Infrastructure
 
         private void Start()
         {
-            _interactableObjectsCollector.FruitCollecting += OnFruitCollecting;
-            _interactableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
-            _interactableObjectsCollector.FoodCollecting += OnFoodCollecting;
-            _interactableObjectsCollector.LifeCollecting += OnLivesCollecting;
+            InteractableObjectsCollector.FruitCollecting += OnFruitCollecting;
+            InteractableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
+            InteractableObjectsCollector.FoodCollecting += OnFoodCollecting;
+            InteractableObjectsCollector.LifeCollecting += OnLivesCollecting;
             //_principal.UpdateHud += UpdateHud;
             _gamePlayerData = Game.GamePlayerData;
             UpdateHud();
@@ -35,15 +34,15 @@ namespace Infrastructure
 
         private void OnShoot()
         {
-            _crowbar.Shoot();
+            Crowbar.Shoot();
         }
 
         private void OnDestroy()
         {
-            _interactableObjectsCollector.FruitCollecting -= OnFruitCollecting;
-            _interactableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
-            _interactableObjectsCollector.FoodCollecting -= OnFoodCollecting;
-            _interactableObjectsCollector.LifeCollecting -= OnLivesCollecting;
+            InteractableObjectsCollector.FruitCollecting -= OnFruitCollecting;
+            InteractableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
+            InteractableObjectsCollector.FoodCollecting -= OnFoodCollecting;
+            InteractableObjectsCollector.LifeCollecting -= OnLivesCollecting;
             //_principal.UpdateHud -= UpdateHud;
         }
 
@@ -68,15 +67,15 @@ namespace Infrastructure
 
         private void UpdateBonusLivesCount()
         {
-            Instantiate(_hud.LivesPanel.BonusLifeUI, _hud.LivesPanel.transform);
+            Instantiate(Hud.LivesPanel.BonusLifeUI, Hud.LivesPanel.transform);
         }
 
 
         private void InitializeBonusLifeAmount(int currentLivesAmount)
         {
-            if (_hud.LivesPanel.transform.childCount != Game.GamePlayerData.CurrentLivesAmount)
+            if (Hud.LivesPanel.transform.childCount != Game.GamePlayerData.CurrentLivesAmount)
             {
-                var items = _hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
+                var items = Hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
                 foreach (Component item in items)
                 {
                     Destroy(item.gameObject);
@@ -84,7 +83,7 @@ namespace Infrastructure
 
                 for (int i = 0; i < currentLivesAmount; i++)
                 {
-                    Instantiate(_hud.LivesPanel.BonusLifeUI, _hud.LivesPanel.transform);
+                    Instantiate(Hud.LivesPanel.BonusLifeUI, Hud.LivesPanel.transform);
                 }
             }
         }
@@ -100,7 +99,7 @@ namespace Infrastructure
 
         private void UpdateHealthBar(int currentHealth)
         {
-            _hud.HealthBar.value = (float) currentHealth / _gamePlayerData.MaxHealth;
+            Hud.HealthBar.value = (float) currentHealth / _gamePlayerData.MaxHealth;
         }
 
         private void OnCrystalCollecting(int amount)
@@ -111,7 +110,7 @@ namespace Infrastructure
 
         private void UpdateCrystalsAmount(int amount)
         {
-            _hud.CrystalsAmount.text = amount.ToString();
+            Hud.CrystalsAmount.text = amount.ToString();
         }
 
         private void OnFruitCollecting(int amount)
@@ -122,7 +121,7 @@ namespace Infrastructure
 
         private void UpdateFruitAmount(int amount)
         {
-            _hud.FruitsAmount.text = amount.ToString();
+            Hud.FruitsAmount.text = amount.ToString();
         }
 
         private void UpdateHud()

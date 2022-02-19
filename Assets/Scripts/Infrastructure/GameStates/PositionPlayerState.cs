@@ -41,8 +41,11 @@ namespace Infrastructure.GameStates
             Transform playerTransform = player.transform;
             playerTransform.position = spawnPoint.transform.position;
             _virtualCamera = await GetVCamera();
+            _virtualCamera.VirtualCameraGameObject.SetActive(false);
+            _virtualCamera.VirtualCameraGameObject.transform.position = playerTransform.position;
             _virtualCamera.Follow = playerTransform;
             _virtualCamera.LookAt = playerTransform;
+            _virtualCamera.VirtualCameraGameObject.SetActive(true);
             onLoaded?.Invoke();
         }
 
