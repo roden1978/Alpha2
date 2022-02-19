@@ -5,17 +5,18 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
-    public class CreateHudState : IPayloadState<string>
+    public class CreateHudState : IPayloadState<MediatorData>
     {
         private readonly GamesStateMachine _stateMachine;
+        private const string Path = @"Prefabs/UI/HUD";
 
         public CreateHudState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
         }
-        public void Enter(string path)
+        public void Enter(MediatorData mediatorData)
         {
-            CreateHud(path, OnLoaded);
+            CreateHud(mediatorData: mediatorData, OnLoaded);
         }
 
         public Type Update()
@@ -28,15 +29,17 @@ namespace Infrastructure.GameStates
             
         }
 
-        private static void CreateHud(string path, Action onLoaded)
+        private static void CreateHud(MediatorData mediatorData, Action<MediatorData> onLoaded)
         {
-            GameObject hudPrefab = Resources.Load<GameObject>(path);
-            Object.Instantiate(hudPrefab);
+            GameObject hudPrefab = Resources.Load<GameObject>(Path);
+            Hud hud = Object.Instantiate(hudPrefab).GetComponent<Hud>();
+            mediatorData.Hud = hud;
+            onLoaded?.Invoke(mediatorData);
         }
 
-        private static void OnLoaded()
+        private void OnLoaded(MediatorData mediatorData)
         {
-            
+            _stateMachine.Enter<CreateMediatorState, MediatorData>(mediatorData);
         }
     }
 }

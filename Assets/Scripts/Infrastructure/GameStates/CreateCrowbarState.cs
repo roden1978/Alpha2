@@ -10,22 +10,26 @@ namespace Infrastructure.GameStates
     {
         private const string Path = @"Prefabs/Common/Crowbar";
         private readonly GamesStateMachine _stateMachine;
-
+        private MediatorData _mediatorData;
         public CreateCrowbarState(GamesStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
+            _mediatorData = new MediatorData();
+
         }
         public void Enter(Player player)
         {
             CreateCrowbar(player, OnLoaded);
         }
 
-        private void CreateCrowbar(Player player, Action onLoaded)
+        private void CreateCrowbar(Player player, Action<MediatorData> onLoaded)
         {
             GameObject prefab = Resources.Load<GameObject>(Path);
             Crowbar crowbar = Object.Instantiate(prefab).GetComponent<Crowbar>();
             crowbar.Player = player;
-            onLoaded?.Invoke();
+            _mediatorData.InteractableObjectsCollector = player.GetComponent<InteractableObjectsCollector>();
+            _mediatorData.Crowbar = crowbar;
+            onLoaded?.Invoke(_mediatorData);
         }
 
         public Type Update()
@@ -38,9 +42,9 @@ namespace Infrastructure.GameStates
            
         }
 
-        private void OnLoaded()
+        private void OnLoaded(MediatorData mediatorData)
         {
-            _stateMachine.Enter<CreateHudState, string>(@"Prefabs/UI/HUD");
+            _stateMachine.Enter<CreateHudState, MediatorData>(mediatorData);
         }
     }
 }

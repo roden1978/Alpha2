@@ -9,12 +9,15 @@ namespace Infrastructure
         public static IInputService InputService;
         public static PlayerData PlayerData;
         public static GamePlayerData GamePlayerData;
+        public static SceneLoader SceneLoader;
         public static bool Mobile;
         public GamesStateMachine GamesStateMachine;
+       
 
         public Game(ICoroutineRunner coroutineRunner)
         {
-            GamesStateMachine = new GamesStateMachine(new SceneLoader(coroutineRunner));
+            SceneLoader = new SceneLoader(coroutineRunner);
+            GamesStateMachine = new GamesStateMachine(SceneLoader);
             PlayerData = CreatePlayerData();
             GamePlayerData = InitializeGamePlayerData(PlayerData);
         }

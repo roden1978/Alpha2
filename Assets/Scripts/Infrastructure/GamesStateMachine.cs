@@ -21,13 +21,10 @@ namespace Infrastructure
                 [typeof(PositionPlayerState)] = new PositionPlayerState(this),
                 [typeof(CreateCrowbarState)] = new CreateCrowbarState(this),
                 [typeof(CreateHudState)] = new CreateHudState(this),
+                [typeof(CreateMediatorState)] = new CreateMediatorState(this)
             };
         }
 
-        public void Update()
-        {
-            _activeState.Update();
-        }
         public void Enter<TState>() where TState : class, IState
         {
             IState state = ChangeState<TState>();
