@@ -1,3 +1,4 @@
+using Infrastructure.Services;
 using PlayerScripts;
 using Services.Input;
 using UnityEngine;
@@ -6,7 +7,6 @@ namespace Infrastructure
 {
     public class Game
     {
-        public static IInputService InputService;
         public static PlayerData PlayerData;
         public static GamePlayerData GamePlayerData;
         public static SceneLoader SceneLoader;
@@ -16,7 +16,7 @@ namespace Infrastructure
         public Game(ICoroutineRunner coroutineRunner)
         {
             SceneLoader = new SceneLoader(coroutineRunner);
-            GamesStateMachine = new GamesStateMachine(SceneLoader);
+            GamesStateMachine = new GamesStateMachine(SceneLoader, ServiceLocator.Container);
             PlayerData = CreatePlayerData();
             GamePlayerData = InitializeGamePlayerData(PlayerData);
         }

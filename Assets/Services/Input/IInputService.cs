@@ -1,8 +1,9 @@
 ﻿using System;
+using Infrastructure.Services;
 
 namespace Services.Input
 {
-    public interface IInputService
+    public interface IInputService : IService
     {
         public event Action OnShoot;
         public event Action OnJump;

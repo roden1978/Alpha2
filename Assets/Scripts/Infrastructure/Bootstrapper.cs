@@ -14,11 +14,6 @@ namespace Infrastructure
             DontDestroyOnLoad(this);
         }
 
-        private void Update()
-        {
-            //_game.GamesStateMachine.Update();
-        }
-
         public void StartGame()
         {
             _game.GamesStateMachine.Enter<InputInitializeState>();
