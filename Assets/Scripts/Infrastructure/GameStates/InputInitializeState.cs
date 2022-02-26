@@ -1,5 +1,8 @@
 ﻿using System;
 using Common;
+using Infrastructure.AssetManagement;
+using Infrastructure.Factories;
+using Infrastructure.Services;
 using Input;
 using Services.Input;
 using UnityEngine;
@@ -11,10 +14,13 @@ namespace Infrastructure.GameStates
         private readonly GamesStateMachine _stateMachine;
         private readonly StatesPayload _statesPayload;
         private bool _mobile;
-        public InputInitializeState(GamesStateMachine stateMachine, StatesPayload statesPayload)
+        private readonly ServiceLocator _serviceLocator;
+
+        public InputInitializeState(GamesStateMachine stateMachine, StatesPayload statesPayload, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _statesPayload = statesPayload;
+            _serviceLocator = serviceLocator;
         }
         public void Enter()
         {
@@ -33,10 +39,16 @@ namespace Infrastructure.GameStates
 
         private void RegisterServices(Action<bool> callback = null)
         {
-            Game.InputService = RegisterInputService();
             callback?.Invoke(_mobile);
+
+            _serviceLocator.RegisterSingle<IInputService>(InputService());
+            _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
+            _serviceLocator.RegisterSingle<IGameFactory>(
+                new GameFactory(
+                    _serviceLocator.Single<IAssetProvider>())
+                );
         }
-        private IInputService RegisterInputService()
+        private IInputService InputService()
         {
             if (Application.isEditor)
                 return new KeyboardInputService();

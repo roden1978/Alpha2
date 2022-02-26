@@ -1,16 +1,13 @@
 ﻿using System;
 using Common;
-using UI;
-using UnityEngine;
-using Object = UnityEngine.Object;
+using Infrastructure.Factories;
 
 namespace Infrastructure.GameStates
 {
     public class LoadControlsPanelState : IPayloadState<StatesPayload>
     {
-        private const string Path = @"Prefabs/UI/ControlsPanel";
         private readonly GamesStateMachine _stateMachine;
-
+        private IGameFactory _gameFactory;
 
         public LoadControlsPanelState(GamesStateMachine stateMachine)
         {
@@ -38,9 +35,7 @@ namespace Infrastructure.GameStates
 
         private void LoadControlsPanel(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
         {
-            GameObject prefab = Resources.Load<GameObject>(Path);
-            ControlsPanel controlsPanel = Object.Instantiate(prefab).GetComponent<ControlsPanel>();
-            statesPayload.ControlsPanel = controlsPanel;
+            statesPayload.ControlsPanel = _gameFactory.CreateControlsPanel();
             onLoaded?.Invoke(statesPayload);
         }
     }

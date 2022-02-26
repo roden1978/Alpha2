@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Common;
 using Infrastructure.GameStates;
+using Infrastructure.Services;
 
 namespace Infrastructure
 {
@@ -10,12 +11,12 @@ namespace Infrastructure
         private readonly Dictionary<Type, IUpdateableState> _states;
         private IUpdateableState _activeState;
 
-        public GamesStateMachine(ISceneLoader sceneLoader)
+        public GamesStateMachine(ISceneLoader sceneLoader, ServiceLocator serviceLocator)
         {
             StatesPayload statesPayload = new StatesPayload();
             _states = new Dictionary<Type, IUpdateableState>
             {
-                [typeof(InputInitializeState)] = new InputInitializeState(this, statesPayload),
+                [typeof(InputInitializeState)] = new InputInitializeState(this, statesPayload, serviceLocator),
                 [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
                 [typeof(InitializePoolState)] = new  InitializePoolState(this),

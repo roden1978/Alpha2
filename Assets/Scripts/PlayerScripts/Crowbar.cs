@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Common;
 using Infrastructure;
+using Infrastructure.Services;
 using PlayerScripts.States;
 using Services.Input;
 using UnityEngine;
@@ -44,9 +45,11 @@ namespace PlayerScripts
             _flipView = new FlipView(_playerView);
             _animator = Player.GetComponentInChildren<Animator>();
             _rigidbody = Player.GetComponent<Rigidbody2D>();
-            _inputService = Game.InputService;
+            
+            _inputService = ServiceLocator.Container.Single<IInputService>();
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
+            
             _playerStateData = new PlayerStateData
             {
                 Damping = _damping
