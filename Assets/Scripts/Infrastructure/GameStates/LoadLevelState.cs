@@ -5,11 +5,10 @@ namespace Infrastructure.GameStates
 {
     public class LoadLevelState : IPayloadState<StatesPayload>
     {
-        private const int DefaultLevelIndex = 1;
         private readonly ISceneLoader _sceneLoader;
         private readonly GamesStateMachine _stateMachine;
         private StatesPayload _statesPayload;
-        
+
         public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
@@ -18,7 +17,7 @@ namespace Infrastructure.GameStates
         public void Enter(StatesPayload statesPayload)
         {
             _statesPayload = statesPayload;
-            LoadScene(DefaultLevelIndex, OnLoaded);
+            LoadScene(statesPayload.CurrentSceneIndex, OnLoaded);
         }
 
         public Type Update()

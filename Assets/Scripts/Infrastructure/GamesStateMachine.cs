@@ -16,7 +16,9 @@ namespace Infrastructure
             StatesPayload statesPayload = new StatesPayload();
             _states = new Dictionary<Type, IUpdateableState>
             {
-                [typeof(InputInitializeState)] = new InputInitializeState(this, statesPayload, serviceLocator),
+                [typeof(InitializeServicesState)] = new InitializeServicesState(this, serviceLocator),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, statesPayload, serviceLocator),
+                [typeof(InitializeInputState)] = new InitializeInputState(this, serviceLocator),
                 [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
                 [typeof(InitializePoolState)] = new  InitializePoolState(this),

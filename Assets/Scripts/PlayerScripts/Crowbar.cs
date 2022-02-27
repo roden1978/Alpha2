@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Common;
-using Infrastructure;
+using Data;
 using Infrastructure.Services;
 using PlayerScripts.States;
 using Services.Input;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerScripts
 {
-    public class Crowbar : MonoBehaviour
+    public class Crowbar : MonoBehaviour, ISavedProgress
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocity;
@@ -150,6 +151,34 @@ namespace PlayerScripts
             await Task.Delay(DoubleSingWaitTime) ;
             _doubleJumpSign.Hide();
         }
-       
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            Vector3Data asVector3Data = Player.transform.position.AsVector3Data();
+            playerProgress.WorldData.PositionOnLevel =
+                new PositionOnLevel(asVector3Data, CurrentSceneName(), CurrentSceneIndex());
+        }
+
+        public void LoadProgress(PlayerProgress playerProgress)
+        {
+            string sceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
+            int sceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
+            if (CurrentSceneName() == sceneName || CurrentSceneIndex() == sceneIndex)
+            {
+                Vector3Data position = playerProgress.WorldData.PositionOnLevel.Position;
+                if(position != null)
+                    Player.transform.position = position.AsVector3();
+            }
+        }
+
+        private int CurrentSceneIndex()
+        {
+            return SceneManager.GetActiveScene().buildIndex;
+        }
+
+        private string CurrentSceneName()
+        {
+            return SceneManager.GetActiveScene().name;
+        }
     }
 }
