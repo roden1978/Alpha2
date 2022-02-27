@@ -14,6 +14,9 @@ namespace Data
             return new Vector3(position.X, position.Y, position.Z);
         }
 
-        public static T Deserialize<T>(this string json) => JsonUtility.FromJson<T>(json);
+        public static string ToJSON(this object obj) => 
+            JsonUtility.ToJson(obj);
+        public static T Deserialize<T>(this string json) => 
+            JsonUtility.FromJson<T>(json);
     }
 }

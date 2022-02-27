@@ -24,9 +24,10 @@ namespace Infrastructure
                 [typeof(InitializePoolState)] = new  InitializePoolState(this),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this),
                 [typeof(PositionPlayerState)] = new PositionPlayerState(this),
-                [typeof(CreateCrowbarState)] = new CreateCrowbarState(this),
+                [typeof(CreateCrowbarState)] = new CreateCrowbarState(this, serviceLocator),
                 [typeof(CreateHudState)] = new CreateHudState(this),
-                [typeof(CreateMediatorState)] = new CreateMediatorState(this)
+                [typeof(CreateMediatorState)] = new CreateMediatorState(this),
+                [typeof(UpdateProgressState)] = new UpdateProgressState(serviceLocator)
             };
         }
 

@@ -1,20 +1,20 @@
 ﻿using System;
 using Common;
+using Infrastructure.Factories;
+using Infrastructure.Services;
 using PlayerScripts;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
     public class CreateCrowbarState : IPayloadState<StatesPayload>
     {
-        private const string Path = @"Prefabs/Common/Crowbar";
         private readonly GamesStateMachine _stateMachine;
-        
-        public CreateCrowbarState(GamesStateMachine stateMachine)
+        private readonly ServiceLocator _serviceLocator;
+
+        public CreateCrowbarState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
-        
+            _serviceLocator = serviceLocator;
         }
         public void Enter(StatesPayload statesPayload)
         {
@@ -23,8 +23,7 @@ namespace Infrastructure.GameStates
 
         private void CreateCrowbar(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
         {
-            GameObject prefab = Resources.Load<GameObject>(Path);
-            Crowbar crowbar = Object.Instantiate(prefab).GetComponent<Crowbar>();
+            Crowbar crowbar = _serviceLocator.Single<IGameFactory>().CreateCrowbar();
             crowbar.Player = statesPayload.Player;
             statesPayload.InteractableObjectsCollector = statesPayload.Player.GetComponent<InteractableObjectsCollector>();
             statesPayload.Crowbar = crowbar;

@@ -36,11 +36,16 @@ namespace Infrastructure.GameStates
         private void RegisterServices(Action callback = null)
         {
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
-            _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _serviceLocator.RegisterSingle<IGameFactory>(
                 new GameFactory(
-                    _serviceLocator.Single<IAssetProvider>())
+                    _serviceLocator.Single<IAssetProvider>()
+                    )
+            );
+            _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(
+                _serviceLocator.Single<IPersistentProgressService>(), 
+                _serviceLocator.Single<IGameFactory>()
+                )
             );
             callback?.Invoke();
         }
