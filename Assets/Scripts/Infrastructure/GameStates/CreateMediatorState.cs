@@ -22,17 +22,17 @@ namespace Infrastructure.GameStates
 
         private void OnLoaded()
         {
-            
+            _stateMachine.Enter<UpdateProgressState>();
         }
 
         public Type Update()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public void Exit()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void CreateMediator(StatesPayload statesPayload, Action onLoaded)

@@ -4,13 +4,15 @@ using UnityEngine;
 
 namespace Infrastructure
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class SaveProgressPoint : MonoBehaviour
     {
-        private SaveLoadService _saveLoadService;
+        [SerializeField] private BoxCollider2D _collider;
+        private ISaveLoadService _saveLoadService;
 
         private void Awake()
         {
-            _saveLoadService = ServiceLocator.Container.Single<SaveLoadService>();
+            _saveLoadService = ServiceLocator.Container.Single<ISaveLoadService>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -22,8 +24,8 @@ namespace Infrastructure
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, 1f);
+            Gizmos.color = new Color32(0, 20, 170, 130);
+            Gizmos.DrawCube(transform.position, _collider.size);
         }
     }
 }

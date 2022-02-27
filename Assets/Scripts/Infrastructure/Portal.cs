@@ -39,8 +39,8 @@ namespace Infrastructure
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(transform.position, _boxCollider.size); //;Sphere(transform.position, 1);
+            Gizmos.color = new Color32(170, 150, 0, 130);
+            Gizmos.DrawCube(transform.position, _boxCollider.size);
         }
     }
 }

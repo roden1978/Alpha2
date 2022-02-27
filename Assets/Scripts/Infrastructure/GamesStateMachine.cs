@@ -20,7 +20,7 @@ namespace Infrastructure
                 [typeof(LoadProgressState)] = new LoadProgressState(this, statesPayload, serviceLocator),
                 [typeof(InitializeInputState)] = new InitializeInputState(this, serviceLocator),
                 [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, serviceLocator),
                 [typeof(InitializePoolState)] = new  InitializePoolState(this),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this),
                 [typeof(PositionPlayerState)] = new PositionPlayerState(this),

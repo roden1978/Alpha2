@@ -161,6 +161,7 @@ namespace PlayerScripts
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
+            Debug.Log("Update player position");
             string sceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
             int sceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
             if (CurrentSceneName() == sceneName || CurrentSceneIndex() == sceneIndex)
