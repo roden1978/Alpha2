@@ -10,7 +10,7 @@ namespace Infrastructure
         public static PlayerData PlayerData;
         public static GamePlayerData GamePlayerData;
         public static SceneLoader SceneLoader;
-        public GamesStateMachine GamesStateMachine;
+        public readonly GamesStateMachine GamesStateMachine;
        
 
         public Game(ICoroutineRunner coroutineRunner)

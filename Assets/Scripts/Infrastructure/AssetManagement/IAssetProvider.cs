@@ -1,10 +1,12 @@
 ﻿using Infrastructure.Services;
+using PlayerScripts;
 using UI;
 
 namespace Infrastructure.AssetManagement
 {
     public interface IAssetProvider : IService
     {
-        ControlsPanel Instantiate();
+        ControlsPanel InstantiateControlsPanel();
+        Crowbar InstantiateCrowbar();
     }
 }

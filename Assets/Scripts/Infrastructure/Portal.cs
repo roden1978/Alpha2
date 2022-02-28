@@ -1,15 +1,14 @@
-using System;
-using System.Threading.Tasks;
-using Cinemachine;
 using PlayerScripts;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class Portal : MonoBehaviour, ICoroutineRunner
     {
+        [SerializeField]private BoxCollider2D _boxCollider;
         private ISceneLoader _sceneLoader;
+
         private void Awake()
         {
             _sceneLoader = new SceneLoader(this);
@@ -37,7 +36,11 @@ namespace Infrastructure
             player.transform.position = spawnPoint.transform.position;
             player.gameObject.SetActive(true);
         }
-        
-       
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = new Color32(170, 150, 0, 130);
+            Gizmos.DrawCube(transform.position, _boxCollider.size);
+        }
     }
 }

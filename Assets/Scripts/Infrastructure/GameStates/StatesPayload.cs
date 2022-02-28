@@ -1,4 +1,5 @@
-﻿using PlayerScripts;
+﻿using Infrastructure.Services;
+using PlayerScripts;
 using Services.Pools;
 using UI;
 
@@ -12,5 +13,7 @@ namespace Infrastructure.GameStates
         public Crowbar Crowbar;
         public ControlsPanel ControlsPanel;
         public PoolService Pool;
+        public string CurrentSceneName;
+        public int CurrentSceneIndex;
     }
 }

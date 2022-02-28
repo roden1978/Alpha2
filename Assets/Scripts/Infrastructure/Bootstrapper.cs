@@ -16,7 +16,7 @@ namespace Infrastructure
 
         public void StartGame()
         {
-            _game.GamesStateMachine.Enter<InputInitializeState>();
+            _game.GamesStateMachine.Enter<InitializeServicesState>();
         }
     }
 }
