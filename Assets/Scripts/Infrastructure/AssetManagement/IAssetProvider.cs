@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Services;
 using PlayerScripts;
 using UI;
+using UnityEngine;
 
 namespace Infrastructure.AssetManagement
 {
@@ -8,5 +9,7 @@ namespace Infrastructure.AssetManagement
     {
         ControlsPanel InstantiateControlsPanel();
         Crowbar InstantiateCrowbar();
+        Player InstantiatePlayer();
+        Crosshair InstantiateCrosshair();
     }
 }

@@ -6,7 +6,7 @@ namespace PlayerScripts
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(CapsuleCollider2D), typeof(Throw))]
     [RequireComponent(typeof(InteractableObjectsCollector))]
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour//ISaveProgress
     {
        private float _health;
        public Action Transition;
@@ -24,7 +24,16 @@ namespace PlayerScripts
             {
                 Game.GamePlayerData.CurrentLivesAmount -= 1;
                 if(Game.GamePlayerData.CurrentLivesAmount < 0) Debug.Log("GameOver");
+
+                Debug.Log("Death");
                 Death?.Invoke();
+            }
+        } 
+        public void TakeHealth(float delta)
+        {
+            if(_health < Game.GamePlayerData.MaxHealth)
+            {
+                _health += delta;
             }
         }
 

@@ -10,7 +10,6 @@ namespace GameObjectsScripts
         {
             if (other.TryGetComponent(out Player player))
             {
-               Debug.Log("Death");
                 player.TakeDamage(Game.GamePlayerData.MaxHealth);
             }
         }

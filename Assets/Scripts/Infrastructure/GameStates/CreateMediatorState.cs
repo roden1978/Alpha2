@@ -41,7 +41,7 @@ namespace Infrastructure.GameStates
             Mediator mediator = Object.Instantiate(prefab).GetComponent<Mediator>();
             mediator.InteractableObjectsCollector = statesPayload.InteractableObjectsCollector;
             mediator.Hud = statesPayload.Hud;
-            mediator.Crowbar = statesPayload.Crowbar;
+            mediator.Player = statesPayload.Player;
             mediator.ControlsPanel = statesPayload.ControlsPanel;
             onLoaded?.Invoke();
         }

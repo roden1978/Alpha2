@@ -8,9 +8,8 @@ namespace Infrastructure
     {
         public InteractableObjectsCollector InteractableObjectsCollector;
         public Hud Hud;
-        public Crowbar Crowbar;
         public ControlsPanel ControlsPanel;
-        
+        public Player Player;
         private const int BonusScores = 1000;
         private const int BonusCrystals = 10;
         private GamePlayerData _gamePlayerData;
@@ -21,15 +20,21 @@ namespace Infrastructure
             InteractableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
             InteractableObjectsCollector.FoodCollecting += OnFoodCollecting;
             InteractableObjectsCollector.LifeCollecting += OnLivesCollecting;
+            InteractableObjectsCollector.DamageCollecting += OnDamageCollecting;
             _gamePlayerData = Game.GamePlayerData;
             UpdateHud();
             if(ControlsPanel != null)
                 ControlsPanel.Show();
         }
 
-        private void OnShoot()
+        private void OnDamageCollecting(int amount)
         {
-            Crowbar.Shoot();
+            if(_gamePlayerData.CurrentHealth > 0)
+            {
+                _gamePlayerData.CurrentHealth -= amount;
+                Player.TakeDamage(amount);
+                UpdateHealthBar(_gamePlayerData.CurrentHealth);
+            }
         }
 
         private void OnDestroy()
@@ -38,6 +43,7 @@ namespace Infrastructure
             InteractableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             InteractableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             InteractableObjectsCollector.LifeCollecting -= OnLivesCollecting;
+            InteractableObjectsCollector.DamageCollecting += OnDamageCollecting;
         }
 
         private void OnLivesCollecting(int amount)
@@ -87,6 +93,7 @@ namespace Infrastructure
             if(_gamePlayerData.CurrentHealth < _gamePlayerData.MaxHealth)
             {
                 _gamePlayerData.CurrentHealth += amount;
+                Player.TakeHealth(amount);
                 UpdateHealthBar(_gamePlayerData.CurrentHealth);
             }
         }
@@ -124,12 +131,6 @@ namespace Infrastructure
             UpdateCrystalsAmount(_gamePlayerData.CurrentCrystalsAmount);
             InitializeBonusLifeAmount(_gamePlayerData.CurrentLivesAmount);
             UpdateHealthBar(_gamePlayerData.CurrentHealth);
-        }
-        
-
-        private void OnGamePause()
-        {
-            Game.Pause();
         }
     }
 }

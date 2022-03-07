@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7010136939603797815}
   - component: {fileID: 7010136939603797809}
   - component: {fileID: 8757811741269262408}
-  - component: {fileID: 5803585383690235850}
+  - component: {fileID: 54632348347774190}
   m_Layer: 9
   m_Name: Poison
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7010136939603797813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.94, y: -0.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.015551567, y: 0.006220795}
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5803585383690235850
+--- !u!114 &54632348347774190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,9 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7010136939603797813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21602c17181c9c46af26952fa2d4491, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d441d7568d2444994a66ef94c0601de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _speed: 10
-  _lifeTime: 2
+  _height: 0
+  _speed: 8
+  _damage: 5
+  _lifeTime: 1

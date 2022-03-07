@@ -12,5 +12,7 @@ namespace Infrastructure.Factories
         List<ISavedProgress> ProgressWriters { get; }
         void CleanUp();
         Crowbar CreateCrowbar();
+        Player CreatePlayer();
+        Crosshair CreateCrosshair();
     }
 }

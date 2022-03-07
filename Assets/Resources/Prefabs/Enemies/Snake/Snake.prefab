@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 4444008908190759461}
   - component: {fileID: 1691432484817047352}
   - component: {fileID: 6025487817939610959}
-  - component: {fileID: 2021457887722210274}
   m_Layer: 13
   m_Name: Snake
   m_TagString: Untagged
@@ -187,7 +186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerObserver: {fileID: 4057549654551885983}
-  attackShooting: {fileID: 2021457887722210274}
+  _shootPoint: {fileID: 5623598136111512727}
+  _viewTransform: {fileID: 3653590318636457368}
+  _bullet: {fileID: 54632348347774190, guid: eaa9d80cb50ed104983499b3ddd975d8, type: 3}
+  _cooldown: 1
 --- !u!60 &6025487817939610959
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -222,20 +224,6 @@ PolygonCollider2D:
       - {x: 0.009237468, y: -0.9569354}
       - {x: 0.83904135, y: -0.7069441}
       - {x: 0.2836576, y: 0.5759766}
---- !u!114 &2021457887722210274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3653590319846758297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b42ea12bc5b465baf5ea075db6cc53e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shootPoint: {fileID: 5623598136111512727}
-  _cooldown: 1
 --- !u!1 &4576915440760764620
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +292,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12, y: 2}
+  m_Size: {x: 16, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &4869633849192914784
 GameObject:

@@ -29,6 +29,9 @@ namespace Infrastructure.Factories
             return crowbar;
         }
 
+        public Player CreatePlayer() => _assetProvider.InstantiatePlayer();
+        public Crosshair CreateCrosshair() => _assetProvider.InstantiateCrosshair();
+
         private void RegisterInSaveLoadRepositories(GameObject registeredGameObject)
         {
             foreach (ISavedProgressReader progressReader in registeredGameObject.GetComponentsInChildren<ISavedProgressReader>())

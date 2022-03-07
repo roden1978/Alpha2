@@ -22,7 +22,9 @@ namespace Infrastructure.GameStates
         public void Enter(StatesPayload statesPayload)
         {
             _statesPayload = statesPayload;
-            LoadScene(SceneIndex(), OnLoaded);
+            int sceneIndex = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+                .PositionOnLevel.SceneIndex;
+            LoadScene(sceneIndex, OnLoaded);
         }
 
         public Type Update()
@@ -37,20 +39,10 @@ namespace Infrastructure.GameStates
         
         private void OnLoaded()
         {
-            ActivateCurrentScene();
+            //ActivateCurrentScene();
             _stateMachine.Enter<InitializePoolState, StatesPayload>(_statesPayload);
         }
-
-        private void ActivateCurrentScene()
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneIndex()));
-        }
-
-        private int SceneIndex()
-        {
-            return _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex;
-        }
+        
 
         private void LoadScene(int sceneIndex, Action onLoaded)
         {
