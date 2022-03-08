@@ -14,5 +14,8 @@ namespace Infrastructure.Factories
         Crowbar CreateCrowbar();
         Player CreatePlayer();
         Crosshair CreateCrosshair();
+        Mediator CreateMediator();
+        void AddProgressReader(ISavedProgressReader progressReader);
+        void AddProgressWriter(ISavedProgress progressWriter);
     }
 }

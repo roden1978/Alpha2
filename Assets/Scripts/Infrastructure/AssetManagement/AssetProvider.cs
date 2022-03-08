@@ -29,5 +29,11 @@ namespace Infrastructure.AssetManagement
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.CrosshairPath);
             return Object.Instantiate(prefab).GetComponent<Crosshair>();
         }
+
+        public Mediator InstantiateMediator()
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.MediatorPath);
+            return Object.Instantiate(prefab).GetComponent<Mediator>();
+        }
     }
 }

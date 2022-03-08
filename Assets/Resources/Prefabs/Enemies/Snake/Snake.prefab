@@ -187,9 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerObserver: {fileID: 4057549654551885983}
   _shootPoint: {fileID: 5623598136111512727}
-  _viewTransform: {fileID: 3653590318636457368}
   _bullet: {fileID: 54632348347774190, guid: eaa9d80cb50ed104983499b3ddd975d8, type: 3}
-  _cooldown: 1
+  _cooldown: 2
 --- !u!60 &6025487817939610959
 PolygonCollider2D:
   m_ObjectHideFlags: 0

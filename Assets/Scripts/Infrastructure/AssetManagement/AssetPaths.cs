@@ -6,5 +6,6 @@
         public const string CrowbarPath = @"Prefabs/Common/Crowbar";
         public const string PlayerPath = @"Prefabs/Player/Player";
         public const string CrosshairPath = @"Prefabs/Crosschair/Crosshair";
+        public const string MediatorPath = @"Prefabs/Common/Mediator";
     }
 }

@@ -1,56 +1,51 @@
 using System;
-using Infrastructure;
+using Data;
 using UnityEngine;
 
 namespace PlayerScripts
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(CapsuleCollider2D), typeof(Throw))]
     [RequireComponent(typeof(InteractableObjectsCollector))]
-    public class Player : MonoBehaviour//ISaveProgress
+    public class Player : MonoBehaviour, ISavedProgress
     {
-       private float _health;
-       public Action Transition;
-       public Action Death;
+       private int _health;
+       private int _currentLivesAmount;
+       private int _maxHealth;
+       public Action<int> Death;
 
-       private void Start()
-       {
-           _health = Game.GamePlayerData.CurrentHealth;
-       }
-
-       public void TakeDamage(float delta)
+      
+       public void TakeDamage(int delta)
         {
             _health -= delta;
             if(_health < 0)
             {
-                Game.GamePlayerData.CurrentLivesAmount -= 1;
-                if(Game.GamePlayerData.CurrentLivesAmount < 0) Debug.Log("GameOver");
-
-                Debug.Log("Death");
-                Death?.Invoke();
+                Death?.Invoke(_currentLivesAmount -= 1);
             }
         } 
-        public void TakeHealth(float delta)
+        public void TakeHealth(int delta)
         {
-            if(_health < Game.GamePlayerData.MaxHealth)
+            if(_health < _maxHealth)
             {
                 _health += delta;
             }
         }
 
-        public void TransitionToNextScene()
+        public void TakeBonusLive(int delta)
         {
-            SaveProgress();
-            Transition?.Invoke();
+            _currentLivesAmount += delta;
         }
 
-        private void SaveProgress()
+        public void LoadProgress(PlayerProgress playerProgress)
         {
-            Game.PlayerData.Health = Game.GamePlayerData.CurrentHealth;
-            Game.PlayerData.CrystalsAmount = Game.GamePlayerData.CurrentCrystalsAmount;
-            Game.PlayerData.FruitScoresAmount = Game.GamePlayerData.CurrentFruitScoresAmount;
-            Game.GamePlayerData.CurrentLivesAmount = Game.GamePlayerData.CurrentLivesAmount;
-            Game.PlayerData.SceneIndex = Game.GamePlayerData.CurrentScene;
+            _health = playerProgress.PlayerState.CurrentHealth;
+            _currentLivesAmount = playerProgress.PlayerState.CurrentLivesAmount;
+            _maxHealth = playerProgress.PlayerState.MaxHealth;
         }
-        
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            playerProgress.PlayerState.CurrentHealth = _health;
+            playerProgress.PlayerState.CurrentLivesAmount = _currentLivesAmount;
+        }
     }
 }

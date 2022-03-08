@@ -31,7 +31,9 @@ namespace PlayerScripts
         private DoubleJumpSign _doubleJumpSign;
 
         private bool _doubleJump;
-        
+        private string _sceneName;
+        private int _sceneIndex;
+
 
         private void Awake()
         {
@@ -132,7 +134,7 @@ namespace PlayerScripts
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        public void Shoot()
+       private void Shoot()
         {
             _playerStateData.IsShoot = true;
         }
@@ -155,21 +157,21 @@ namespace PlayerScripts
         public void UpdateProgress(PlayerProgress playerProgress)
         {
             Vector3Data asVector3Data = Player.transform.position.AsVector3Data();
-            playerProgress.WorldData.PositionOnLevel =
-                new PositionOnLevel(asVector3Data, CurrentSceneName(), CurrentSceneIndex());
+            playerProgress.WorldData.PositionOnLevel.Position = asVector3Data;
+                //new PositionOnLevel(asVector3Data, CurrentSceneName(), CurrentSceneIndex());
         }
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
             Debug.Log("Update player position");
-            string sceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
-            int sceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
-            if (CurrentSceneName() == sceneName || CurrentSceneIndex() == sceneIndex)
-            {
+            //_sceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
+            //_sceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
+            //if (CurrentSceneName() == _sceneName || CurrentSceneIndex() == _sceneIndex)
+            //{
                 Vector3Data position = playerProgress.WorldData.PositionOnLevel.Position;
                 if(position != null)
                     Player.transform.position = position.AsVector3();
-            }
+           // }
         }
 
         private int CurrentSceneIndex()

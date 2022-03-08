@@ -10,7 +10,7 @@ namespace EnemyScripts
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] private Bullet _bullet;
-        [SerializeField] [Range(.1f, 1f)] private float _cooldown;
+        [SerializeField] [Range(1f, 2f)] private float _cooldown;
         private Coroutine _shooting;
 
         private void Start()

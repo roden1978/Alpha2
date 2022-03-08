@@ -40,8 +40,21 @@ namespace Infrastructure.GameStates
         private PlayerProgress CreatePlayerProgress()
         {
             _statesPayload.CurrentSceneName = "Level1";
-            _statesPayload.CurrentSceneIndex = 1; 
-            return new PlayerProgress(sceneName: _statesPayload.CurrentSceneName, sceneIndex: _statesPayload.CurrentSceneIndex);
+            _statesPayload.CurrentSceneIndex = 1;
+            PlayerProgress playerProgress = new PlayerProgress(sceneName: _statesPayload.CurrentSceneName, sceneIndex: _statesPayload.CurrentSceneIndex)
+                {
+                    PlayerState =
+                    {
+                        CurrentHealth = Game.StaticPlayerData.Health,
+                        CurrentCrystalsAmount = Game.StaticPlayerData.CrystalsAmount,
+                        CurrentLivesAmount = Game.StaticPlayerData.StartLivesAmount,
+                        CurrentFruitScoresAmount = Game.StaticPlayerData.FruitScoresAmount,
+                        MaxHealth = Game.StaticPlayerData.MaxHealth,
+                        MaxBonusLivesCount = Game.StaticPlayerData.MaxBonusLivesCount,
+                        StartLivesAmount = Game.StaticPlayerData.StartLivesAmount
+                    }
+                };
+            return playerProgress;
         }
 
         public Type Update()

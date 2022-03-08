@@ -1,21 +1,38 @@
+using System;
+using Data;
+using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
+using Services.SaveLoad;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public class Portal : MonoBehaviour, ICoroutineRunner
+    public class Portal : MonoBehaviour, ICoroutineRunner, ISavedProgress
     {
         [SerializeField]private BoxCollider2D _boxCollider;
         private ISceneLoader _sceneLoader;
-        private ServiceLocator _serviceLocator;
+        private ISaveLoadService _saveLoadService;
+        private int _currentSceneIndex;
+        private IGameFactory _gameFactory;
+        private PlayerProgress _playerProgress;
+        private string _currentSceneName;
 
         private void Awake()
         {
             _sceneLoader = new SceneLoader(this);
-            _serviceLocator = ServiceLocator.Container;
+            _saveLoadService = ServiceLocator.Container.Single<ISaveLoadService>();
+            _gameFactory = ServiceLocator.Container.Single<IGameFactory>();
+            _playerProgress = ServiceLocator.Container.Single<IPersistentProgressService>().PlayerProgress;
+        }
+
+        private void Start()
+        {
+            _gameFactory.AddProgressWriter(this);
+            LoadProgress(_playerProgress);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -26,28 +43,38 @@ namespace Infrastructure
 
         private void Transit(Component player)
         {
-            //player.gameObject.SetActive(false);
-            int newSceneIndex = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex + 1;
-            _sceneLoader.UnLoad(_serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex);
+            int newSceneIndex = _currentSceneIndex + 1;
+            _sceneLoader.UnLoad(_currentSceneIndex);
             _sceneLoader.Load(newSceneIndex);
             PositionPlayer(player);
-            _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex = newSceneIndex;
+            _currentSceneIndex = newSceneIndex;
+            
+            //Send command to save progress for all ISavedProgress instance
+            _saveLoadService.SaveProgress();
         }
 
         private void PositionPlayer(Component player)
         {
             PlayerSpawnPoint spawnPoint = FindObjectOfType<PlayerSpawnPoint>();
             player.transform.position = spawnPoint.transform.position;
-            //player.gameObject.SetActive(true);
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = new Color32(170, 150, 0, 130);
             Gizmos.DrawCube(transform.position, _boxCollider.size);
+        }
+
+        public void LoadProgress(PlayerProgress playerProgress)
+        {
+            _currentSceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
+            _currentSceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
+        }
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            playerProgress.WorldData.PositionOnLevel.SceneIndex = _currentSceneIndex;
+            playerProgress.WorldData.PositionOnLevel.SceneName = _currentSceneName;
         }
     }
 }
