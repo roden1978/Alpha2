@@ -6,9 +6,8 @@ namespace GameObjectsScripts
     {
         [SerializeField] private int _health;
 
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
             Value = _health;
         }
     }

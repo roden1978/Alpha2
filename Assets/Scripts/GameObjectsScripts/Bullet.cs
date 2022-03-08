@@ -7,12 +7,11 @@ namespace GameObjectsScripts
     {
         [SerializeField] private int _damage;
         [SerializeField] private int _lifeTime;
+        [SerializeField] private float _speed;
         private Coroutine _coroutine;
         public float Speed => _speed;
-
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
             Value = _damage;
             _coroutine = StartCoroutine(LifeTimeControlling());
         }

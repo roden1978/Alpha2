@@ -4,29 +4,36 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
+    public interface IHealth
+    {
+        public int HP { get; }
+        void TakeDamage(int damage);
+        void TakeHealth(int health);
+    }
+
     [RequireComponent(typeof(Rigidbody2D), typeof(CapsuleCollider2D), typeof(Throw))]
     [RequireComponent(typeof(InteractableObjectsCollector))]
-    public class Player : MonoBehaviour, ISavedProgress
+    public class Player : MonoBehaviour, ISavedProgress, IHealth
     {
-       private int _health;
-       private int _currentLivesAmount;
-       private int _maxHealth;
-       public Action<int> Death;
+        private int _currentLivesAmount;
+        public Action<int> Death;
+        private int _maxHealth;
 
-      
-       public void TakeDamage(int delta)
+        public int HP { get; private set; }
+
+        public void TakeDamage(int damage)
         {
-            _health -= delta;
-            if(_health < 0)
+            HP -= damage;
+            if(HP < 0)
             {
                 Death?.Invoke(_currentLivesAmount -= 1);
             }
         } 
-        public void TakeHealth(int delta)
+        public void TakeHealth(int health)
         {
-            if(_health < _maxHealth)
+            if(HP < _maxHealth)
             {
-                _health += delta;
+                HP += health;
             }
         }
 
@@ -37,14 +44,14 @@ namespace PlayerScripts
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
-            _health = playerProgress.PlayerState.CurrentHealth;
+            HP = playerProgress.PlayerState.CurrentHealth;
             _currentLivesAmount = playerProgress.PlayerState.CurrentLivesAmount;
             _maxHealth = playerProgress.PlayerState.MaxHealth;
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.PlayerState.CurrentHealth = _health;
+            playerProgress.PlayerState.CurrentHealth = HP;
             playerProgress.PlayerState.CurrentLivesAmount = _currentLivesAmount;
         }
     }

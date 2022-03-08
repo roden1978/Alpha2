@@ -48,7 +48,6 @@ namespace EnemyScripts
             {
                 Vector3 position = _shootPoint.transform.position;
                 Vector2 direction = DirectionToTarget(target.position, position);
-                Debug.Log($"Shoot {direction}");
                 Bullet bullet = Instantiate(_bullet, position, Quaternion.identity);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(direction * bullet.Speed, ForceMode2D.Impulse);

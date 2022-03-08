@@ -1,6 +1,6 @@
 using System;
 
-namespace PlayerScripts
+namespace Data
 {
     [Serializable]
     public class StaticPlayerData
