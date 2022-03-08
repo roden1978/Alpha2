@@ -1,4 +1,3 @@
-using System;
 using Data;
 using Infrastructure.Factories;
 using Infrastructure.Services;
@@ -19,7 +18,6 @@ namespace Infrastructure
         private int _currentSceneIndex;
         private IGameFactory _gameFactory;
         private PlayerProgress _playerProgress;
-        private string _currentSceneName;
 
         private void Awake()
         {
@@ -49,7 +47,6 @@ namespace Infrastructure
             PositionPlayer(player);
             _currentSceneIndex = newSceneIndex;
             
-            //Send command to save progress for all ISavedProgress instance
             _saveLoadService.SaveProgress();
         }
 
@@ -68,13 +65,17 @@ namespace Infrastructure
         public void LoadProgress(PlayerProgress playerProgress)
         {
             _currentSceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
-            _currentSceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
             playerProgress.WorldData.PositionOnLevel.SceneIndex = _currentSceneIndex;
-            playerProgress.WorldData.PositionOnLevel.SceneName = _currentSceneName;
+            playerProgress.WorldData.PositionOnLevel.SceneName = SceneName();
+        }
+
+        private string SceneName()
+        {
+            return SceneManager.GetSceneByBuildIndex(_currentSceneIndex).name;
         }
     }
 }

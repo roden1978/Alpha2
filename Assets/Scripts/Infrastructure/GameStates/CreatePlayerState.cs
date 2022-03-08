@@ -50,7 +50,7 @@ namespace Infrastructure.GameStates
 
         private void OnLoaded(StatesPayload statesPayload)
         {
-            _stateMachine.Enter<PositionPlayerState, StatesPayload>(statesPayload);
+            _stateMachine.Enter<CreateCrowbarState, StatesPayload>(statesPayload);
         }
         
     }
