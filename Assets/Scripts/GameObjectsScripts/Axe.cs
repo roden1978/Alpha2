@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using PlayerScripts;
 using Services.Pools;
 using UnityEngine;
 
@@ -26,6 +28,15 @@ namespace GameObjectsScripts
         private IEnumerator LifeTime(int lifeTime)
         {
             yield return new WaitForSeconds(lifeTime);
+            ReturnToPool();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.TryGetComponent(out IHealth health))
+            {
+                health.TakeDamage(Damage);
+            }
             ReturnToPool();
         }
     }

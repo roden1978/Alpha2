@@ -3,9 +3,8 @@
     public class Crystal : PickableObject
     {
         private const int CrystalValue = 1;
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
             Value = CrystalValue;
         }
     }

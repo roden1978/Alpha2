@@ -1,19 +1,26 @@
-﻿using PlayerScripts;
+﻿using Data;
+using PlayerScripts;
 using UI;
 using UnityEngine;
 
 namespace Infrastructure
 {
-    public class Mediator : MonoBehaviour
+    public class Mediator : MonoBehaviour, ISavedProgress
     {
-        public InteractableObjectsCollector InteractableObjectsCollector;
-        public Hud Hud;
-        public Crowbar Crowbar;
-        public ControlsPanel ControlsPanel;
-        
         private const int BonusScores = 1000;
         private const int BonusCrystals = 10;
-        private GamePlayerData _gamePlayerData;
+        
+        public InteractableObjectsCollector InteractableObjectsCollector;
+        public Hud Hud;
+        public ControlsPanel ControlsPanel;
+        public Player Player;
+        
+        private int _currentFruitScoreAmount;
+        private int _currentCrystalsAmount;
+        private int _currentLivesAmount;
+        private int _currentHealth;
+        private int _maxHealth;
+        private int _maxBonusLivesCount;
 
         private void Start()
         {
@@ -21,15 +28,30 @@ namespace Infrastructure
             InteractableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
             InteractableObjectsCollector.FoodCollecting += OnFoodCollecting;
             InteractableObjectsCollector.LifeCollecting += OnLivesCollecting;
-            _gamePlayerData = Game.GamePlayerData;
-            UpdateHud();
+            InteractableObjectsCollector.DamageCollecting += OnDamageCollecting;
+            Player.Death += OnPlayerDeath;
+            //UpdateHud();
             if(ControlsPanel != null)
                 ControlsPanel.Show();
         }
 
-        private void OnShoot()
+        private void OnPlayerDeath(int delta)
         {
-            Crowbar.Shoot();
+            _currentLivesAmount -= delta;
+            if (_currentLivesAmount < 0)
+            {
+                Debug.Log("GameOver");
+                //Open GameOver panel
+            }
+            Debug.Log("Death");
+            //Reload Level
+        }
+
+        private void OnDamageCollecting(int amount)
+        {
+            _currentHealth -= amount;
+            Player.TakeDamage(amount);
+            UpdateHealthBar(_currentHealth);
         }
 
         private void OnDestroy()
@@ -38,13 +60,15 @@ namespace Infrastructure
             InteractableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             InteractableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             InteractableObjectsCollector.LifeCollecting -= OnLivesCollecting;
+            InteractableObjectsCollector.DamageCollecting += OnDamageCollecting;
         }
 
         private void OnLivesCollecting(int amount)
         {
-            if(_gamePlayerData.CurrentLivesAmount < _gamePlayerData.MaxBonusLivesCount)
+            if(_currentLivesAmount < _maxBonusLivesCount)
             {
-                _gamePlayerData.CurrentLivesAmount += amount;
+                _currentLivesAmount += amount;
+                Player.TakeBonusLive(amount);
                 UpdateBonusLivesCount();
             }
             else
@@ -55,8 +79,8 @@ namespace Infrastructure
 
         private void AccrueBonuses()
         {
-            UpdateFruitAmount(_gamePlayerData.CurrentFruitScoresAmount + BonusScores);
-            UpdateCrystalsAmount(_gamePlayerData.CurrentCrystalsAmount + BonusCrystals);
+            UpdateFruitAmount(_currentFruitScoreAmount + BonusScores);
+            UpdateCrystalsAmount(_currentCrystalsAmount + BonusCrystals);
         }
 
         private void UpdateBonusLivesCount()
@@ -67,7 +91,7 @@ namespace Infrastructure
 
         private void InitializeBonusLifeAmount(int currentLivesAmount)
         {
-            if (Hud.LivesPanel.transform.childCount != Game.GamePlayerData.CurrentLivesAmount)
+            if (Hud.LivesPanel.transform.childCount != _currentLivesAmount)
             {
                 var items = Hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
                 foreach (Component item in items)
@@ -84,22 +108,23 @@ namespace Infrastructure
 
         private void OnFoodCollecting(int amount)
         {
-            if(_gamePlayerData.CurrentHealth < _gamePlayerData.MaxHealth)
+            if(_currentHealth < _maxHealth)
             {
-                _gamePlayerData.CurrentHealth += amount;
-                UpdateHealthBar(_gamePlayerData.CurrentHealth);
+                _currentHealth += amount;
+                Player.TakeHealth(amount);
+                UpdateHealthBar(_currentHealth);
             }
         }
 
         private void UpdateHealthBar(int currentHealth)
         {
-            Hud.HealthBar.value = (float) currentHealth / _gamePlayerData.MaxHealth;
+            Hud.HealthBar.value = (float) currentHealth / _maxHealth;
         }
 
         private void OnCrystalCollecting(int amount)
         {
-            _gamePlayerData.CurrentCrystalsAmount += amount;
-            UpdateCrystalsAmount(_gamePlayerData.CurrentCrystalsAmount);   
+            _currentCrystalsAmount += amount;
+            UpdateCrystalsAmount(_currentCrystalsAmount);   
         }
 
         private void UpdateCrystalsAmount(int amount)
@@ -109,8 +134,8 @@ namespace Infrastructure
 
         private void OnFruitCollecting(int amount)
         {
-            _gamePlayerData.CurrentFruitScoresAmount += amount;
-            UpdateFruitAmount(_gamePlayerData.CurrentFruitScoresAmount);
+            _currentFruitScoreAmount += amount;
+            UpdateFruitAmount(_currentFruitScoreAmount);
         }
 
         private void UpdateFruitAmount(int amount)
@@ -120,16 +145,27 @@ namespace Infrastructure
 
         private void UpdateHud()
         {
-            UpdateFruitAmount(_gamePlayerData.CurrentFruitScoresAmount);
-            UpdateCrystalsAmount(_gamePlayerData.CurrentCrystalsAmount);
-            InitializeBonusLifeAmount(_gamePlayerData.CurrentLivesAmount);
-            UpdateHealthBar(_gamePlayerData.CurrentHealth);
+            UpdateFruitAmount(_currentFruitScoreAmount);
+            UpdateCrystalsAmount(_currentCrystalsAmount);
+            InitializeBonusLifeAmount(_currentLivesAmount);
+            UpdateHealthBar(_currentHealth);
         }
-        
 
-        private void OnGamePause()
+        public void LoadProgress(PlayerProgress playerProgress)
         {
-            Game.Pause();
+            _currentFruitScoreAmount = playerProgress.PlayerState.CurrentFruitScoresAmount;
+            _currentCrystalsAmount = playerProgress.PlayerState.CurrentCrystalsAmount;
+            _currentLivesAmount = playerProgress.PlayerState.CurrentLivesAmount;
+            _currentHealth = playerProgress.PlayerState.CurrentHealth;
+            _maxHealth = playerProgress.PlayerState.MaxHealth;
+            _maxBonusLivesCount = playerProgress.PlayerState.MaxBonusLivesCount;
+            UpdateHud();
+        }
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            playerProgress.PlayerState.CurrentFruitScoresAmount = _currentFruitScoreAmount;
+            playerProgress.PlayerState.CurrentCrystalsAmount = _currentCrystalsAmount;
         }
     }
 }

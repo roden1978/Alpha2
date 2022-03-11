@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cinemachine;
 using Common;
 using Data;
+using Infrastructure;
 using Infrastructure.Services;
 using PlayerScripts.States;
 using Services.Input;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace PlayerScripts
 {
     public class Crowbar : MonoBehaviour, ISavedProgress
     {
+        private const int DoubleSingWaitTime = 1200;
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocity;
         [SerializeField] private float _jumpForce;
         [SerializeField] private Vector2 _damping;
-        private const int DoubleSingWaitTime = 1200;
 
         public Player Player;
         private StateMachine _stateMachine;
@@ -32,10 +33,15 @@ namespace PlayerScripts
 
         private bool _doubleJump;
         
+        private Camera _camera;
+        private ICinemachineCamera _virtualCamera;
+        private PlayerSpawnPoint _spawnPoint;
+
 
         private void Awake()
         {
             _stateMachine = new StateMachine();
+            _camera = Camera.main;
         }
 
         private void Start()
@@ -132,7 +138,7 @@ namespace PlayerScripts
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        public void Shoot()
+       private void Shoot()
         {
             _playerStateData.IsShoot = true;
         }
@@ -155,31 +161,40 @@ namespace PlayerScripts
         public void UpdateProgress(PlayerProgress playerProgress)
         {
             Vector3Data asVector3Data = Player.transform.position.AsVector3Data();
-            playerProgress.WorldData.PositionOnLevel =
-                new PositionOnLevel(asVector3Data, CurrentSceneName(), CurrentSceneIndex());
+            playerProgress.WorldData.PositionOnLevel.Position = asVector3Data;
         }
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
-            Debug.Log("Update player position");
-            string sceneName = playerProgress.WorldData.PositionOnLevel.SceneName;
-            int sceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
-            if (CurrentSceneName() == sceneName || CurrentSceneIndex() == sceneIndex)
-            {
                 Vector3Data position = playerProgress.WorldData.PositionOnLevel.Position;
                 if(position != null)
-                    Player.transform.position = position.AsVector3();
+                    PositionPlayer(position.AsVector3());
+        }
+        private async void PositionPlayer(Vector3 position)
+        {
+            if (position == Vector3.zero)
+            {
+                _spawnPoint = FindObjectOfType<PlayerSpawnPoint>();
+                Player.transform.position = _spawnPoint != null ? _spawnPoint.transform.position : Vector3.zero;
             }
+            else
+            {
+                Player.transform.position = position;
+            }
+            _virtualCamera = await GetVCamera();
+            _virtualCamera.VirtualCameraGameObject.SetActive(false);
+            _virtualCamera.VirtualCameraGameObject.transform.position = position;
+            Transform targetTransform = Player.transform;
+            _virtualCamera.Follow = targetTransform;
+            _virtualCamera.LookAt = targetTransform;
+            _virtualCamera.VirtualCameraGameObject.SetActive(true);
         }
 
-        private int CurrentSceneIndex()
+        private async Task<ICinemachineCamera> GetVCamera()
         {
-            return SceneManager.GetActiveScene().buildIndex;
+            await Task.Delay(100);
+            return _camera.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
         }
 
-        private string CurrentSceneName()
-        {
-            return SceneManager.GetActiveScene().name;
-        }
     }
 }

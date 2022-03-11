@@ -4,6 +4,7 @@ using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.GameStates
 {
@@ -37,6 +38,18 @@ namespace Infrastructure.GameStates
             {
                 readers.LoadProgress(persistentProgressService.PlayerProgress);
             }
+            ActivateCurrentScene();
+        }
+        
+        private void ActivateCurrentScene()
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneIndex()));
+        }
+
+        private int SceneIndex()
+        {
+            return _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+                .PositionOnLevel.SceneIndex;
         }
     }
 }

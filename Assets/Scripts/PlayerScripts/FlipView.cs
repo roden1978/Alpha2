@@ -4,10 +4,10 @@ namespace PlayerScripts
 {
     public class FlipView: IFlipView
     {
-        private readonly PlayerView _playerView;
+        private readonly Component _playerView;
         private float _prevDirection;
 
-        public FlipView(PlayerView playerView)
+        public FlipView(Component playerView)
         {
             _playerView = playerView;
             _prevDirection = Vector2.right.x;

@@ -1,15 +1,14 @@
 using System;
 
-namespace PlayerScripts
+namespace Data
 {
     [Serializable]
-    public class PlayerData
+    public class StaticPlayerData
     {
-        public int LivesAmount = 3;
+        public int StartLivesAmount = 3;
         public int Health = 50;
         public int FruitScoresAmount;
         public int CrystalsAmount;
-        public int SceneIndex = 1;
         public int MaxHealth = 100;
         public int MaxBonusLivesCount = 6;
     }

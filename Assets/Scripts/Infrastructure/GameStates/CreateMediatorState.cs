@@ -1,5 +1,7 @@
 ﻿using System;
 using Common;
+using Infrastructure.Factories;
+using Infrastructure.Services;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -7,12 +9,14 @@ namespace Infrastructure.GameStates
 {
     public class CreateMediatorState : IPayloadState<StatesPayload>
     {
-        private const string Path = @"Prefabs/Common/Mediator";
+        
         private readonly GamesStateMachine _stateMachine;
+        private readonly ServiceLocator _serviceLocator;
 
-        public CreateMediatorState(GamesStateMachine stateMachine)
+        public CreateMediatorState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
+            _serviceLocator = serviceLocator;
         }
 
         public void Enter(StatesPayload statesPayload)
@@ -37,11 +41,10 @@ namespace Infrastructure.GameStates
 
         private void CreateMediator(StatesPayload statesPayload, Action onLoaded)
         {
-            GameObject prefab = Resources.Load<GameObject>(Path);
-            Mediator mediator = Object.Instantiate(prefab).GetComponent<Mediator>();
+            Mediator mediator = _serviceLocator.Single<IGameFactory>().CreateMediator();
             mediator.InteractableObjectsCollector = statesPayload.InteractableObjectsCollector;
             mediator.Hud = statesPayload.Hud;
-            mediator.Crowbar = statesPayload.Crowbar;
+            mediator.Player = statesPayload.Player;
             mediator.ControlsPanel = statesPayload.ControlsPanel;
             onLoaded?.Invoke();
         }

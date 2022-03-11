@@ -8,5 +8,8 @@ namespace Infrastructure.AssetManagement
     {
         ControlsPanel InstantiateControlsPanel();
         Crowbar InstantiateCrowbar();
+        Player InstantiatePlayer();
+        Crosshair InstantiateCrosshair();
+        Mediator InstantiateMediator();
     }
 }
