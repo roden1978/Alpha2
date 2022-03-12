@@ -23,7 +23,6 @@ namespace Infrastructure
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, serviceLocator),
                 [typeof(InitializePoolState)] = new  InitializePoolState(this),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this, serviceLocator),
-                //[typeof(PositionPlayerState)] = new PositionPlayerState(this),
                 [typeof(CreateCrowbarState)] = new CreateCrowbarState(this, serviceLocator),
                 [typeof(CreateHudState)] = new CreateHudState(this),
                 [typeof(CreateMediatorState)] = new CreateMediatorState(this, serviceLocator),

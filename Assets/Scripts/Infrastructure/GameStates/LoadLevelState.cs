@@ -39,7 +39,6 @@ namespace Infrastructure.GameStates
         
         private void OnLoaded()
         {
-            //ActivateCurrentScene();
             _stateMachine.Enter<InitializePoolState, StatesPayload>(_statesPayload);
         }
         

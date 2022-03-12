@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using GameScripts;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEditor;
@@ -9,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace Editor.Scripts
 {
-    public class EnemySpawnPointsPrincipal : EditorWindow
+    /*public class EnemySpawnPointsPrincipal : EditorWindow
     {
         private EnemySpawnPoint[] _spawnPoints;
         private int _count;
@@ -189,5 +188,5 @@ namespace Editor.Scripts
             _mountButtonEnable = false;
             ClearPointsList();
         }
-    }
+    }*/
 }

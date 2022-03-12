@@ -1,35 +1,17 @@
-﻿using GameScripts;
+﻿using Infrastructure;
 using UnityEditor;
 using UnityEngine;
 
 namespace Editor
 {
-    [CustomEditor(typeof(EnemySpawnPoint))]
+    [CustomEditor(typeof(EnemySpawner))]
     public class EnemySpawnEditor : UnityEditor.Editor
     {
         [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]
-        public static void RenderCustomGizmo(EnemySpawnPoint enemySpawnPoint, GizmoType gizmo)
+        public static void RenderCustomGizmo(EnemySpawner enemySpawner, GizmoType gizmo)
         {
-            float radius = enemySpawnPoint.CalculateRadius(); 
-            if (radius > 0)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawWireSphere(enemySpawnPoint.transform.position, radius);
-               
-            }
-            else
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(enemySpawnPoint.transform.position, Vector3.one.magnitude); 
-            }
-            
-            //enemySpawnPoint = (EnemySpawnPoint) target;
-            enemySpawnPoint.UpdateTransform();
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(enemySpawner.transform.position, Vector3.one.magnitude);
         }
-
-        /*private void OnValidate()
-        {
-            EnemySpawnPoint 
-        }*/
     }
 }
