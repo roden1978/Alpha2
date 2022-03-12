@@ -6,6 +6,7 @@ namespace EnemyScripts
     public class EnemyDeath : MonoBehaviour
     {
         [SerializeField] private EnemyHealth _health;
+        public Action Death;
 
         private void Start()
         {
@@ -25,6 +26,7 @@ namespace EnemyScripts
 
         private void Die()
         {
+            Death?.Invoke();
             _health.HealthUpdate -= OnHealthUpdate;
             Destroy(gameObject);
         }

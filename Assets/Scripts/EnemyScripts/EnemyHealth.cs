@@ -6,22 +6,28 @@ namespace EnemyScripts
 {
     public class EnemyHealth : MonoBehaviour, IHealth
     {
-        [SerializeField] private int _health;
-        [SerializeField] private int _maxHealth;
-        public int HP => _health;
-        public int MaxHealth => _maxHealth;
+        public int HP { get; private set; }
+        public int MaxHealth { get; private set; }
+
         public Action HealthUpdate;
 
+        public void Construct(int health)
+        {
+            MaxHealth = HP = health;
+        }
         public void TakeDamage(int damage)
         {
-            _health -= damage;
+            HP -= damage;
             HealthUpdate?.Invoke();
         }
 
         public void TakeHealth(int health)
         {
-            if (_health < _maxHealth)
-                _health += health;
+            if (HP < MaxHealth)
+            {
+                HP += health;
+                HealthUpdate?.Invoke();
+            }
         }
     }
 }

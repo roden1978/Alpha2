@@ -10,13 +10,24 @@ namespace EnemyScripts
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] private Bullet _bullet;
-        [SerializeField] [Range(1f, 2f)] private float _cooldown;
+        private float _cooldown;
         private Coroutine _shooting;
 
         private void Start()
         {
             _triggerObserver.TriggerEnter += OnAggroTriggerEnter;
             _triggerObserver.TriggerExit += OnAggroTriggerExit;
+        }
+
+        private void OnDisable()
+        {
+            _triggerObserver.TriggerEnter -= OnAggroTriggerEnter;
+            _triggerObserver.TriggerExit -= OnAggroTriggerExit;
+        }
+
+        public void Construct(float cooldown)
+        {
+            _cooldown = cooldown;
         }
 
         private void OnAggroTriggerEnter(Collider2D obj) => 
@@ -29,16 +40,12 @@ namespace EnemyScripts
         {
             _shooting = StartCoroutine(Shooting(target.transform));
         }
+
         private void ShootOff()
         {
             StopCoroutine(_shooting);
         }
-        private void OnDisable()
-        {
-            _triggerObserver.TriggerEnter -= OnAggroTriggerEnter;
-            _triggerObserver.TriggerExit -= OnAggroTriggerExit;
-        }
-        
+
         private IEnumerator Shooting(Transform target)
         {
             //var lookDirection = LookDirection();

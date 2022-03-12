@@ -1,4 +1,4 @@
-﻿namespace Services.StaticData
+﻿namespace StaticData
 {
     public enum EnemyTypeId
     {
