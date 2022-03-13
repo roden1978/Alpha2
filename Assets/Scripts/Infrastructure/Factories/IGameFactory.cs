@@ -21,6 +21,6 @@ namespace Infrastructure.Factories
         void AddProgressReader(ISavedProgressReader progressReader);
         void AddProgressWriter(ISavedProgress progressWriter);
         GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent);
-        PickableObject CreateLoot();
+        GameObject CreatePickableObject(PickableObjectTypeId objectTypeId, Transform parent);
     }
 }

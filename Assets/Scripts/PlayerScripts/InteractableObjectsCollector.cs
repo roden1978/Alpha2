@@ -8,7 +8,6 @@ namespace PlayerScripts
     public class InteractableObjectsCollector : MonoBehaviour
     {
         private Dictionary<Type, Action<int>> _actions;
-        
         public event Action<int> CrystalCollecting;
         public event Action<int> FruitCollecting;
         public event Action<int> FoodCollecting;

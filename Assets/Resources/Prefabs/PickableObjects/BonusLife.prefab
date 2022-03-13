@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6472612544944187166}
   - component: {fileID: 5343735354703552668}
-  - component: {fileID: 7308101134467647143}
   - component: {fileID: 869551895}
   - component: {fileID: -5140553229786673756}
+  - component: {fileID: 5905899038795710196}
   m_Layer: 8
   m_Name: BonusLife
   m_TagString: Untagged
@@ -85,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7308101134467647143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8113663442526358085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b22e5a04a3a7e498902286318071fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &869551895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +125,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _height: 0.2
   _speed: 0.5
+--- !u!114 &5905899038795710196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113663442526358085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b22e5a04a3a7e498902286318071fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

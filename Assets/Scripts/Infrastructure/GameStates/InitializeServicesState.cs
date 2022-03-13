@@ -59,6 +59,7 @@ namespace Infrastructure.GameStates
         {
             IStaticDataService staticDataService = new StaticDataService();
             staticDataService.LoadEnemies();
+            staticDataService.LoadPickableObjects();
             _serviceLocator.RegisterSingle(staticDataService);
         }
 

@@ -4,6 +4,6 @@ namespace GameObjectsScripts
 {
     public abstract class InteractableObject: MonoBehaviour
     {
-       public int Value { get; protected set; }
+       public int Value { get; set; }
     }
 }

@@ -7,5 +7,7 @@ namespace Services.StaticData
     {
         void LoadEnemies();
         EnemyStaticData GetStaticData(EnemyTypeId typeId);
+        PickableObjectStaticData GetPickableObjectStaticData(PickableObjectTypeId typeId);
+        void LoadPickableObjects();
     }
 }
