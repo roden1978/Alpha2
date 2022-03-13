@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EnemyScripts;
+using GameObjectsScripts;
 using Infrastructure.AssetManagement;
 using PlayerScripts;
 using Services.StaticData;
@@ -12,7 +13,7 @@ namespace Infrastructure.Factories
     public class GameFactory : IGameFactory
     {
         private readonly IAssetProvider _assetProvider;
-        private IStaticDataService _staticData;
+        private readonly IStaticDataService _staticData;
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
 
@@ -81,8 +82,18 @@ namespace Infrastructure.Factories
 
             Aggro aggro = enemy.GetComponent<Aggro>();
             aggro.Construct(enemyStaticData.Cooldown);
+
+            LootSpawner loopSpawner = enemy.GetComponentInChildren<LootSpawner>();
+            loopSpawner.Construct(this);
             
             return enemy;
+        }
+
+        public PickableObject CreateLoot()
+        {
+            PickableObject loot = _assetProvider.InstantiateLoot();
+            RegisterInSaveLoadRepositories(loot.gameObject);
+            return loot;
         }
 
         public void CleanUp()

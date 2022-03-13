@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services;
+﻿using GameObjectsScripts;
+using Infrastructure.Services;
 using PlayerScripts;
 using UI;
 
@@ -11,5 +12,6 @@ namespace Infrastructure.AssetManagement
         Player InstantiatePlayer();
         Crosshair InstantiateCrosshair();
         Mediator InstantiateMediator();
+        PickableObject InstantiateLoot();
     }
 }

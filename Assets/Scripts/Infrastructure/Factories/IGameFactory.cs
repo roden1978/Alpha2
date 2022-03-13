@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameObjectsScripts;
 using Infrastructure.Services;
 using PlayerScripts;
 using StaticData;
@@ -20,5 +21,6 @@ namespace Infrastructure.Factories
         void AddProgressReader(ISavedProgressReader progressReader);
         void AddProgressWriter(ISavedProgress progressWriter);
         GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent);
+        PickableObject CreateLoot();
     }
 }
