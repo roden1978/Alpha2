@@ -7,5 +7,6 @@
         public const string PlayerPath = @"Prefabs/Player/Player";
         public const string CrosshairPath = @"Prefabs/Crosschair/Crosshair";
         public const string MediatorPath = @"Prefabs/Common/Mediator";
+        public const string CrystalPath = @"Prefabs/PickableObjects/Crystal";
     }
 }

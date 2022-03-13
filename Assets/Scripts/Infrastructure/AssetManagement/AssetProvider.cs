@@ -1,4 +1,5 @@
-﻿using PlayerScripts;
+﻿using GameObjectsScripts;
+using PlayerScripts;
 using UI;
 using UnityEngine;
 
@@ -34,6 +35,12 @@ namespace Infrastructure.AssetManagement
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.MediatorPath);
             return Object.Instantiate(prefab).GetComponent<Mediator>();
+        }
+
+        public PickableObject InstantiateLoot()
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.CrystalPath);
+            return Object.Instantiate(prefab).GetComponent<PickableObject>();
         }
     }
 }
