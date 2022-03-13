@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/SnakeStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/SnakeStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyStaticData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyStaticData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Services/StaticData/IStaticDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Services/StaticData/IStaticDataService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Services/StaticData/StaticDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Services/StaticData/StaticDataService.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Editor/EnemySpawnEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/EnemySpawnEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/EnemySpawnPointsPrincipal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/EnemySpawnPointsPrincipal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Snake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Snake.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/ActorUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/ActorUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyDeath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/IGameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/IGameFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameStates/InitializeServicesState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameStates/InitializeServicesState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Services/StaticData/EnemyTypeId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyTypeId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Services/StaticData/EnemyTypeId.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyTypeId.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,10 +79,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9636">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="9636" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -195,6 +171,7 @@
       <workItem from="1646759928823" duration="2607000" />
       <workItem from="1647012083644" duration="4865000" />
       <workItem from="1647055780408" duration="23385000" />
+      <workItem from="1647145480390" duration="2904000" />
     </task>
     <servers />
   </component>
