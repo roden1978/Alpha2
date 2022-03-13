@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using EnemyScripts;
 using Infrastructure.AssetManagement;
 using PlayerScripts;
+using Services.StaticData;
+using StaticData;
 using UI;
 using UnityEngine;
 
@@ -9,12 +12,14 @@ namespace Infrastructure.Factories
     public class GameFactory : IGameFactory
     {
         private readonly IAssetProvider _assetProvider;
+        private IStaticDataService _staticData;
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
 
-        public GameFactory(IAssetProvider assetProvider)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData)
         {
             _assetProvider = assetProvider;
+            _staticData = staticData;
             ProgressReaders = new List<ISavedProgressReader>();
             ProgressWriters = new List<ISavedProgress>();
         }
@@ -61,6 +66,23 @@ namespace Infrastructure.Factories
         public void AddProgressWriter(ISavedProgress progressWriter)
         {
             ProgressWriters.Add(progressWriter);
+        }
+
+        public GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent)
+        {
+            EnemyStaticData enemyStaticData = _staticData.GetStaticData(enemyTypeId);
+            GameObject enemy = Object.Instantiate(enemyStaticData.Prefab, parent.position, Quaternion.identity, parent);
+            
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            enemyHealth.Construct(enemyStaticData.Health);
+            
+            ActorUI actorUI = enemy.GetComponent<ActorUI>();
+            actorUI.Construct(enemyHealth);
+
+            Aggro aggro = enemy.GetComponent<Aggro>();
+            aggro.Construct(enemyStaticData.Cooldown);
+            
+            return enemy;
         }
 
         public void CleanUp()

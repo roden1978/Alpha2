@@ -5,6 +5,7 @@ using Infrastructure.Factories;
 using Infrastructure.Services;
 using Services.PersistentProgress;
 using Services.SaveLoad;
+using Services.StaticData;
 
 namespace Infrastructure.GameStates
 {
@@ -35,11 +36,13 @@ namespace Infrastructure.GameStates
         
         private void RegisterServices(Action callback = null)
         {
+            RegisterStaticData();
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _serviceLocator.RegisterSingle<IGameFactory>(
                 new GameFactory(
-                    _serviceLocator.Single<IAssetProvider>()
+                    _serviceLocator.Single<IAssetProvider>(), 
+                    _serviceLocator.Single<IStaticDataService>()
                     )
             );
             _serviceLocator.RegisterSingle<ISaveLoadService>(new SaveLoadService(
@@ -47,8 +50,18 @@ namespace Infrastructure.GameStates
                 _serviceLocator.Single<IGameFactory>()
                 )
             );
+
+
             callback?.Invoke();
         }
+
+        private void RegisterStaticData()
+        {
+            IStaticDataService staticDataService = new StaticDataService();
+            staticDataService.LoadEnemies();
+            _serviceLocator.RegisterSingle(staticDataService);
+        }
+
         private void NextState()
         {
             _stateMachine.Enter<LoadProgressState>();

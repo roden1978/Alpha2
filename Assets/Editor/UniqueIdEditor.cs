@@ -19,7 +19,7 @@ namespace Editor
             {
                 UniqueId[] uniqueIds = FindObjectsOfType<UniqueId>();
                 
-                if(uniqueIds.Any(other => other != uniqueId && other.Id == uniqueId.Id || uniqueIds.Length > 0))
+                if(uniqueIds.Any(other => other != uniqueId && other.Id == uniqueId.Id))
                     Generate(uniqueId);
             }
         }

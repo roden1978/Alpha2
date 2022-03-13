@@ -1,5 +1,4 @@
 using Data;
-using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
@@ -16,20 +15,17 @@ namespace Infrastructure
         private ISceneLoader _sceneLoader;
         private ISaveLoadService _saveLoadService;
         private int _currentSceneIndex;
-        private IGameFactory _gameFactory;
         private PlayerProgress _playerProgress;
 
         private void Awake()
         {
             _sceneLoader = new SceneLoader(this);
             _saveLoadService = ServiceLocator.Container.Single<ISaveLoadService>();
-            _gameFactory = ServiceLocator.Container.Single<IGameFactory>();
             _playerProgress = ServiceLocator.Container.Single<IPersistentProgressService>().PlayerProgress;
         }
 
         private void Start()
         {
-            _gameFactory.AddProgressWriter(this);
             LoadProgress(_playerProgress);
         }
 

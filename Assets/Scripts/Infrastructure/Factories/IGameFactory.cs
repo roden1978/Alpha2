@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Infrastructure.Services;
 using PlayerScripts;
+using StaticData;
 using UI;
+using UnityEngine;
 
 namespace Infrastructure.Factories
 {
@@ -17,5 +19,6 @@ namespace Infrastructure.Factories
         Mediator CreateMediator();
         void AddProgressReader(ISavedProgressReader progressReader);
         void AddProgressWriter(ISavedProgress progressWriter);
+        GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent);
     }
 }
