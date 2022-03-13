@@ -1,6 +1,5 @@
-﻿using System;
-using GameObjectsScripts;
-using Infrastructure.Factories;
+﻿using Infrastructure.Factories;
+using StaticData;
 using UnityEngine;
 
 namespace EnemyScripts
@@ -8,6 +7,7 @@ namespace EnemyScripts
     public class LootSpawner : MonoBehaviour
     {
         [SerializeField] private EnemyDeath _enemyDeath;
+        [SerializeField] private PickableObjectStaticData _spawnedLootObjectStaticData;
         private IGameFactory _gameFactory;
 
         public void Construct(IGameFactory gameFactory)
@@ -22,8 +22,13 @@ namespace EnemyScripts
 
         private void OnEnemyDeath()
         {
-            PickableObject loot = _gameFactory.CreateLoot();
-            loot.transform.position = transform.position;
+            GameObject loot = _gameFactory.CreatePickableObject(_spawnedLootObjectStaticData.PickableObjectTypeId, transform);
+            loot.transform.parent = null;
+        }
+
+        private void OnDestroy()
+        {
+            _enemyDeath.Death -= OnEnemyDeath;
         }
     }
 }

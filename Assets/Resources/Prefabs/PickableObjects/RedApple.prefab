@@ -53,12 +53,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931982784981407982, guid: c33a73f1713192c40987e84142c2364b, type: 3}
       propertyPath: m_Name
-      value: RedApple Variant
+      value: RedApple
       objectReference: {fileID: 0}
     - target: {fileID: 1931982784981407983, guid: c33a73f1713192c40987e84142c2364b, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3467842513784747345, guid: 1addce66e76428f41a0ee4435c1a9930, type: 3}
+    - target: {fileID: 1931982784981407983, guid: c33a73f1713192c40987e84142c2364b, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931982784981407983, guid: c33a73f1713192c40987e84142c2364b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1410646433
+      objectReference: {fileID: 0}
     - target: {fileID: 1931982784981407983, guid: c33a73f1713192c40987e84142c2364b, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

@@ -9,6 +9,7 @@ namespace Data
         public PlayerState PlayerState;
         public StaticPlayerData StaticPlayerData;
         public KillData KillData;
+        public PickableObjectData PickableObjectData;
 
         public PlayerProgress(string sceneName, int sceneIndex)
         {
@@ -16,6 +17,9 @@ namespace Data
             PlayerState = new PlayerState();
             StaticPlayerData = new StaticPlayerData();
             KillData = new KillData();
+            PickableObjectData = new PickableObjectData();
         }
+
+        
     }
 }

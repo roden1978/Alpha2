@@ -13,14 +13,14 @@ namespace Infrastructure.Factories
     public class GameFactory : IGameFactory
     {
         private readonly IAssetProvider _assetProvider;
-        private readonly IStaticDataService _staticData;
+        private readonly IStaticDataService _staticDataService;
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
 
-        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticData)
+        public GameFactory(IAssetProvider assetProvider, IStaticDataService staticDataService)
         {
             _assetProvider = assetProvider;
-            _staticData = staticData;
+            _staticDataService = staticDataService;
             ProgressReaders = new List<ISavedProgressReader>();
             ProgressWriters = new List<ISavedProgress>();
         }
@@ -71,7 +71,7 @@ namespace Infrastructure.Factories
 
         public GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent)
         {
-            EnemyStaticData enemyStaticData = _staticData.GetStaticData(enemyTypeId);
+            EnemyStaticData enemyStaticData = _staticDataService.GetStaticData(enemyTypeId);
             GameObject enemy = Object.Instantiate(enemyStaticData.Prefab, parent.position, Quaternion.identity, parent);
             
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
@@ -89,11 +89,15 @@ namespace Infrastructure.Factories
             return enemy;
         }
 
-        public PickableObject CreateLoot()
+        public GameObject CreatePickableObject(PickableObjectTypeId objectTypeId, Transform parent)
         {
-            PickableObject loot = _assetProvider.InstantiateLoot();
-            RegisterInSaveLoadRepositories(loot.gameObject);
-            return loot;
+            Debug.Log("Loot");
+            PickableObjectStaticData pickableObjectStaticData = _staticDataService.GetPickableObjectStaticData(objectTypeId);
+            GameObject pickableObject = Object.Instantiate(pickableObjectStaticData.Prefab, parent.position,
+                Quaternion.identity, parent);
+            PickableObject obj = pickableObject.GetComponent<PickableObject>();
+            obj.Value = pickableObjectStaticData.Value;
+            return pickableObject;
         }
 
         public void CleanUp()

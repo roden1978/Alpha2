@@ -34,8 +34,14 @@ namespace Infrastructure.GameStates
 
         private void InitSpawners()
         {
-            var spawners = Object.FindObjectsOfType<EnemySpawner>();
-            foreach (EnemySpawner spawner in spawners)
+            var enemySpawners = Object.FindObjectsOfType<EnemySpawner>();
+            foreach (EnemySpawner spawner in enemySpawners)
+            {
+                _gameFactory.AddProgressWriter(spawner);
+            }
+            
+            var pickableObjectSpawners = Object.FindObjectsOfType<PickableObjectSpawner>();
+            foreach (PickableObjectSpawner spawner in pickableObjectSpawners)
             {
                 _gameFactory.AddProgressWriter(spawner);
             }

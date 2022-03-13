@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931982784981407982, guid: c33a73f1713192c40987e84142c2364b, type: 3}
       propertyPath: m_Name
-      value: Ananas
+      value: PineApple
       objectReference: {fileID: 0}
     - target: {fileID: 1931982784981407983, guid: c33a73f1713192c40987e84142c2364b, type: 3}
       propertyPath: m_Sprite

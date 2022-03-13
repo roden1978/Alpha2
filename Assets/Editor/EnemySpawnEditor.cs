@@ -22,7 +22,7 @@ namespace Editor
             Gizmos.DrawGUITexture(new Rect(rectPosition, rectSize), spriteRenderer.sprite.texture);
             Vector3 labelPosition = new Vector3(position.x - spriteSize.x / 2, position.y + spriteSize.y / 2 + .5f, 0);
             string text =
-                $"Enemy type: {Enum.GetName(typeof(EnemyTypeId), enemySpawner.EnemyStaticData.EnemyTypeId)?.ToUpper()}";
+                $"{Enum.GetName(typeof(EnemyTypeId), enemySpawner.EnemyStaticData.EnemyTypeId)?.ToUpper()}";
             Handles.Label(labelPosition, text);
         }
     }
