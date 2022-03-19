@@ -1,7 +1,6 @@
 ﻿using System;
 using Common;
 using Infrastructure.Services;
-using Input;
 using Services.Input;
 using UnityEngine;
 

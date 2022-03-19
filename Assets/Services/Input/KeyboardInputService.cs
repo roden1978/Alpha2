@@ -1,7 +1,6 @@
 using System;
-using Services.Input;
 
-namespace Input
+namespace Services.Input
 {
     public class KeyboardInputService : IDisposable, IInputService
     {

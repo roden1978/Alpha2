@@ -26,6 +26,7 @@ namespace Infrastructure
                 [typeof(CreateCrowbarState)] = new CreateCrowbarState(this, serviceLocator),
                 [typeof(CreateHudState)] = new CreateHudState(this),
                 [typeof(CreateMediatorState)] = new CreateMediatorState(this, serviceLocator),
+                [typeof(SpawnEntitiesState)] = new SpawnEntitiesState(this, serviceLocator),
                 [typeof(UpdateProgressState)] = new UpdateProgressState(serviceLocator)
             };
         }

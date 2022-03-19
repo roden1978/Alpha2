@@ -4,7 +4,7 @@ using System.Linq;
 using GameObjectsScripts;
 using UnityEngine;
 
-namespace Common
+namespace Services.Pools
 {
     public class WeaponPools : MonoBehaviour
     {

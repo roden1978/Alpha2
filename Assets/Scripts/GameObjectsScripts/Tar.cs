@@ -1,5 +1,6 @@
 using Data;
 using PlayerScripts;
+using Services.PersistentProgress;
 using UnityEngine;
 
 namespace GameObjectsScripts

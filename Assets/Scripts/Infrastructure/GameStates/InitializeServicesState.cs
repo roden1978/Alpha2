@@ -36,9 +36,10 @@ namespace Infrastructure.GameStates
         
         private void RegisterServices(Action callback = null)
         {
-            RegisterStaticData();
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _serviceLocator.RegisterSingle<IStaticDataService>(new StaticDataService());
+            
             _serviceLocator.RegisterSingle<IGameFactory>(
                 new GameFactory(
                     _serviceLocator.Single<IAssetProvider>(), 
@@ -51,17 +52,16 @@ namespace Infrastructure.GameStates
                 )
             );
 
-
+            RegisterStaticData(_serviceLocator.Single<IStaticDataService>());
+            
             callback?.Invoke();
         }
 
-        private void RegisterStaticData()
+        private void RegisterStaticData(IStaticDataService staticDataService)
         {
-            IStaticDataService staticDataService = new StaticDataService();
             staticDataService.LoadEnemies();
             staticDataService.LoadPickableObjects();
             staticDataService.LoadLevelStaticData();
-            _serviceLocator.RegisterSingle(staticDataService);
         }
 
         private void NextState()
