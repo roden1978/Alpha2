@@ -2,6 +2,7 @@
 using EnemyScripts;
 using GameObjectsScripts;
 using Infrastructure.AssetManagement;
+using Infrastructure.EnemySpawners;
 using PlayerScripts;
 using Services.StaticData;
 using StaticData;
@@ -47,6 +48,13 @@ namespace Infrastructure.Factories
             Mediator mediator = _assetProvider.InstantiateMediator();
             RegisterInSaveLoadRepositories(mediator.gameObject);
             return mediator;
+        }
+
+        public void CreateSpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position)
+        {
+            EnemySpawnPoint spawnPoint = _assetProvider.InstantiateEnemySpawner(position);
+            spawnPoint.Construct(this, spawnerId, enemyTypeId);
+            RegisterInSaveLoadRepositories(spawnPoint.gameObject);
         }
 
         private void RegisterInSaveLoadRepositories(GameObject registeredGameObject)

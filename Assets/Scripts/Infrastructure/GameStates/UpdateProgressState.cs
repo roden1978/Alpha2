@@ -4,6 +4,9 @@ using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
+using Services.StaticData;
+using StaticData;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
@@ -34,10 +37,19 @@ namespace Infrastructure.GameStates
 
         private void InitSpawners()
         {
-            var enemySpawners = Object.FindObjectsOfType<EnemySpawner>();
+            /*var enemySpawners = Object.FindObjectsOfType<EnemySpawner>();
             foreach (EnemySpawner spawner in enemySpawners)
             {
                 _gameFactory.AddProgressWriter(spawner);
+            }*/
+
+            string levelKey = SceneManager.GetActiveScene().name;
+            Debug.Log(levelKey);
+            LevelStaticData levelStaticData = _serviceLocator.Single<IStaticDataService>().GetLevelStaticData(levelKey);
+            _gameFactory = _serviceLocator.Single<IGameFactory>();
+            foreach (EnemySpawnerData spawnerData in levelStaticData.EnemySpawners)
+            {
+                _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.EnemyTypeId, spawnerData.Position);
             }
             
             var pickableObjectSpawners = Object.FindObjectsOfType<PickableObjectSpawner>();
@@ -56,7 +68,6 @@ namespace Infrastructure.GameStates
         private void UpdatePlayerProgress()
         {
             ActivateCurrentScene();
-            _gameFactory = _serviceLocator.Single<IGameFactory>();
             IPersistentProgressService persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
             //refactor this registration object from loading scene to update
             InitSpawners();

@@ -1,4 +1,5 @@
 ﻿using GameObjectsScripts;
+using Infrastructure.EnemySpawners;
 using PlayerScripts;
 using UI;
 using UnityEngine;
@@ -41,6 +42,12 @@ namespace Infrastructure.AssetManagement
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.CrystalPath);
             return Object.Instantiate(prefab).GetComponent<PickableObject>();
+        }
+
+        public EnemySpawnPoint InstantiateEnemySpawner(Vector3 position)
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.EnemySpawnPoint);
+            return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<EnemySpawnPoint>();
         }
     }
 }

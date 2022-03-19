@@ -1,0 +1,54 @@
+﻿using Data;
+using EnemyScripts;
+using Infrastructure.Factories;
+using PlayerScripts;
+using StaticData;
+using UnityEngine;
+
+namespace Infrastructure.EnemySpawners
+{
+    public class EnemySpawnPoint : MonoBehaviour, ISavedProgress
+    {
+        private string _spawnerId;
+        private EnemyTypeId _enemyTypeId;
+        
+        private bool _slain;
+        private IGameFactory _gameFactory;
+        private EnemyDeath _enemyDeath;
+       
+        public void Construct(IGameFactory gameFactory, string id, EnemyTypeId enemyTypeId)
+        {
+            _gameFactory = gameFactory;
+            _spawnerId = id;
+            _enemyTypeId = enemyTypeId;
+        }
+
+        public void LoadProgress(PlayerProgress playerProgress)
+        {
+            if (playerProgress.KillData.ClearedSpawners.Contains(_spawnerId))
+                _slain = true;
+            else
+                Spawn();
+        }
+
+        private void Spawn()
+        {
+            GameObject enemy = _gameFactory.CreateEnemy(_enemyTypeId, transform);
+            _enemyDeath = enemy.GetComponent<EnemyDeath>();
+            _enemyDeath.Death += OnEnemyDeath;
+        }
+
+        private void OnEnemyDeath()
+        {
+            if (_enemyDeath != null)
+                _enemyDeath.Death -= OnEnemyDeath;
+            _slain = true;
+        }
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            if (_slain)
+                playerProgress.KillData.ClearedSpawners.Add(_spawnerId);
+        }
+    }
+}
