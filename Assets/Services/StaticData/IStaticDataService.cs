@@ -9,5 +9,7 @@ namespace Services.StaticData
         EnemyStaticData GetStaticData(EnemyTypeId typeId);
         PickableObjectStaticData GetPickableObjectStaticData(PickableObjectTypeId typeId);
         void LoadPickableObjects();
+        LevelStaticData GetLevelStaticData(string levelKey);
+        void LoadLevelStaticData();
     }
 }
