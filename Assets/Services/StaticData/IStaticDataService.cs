@@ -11,5 +11,7 @@ namespace Services.StaticData
         void LoadPickableObjects();
         LevelStaticData GetLevelStaticData(string levelKey);
         void LoadLevelStaticData();
+        SaveProgressPointStaticData GetSaveProgressPointStaticData(SaveProgressPointTypeId pointTypeId);
+        void LoadSaveProgressPointStaticData();
     }
 }

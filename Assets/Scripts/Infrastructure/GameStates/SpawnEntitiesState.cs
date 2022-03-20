@@ -6,7 +6,6 @@ using Infrastructure.Services;
 using Services.PersistentProgress;
 using Services.StaticData;
 using StaticData;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
@@ -57,6 +56,7 @@ namespace Infrastructure.GameStates
             LevelStaticData levelStaticData = _serviceLocator.Single<IStaticDataService>().GetLevelStaticData(levelKey);
             SpawnEnemies(levelStaticData.EnemySpawners);
             SpawnPickableObjects(levelStaticData.PickableObjectSpawners);
+            SpawnSaveProgressPoints(levelStaticData.SaveProgressPointSpawners);
             SpawnPortal(levelKey);
         }
 
@@ -73,7 +73,16 @@ namespace Infrastructure.GameStates
         {
             foreach (EnemySpawnerData spawnerData in enemySpawners)
             {
-                _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.EnemyTypeId, spawnerData.Position);
+                _gameFactory.CreateEnemySpawner(spawnerData.Id, spawnerData.EnemyTypeId, spawnerData.Position);
+            }
+        }
+
+        private void SpawnSaveProgressPoints(IEnumerable<SaveProgressPointSpawnData> saveProgressPointSpawners)
+        {
+            foreach (SaveProgressPointSpawnData spawnerData in saveProgressPointSpawners)
+            {
+                _gameFactory.CreateSaveProgressPointSpawner(spawnerData.Id, spawnerData.SaveProgressPointTypeId,
+                    spawnerData.Width, spawnerData.Height, spawnerData.Position);
             }
         }
 

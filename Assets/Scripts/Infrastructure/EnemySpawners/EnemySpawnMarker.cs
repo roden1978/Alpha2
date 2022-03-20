@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Infrastructure.EnemySpawners
 {
-    public class SpawnMarker : MonoBehaviour
+    public class EnemySpawnMarker : MonoBehaviour
     {
         [field: SerializeField]
         public EnemyStaticData EnemyStaticData { get; private set; }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using GameObjectsScripts;
 using Infrastructure.EnemySpawners;
+using Infrastructure.SavePointSpawners;
 using StaticData;
 using UnityEditor;
 using UnityEngine;
@@ -17,14 +18,24 @@ namespace Editor
             LevelStaticData levelData = (LevelStaticData)target;
             if (GUILayout.Button("Collect"))
             {
-                levelData.EnemySpawners = FindObjectsOfType<SpawnMarker>()
+                levelData.EnemySpawners = FindObjectsOfType<EnemySpawnMarker>()
                     .Select(x =>
-                        new EnemySpawnerData(x.GetComponent<UniqueId>().Id, x.EnemyStaticData.EnemyTypeId, x.transform.position))
+                        new EnemySpawnerData(x.GetComponent<UniqueId>().Id, x.EnemyStaticData.EnemyTypeId,
+                            x.transform.position))
                     .ToList();
+                
                 levelData.PickableObjectSpawners = FindObjectsOfType<PickableObjectMarker>()
                     .Select(x =>
-                        new PickableObjectSpawnData(x.GetComponent<UniqueId>().Id, x.PickableObjectStaticData.PickableObjectTypeId, x.transform.position))
+                        new PickableObjectSpawnData(x.GetComponent<UniqueId>().Id,
+                            x.PickableObjectStaticData.PickableObjectTypeId, x.transform.position))
                     .ToList();
+                
+                levelData.SaveProgressPointSpawners = FindObjectsOfType<SaveProgressPointMarker>()
+                    .Select(x => new SaveProgressPointSpawnData(x.GetComponent<UniqueId>().Id,
+                        x.SaveProgressPointStaticData.SaveProgressPointTypeId,
+                        x.SaveProgressPointStaticData.ColliderWidth,
+                        x.SaveProgressPointStaticData.ColliderHeight, x.transform.position)).ToList();
+                
                 levelData.LevelKey = SceneManager.GetActiveScene().name;
             }
 
@@ -32,7 +43,9 @@ namespace Editor
             {
                 levelData.EnemySpawners.Clear();
                 levelData.PickableObjectSpawners.Clear();
+                levelData.SaveProgressPointSpawners.Clear();
             }
+
             EditorUtility.SetDirty(target);
         }
     }

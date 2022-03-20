@@ -21,10 +21,13 @@ MonoBehaviour:
     EnemyTypeId: 0
     Position: {x: -5.23, y: -3.18, z: 0}
   PickableObjectSpawners:
+  - Id: Level1_ef024266-885a-4b36-b7b9-c23262c5cf0d
+    PickableObjectTypeId: 110
+    Position: {x: -13.38, y: 4.01, z: 0}
   - Id: Level1_1f2dba81-81aa-4169-803e-a7f57a2f5b43
     PickableObjectTypeId: 0
     Position: {x: -7.91, y: 4.89, z: 0}
-  - Id: _2d6c09ef-888d-43ea-adb7-2abe31850d1f
+  - Id: _16589ee1-5c76-4b46-b68d-95e387264637
     PickableObjectTypeId: 0
     Position: {x: -9.91, y: 4.89, z: 0}
   - Id: Level1_d140b628-f153-4344-a2b1-3e513d6cfa2e
@@ -33,3 +36,9 @@ MonoBehaviour:
   - Id: Level1_31ceb3de-f88c-4e5d-87fb-47ec64059185
     PickableObjectTypeId: 0
     Position: {x: -8.91, y: 4.89, z: 0}
+  SaveProgressPointSpawners:
+  - Id: Level1_9e36b658-7a9d-499b-8d0e-7bf1f987dbb1
+    SaveProgressPointTypeId: 0
+    Width: 1
+    Height: 5
+    Position: {x: 5.9, y: 0.34, z: 0}

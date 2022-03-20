@@ -1,6 +1,7 @@
 ﻿using GameObjectsScripts;
 using Infrastructure.EnemySpawners;
 using Infrastructure.PickableObjectSpawners;
+using Infrastructure.SavePointSpawners;
 using PlayerScripts;
 using UI;
 using UnityEngine;
@@ -55,6 +56,12 @@ namespace Infrastructure.AssetManagement
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.PickableObjectSpawnPoint);
             return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<PickableObjectSpawner>();
+        }
+
+        public SaveProgressPointSpawner InstantiateSaveProgressSpawner(Vector3 position)
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.SaveProgressSpawnPoint);
+            return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<SaveProgressPointSpawner>();
         }
     }
 }

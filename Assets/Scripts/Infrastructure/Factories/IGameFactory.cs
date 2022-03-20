@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GameObjectsScripts;
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
@@ -22,8 +21,10 @@ namespace Infrastructure.Factories
         void AddProgressReader(ISavedProgressReader progressReader);
         void AddProgressWriter(ISavedProgress progressWriter);
         GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent);
+        void CreateEnemySpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position);
         GameObject CreatePickableObject(PickableObjectTypeId objectTypeId, Transform parent);
-        void CreateSpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position);
         void CreatePickableObjectSpawner(string spawnerId, PickableObjectTypeId pickableObjectTypeId, Vector3 position);
+        GameObject CreateSavePoint(SaveProgressPointTypeId pointTypeId, float width, float height, Transform parent, bool isUsed);
+        void CreateSaveProgressPointSpawner(string spawnerId, SaveProgressPointTypeId pointTypeId, float width, float height, Vector3 position);
     }
 }
