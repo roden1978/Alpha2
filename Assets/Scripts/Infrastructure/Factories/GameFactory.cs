@@ -3,7 +3,9 @@ using EnemyScripts;
 using GameObjectsScripts;
 using Infrastructure.AssetManagement;
 using Infrastructure.EnemySpawners;
+using Infrastructure.PickableObjectSpawners;
 using PlayerScripts;
+using Services.PersistentProgress;
 using Services.StaticData;
 using StaticData;
 using UI;
@@ -57,6 +59,14 @@ namespace Infrastructure.Factories
             RegisterInSaveLoadRepositories(spawnPoint.gameObject);
         }
 
+        public void CreatePickableObjectSpawner(string spawnerId, PickableObjectTypeId pickableObjectTypeId,
+            Vector3 position)
+        {
+            PickableObjectSpawner pickableObjectSpawner = _assetProvider.InstantiatePickableObjectSpawner(position);
+            pickableObjectSpawner.Construct(this, spawnerId, pickableObjectTypeId);
+            RegisterInSaveLoadRepositories(pickableObjectSpawner.gameObject);
+        }
+
         private void RegisterInSaveLoadRepositories(GameObject registeredGameObject)
         {
             foreach (ISavedProgressReader progressReader in registeredGameObject.GetComponentsInChildren<ISavedProgressReader>())
@@ -99,13 +109,12 @@ namespace Infrastructure.Factories
 
         public GameObject CreatePickableObject(PickableObjectTypeId objectTypeId, Transform parent)
         {
-            Debug.Log("Loot");
             PickableObjectStaticData pickableObjectStaticData = _staticDataService.GetPickableObjectStaticData(objectTypeId);
-            GameObject pickableObject = Object.Instantiate(pickableObjectStaticData.Prefab, parent.position,
+            GameObject gameObject = Object.Instantiate(pickableObjectStaticData.Prefab, parent.position,
                 Quaternion.identity, parent);
-            PickableObject obj = pickableObject.GetComponent<PickableObject>();
-            obj.Value = pickableObjectStaticData.Value;
-            return pickableObject;
+            PickableObject pickableObject = gameObject.GetComponent<PickableObject>();
+            pickableObject.Value = pickableObjectStaticData.Value;
+            return gameObject;
         }
 
         public void CleanUp()

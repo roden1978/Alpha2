@@ -1,7 +1,7 @@
 ﻿using Data;
 using EnemyScripts;
 using Infrastructure.Factories;
-using PlayerScripts;
+using Services.PersistentProgress;
 using StaticData;
 using UnityEngine;
 

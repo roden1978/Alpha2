@@ -1,5 +1,6 @@
 ﻿using GameObjectsScripts;
 using Infrastructure.EnemySpawners;
+using Infrastructure.PickableObjectSpawners;
 using Infrastructure.Services;
 using PlayerScripts;
 using UI;
@@ -16,5 +17,6 @@ namespace Infrastructure.AssetManagement
         Mediator InstantiateMediator();
         PickableObject InstantiateLoot();
         EnemySpawnPoint InstantiateEnemySpawner(Vector3 position);
+        PickableObjectSpawner InstantiatePickableObjectSpawner(Vector3 position);
     }
 }

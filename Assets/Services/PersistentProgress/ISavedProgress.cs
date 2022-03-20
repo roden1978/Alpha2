@@ -1,6 +1,6 @@
 ﻿using Data;
 
-namespace PlayerScripts
+namespace Services.PersistentProgress
 {
     public interface ISavedProgress : ISavedProgressReader
     {

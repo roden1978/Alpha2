@@ -9,5 +9,6 @@
         public const string MediatorPath = @"Prefabs/Common/Mediator";
         public const string CrystalPath = @"Prefabs/PickableObjects/Crystal";
         public const string EnemySpawnPoint = @"Prefabs/Common/EnemySpawnPoint";
+        public const string PickableObjectSpawnPoint = @"Prefabs/Common/PickableSpawnPoint";
     }
 }

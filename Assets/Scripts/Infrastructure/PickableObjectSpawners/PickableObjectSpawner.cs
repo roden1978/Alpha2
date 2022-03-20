@@ -1,33 +1,25 @@
 ﻿using Data;
 using GameObjectsScripts;
 using Infrastructure.Factories;
-using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
 using StaticData;
 using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.PickableObjectSpawners
 {
     public class PickableObjectSpawner : MonoBehaviour, ISavedProgress
     {
-        [SerializeField] private bool _pickedUp;
-        [SerializeField] private PickableObjectStaticData _pickableObjectStaticData;
+        private bool _pickedUp;
         private string _id;
-        private PlayerProgress _playerProgress;
         private IGameFactory _gameFactory;
         private PickableObject _pickableObject;
-        public PickableObjectStaticData PickableObjectStaticData => _pickableObjectStaticData;
-        private void Awake()
+        private PickableObjectTypeId _pickableObjectTypeId;
+        public void Construct(GameFactory gameFactory, string spawnerId, PickableObjectTypeId pickableObjectTypeId)
         {
-            _id = GetComponent<UniqueId>().Id;
-            _playerProgress = ServiceLocator.Container.Single<IPersistentProgressService>().PlayerProgress;
-            _gameFactory = ServiceLocator.Container.Single<IGameFactory>();
-        }
-
-        private void Start()
-        {
-            LoadProgress(_playerProgress);
+            _id = spawnerId;
+            _pickableObjectTypeId = pickableObjectTypeId;
+            _gameFactory = gameFactory;
         }
 
         public void LoadProgress(PlayerProgress playerProgress)
@@ -40,14 +32,13 @@ namespace Infrastructure
 
         private void Spawn()
         {
-            GameObject pickableObject = _gameFactory.CreatePickableObject(_pickableObjectStaticData.PickableObjectTypeId, transform);
+            GameObject pickableObject = _gameFactory.CreatePickableObject(_pickableObjectTypeId, transform);
             _pickableObject = pickableObject.GetComponent<PickableObject>();
             _pickableObject.PickUp += OnPickUp;
         }
 
         private void OnPickUp()
         {
-            Debug.Log("PickedUp");
             if (_pickableObject != null)
                 _pickableObject.PickUp -= OnPickUp;
             _pickedUp = true;

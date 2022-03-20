@@ -8,6 +8,7 @@ using Infrastructure;
 using Infrastructure.Services;
 using PlayerScripts.States;
 using Services.Input;
+using Services.PersistentProgress;
 using UnityEngine;
 
 namespace PlayerScripts

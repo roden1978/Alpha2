@@ -26,7 +26,7 @@ namespace Infrastructure.GameStates
 
         private void OnLoaded()
         {
-            _stateMachine.Enter<UpdateProgressState>();
+            _stateMachine.Enter<SpawnEntitiesState>();
         }
 
         public Type Update()
