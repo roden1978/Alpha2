@@ -10,5 +10,6 @@
         public const string CrystalPath = @"Prefabs/PickableObjects/Crystal";
         public const string EnemySpawnPoint = @"Prefabs/Common/EnemySpawnPoint";
         public const string PickableObjectSpawnPoint = @"Prefabs/Common/PickableSpawnPoint";
+        public const string SaveProgressSpawnPoint = @"Prefabs/Common/SaveProgressSpawnPoint";
     }
 }

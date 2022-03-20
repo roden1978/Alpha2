@@ -202,7 +202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3653590319846758298}
   - component: {fileID: 6640804994478835688}
-  - component: {fileID: 4444008908190759461}
   - component: {fileID: 1691432484817047352}
   - component: {fileID: 6025487817939610959}
   - component: {fileID: -4860212919578992963}
@@ -254,19 +253,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &4444008908190759461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3653590319846758297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cd5b4efff44a01bdd479e09f295edb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: Snake_ef02873f-a62a-4157-9ca6-ebae14829e74
 --- !u!114 &1691432484817047352
 MonoBehaviour:
   m_ObjectHideFlags: 0

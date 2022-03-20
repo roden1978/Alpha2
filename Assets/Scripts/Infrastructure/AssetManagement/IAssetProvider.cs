@@ -1,6 +1,7 @@
 ﻿using GameObjectsScripts;
 using Infrastructure.EnemySpawners;
 using Infrastructure.PickableObjectSpawners;
+using Infrastructure.SavePointSpawners;
 using Infrastructure.Services;
 using PlayerScripts;
 using UI;
@@ -18,5 +19,6 @@ namespace Infrastructure.AssetManagement
         PickableObject InstantiateLoot();
         EnemySpawnPoint InstantiateEnemySpawner(Vector3 position);
         PickableObjectSpawner InstantiatePickableObjectSpawner(Vector3 position);
+        SaveProgressPointSpawner InstantiateSaveProgressSpawner(Vector3 position);
     }
 }

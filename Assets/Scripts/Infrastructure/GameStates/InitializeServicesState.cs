@@ -62,6 +62,7 @@ namespace Infrastructure.GameStates
             staticDataService.LoadEnemies();
             staticDataService.LoadPickableObjects();
             staticDataService.LoadLevelStaticData();
+            staticDataService.LoadSaveProgressPointStaticData();
         }
 
         private void NextState()

@@ -4,6 +4,7 @@ using GameObjectsScripts;
 using Infrastructure.AssetManagement;
 using Infrastructure.EnemySpawners;
 using Infrastructure.PickableObjectSpawners;
+using Infrastructure.SavePointSpawners;
 using PlayerScripts;
 using Services.PersistentProgress;
 using Services.StaticData;
@@ -27,7 +28,8 @@ namespace Infrastructure.Factories
             ProgressReaders = new List<ISavedProgressReader>();
             ProgressWriters = new List<ISavedProgress>();
         }
-        public ControlsPanel CreateControlsPanel() => 
+
+        public ControlsPanel CreateControlsPanel() =>
             _assetProvider.InstantiateControlsPanel();
 
         public Crowbar CreateCrowbar()
@@ -45,6 +47,7 @@ namespace Infrastructure.Factories
         }
 
         public Crosshair CreateCrosshair() => _assetProvider.InstantiateCrosshair();
+
         public Mediator CreateMediator()
         {
             Mediator mediator = _assetProvider.InstantiateMediator();
@@ -52,7 +55,7 @@ namespace Infrastructure.Factories
             return mediator;
         }
 
-        public void CreateSpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position)
+        public void CreateEnemySpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position)
         {
             EnemySpawnPoint spawnPoint = _assetProvider.InstantiateEnemySpawner(position);
             spawnPoint.Construct(this, spawnerId, enemyTypeId);
@@ -67,11 +70,20 @@ namespace Infrastructure.Factories
             RegisterInSaveLoadRepositories(pickableObjectSpawner.gameObject);
         }
 
+        public void CreateSaveProgressPointSpawner(string spawnerId, SaveProgressPointTypeId pointTypeId, float width,
+            float height, Vector3 position)
+        {
+            SaveProgressPointSpawner saveProgressPointSpawner = _assetProvider.InstantiateSaveProgressSpawner(position);
+            saveProgressPointSpawner.Construct(this, spawnerId, width, height, pointTypeId);
+            RegisterInSaveLoadRepositories(saveProgressPointSpawner.gameObject);
+        }
+
         private void RegisterInSaveLoadRepositories(GameObject registeredGameObject)
         {
-            foreach (ISavedProgressReader progressReader in registeredGameObject.GetComponentsInChildren<ISavedProgressReader>())
+            foreach (ISavedProgressReader progressReader in registeredGameObject
+                .GetComponentsInChildren<ISavedProgressReader>())
             {
-                if(progressReader is ISavedProgress progressWriter)
+                if (progressReader is ISavedProgress progressWriter)
                     AddProgressWriter(progressWriter);
                 AddProgressReader(progressReader);
             }
@@ -91,10 +103,10 @@ namespace Infrastructure.Factories
         {
             EnemyStaticData enemyStaticData = _staticDataService.GetStaticData(enemyTypeId);
             GameObject enemy = Object.Instantiate(enemyStaticData.Prefab, parent.position, Quaternion.identity, parent);
-            
+
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             enemyHealth.Construct(enemyStaticData.Health);
-            
+
             ActorUI actorUI = enemy.GetComponent<ActorUI>();
             actorUI.Construct(enemyHealth);
 
@@ -103,13 +115,26 @@ namespace Infrastructure.Factories
 
             LootSpawner loopSpawner = enemy.GetComponentInChildren<LootSpawner>();
             loopSpawner.Construct(this);
-            
+
             return enemy;
+        }
+
+        public GameObject CreateSavePoint(SaveProgressPointTypeId saveProgressPointTypeId, float width, float height,
+            Transform parent, bool isUsed)
+        {
+            SaveProgressPointStaticData saveProgressPointStaticData =
+                _staticDataService.GetSaveProgressPointStaticData(saveProgressPointTypeId);
+            SaveProgressPoint saveProgressPoint = Object.Instantiate(saveProgressPointStaticData.Prefab,
+                parent.position,
+                Quaternion.identity, parent);
+            saveProgressPoint.Construct(width, height, isUsed);
+            return saveProgressPoint.gameObject;
         }
 
         public GameObject CreatePickableObject(PickableObjectTypeId objectTypeId, Transform parent)
         {
-            PickableObjectStaticData pickableObjectStaticData = _staticDataService.GetPickableObjectStaticData(objectTypeId);
+            PickableObjectStaticData pickableObjectStaticData =
+                _staticDataService.GetPickableObjectStaticData(objectTypeId);
             GameObject gameObject = Object.Instantiate(pickableObjectStaticData.Prefab, parent.position,
                 Quaternion.identity, parent);
             PickableObject pickableObject = gameObject.GetComponent<PickableObject>();

@@ -10,9 +10,12 @@ namespace Services.StaticData
         private const string EnemyStaticDataPath = "EnemyStaticData";
         private const string PickableObjectStaticDataPath = "PickableObjectStaticData";
         private const string LevelStaticDataPath = "LevelStaticData";
+        private const string SaveProgressPointStaticDataPath = "SaveProgressPointData";
         private Dictionary<EnemyTypeId, EnemyStaticData> _enemies;
         private Dictionary<PickableObjectTypeId, PickableObjectStaticData> _pickableObjects;
         private Dictionary<string, LevelStaticData> _levelStaticData;
+        private Dictionary<SaveProgressPointTypeId, SaveProgressPointStaticData> _saveProgressPoints;
+
 
         public void LoadEnemies()
         {
@@ -32,6 +35,12 @@ namespace Services.StaticData
                 .ToDictionary(x => x.LevelKey, x => x);
         }
 
+        public void LoadSaveProgressPointStaticData()
+        {
+            _saveProgressPoints = Resources.LoadAll<SaveProgressPointStaticData>(SaveProgressPointStaticDataPath)
+                .ToDictionary(x => x.SaveProgressPointTypeId, x => x);
+        }
+
         public EnemyStaticData GetStaticData(EnemyTypeId typeId) =>
             _enemies.TryGetValue(typeId, out EnemyStaticData enemyStaticData)
                 ? enemyStaticData
@@ -46,6 +55,14 @@ namespace Services.StaticData
         {
             return _levelStaticData.TryGetValue(levelKey, out LevelStaticData levelStaticData)
                 ? levelStaticData
+                : null;
+        }
+
+        public SaveProgressPointStaticData GetSaveProgressPointStaticData(SaveProgressPointTypeId pointTypeId)
+        {
+            return _saveProgressPoints.TryGetValue(pointTypeId,
+                out SaveProgressPointStaticData saveProgressPointStaticData)
+                ? saveProgressPointStaticData
                 : null;
         }
     }
