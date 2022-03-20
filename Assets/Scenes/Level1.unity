@@ -1774,17 +1774,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveProgressPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5551297435291953537, guid: eb1e9ef3ff690504dbf4c18ca6da4325, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.63
+      objectReference: {fileID: 0}
     - target: {fileID: 7130776651966754231, guid: eb1e9ef3ff690504dbf4c18ca6da4325, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7130776651966754231, guid: eb1e9ef3ff690504dbf4c18ca6da4325, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.58
+      value: 5.87
       objectReference: {fileID: 0}
     - target: {fileID: 7130776651966754231, guid: eb1e9ef3ff690504dbf4c18ca6da4325, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.46
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 7130776651966754231, guid: eb1e9ef3ff690504dbf4c18ca6da4325, type: 3}
       propertyPath: m_LocalPosition.z

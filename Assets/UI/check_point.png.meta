@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 1a26254339a662b489375b49d713dc06
+guid: 824dee6d6aae20447b0e599d1a257989
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2356943441676854613
-    second: stone_banner2_0
+      213: -710500162681262210
+    second: check_point_0
   - first:
-      213: 8100680000070432638
-    second: stone_banner2_1
+      213: -1936365708656050405
+    second: check_point_1
   - first:
-      213: -7227936814044551642
-    second: stone_banner2_2
+      213: -1057179436893693486
+    second: check_point_2
+  - first:
+      213: 4514608467804027346
+    second: check_point_3
+  - first:
+      213: 5115587365981378764
+    second: check_point_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +58,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -112,64 +118,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stone_banner2_0
+      name: check_point_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 158
-        width: 310
-        height: 226
+        x: 13
+        y: 284
+        width: 251
+        height: 174
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 140, y: 110, z: 140, w: 110}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 555e5d4929b85b020800000000000000
-      internalID: 2356943441676854613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stone_banner2_1
-      rect:
-        serializedVersion: 2
-        x: 363
-        y: 24
-        width: 217
-        height: 360
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e773f437a856b6070800000000000000
-      internalID: 8100680000070432638
+      spriteID: e7fa68ecddbc326f0800000000000000
+      internalID: -710500162681262210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stone_banner2_2
+      name: check_point_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 23
-        width: 318
-        height: 115
+        x: 271
+        y: 396
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 120, y: 45, z: 120, w: 45}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 626e7eb43c531bb90800000000000000
-      internalID: -7227936814044551642
+      spriteID: b1ffe44b5a5a025e0800000000000000
+      internalID: -1936365708656050405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: check_point_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 275
+        width: 227
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d99a1047e42451f0800000000000000
+      internalID: -1057179436893693486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: check_point_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 23
+        width: 215
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9fd676b7c17ae30800000000000000
+      internalID: 4514608467804027346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: check_point_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 16
+        width: 225
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8dbc61b973ef640800000000000000
+      internalID: 5115587365981378764
       vertices: []
       indices: 
       edges: []
