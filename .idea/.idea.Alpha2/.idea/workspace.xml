@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/PickableObjectSpawnEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PickableObjectSpawnEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_Food_0000.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/Sprites/ATLAS_Food_0000.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SpriteSheets/ATLAS_Food_0000.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SpriteSheets/ATLAS_Food_0000.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Extensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/about_label.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/about_label.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/check_point.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/check_point.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/panels_label.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI/panels_label.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/SaveProgressPoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/SaveProgressPoint.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CommonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CommonScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/stone_banner2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/stone_banner2.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,9 +186,6 @@
       <workItem from="1647272726317" duration="18907000" />
       <workItem from="1647663244075" duration="7497000" />
       <workItem from="1647764126088" duration="15000" />
-      <workItem from="1647774393679" duration="16891000" />
-      <workItem from="1647800435026" duration="410000" />
-      <workItem from="1647878147940" duration="7080000" />
     </task>
     <servers />
   </component>
