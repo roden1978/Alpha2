@@ -14,7 +14,7 @@ namespace Editor
         public static void RenderCustomGizmo(PickableObjectMarker pickableObjectMarker, GizmoType gizmo)
         {
             SpriteRenderer spriteRenderer = pickableObjectMarker.PickableObjectStaticData.Prefab.GetComponent<SpriteRenderer>();
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.magenta;
             Vector3 position = pickableObjectMarker.transform.position;
             Vector3 spriteSize = spriteRenderer.sprite.bounds.size;
             Gizmos.DrawWireCube(position, spriteSize);

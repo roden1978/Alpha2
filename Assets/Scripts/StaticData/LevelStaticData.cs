@@ -9,5 +9,6 @@ namespace StaticData
         public string LevelKey;
         public List<EnemySpawnerData> EnemySpawners;
         public List<PickableObjectSpawnData> PickableObjectSpawners;
+        public List<SaveProgressPointSpawnData> SaveProgressPointSpawners;
     }
 }

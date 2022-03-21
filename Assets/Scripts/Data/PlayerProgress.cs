@@ -10,6 +10,7 @@ namespace Data
         public StaticPlayerData StaticPlayerData;
         public KillData KillData;
         public PickableObjectData PickableObjectData;
+        public SaveProgressPointData SaveProgressPointData;
 
         public PlayerProgress(string sceneName, int sceneIndex)
         {
@@ -18,6 +19,7 @@ namespace Data
             StaticPlayerData = new StaticPlayerData();
             KillData = new KillData();
             PickableObjectData = new PickableObjectData();
+            SaveProgressPointData = new SaveProgressPointData();
         }
 
         
