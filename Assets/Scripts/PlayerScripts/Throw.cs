@@ -12,7 +12,7 @@ namespace PlayerScripts
         [SerializeField] private Axe _pooledObject;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
-        [SerializeField] [Range(1, 10)] private int _deltaDegree;
+        [SerializeField] [Range(.1f, 1f)] private float _deltaDegree;
         [SerializeField] [Range(45, 90)] private int _startDegree;
         [SerializeField] [Range(1, 3)] private int _releaseDistance;
         
