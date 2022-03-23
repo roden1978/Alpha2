@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameObjectsScripts
 {
-    public class Tar : MonoBehaviour, ISavedProgressReader
+    public class Trap : MonoBehaviour, ISavedProgressReader
     {
         private PlayerState _playerState;
         private void OnTriggerEnter2D(Collider2D other)
