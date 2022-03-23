@@ -8,19 +8,19 @@ namespace PlayerScripts
         private const int EnemyLayerMask = 1 << 13;
         
         private readonly float _distance;
-        private readonly int _delta;
+        private readonly float _delta;
         private readonly int _endDegree;
         private readonly int _degree;
         private readonly int _releaseDistance;
 
-        private int _currentDegree;
+        private float _currentDegree;
         
         private Vector3 _direction;
         private Vector2 _currentHit;
         
         private bool _clockwise;
         
-        public Radar(float distance, int delta, int degree, int releaseDistance)
+        public Radar(float distance, float delta, int degree, int releaseDistance)
         {
             _distance = distance;
             _degree = degree;
@@ -33,25 +33,23 @@ namespace PlayerScripts
         public Vector2 Target(float lookDirection, Vector3 position)
         {
             RaycastHit2D hit = default;
-            
-            if(_currentHit == Vector2.zero)
+            //uncomment all strings for stay crosshair on target
+            //if(_currentHit == Vector2.zero)
                 _currentHit = SearchTarget(lookDirection, position);
             
-            if (_currentHit != Vector2.zero)
+            /*if (_currentHit != Vector2.zero)
             {
                 Vector2 direction = (_currentHit - new Vector2(position.x * lookDirection, position.y));
                 hit = Physics2D.Raycast(position, direction, _distance, EnemyLayerMask);
-            }
-            
-            if(hit.collider != null && Vector2.Distance(position, hit.point) > _releaseDistance)
+            }*/
+            //replace _currentHit != Vector2.zero to hit.point != null
+            if(_currentHit != Vector2.zero && Vector2.Distance(position, hit.point) > _releaseDistance)
             {
-                _currentHit = hit.point;
+                //_currentHit = hit.point;
                 return _currentHit;
             }
-
             _currentHit = Vector2.zero;
-            return _currentHit;
-
+            return Vector2.zero;
         }
 
         private Vector2 SearchTarget(float lookDirection, Vector3 position)
@@ -73,12 +71,12 @@ namespace PlayerScripts
             return hit.collider != null ? hit.point : Vector2.zero;
         }
 
-        private static float DegreeToRadians(int degree)
+        private static float DegreeToRadians(float degree)
         {
             return degree * Mathf.Deg2Rad;
         }
 
-        private int NextDegreeClockwise()
+        private float NextDegreeClockwise()
         {
             _currentDegree -= _delta;
             if (_currentDegree < 0) _currentDegree = FullDegree - _currentDegree;
@@ -86,7 +84,7 @@ namespace PlayerScripts
             return _currentDegree;
         }
 
-        private int NextDegreeCounterclockwise()
+        private float NextDegreeCounterclockwise()
         {
             _currentDegree += _delta;
             if (_currentDegree > FullDegree) _currentDegree -= FullDegree;
