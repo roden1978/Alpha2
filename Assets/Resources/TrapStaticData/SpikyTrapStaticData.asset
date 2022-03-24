@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b50e1147f143f3a6eadd1a8a6518cc, type: 3}
   m_Name: SpikyTrapStaticData
   m_EditorClassIdentifier: 
-  TrapTypeId: 20
-  Damage: 10
-  Cooldown: 1
+  TrapTypeId: 30
+  Damage: 20
+  Cooldown: 2
