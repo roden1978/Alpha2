@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 1405307635293624655}
     - target: {fileID: 1827881482054808, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_Name
-      value: WaterTrap
+      value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 4334263990546180, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_RootOrder
@@ -278,6 +278,30 @@ PrefabInstance:
     - target: {fileID: 4334263990546180, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098529242892906183, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333583493389633634, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333583493389633634, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546887866971117893, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546887866971117893, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461849284856294590, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.86
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 942d42f8a4c090f439dc938176155c62, type: 3}

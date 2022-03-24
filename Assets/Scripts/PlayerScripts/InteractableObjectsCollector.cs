@@ -22,7 +22,8 @@ namespace PlayerScripts
                 { typeof(Fruit), FruitCollect },
                 { typeof(Food), FoodCollect },
                 { typeof(Bullet), DamageCollect },
-                { typeof(Life), LifeCollect }
+                { typeof(Life), LifeCollect },
+                { typeof(Trap), DamageCollect}
             };
         }
 
@@ -32,7 +33,8 @@ namespace PlayerScripts
                 if(action.Key == interactableObject.GetType()) 
                 {
                     action.Value.Invoke(interactableObject.Value);
-                    interactableObject.gameObject.SetActive(false);
+                    if(interactableObject.Hide)
+                        interactableObject.gameObject.SetActive(false);
                 }
         }
 

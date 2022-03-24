@@ -6,28 +6,32 @@ using UnityEngine;
 
 namespace GameObjectsScripts
 {
-    public class Trap : MonoBehaviour
+    public class Trap : PickableObject
     {
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private TrapStaticData _trapStaticData;
         private Coroutine _coroutine;
+
         private void Start()
         {
+            Value = _trapStaticData.Damage;
+            Hide = false;
             _triggerObserver.TriggerEnter += OnDamageTriggerEnter;
             _triggerObserver.TriggerExit += OnDamageTriggerExit;
         }
+
         private void OnDisable()
         {
             _triggerObserver.TriggerEnter -= OnDamageTriggerEnter;
             _triggerObserver.TriggerExit -= OnDamageTriggerExit;
         }
 
-        private void OnDamageTriggerExit(Collider2D other)
+        private void OnDamageTriggerEnter(Collider2D other)
         {
             MakeDamage(other);
         }
 
-        private void OnDamageTriggerEnter(Collider2D other)
+        private void OnDamageTriggerExit(Collider2D other)
         {
             StopDamage();
         }
@@ -42,10 +46,14 @@ namespace GameObjectsScripts
             StopCoroutine(_coroutine);
         }
 
-        private IEnumerator Damage(Component player)
+        private IEnumerator Damage(Component other)
         {
-            yield return new WaitForSeconds(_trapStaticData.Cooldown);
-            player.GetComponent<Player>().TakeDamage(_trapStaticData.Damage);
+            InteractableObjectsCollector player = other.GetComponent<InteractableObjectsCollector>();
+            while(player.gameObject.activeInHierarchy)
+            {
+                player.Collect(this);
+                yield return new WaitForSeconds(_trapStaticData.Cooldown);
+            }
         }
     }
 }
