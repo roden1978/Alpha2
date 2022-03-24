@@ -1,24 +1,59 @@
-using Data;
+using System.Collections;
+using EnemyScripts;
 using PlayerScripts;
-using Services.PersistentProgress;
+using StaticData;
 using UnityEngine;
 
 namespace GameObjectsScripts
 {
-    public class Trap : MonoBehaviour, ISavedProgressReader
+    public class Trap : PickableObject
     {
-        private PlayerState _playerState;
-        private void OnTriggerEnter2D(Collider2D other)
+        [SerializeField] private TriggerObserver _triggerObserver;
+        [SerializeField] private TrapStaticData _trapStaticData;
+        private Coroutine _coroutine;
+
+        private void Start()
         {
-            if (other.TryGetComponent(out Player player))
-            {
-                player.TakeDamage(_playerState.MaxHealth);
-            }
+            Value = _trapStaticData.Damage;
+            Hide = false;
+            _triggerObserver.TriggerEnter += OnDamageTriggerEnter;
+            _triggerObserver.TriggerExit += OnDamageTriggerExit;
         }
 
-        public void LoadProgress(PlayerProgress playerProgress)
+        private void OnDisable()
         {
-            _playerState = playerProgress.PlayerState;
+            _triggerObserver.TriggerEnter -= OnDamageTriggerEnter;
+            _triggerObserver.TriggerExit -= OnDamageTriggerExit;
+        }
+
+        private void OnDamageTriggerEnter(Collider2D other)
+        {
+            MakeDamage(other);
+        }
+
+        private void OnDamageTriggerExit(Collider2D other)
+        {
+            StopDamage();
+        }
+
+        private void MakeDamage(Component other)
+        {
+            _coroutine = StartCoroutine(Damage(other));
+        }
+
+        private void StopDamage()
+        {
+            StopCoroutine(_coroutine);
+        }
+
+        private IEnumerator Damage(Component other)
+        {
+            InteractableObjectsCollector player = other.GetComponent<InteractableObjectsCollector>();
+            while(player.gameObject.activeInHierarchy)
+            {
+                player.Collect(this);
+                yield return new WaitForSeconds(_trapStaticData.Cooldown);
+            }
         }
     }
 }
