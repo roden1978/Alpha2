@@ -15,7 +15,9 @@ namespace Infrastructure.SavePointSpawners
         private float _width;
         private float _height;
         private SaveProgressPointTypeId _pointTypeId;
-        public void Construct(GameFactory gameFactory, string spawnerId, float width, float height, SaveProgressPointTypeId pointTypeId)
+
+        public void Construct(GameFactory gameFactory, string spawnerId, float width, float height,
+            SaveProgressPointTypeId pointTypeId)
         {
             _spawnerId = spawnerId;
             _width = width;
@@ -29,8 +31,9 @@ namespace Infrastructure.SavePointSpawners
             if (playerProgress.SaveProgressPointData.UsedSavePoints.Contains(_spawnerId))
             {
                 _isUsed = true;
-                Spawn();
             }
+
+            Spawn();
         }
 
         private void Spawn()
@@ -45,6 +48,7 @@ namespace Infrastructure.SavePointSpawners
             if (_saveProgressPoint != null)
                 _saveProgressPoint.Used -= OnUsed;
             _isUsed = true;
+            Debug.Log("Progress saved");
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
