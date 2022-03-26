@@ -36,6 +36,7 @@ namespace Infrastructure.GameStates
         
         private void RegisterServices(Action callback = null)
         {
+            _serviceLocator.RegisterSingle<IGamesStateMachine>(_stateMachine);
             _serviceLocator.RegisterSingle<IAssetProvider>(new AssetProvider());
             _serviceLocator.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _serviceLocator.RegisterSingle<IStaticDataService>(new StaticDataService());

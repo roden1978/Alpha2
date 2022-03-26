@@ -6,7 +6,7 @@ using Infrastructure.Services;
 
 namespace Infrastructure
 {
-    public class GamesStateMachine
+    public class GamesStateMachine : IGamesStateMachine
     {
         private readonly Dictionary<Type, IUpdateableState> _states;
         private IUpdateableState _activeState;

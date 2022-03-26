@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using Cinemachine;
 using Common;
 using Data;
-using Infrastructure;
 using Infrastructure.Services;
 using PlayerScripts.States;
 using Services.Input;
 using Services.PersistentProgress;
+using Services.StaticData;
+using StaticData;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerScripts
 {
@@ -21,7 +23,6 @@ namespace PlayerScripts
         [SerializeField] private float _jumpForce;
         [SerializeField] private Vector2 _damping;
 
-        public Player Player;
         private StateMachine _stateMachine;
         private IInputService _inputService;
         private PlayerView _playerView;
@@ -33,31 +34,29 @@ namespace PlayerScripts
         private DoubleJumpSign _doubleJumpSign;
 
         private bool _doubleJump;
-        
+
         private Camera _camera;
         private ICinemachineCamera _virtualCamera;
-        private PlayerSpawnPoint _spawnPoint;
+        private IStaticDataService _staticDataService;
+        private Player _player;
 
-
-        private void Awake()
+        public void Construct(Player player, IStaticDataService staticDataService)
         {
+            _player = player;
+            _staticDataService = staticDataService;
             _stateMachine = new StateMachine();
             _camera = Camera.main;
-        }
-
-        private void Start()
-        {
-            _dipstick = new Dipstick(Player);
-            _playerView = Player.GetComponentInChildren<PlayerView>();
+            _dipstick = new Dipstick(_player);
+            _playerView = _player.GetComponentInChildren<PlayerView>();
             _doubleJumpSign = _playerView.GetComponentInChildren<DoubleJumpSign>(true);
             _flipView = new FlipView(_playerView);
-            _animator = Player.GetComponentInChildren<Animator>();
-            _rigidbody = Player.GetComponent<Rigidbody2D>();
-            
+            _animator = _player.GetComponentInChildren<Animator>();
+            _rigidbody = _player.GetComponent<Rigidbody2D>();
+
             _inputService = ServiceLocator.Container.Single<IInputService>();
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
-            
+
             _playerStateData = new PlayerStateData
             {
                 Damping = _damping
@@ -119,7 +118,7 @@ namespace PlayerScripts
         private void DoubleJump()
         {
             bool canJump = Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0;
-            
+
             if (canJump && _doubleJump)
             {
                 AddForceToJump();
@@ -133,13 +132,13 @@ namespace PlayerScripts
             _flipView.FLippingPlayerView(direction);
         }
 
-       private void AddForceToJump()
+        private void AddForceToJump()
         {
             Vector2 jumpForce = Vector2.up * _jumpForce;
             _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-       private void Shoot()
+        private void Shoot()
         {
             _playerStateData.IsShoot = true;
         }
@@ -148,44 +147,44 @@ namespace PlayerScripts
         {
             bool result = _dipstick.Contact();
             _playerStateData.IsOnGround = result;
-            
+
             return result;
         }
 
         private async void DoubleJumpSignShow()
         {
             _doubleJumpSign.Show();
-            await Task.Delay(DoubleSingWaitTime) ;
+            await Task.Delay(DoubleSingWaitTime);
             _doubleJumpSign.Hide();
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            Vector3Data asVector3Data = Player.transform.position.AsVector3Data();
+            Vector3Data asVector3Data = _player.transform.position.AsVector3Data();
             playerProgress.WorldData.PositionOnLevel.Position = asVector3Data;
         }
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
-                Vector3Data position = playerProgress.WorldData.PositionOnLevel.Position;
-                if(position != null)
-                    PositionPlayer(position.AsVector3());
+            Vector3Data position = playerProgress.WorldData.PositionOnLevel.Position;
+            PositionPlayer(position);
         }
-        private async void PositionPlayer(Vector3 position)
+
+        private async void PositionPlayer(Vector3Data position)
         {
-            if (position == Vector3.zero)
-            {
-                _spawnPoint = FindObjectOfType<PlayerSpawnPoint>();
-                Player.transform.position = _spawnPoint != null ? _spawnPoint.transform.position : Vector3.zero;
-            }
+            string levelKey = SceneManager.GetActiveScene().name;
+            LevelStaticData levelStaticData = _staticDataService.GetLevelStaticData(levelKey);
+            Vector3 spawnPoint = levelStaticData.PlayerSpawnPoint;
+
+            if (position.AsVector3() == Vector3.zero )
+                _player.transform.position = spawnPoint != Vector3.zero ? spawnPoint : Vector3.zero;
             else
-            {
-                Player.transform.position = position;
-            }
+                _player.transform.position = position.AsVector3();
+
             _virtualCamera = await GetVCamera();
             _virtualCamera.VirtualCameraGameObject.SetActive(false);
-            _virtualCamera.VirtualCameraGameObject.transform.position = position;
-            Transform targetTransform = Player.transform;
+            _virtualCamera.VirtualCameraGameObject.transform.position = position.AsVector3();
+            Transform targetTransform = _player.transform;
             _virtualCamera.Follow = targetTransform;
             _virtualCamera.LookAt = targetTransform;
             _virtualCamera.VirtualCameraGameObject.SetActive(true);
@@ -196,6 +195,5 @@ namespace PlayerScripts
             await Task.Delay(100);
             return _camera.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
         }
-
     }
 }
