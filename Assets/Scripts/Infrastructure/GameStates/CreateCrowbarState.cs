@@ -3,6 +3,7 @@ using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
+using Services.StaticData;
 
 namespace Infrastructure.GameStates
 {
@@ -23,8 +24,10 @@ namespace Infrastructure.GameStates
 
         private void CreateCrowbar(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
         {
-            Crowbar crowbar = _serviceLocator.Single<IGameFactory>().CreateCrowbar();
-            crowbar.Player = statesPayload.Player;
+            IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
+            IStaticDataService staticDataService = _serviceLocator.Single<IStaticDataService>();
+            Crowbar crowbar = gameFactory.CreateCrowbar();
+            crowbar.Construct(statesPayload.Player, staticDataService);
             statesPayload.InteractableObjectsCollector = statesPayload.Player.GetComponent<InteractableObjectsCollector>();
             statesPayload.Crowbar = crowbar;
             onLoaded?.Invoke(statesPayload);

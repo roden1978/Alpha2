@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using GameObjectsScripts;
+using Infrastructure;
 using Infrastructure.EnemySpawners;
 using Infrastructure.SavePointSpawners;
 using StaticData;
@@ -37,6 +38,7 @@ namespace Editor
                         x.SaveProgressPointStaticData.ColliderHeight, x.transform.position)).ToList();
                 
                 levelData.LevelKey = SceneManager.GetActiveScene().name;
+                levelData.PlayerSpawnPoint = FindObjectOfType<PlayerSpawnPoint>().transform.position;
             }
 
             if (GUILayout.Button("Clear level data"))

@@ -57,7 +57,7 @@ namespace Infrastructure.GameStates
             SpawnEnemies(levelStaticData.EnemySpawners);
             SpawnPickableObjects(levelStaticData.PickableObjectSpawners);
             SpawnSaveProgressPoints(levelStaticData.SaveProgressPointSpawners);
-            SpawnPortal(levelKey);
+            SpawnPortal();
         }
 
         private void SpawnPickableObjects(IEnumerable<PickableObjectSpawnData> pickableObjectSpawners)
@@ -86,7 +86,7 @@ namespace Infrastructure.GameStates
             }
         }
 
-        private void SpawnPortal(string levelKey)
+        private void SpawnPortal()
         {
             Portal portal = Object.FindObjectOfType<Portal>();
             if (portal != null)

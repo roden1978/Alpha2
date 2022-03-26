@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   LevelKey: Level1
+  PlayerSpawnPoint: {x: -21.22, y: -0.95, z: 0}
   EnemySpawners:
   - Id: Level1_3c64d83f-59a4-4842-bba2-2a5efcefd1be
     EnemyTypeId: 0

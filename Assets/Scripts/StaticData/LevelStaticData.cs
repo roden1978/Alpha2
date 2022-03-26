@@ -7,6 +7,7 @@ namespace StaticData
     public class LevelStaticData : ScriptableObject
     {
         public string LevelKey;
+        public Vector3 PlayerSpawnPoint;
         public List<EnemySpawnerData> EnemySpawners;
         public List<PickableObjectSpawnData> PickableObjectSpawners;
         public List<SaveProgressPointSpawnData> SaveProgressPointSpawners;
