@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Common
@@ -6,10 +7,18 @@ namespace Common
    {
       private const string FadeOutAnimation = "FadeOutAnimation";
       private const string FadeInAnimation = "FadeInAnimation";
+      [SerializeField] private CanvasGroup _curtain;
       private Animator _animator;
+
+      private void Awake()
+      {
+         DontDestroyOnLoad(this);
+      }
 
       private void Start()
       {
+         gameObject.SetActive(true);
+         
          _animator = GetComponent<Animator>();
       }
 
