@@ -11,13 +11,14 @@ namespace GameObjectsScripts
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private TrapStaticData _trapStaticData;
         private Coroutine _coroutine;
-
+        private WaitForSeconds _waitForSeconds;
         private void Start()
         {
             Value = _trapStaticData.Damage;
             Hide = false;
             _triggerObserver.TriggerEnter += OnDamageTriggerEnter;
             _triggerObserver.TriggerExit += OnDamageTriggerExit;
+            _waitForSeconds = new WaitForSeconds(_trapStaticData.Cooldown);
         }
 
         private void OnDisable()
@@ -52,7 +53,7 @@ namespace GameObjectsScripts
             while(player.gameObject.activeInHierarchy)
             {
                 player.Collect(this);
-                yield return new WaitForSeconds(_trapStaticData.Cooldown);
+                yield return _waitForSeconds;
             }
         }
     }
