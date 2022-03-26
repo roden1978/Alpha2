@@ -22,9 +22,9 @@ namespace Infrastructure.GameStates
         public void Enter(StatesPayload statesPayload)
         {
             _statesPayload = statesPayload;
-            int sceneIndex = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex;
-            LoadScene(sceneIndex, OnLoaded);
+            string sceneName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+                .PositionOnLevel.SceneName;
+            LoadScene(sceneName, OnLoaded);
         }
 
         public Type Update()
@@ -43,9 +43,9 @@ namespace Infrastructure.GameStates
         }
         
 
-        private void LoadScene(int sceneIndex, Action onLoaded)
+        private void LoadScene(string sceneName, Action onLoaded)
         {
-            _sceneLoader.Load(sceneIndex, onLoaded);
+            _sceneLoader.Load(sceneName, onLoaded);
         }
         
     }

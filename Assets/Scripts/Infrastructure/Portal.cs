@@ -39,7 +39,7 @@ namespace Infrastructure
         {
             int newSceneIndex = _currentSceneIndex + 1;
             _sceneLoader.UnLoad(_currentSceneIndex);
-            _sceneLoader.Load(newSceneIndex);
+            //_sceneLoader.Load(newSceneIndex);
             PositionPlayer(player);
             _currentSceneIndex = newSceneIndex;
             

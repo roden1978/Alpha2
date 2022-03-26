@@ -16,7 +16,7 @@ namespace UI
         private void OnStartButton()
         {
             gameObject.SetActive(false);
-            _bootstrapper.StartGame();
+            //_bootstrapper.StartGame();
         }
     }
 }
