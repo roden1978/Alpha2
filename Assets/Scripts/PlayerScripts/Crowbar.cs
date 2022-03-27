@@ -178,15 +178,14 @@ namespace PlayerScripts
         private async void PositionPlayer(Vector3Data position)
         {
             string levelKey = SceneManager.GetActiveScene().name;
-            Debug.Log(levelKey);
             LevelStaticData levelStaticData = _staticDataService.GetLevelStaticData(levelKey);
+            
             Vector3 spawnPoint = levelStaticData.PlayerSpawnPoint;
 
             if (position.AsVector3() == Vector3.zero)
                 _player.transform.position = spawnPoint != Vector3.zero ? spawnPoint : Vector3.zero;
             else
                 _player.transform.position = position.AsVector3();
-
             _virtualCamera = await GetVCamera();
             if (_virtualCamera.Follow == null)
             {

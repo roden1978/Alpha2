@@ -24,9 +24,9 @@ namespace Infrastructure.GameStates
         }
         public void Enter()
         {
-            UpdatePlayerProgress(Save);
+            UpdatePlayerProgress();
         }
-        private void UpdatePlayerProgress(Action callback)
+        private void UpdatePlayerProgress()
         {
             IPersistentProgressService persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
             IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
@@ -36,13 +36,6 @@ namespace Infrastructure.GameStates
                 readers.LoadProgress(persistentProgressService.PlayerProgress);
             }
             
-            callback?.Invoke();
         }
-
-        private void Save()
-        {
-            _serviceLocator.Single<ISaveLoadService>().SaveProgress();
-        }
-       
     }
 }

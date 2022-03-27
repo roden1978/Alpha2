@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   LevelKey: Level1
-  PlayerSpawnPoint: {x: 27.43, y: 13.34, z: 0}
+  PlayerSpawnPoint: {x: -21.32, y: -0.76, z: 0}
   EnemySpawners:
   - Id: Level1_3c64d83f-59a4-4842-bba2-2a5efcefd1be
     EnemyTypeId: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     PickableObjectTypeId: 0
     Position: {x: -8.91, y: 4.89, z: 0}
   SaveProgressPointSpawners:
-  - Id: Level1_9e36b658-7a9d-499b-8d0e-7bf1f987dbb1
+  - Id: Level1_50a3d256-7036-4c72-b076-2db049a22698
     SaveProgressPointTypeId: 0
     Width: 1
     Height: 5
