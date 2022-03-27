@@ -1,77 +1,51 @@
 using Data;
+using Infrastructure.GameStates;
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
-using Services.SaveLoad;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public class Portal : MonoBehaviour, ICoroutineRunner, ISavedProgress
+    public class Portal : MonoBehaviour
     {
-        [SerializeField]private BoxCollider2D _boxCollider;
-        private ISceneLoader _sceneLoader;
-        private ISaveLoadService _saveLoadService;
-        private int _currentSceneIndex;
-        private PlayerProgress _playerProgress;
+        [SerializeField] private string _portalTo;
+        [SerializeField] private BoxCollider2D _boxCollider;
+        private IGamesStateMachine _stateMachine;
+        private IPersistentProgressService _persistentProgressService;
 
         private void Awake()
         {
-            _sceneLoader = new SceneLoader(this);
-            _saveLoadService = ServiceLocator.Container.Single<ISaveLoadService>();
-            _playerProgress = ServiceLocator.Container.Single<IPersistentProgressService>().PlayerProgress;
-        }
-
-        private void Start()
-        {
-            LoadProgress(_playerProgress);
+            _stateMachine = ServiceLocator.Container.Single<IGamesStateMachine>();
+            _persistentProgressService = ServiceLocator.Container.Single<IPersistentProgressService>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.TryGetComponent(out Player player))
-                Transit(player);
+            if (other.TryGetComponent(out Player player))
+            {
+                Transit();
+            }
         }
 
-        private void Transit(Component player)
+        private void Transit()
         {
-            int newSceneIndex = _currentSceneIndex + 1;
-            _sceneLoader.UnLoad(_currentSceneIndex);
-            _sceneLoader.Load(newSceneIndex);
-            PositionPlayer(player);
-            _currentSceneIndex = newSceneIndex;
-            
-            _saveLoadService.SaveProgress();
+            UpdateProgressData();
+            _stateMachine.Enter<LoadLevelState, string>(_portalTo);
         }
 
-        private void PositionPlayer(Component player)
+        private void UpdateProgressData()
         {
-            PlayerSpawnPoint spawnPoint = FindObjectOfType<PlayerSpawnPoint>();
-            player.transform.position = spawnPoint.transform.position;
+            _persistentProgressService.PlayerProgress.WorldData.PositionOnLevel.Position = Vector3.zero.AsVector3Data();
+            _persistentProgressService.PlayerProgress.WorldData.PositionOnLevel.SceneName = _portalTo;
+            _persistentProgressService.PlayerProgress.SaveProgressPointData.UsedSavePoints.Clear();
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = new Color32(170, 150, 0, 130);
             Gizmos.DrawCube(transform.position, _boxCollider.size);
-        }
-
-        public void LoadProgress(PlayerProgress playerProgress)
-        {
-            _currentSceneIndex = playerProgress.WorldData.PositionOnLevel.SceneIndex;
-        }
-
-        public void UpdateProgress(PlayerProgress playerProgress)
-        {
-            playerProgress.WorldData.PositionOnLevel.SceneIndex = _currentSceneIndex;
-            playerProgress.WorldData.PositionOnLevel.SceneName = SceneName();
-        }
-
-        private string SceneName()
-        {
-            return SceneManager.GetSceneByBuildIndex(_currentSceneIndex).name;
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System;
 using Common;
+using Infrastructure.Factories;
 using Infrastructure.Services;
 using Services.Input;
+using Services.PersistentProgress;
 using UnityEngine;
 
 namespace Infrastructure.GameStates
 {
-    public class InitializeInputState : IPayloadState<StatesPayload>
+    public class InitializeInputState : IState
     {
         private readonly GamesStateMachine _stateMachine;
         private bool _mobile;
@@ -17,9 +19,9 @@ namespace Infrastructure.GameStates
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-        public void Enter(StatesPayload statesPayload)
+        public void Enter()
         {
-            RegisterInputService(statesPayload, NextState);
+            RegisterInputService(NextState);
         }
 
         public Type Update()
@@ -32,10 +34,10 @@ namespace Infrastructure.GameStates
             
         }
 
-        private void RegisterInputService(StatesPayload statesPayload, Action<bool, StatesPayload> callback = null)
+        private void RegisterInputService(Action callback = null)
         {
             _serviceLocator.RegisterSingle(InputService());
-            callback?.Invoke(_mobile, statesPayload);
+            callback?.Invoke();
         }
         private IInputService InputService()
         {
@@ -46,12 +48,14 @@ namespace Infrastructure.GameStates
             return new UiInputService();
         }
 
-        private void NextState(bool mobile, StatesPayload statesPayload)
+        private void NextState()
         {
+            string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+                .PositionOnLevel.SceneName;
             if (_mobile)
-                _stateMachine.Enter<LoadControlsPanelState, StatesPayload>(statesPayload);
+                _stateMachine.Enter<LoadControlsPanelState>();
             else
-                _stateMachine.Enter<LoadLevelState, StatesPayload>(statesPayload);
+                _stateMachine.Enter<LoadLevelState, string>(levelName);
         }
     }
 }

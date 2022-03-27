@@ -4,19 +4,18 @@ using Data;
 using Infrastructure.Services;
 using Services.PersistentProgress;
 using Services.SaveLoad;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.GameStates
 {
     public class LoadProgressState : IState
     {
         private readonly GamesStateMachine _gamesStateMachine;
-        private StatesPayload _statesPayload;
         private readonly ServiceLocator _serviceLocator;
 
-        public LoadProgressState(GamesStateMachine gamesStateMachine, StatesPayload statesPayload, ServiceLocator serviceLocator)
+        public LoadProgressState(GamesStateMachine gamesStateMachine, ServiceLocator serviceLocator)
         {
             _gamesStateMachine = gamesStateMachine;
-            _statesPayload = statesPayload;
             _serviceLocator = serviceLocator;
         }
 
@@ -24,7 +23,7 @@ namespace Infrastructure.GameStates
 
         private void NextState()
         {
-            _gamesStateMachine.Enter<InitializeInputState, StatesPayload>(_statesPayload);
+            _gamesStateMachine.Enter<InitializeInputState>();
         }
 
         private void LoadProgress(Action callback = null)
@@ -39,10 +38,8 @@ namespace Infrastructure.GameStates
 
         private PlayerProgress CreatePlayerProgress()
         {
-            _statesPayload.CurrentSceneName = "Level1";
-            _statesPayload.CurrentSceneIndex = 1;
-            PlayerProgress playerProgress = new PlayerProgress(sceneName: _statesPayload.CurrentSceneName,
-                sceneIndex: _statesPayload.CurrentSceneIndex);
+            string sceneName = SceneManager.GetActiveScene().name;
+            PlayerProgress playerProgress = new PlayerProgress(sceneName);
 
             playerProgress.PlayerState.CurrentHealth = playerProgress.StaticPlayerData.Health;
             playerProgress.PlayerState.CurrentCrystalsAmount = playerProgress.StaticPlayerData.CrystalsAmount;

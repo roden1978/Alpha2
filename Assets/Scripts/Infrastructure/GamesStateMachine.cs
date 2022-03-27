@@ -11,20 +11,18 @@ namespace Infrastructure
         private readonly Dictionary<Type, IUpdateableState> _states;
         private IUpdateableState _activeState;
 
-        public GamesStateMachine(ISceneLoader sceneLoader, ServiceLocator serviceLocator)
+        public GamesStateMachine(ISceneLoader sceneLoader, ServiceLocator serviceLocator, Fader fader)
         {
-            StatesPayload statesPayload = new StatesPayload();
             _states = new Dictionary<Type, IUpdateableState>
             {
                 [typeof(InitializeServicesState)] = new InitializeServicesState(this, serviceLocator),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, statesPayload, serviceLocator),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator),
                 [typeof(InitializeInputState)] = new InitializeInputState(this, serviceLocator),
-                [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, serviceLocator),
-                [typeof(InitializePoolState)] = new  InitializePoolState(this),
+                [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this, serviceLocator),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, fader, serviceLocator),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this, serviceLocator),
                 [typeof(CreateCrowbarState)] = new CreateCrowbarState(this, serviceLocator),
-                [typeof(CreateHudState)] = new CreateHudState(this),
+                [typeof(CreateHudState)] = new CreateHudState(this, serviceLocator),
                 [typeof(CreateMediatorState)] = new CreateMediatorState(this, serviceLocator),
                 [typeof(SpawnEntitiesState)] = new SpawnEntitiesState(this, serviceLocator),
                 [typeof(UpdateProgressState)] = new UpdateProgressState(serviceLocator)

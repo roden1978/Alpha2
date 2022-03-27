@@ -1,22 +1,23 @@
 ﻿using System;
 using Common;
-using UnityEngine;
-using Object = UnityEngine.Object;
+using Infrastructure.Factories;
+using Infrastructure.Services;
 
 namespace Infrastructure.GameStates
 {
-    public class CreateHudState : IPayloadState<StatesPayload>
+    public class CreateHudState : IState
     {
         private readonly GamesStateMachine _stateMachine;
-        private const string Path = @"Prefabs/UI/HUD";
+        private readonly ServiceLocator _serviceLocator;
 
-        public CreateHudState(GamesStateMachine stateMachine)
+        public CreateHudState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
+            _serviceLocator = serviceLocator;
         }
-        public void Enter(StatesPayload statesPayload)
+        public void Enter()
         {
-            CreateHud(statesPayload: statesPayload, OnLoaded);
+            CreateHud(OnLoaded);
         }
 
         public Type Update()
@@ -29,17 +30,15 @@ namespace Infrastructure.GameStates
             
         }
 
-        private static void CreateHud(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
+        private void CreateHud(Action onLoaded)
         {
-            GameObject hudPrefab = Resources.Load<GameObject>(Path);
-            Hud hud = Object.Instantiate(hudPrefab).GetComponent<Hud>();
-            statesPayload.Hud = hud;
-            onLoaded?.Invoke(statesPayload);
+            _serviceLocator.Single<IGameFactory>().CreateHud();
+            onLoaded?.Invoke();
         }
 
-        private void OnLoaded(StatesPayload statesPayload)
+        private void OnLoaded()
         {
-            _stateMachine.Enter<CreateMediatorState, StatesPayload>(statesPayload);
+            _stateMachine.Enter<CreateMediatorState>();
         }
     }
 }

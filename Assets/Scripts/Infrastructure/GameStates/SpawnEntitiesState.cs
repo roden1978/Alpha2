@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using Services.PersistentProgress;
 using Services.StaticData;
 using StaticData;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
@@ -30,7 +28,6 @@ namespace Infrastructure.GameStates
 
         private void SpawnGameEntities(Action callback)
         {
-            ActivateCurrentScene();
             InitSpawners();
             callback?.Invoke();
         }
@@ -57,7 +54,7 @@ namespace Infrastructure.GameStates
             SpawnEnemies(levelStaticData.EnemySpawners);
             SpawnPickableObjects(levelStaticData.PickableObjectSpawners);
             SpawnSaveProgressPoints(levelStaticData.SaveProgressPointSpawners);
-            SpawnPortal();
+            //SpawnPortal();
         }
 
         private void SpawnPickableObjects(IEnumerable<PickableObjectSpawnData> pickableObjectSpawners)
@@ -86,22 +83,5 @@ namespace Infrastructure.GameStates
             }
         }
 
-        private void SpawnPortal()
-        {
-            Portal portal = Object.FindObjectOfType<Portal>();
-            if (portal != null)
-                _gameFactory.AddProgressWriter(portal);
-        }
-
-        private void ActivateCurrentScene()
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneIndex()));
-        }
-
-        private int SceneIndex()
-        {
-            return _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex;
-        }
     }
 }

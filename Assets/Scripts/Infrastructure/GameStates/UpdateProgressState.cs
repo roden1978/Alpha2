@@ -2,8 +2,8 @@
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using PlayerScripts;
 using Services.PersistentProgress;
+using Services.SaveLoad;
 
 namespace Infrastructure.GameStates
 {
@@ -35,8 +35,7 @@ namespace Infrastructure.GameStates
             {
                 readers.LoadProgress(persistentProgressService.PlayerProgress);
             }
+            
         }
-        
-       
     }
 }

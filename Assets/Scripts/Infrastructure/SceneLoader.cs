@@ -16,13 +16,13 @@ namespace Infrastructure
             _coroutineRunner = coroutineRunner;
         }
 
-        public void Load(int index, Action callback = null) =>
-            _coroutineRunner.StartCoroutine(LoadLevel(index, callback));
+        public void Load(string name, Action callback = null) =>
+            _coroutineRunner.StartCoroutine(LoadLevel(name, callback));
 
         
-        private IEnumerator LoadLevel(int index, Action callback = null)
+        private IEnumerator LoadLevel(string name, Action callback = null)
         {
-            _wait = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
+            _wait = SceneManager.LoadSceneAsync(name);
             while (!_wait.isDone)
             {
                 yield return null;

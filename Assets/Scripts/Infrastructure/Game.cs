@@ -1,3 +1,4 @@
+using Common;
 using Infrastructure.Services;
 using UnityEngine;
 
@@ -7,10 +8,10 @@ namespace Infrastructure
     {
         public readonly GamesStateMachine GamesStateMachine;
 
-        public Game(ICoroutineRunner coroutineRunner)
+        public Game(ICoroutineRunner coroutineRunner, Fader fader)
         {
             SceneLoader sceneLoader = new SceneLoader(coroutineRunner);
-            GamesStateMachine = new GamesStateMachine(sceneLoader, ServiceLocator.Container);
+            GamesStateMachine = new GamesStateMachine(sceneLoader, ServiceLocator.Container, fader);
         }
        
         public static void Pause()

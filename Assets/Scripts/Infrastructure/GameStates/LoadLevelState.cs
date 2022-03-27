@@ -1,30 +1,30 @@
 ﻿using System;
 using Common;
+using Infrastructure.Factories;
 using Infrastructure.Services;
-using Services.PersistentProgress;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure.GameStates
 {
-    public class LoadLevelState : IPayloadState<StatesPayload>
+    public class LoadLevelState : IPayloadState<string>
     {
         private readonly ISceneLoader _sceneLoader;
+        private readonly Fader _fader;
         private readonly ServiceLocator _serviceLocator;
         private readonly GamesStateMachine _stateMachine;
-        private StatesPayload _statesPayload;
 
-        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, ServiceLocator serviceLocator)
+        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader, 
+            ServiceLocator serviceLocator)
         {
             _sceneLoader = sceneLoader;
+            _fader = fader;
             _serviceLocator = serviceLocator;
             _stateMachine = stateMachine;
         }
-        public void Enter(StatesPayload statesPayload)
+        public void Enter(string sceneName)
         {
-            _statesPayload = statesPayload;
-            int sceneIndex = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex;
-            LoadScene(sceneIndex, OnLoaded);
+            _serviceLocator.Single<IGameFactory>().CleanUp();
+            _fader.FadeIn();
+            LoadScene(sceneName, OnLoaded);
         }
 
         public Type Update()
@@ -34,18 +34,16 @@ namespace Infrastructure.GameStates
 
         public void Exit()
         {
-            
+            _fader.FadeOut();
         }
         
         private void OnLoaded()
         {
-            _stateMachine.Enter<InitializePoolState, StatesPayload>(_statesPayload);
+            _stateMachine.Enter<CreatePlayerState>();
         }
-        
-
-        private void LoadScene(int sceneIndex, Action onLoaded)
+        private void LoadScene(string sceneName, Action onLoaded)
         {
-            _sceneLoader.Load(sceneIndex, onLoaded);
+            _sceneLoader.Load(sceneName, onLoaded);
         }
         
     }

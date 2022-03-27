@@ -40,12 +40,17 @@ namespace PlayerScripts
         private IStaticDataService _staticDataService;
         private Player _player;
 
+        private void Awake()
+        {
+            Debug.Log("Awake");
+            _stateMachine = new StateMachine();
+            _camera = Camera.main;
+        }
+
         public void Construct(Player player, IStaticDataService staticDataService)
         {
             _player = player;
             _staticDataService = staticDataService;
-            _stateMachine = new StateMachine();
-            _camera = Camera.main;
             _dipstick = new Dipstick(_player);
             _playerView = _player.GetComponentInChildren<PlayerView>();
             _doubleJumpSign = _playerView.GetComponentInChildren<DoubleJumpSign>(true);
@@ -174,20 +179,21 @@ namespace PlayerScripts
         {
             string levelKey = SceneManager.GetActiveScene().name;
             LevelStaticData levelStaticData = _staticDataService.GetLevelStaticData(levelKey);
+            
             Vector3 spawnPoint = levelStaticData.PlayerSpawnPoint;
 
-            if (position.AsVector3() == Vector3.zero )
+            if (position.AsVector3() == Vector3.zero)
                 _player.transform.position = spawnPoint != Vector3.zero ? spawnPoint : Vector3.zero;
             else
                 _player.transform.position = position.AsVector3();
-
             _virtualCamera = await GetVCamera();
-            _virtualCamera.VirtualCameraGameObject.SetActive(false);
-            _virtualCamera.VirtualCameraGameObject.transform.position = position.AsVector3();
-            Transform targetTransform = _player.transform;
-            _virtualCamera.Follow = targetTransform;
-            _virtualCamera.LookAt = targetTransform;
-            _virtualCamera.VirtualCameraGameObject.SetActive(true);
+            if (_virtualCamera.Follow == null)
+            {
+                _virtualCamera.VirtualCameraGameObject.transform.position = position.AsVector3();
+                Transform targetTransform = _player.transform;
+                _virtualCamera.Follow = targetTransform;
+                _virtualCamera.LookAt = targetTransform;
+            }
         }
 
         private async Task<ICinemachineCamera> GetVCamera()

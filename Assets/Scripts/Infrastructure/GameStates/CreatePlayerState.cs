@@ -3,11 +3,11 @@ using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
-using UnityEngine;
+using Services.Pools;
 
 namespace Infrastructure.GameStates
 {
-    public class CreatePlayerState : IPayloadState<StatesPayload>
+    public class CreatePlayerState : IState
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
@@ -19,23 +19,21 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
         }
 
-        private void CreatePlayer(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
+        private void CreatePlayer(Action onLoaded)
         {
-            Player player = _serviceLocator.Single<IGameFactory>().CreatePlayer();
-            statesPayload.Player = player;
-
+            PoolService pool = _serviceLocator.Single<IGameFactory>().CreatePool();
             Crosshair crosshair = _serviceLocator.Single<IGameFactory>().CreateCrosshair();
-            
-            Throw playerThrow = player.GetComponent<Throw>();
-            playerThrow.PoolService = statesPayload.Pool;
-            playerThrow.Crosshair = crosshair;
-            
-            onLoaded?.Invoke(statesPayload);
-        }
+            Player player = _serviceLocator.Single<IGameFactory>().CreatePlayer();
 
-        public void Enter(StatesPayload statesPayload)
+            Throw playerThrow = player.GetComponent<Throw>();
+            playerThrow.Construct(pool, crosshair);
+            
+            onLoaded?.Invoke();
+        }
+      
+        public void Enter()
         {
-            CreatePlayer(statesPayload, OnLoaded);
+            CreatePlayer(OnLoaded);
         }
 
         public Type Update()
@@ -48,9 +46,9 @@ namespace Infrastructure.GameStates
             
         }
 
-        private void OnLoaded(StatesPayload statesPayload)
+        private void OnLoaded()
         {
-            _stateMachine.Enter<CreateCrowbarState, StatesPayload>(statesPayload);
+            _stateMachine.Enter<CreateCrowbarState>();
         }
         
     }
