@@ -30,7 +30,6 @@ namespace Infrastructure.GameStates
 
         private void SpawnGameEntities(Action callback)
         {
-            ActivateCurrentScene();
             InitSpawners();
             callback?.Invoke();
         }
@@ -84,18 +83,6 @@ namespace Infrastructure.GameStates
                 _gameFactory.CreateSaveProgressPointSpawner(spawnerData.Id, spawnerData.SaveProgressPointTypeId,
                     spawnerData.Width, spawnerData.Height, spawnerData.Position);
             }
-        }
-
-        private void SpawnPortal()
-        {
-            Portal portal = Object.FindObjectOfType<Portal>();
-            /*if (portal != null)
-                _gameFactory.AddProgressWriter(portal);*/
-        }
-
-        private void ActivateCurrentScene()
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneIndex()));
         }
 
         private int SceneIndex()

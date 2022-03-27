@@ -2,8 +2,6 @@
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {

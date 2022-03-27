@@ -2,6 +2,7 @@
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
+using Services.PersistentProgress;
 
 namespace Infrastructure.GameStates
 {
@@ -32,7 +33,9 @@ namespace Infrastructure.GameStates
 
         private void OnLoaded()
         {
-            _stateMachine.Enter<LoadLevelState>();
+            string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+                .PositionOnLevel.SceneName;
+            _stateMachine.Enter<LoadLevelState, string>(levelName);
         }
 
         private void LoadControlsPanel(Action onLoaded)

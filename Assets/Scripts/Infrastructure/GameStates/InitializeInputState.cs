@@ -56,7 +56,7 @@ namespace Infrastructure.GameStates
             if (_mobile)
                 _stateMachine.Enter<LoadControlsPanelState>();
             else
-                _stateMachine.Enter<LoadLevelState>(levelName);
+                _stateMachine.Enter<LoadLevelState, string>(levelName);
         }
     }
 }

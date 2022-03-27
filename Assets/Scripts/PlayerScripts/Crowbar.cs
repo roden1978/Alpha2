@@ -182,12 +182,13 @@ namespace PlayerScripts
                 _player.transform.position = position.AsVector3();
 
             _virtualCamera = await GetVCamera();
-            _virtualCamera.VirtualCameraGameObject.SetActive(false);
-            _virtualCamera.VirtualCameraGameObject.transform.position = position.AsVector3();
-            Transform targetTransform = _player.transform;
-            _virtualCamera.Follow = targetTransform;
-            _virtualCamera.LookAt = targetTransform;
-            _virtualCamera.VirtualCameraGameObject.SetActive(true);
+            if(_virtualCamera.Follow == null)
+            {
+                _virtualCamera.VirtualCameraGameObject.transform.position = position.AsVector3();
+                Transform targetTransform = _player.transform;
+                _virtualCamera.Follow = targetTransform;
+                _virtualCamera.LookAt = targetTransform;
+            }
         }
 
         private async Task<ICinemachineCamera> GetVCamera()

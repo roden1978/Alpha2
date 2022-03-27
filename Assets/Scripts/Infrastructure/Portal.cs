@@ -1,6 +1,7 @@
 using Infrastructure.GameStates;
 using Infrastructure.Services;
 using PlayerScripts;
+using Services.SaveLoad;
 using UnityEngine;
 
 namespace Infrastructure
@@ -9,13 +10,14 @@ namespace Infrastructure
     public class Portal : MonoBehaviour
     {
         [SerializeField] private string portalTo;
-        private BoxCollider2D _boxCollider;
+        [SerializeField] private BoxCollider2D _boxCollider;
         private IGamesStateMachine _stateMachine;
+        private ISaveLoadService _saveLoadService;
 
         private void Awake()
         {
-            _boxCollider = GetComponent<BoxCollider2D>();
             _stateMachine = ServiceLocator.Container.Single<IGamesStateMachine>();
+            _saveLoadService = ServiceLocator.Container.Single<ISaveLoadService>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +28,8 @@ namespace Infrastructure
 
         private void Transit()
         {
-            _stateMachine.Enter<LoadLevelState>(portalTo);
+            _saveLoadService.SaveProgress();
+            _stateMachine.Enter<LoadLevelState, string>(portalTo);
         }
 
         private void OnDrawGizmos()

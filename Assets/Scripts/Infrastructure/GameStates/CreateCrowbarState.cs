@@ -30,7 +30,6 @@ namespace Infrastructure.GameStates
             Player player = gameFactory.Player;
             Crowbar crowbar = gameFactory.CreateCrowbar();
             crowbar.Construct(player, staticDataService);
-            //statesPayload.InteractableObjectsCollector = statesPayload.Player.GetComponent<InteractableObjectsCollector>();
             onLoaded?.Invoke();
         }
 

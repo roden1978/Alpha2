@@ -1,8 +1,5 @@
 ﻿using System;
 using Common;
-using Infrastructure.Services;
-using Services.PersistentProgress;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure.GameStates
 {
@@ -36,10 +33,8 @@ namespace Infrastructure.GameStates
         
         private void OnLoaded()
         {
-            _stateMachine.Enter<InitializePoolState>();
+            _stateMachine.Enter<CreatePlayerState>();
         }
-        
-
         private void LoadScene(string sceneName, Action onLoaded)
         {
             _sceneLoader.Load(sceneName, onLoaded);

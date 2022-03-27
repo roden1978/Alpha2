@@ -13,7 +13,6 @@ namespace Infrastructure
 
         public GamesStateMachine(ISceneLoader sceneLoader, ServiceLocator serviceLocator, Fader fader)
         {
-           // StatesPayload statesPayload = new StatesPayload();
             _states = new Dictionary<Type, IUpdateableState>
             {
                 [typeof(InitializeServicesState)] = new InitializeServicesState(this, serviceLocator),
