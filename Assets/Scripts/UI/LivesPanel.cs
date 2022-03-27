@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class LivesPanel : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private BonusLifeUI _life;
-    public GameObject BonusLifeUI => _life.gameObject;
+    public class LivesPanel : MonoBehaviour
+    {
+        [SerializeField] private BonusLifeUI _life;
+        public GameObject BonusLifeUI => _life.gameObject;
+    }
 }

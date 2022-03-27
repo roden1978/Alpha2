@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: Level2
   PlayerSpawnPoint: {x: -21.34, y: -0.7, z: 0}
-  PortalSpawnPoint: {x: 0, y: 0, z: 0}
   EnemySpawners: []
   PickableObjectSpawners: []
   SaveProgressPointSpawners: []

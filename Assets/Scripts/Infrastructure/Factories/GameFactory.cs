@@ -51,6 +51,7 @@ namespace Infrastructure.Factories
         public Crowbar CreateCrowbar()
         {
             Crowbar crowbar = _assetProvider.InstantiateCrowbar();
+            crowbar.Construct(Player, _staticDataService);
             RegisterInSaveLoadRepositories(crowbar.gameObject);
             return crowbar;
         }

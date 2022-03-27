@@ -2,8 +2,8 @@
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using PlayerScripts;
 using Services.PersistentProgress;
+using Services.SaveLoad;
 
 namespace Infrastructure.GameStates
 {
@@ -24,9 +24,9 @@ namespace Infrastructure.GameStates
         }
         public void Enter()
         {
-            UpdatePlayerProgress();
+            UpdatePlayerProgress(Save);
         }
-        private void UpdatePlayerProgress()
+        private void UpdatePlayerProgress(Action callback)
         {
             IPersistentProgressService persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
             IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
@@ -35,8 +35,14 @@ namespace Infrastructure.GameStates
             {
                 readers.LoadProgress(persistentProgressService.PlayerProgress);
             }
+            
+            callback?.Invoke();
         }
-        
+
+        private void Save()
+        {
+            _serviceLocator.Single<ISaveLoadService>().SaveProgress();
+        }
        
     }
 }

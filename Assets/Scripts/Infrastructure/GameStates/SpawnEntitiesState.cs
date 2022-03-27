@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using Services.PersistentProgress;
 using Services.StaticData;
 using StaticData;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameStates
 {
@@ -85,10 +83,5 @@ namespace Infrastructure.GameStates
             }
         }
 
-        private int SceneIndex()
-        {
-            return _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneIndex;
-        }
     }
 }

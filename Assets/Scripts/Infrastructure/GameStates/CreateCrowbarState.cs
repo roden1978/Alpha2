@@ -2,9 +2,6 @@
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using PlayerScripts;
-using Services.Pools;
-using Services.StaticData;
 
 namespace Infrastructure.GameStates
 {
@@ -25,11 +22,7 @@ namespace Infrastructure.GameStates
 
         private void CreateCrowbar(Action onLoaded)
         {
-            IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
-            IStaticDataService staticDataService = _serviceLocator.Single<IStaticDataService>();
-            Player player = gameFactory.Player;
-            Crowbar crowbar = gameFactory.CreateCrowbar();
-            crowbar.Construct(player, staticDataService);
+            _serviceLocator.Single<IGameFactory>().CreateCrowbar();
             onLoaded?.Invoke();
         }
 

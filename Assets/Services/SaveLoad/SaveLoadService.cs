@@ -22,7 +22,6 @@ namespace Services.SaveLoad
             foreach (ISavedProgress progressWriter in _gameFactory.ProgressWriters)
             {
                 progressWriter.UpdateProgress(_persistentProgressService.PlayerProgress);
-                //Debug.Log(progressWriter.ToString());
             }
             PlayerPrefs.SetString(Key, _persistentProgressService.PlayerProgress.ToJSON());
         }

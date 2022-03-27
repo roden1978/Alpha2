@@ -98,7 +98,8 @@ namespace Infrastructure
 
         private void InitializeBonusLifeAmount(int currentLivesAmount)
         {
-            if (_hud.LivesPanel.transform.childCount != _currentLivesAmount)
+            //Debug.Log(_hud);
+            if (_hud != null && _hud.LivesPanel.transform.childCount != _currentLivesAmount)
             {
                 var items = _hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
                 foreach (Component item in items)

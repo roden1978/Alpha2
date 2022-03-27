@@ -52,7 +52,6 @@ namespace Infrastructure.GameStates
         {
             string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
                 .PositionOnLevel.SceneName;
-            
             if (_mobile)
                 _stateMachine.Enter<LoadControlsPanelState>();
             else

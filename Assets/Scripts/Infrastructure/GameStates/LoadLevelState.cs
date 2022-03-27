@@ -1,5 +1,7 @@
 ﻿using System;
 using Common;
+using Infrastructure.Factories;
+using Infrastructure.Services;
 
 namespace Infrastructure.GameStates
 {
@@ -7,16 +9,20 @@ namespace Infrastructure.GameStates
     {
         private readonly ISceneLoader _sceneLoader;
         private readonly Fader _fader;
+        private readonly ServiceLocator _serviceLocator;
         private readonly GamesStateMachine _stateMachine;
 
-        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader)
+        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader, 
+            ServiceLocator serviceLocator)
         {
             _sceneLoader = sceneLoader;
             _fader = fader;
+            _serviceLocator = serviceLocator;
             _stateMachine = stateMachine;
         }
         public void Enter(string sceneName)
         {
+            _serviceLocator.Single<IGameFactory>().CleanUp();
             _fader.FadeIn();
             LoadScene(sceneName, OnLoaded);
         }
