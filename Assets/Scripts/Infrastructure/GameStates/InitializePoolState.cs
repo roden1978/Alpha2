@@ -1,23 +1,23 @@
 ﻿using System;
 using Common;
-using Services.Pools;
-using UnityEngine;
-using Object = UnityEngine.Object;
+using Infrastructure.Factories;
+using Infrastructure.Services;
 
 namespace Infrastructure.GameStates
 {
-    public class InitializePoolState : IPayloadState<StatesPayload>
+    public class InitializePoolState : IState
     {
         private readonly GamesStateMachine _stateMachine;
-        private const string Path = @"Prefabs/Common/PlayersPools";
-        public InitializePoolState(GamesStateMachine stateMachine)
+        private readonly ServiceLocator _serviceLocator;
+        public InitializePoolState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
+            _serviceLocator = serviceLocator;
         }
 
-        public void Enter(StatesPayload statesPayload)
+        public void Enter()
         {
-            InitializePool(statesPayload, OnLoaded);
+            InitializePool(OnLoaded);
         }
 
         public Type Update()
@@ -30,17 +30,15 @@ namespace Infrastructure.GameStates
             
         }
 
-        private void InitializePool(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
+        private void InitializePool(Action onLoaded)
         {
-            GameObject prefab = Resources.Load<GameObject>(Path);
-            PoolService pool = Object.Instantiate(prefab).GetComponent<PoolService>();
-            statesPayload.Pool = pool;
-            onLoaded?.Invoke(statesPayload);
+            _serviceLocator.Single<IGameFactory>().CreatePool();            
+            onLoaded?.Invoke();
         }
 
-        private void OnLoaded(StatesPayload statesPayload)
+        private void OnLoaded()
         {
-            _stateMachine.Enter<CreatePlayerState, StatesPayload>(statesPayload);
+            _stateMachine.Enter<CreatePlayerState>();
             
         }
     }

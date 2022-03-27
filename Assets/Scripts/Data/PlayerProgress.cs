@@ -12,9 +12,9 @@ namespace Data
         public PickableObjectData PickableObjectData;
         public SaveProgressPointData SaveProgressPointData;
 
-        public PlayerProgress(string sceneName, int sceneIndex)
+        public PlayerProgress(string sceneName)
         {
-            WorldData = new WorldData(sceneName, sceneIndex);
+            WorldData = new WorldData(sceneName);
             PlayerState = new PlayerState();
             StaticPlayerData = new StaticPlayerData();
             KillData = new KillData();

@@ -6,24 +6,21 @@ using UnityEngine.SceneManagement;
 
 namespace Infrastructure.GameStates
 {
-    public class LoadLevelState : IPayloadState<StatesPayload>
+    public class LoadLevelState : IPayloadState<string>
     {
         private readonly ISceneLoader _sceneLoader;
-        private readonly ServiceLocator _serviceLocator;
+        private readonly Fader _fader;
         private readonly GamesStateMachine _stateMachine;
-        private StatesPayload _statesPayload;
 
-        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, ServiceLocator serviceLocator)
+        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader)
         {
             _sceneLoader = sceneLoader;
-            _serviceLocator = serviceLocator;
+            _fader = fader;
             _stateMachine = stateMachine;
         }
-        public void Enter(StatesPayload statesPayload)
+        public void Enter(string sceneName)
         {
-            _statesPayload = statesPayload;
-            string sceneName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneName;
+            _fader.FadeIn();
             LoadScene(sceneName, OnLoaded);
         }
 
@@ -34,12 +31,12 @@ namespace Infrastructure.GameStates
 
         public void Exit()
         {
-            
+            _fader.FadeOut();
         }
         
         private void OnLoaded()
         {
-            _stateMachine.Enter<InitializePoolState, StatesPayload>(_statesPayload);
+            _stateMachine.Enter<InitializePoolState>();
         }
         
 

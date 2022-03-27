@@ -3,11 +3,12 @@ using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
 using PlayerScripts;
+using Services.Pools;
 using Services.StaticData;
 
 namespace Infrastructure.GameStates
 {
-    public class CreateCrowbarState : IPayloadState<StatesPayload>
+    public class CreateCrowbarState : IState
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
@@ -17,20 +18,20 @@ namespace Infrastructure.GameStates
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-        public void Enter(StatesPayload statesPayload)
+        public void Enter()
         {
-            CreateCrowbar(statesPayload, OnLoaded);
+            CreateCrowbar(OnLoaded);
         }
 
-        private void CreateCrowbar(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
+        private void CreateCrowbar(Action onLoaded)
         {
             IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
             IStaticDataService staticDataService = _serviceLocator.Single<IStaticDataService>();
+            Player player = gameFactory.Player;
             Crowbar crowbar = gameFactory.CreateCrowbar();
-            crowbar.Construct(statesPayload.Player, staticDataService);
-            statesPayload.InteractableObjectsCollector = statesPayload.Player.GetComponent<InteractableObjectsCollector>();
-            statesPayload.Crowbar = crowbar;
-            onLoaded?.Invoke(statesPayload);
+            crowbar.Construct(player, staticDataService);
+            //statesPayload.InteractableObjectsCollector = statesPayload.Player.GetComponent<InteractableObjectsCollector>();
+            onLoaded?.Invoke();
         }
 
         public Type Update()
@@ -43,9 +44,11 @@ namespace Infrastructure.GameStates
            
         }
 
-        private void OnLoaded(StatesPayload statesPayload)
+        private void OnLoaded()
         {
-            _stateMachine.Enter<CreateHudState, StatesPayload>(statesPayload);
+            _stateMachine.Enter<CreateHudState>();
         }
+        
+        
     }
 }

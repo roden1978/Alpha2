@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1225321545736307788}
   - component: {fileID: 1225321545736307790}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bootstraper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cf043abc1e71746bf4adee00b6aa6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fader: {fileID: 1265028821942457332, guid: 183fa2ee113aa294c94048aa77af17be, type: 3}

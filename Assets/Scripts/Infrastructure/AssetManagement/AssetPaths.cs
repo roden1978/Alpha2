@@ -11,5 +11,7 @@
         public const string EnemySpawnPoint = @"Prefabs/Common/EnemySpawnPoint";
         public const string PickableObjectSpawnPoint = @"Prefabs/Common/PickableSpawnPoint";
         public const string SaveProgressSpawnPoint = @"Prefabs/Common/SaveProgressSpawnPoint";
+        public const string PoolPath = @"Prefabs/Common/PlayersPools";
+        public const string HudPath = @"Prefabs/UI/HUD";
     }
 }

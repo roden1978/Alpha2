@@ -2,12 +2,12 @@
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using UnityEngine;
-using Object = UnityEngine.Object;
+using PlayerScripts;
+using UI;
 
 namespace Infrastructure.GameStates
 {
-    public class CreateMediatorState : IPayloadState<StatesPayload>
+    public class CreateMediatorState : IState
     {
         
         private readonly GamesStateMachine _stateMachine;
@@ -19,9 +19,9 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
         }
 
-        public void Enter(StatesPayload statesPayload)
+        public void Enter()
         {
-            CreateMediator(statesPayload, OnLoaded);
+            CreateMediator(OnLoaded);
         }
 
         private void OnLoaded()
@@ -36,16 +36,17 @@ namespace Infrastructure.GameStates
 
         public void Exit()
         {
-            //throw new NotImplementedException();
         }
 
-        private void CreateMediator(StatesPayload statesPayload, Action onLoaded)
+        private void CreateMediator(Action onLoaded)
         {
-            Mediator mediator = _serviceLocator.Single<IGameFactory>().CreateMediator();
-            mediator.InteractableObjectsCollector = statesPayload.InteractableObjectsCollector;
-            mediator.Hud = statesPayload.Hud;
-            mediator.Player = statesPayload.Player;
-            mediator.ControlsPanel = statesPayload.ControlsPanel;
+            IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
+            Mediator mediator = gameFactory.CreateMediator();
+            Player player = gameFactory.Player;
+            InteractableObjectsCollector interactableObjectsCollector = player.GetComponent<InteractableObjectsCollector>();
+            Hud hud = gameFactory.Hud;
+            ControlsPanel controlsPanel = gameFactory.ControlsPanel;
+            mediator.Construct(interactableObjectsCollector, hud, controlsPanel, player);
             onLoaded?.Invoke();
         }
     }

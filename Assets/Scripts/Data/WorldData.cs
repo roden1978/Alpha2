@@ -7,9 +7,9 @@ namespace Data
     {
         public PositionOnLevel PositionOnLevel;
 
-        public WorldData(string sceneName, int sceneIndex)
+        public WorldData(string sceneName)
         {
-            PositionOnLevel = new PositionOnLevel(new Vector3Data(), sceneName, sceneIndex);
+            PositionOnLevel = new PositionOnLevel(new Vector3Data(), sceneName);
         }
     }
 
@@ -20,11 +20,10 @@ namespace Data
         public string SceneName;
         public int SceneIndex;
 
-        public PositionOnLevel(Vector3Data position, string sceneName, int sceneIndex)
+        public PositionOnLevel(Vector3Data position, string sceneName)
         {
             Position = position;
             SceneName = sceneName;
-            SceneIndex = sceneIndex;
         }
     }
 }

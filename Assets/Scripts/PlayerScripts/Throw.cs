@@ -6,21 +6,26 @@ namespace PlayerScripts
 {
     public class Throw : MonoBehaviour
     {
-        public PoolService PoolService;
-        public Crosshair Crosshair;
-        
         [SerializeField] private Axe _pooledObject;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
         [SerializeField] [Range(.1f, 1f)] private float _deltaDegree;
         [SerializeField] [Range(45, 90)] private int _startDegree;
         [SerializeField] [Range(1, 3)] private int _releaseDistance;
-        
+
+        private PoolService _poolService;
+        private Crosshair _crosshair;
         private SpriteRenderer _spriteRenderer;
         private Radar _radar;
         private float _lastDirection = Vector2.right.x;
         private Vector2 _target;
         private Vector2 _crosshairPrevPosition;
+
+        public void Construct(PoolService poolService, Crosshair crosshair)
+        {
+            _poolService = poolService;
+            _crosshair = crosshair;
+        }
 
         private void Start()
         {
@@ -45,7 +50,7 @@ namespace PlayerScripts
 
         public void ThrowWeapon()
         {
-            PooledObject weapon = PoolService.GetPooledObject(_pooledObject.GetType());
+            PooledObject weapon = _poolService.GetPooledObject(_pooledObject.GetType());
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 Vector3 position = _shootPoint.transform.position;
@@ -73,12 +78,12 @@ namespace PlayerScripts
         {
             if(_crosshairPrevPosition != position && position != Vector2.zero)
             {
-                Crosshair.transform.position = position;
-                Crosshair.Show();
+                _crosshair.transform.position = position;
+                _crosshair.Show();
             }
             
-            if(Crosshair.gameObject.activeInHierarchy && position == Vector2.zero)
-                Crosshair.Hide();
+            if(_crosshair.gameObject.activeInHierarchy && position == Vector2.zero)
+                _crosshair.Hide();
 
             _crosshairPrevPosition = position;
         }

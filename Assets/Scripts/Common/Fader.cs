@@ -3,33 +3,31 @@ using UnityEngine;
 
 namespace Common
 {
-   public class Fader : MonoBehaviour
-   {
-      private const string FadeOutAnimation = "FadeOutAnimation";
-      private const string FadeInAnimation = "FadeInAnimation";
-      [SerializeField] private CanvasGroup _curtain;
-      private Animator _animator;
+    public class Fader : MonoBehaviour
+    {
+        private const string FadeOutAnimation = "FadeOutAnimation";
+        private const string FadeInAnimation = "FadeInAnimation";
+        [SerializeField] private Animator _animator;
 
-      private void Awake()
-      {
-         DontDestroyOnLoad(this);
-      }
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
 
-      private void Start()
-      {
-         gameObject.SetActive(true);
-         
-         _animator = GetComponent<Animator>();
-      }
+        public void FadeIn()
+        {
+            gameObject.SetActive(true);
+            _animator.Play(FadeInAnimation);
+        }
 
-      public void FadeIn()
-      {
-         _animator.Play(FadeInAnimation);
-      }
+        public void FadeOut()
+        {
+            _animator.Play(FadeOutAnimation);
+        }
 
-      public void FadeOut()
-      {
-         _animator.Play(FadeOutAnimation);
-      }
-   }
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

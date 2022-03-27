@@ -10,11 +10,11 @@ namespace Infrastructure
     {
         private const int BonusScores = 1000;
         private const int BonusCrystals = 10;
-        
-        public InteractableObjectsCollector InteractableObjectsCollector;
-        public Hud Hud;
-        public ControlsPanel ControlsPanel;
-        public Player Player;
+
+        private InteractableObjectsCollector _interactableObjectsCollector;
+        private Hud _hud;
+        private ControlsPanel _controlsPanel;
+        private Player _player;
         
         private int _currentFruitScoreAmount;
         private int _currentCrystalsAmount;
@@ -23,17 +23,23 @@ namespace Infrastructure
         private int _maxHealth;
         private int _maxBonusLivesCount;
 
-        private void Start()
+        public void Construct(InteractableObjectsCollector interactableObjectsCollector,
+            Hud hud, ControlsPanel controlsPanel, Player player)
         {
-            InteractableObjectsCollector.FruitCollecting += OnFruitCollecting;
-            InteractableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
-            InteractableObjectsCollector.FoodCollecting += OnFoodCollecting;
-            InteractableObjectsCollector.LifeCollecting += OnLivesCollecting;
-            InteractableObjectsCollector.DamageCollecting += OnDamageCollecting;
-            Player.Death += OnPlayerDeath;
+            _interactableObjectsCollector = interactableObjectsCollector;
+            _hud = hud;
+            _controlsPanel = controlsPanel;
+            _player = player;
+            
+            _interactableObjectsCollector.FruitCollecting += OnFruitCollecting;
+            _interactableObjectsCollector.CrystalCollecting += OnCrystalCollecting;
+            _interactableObjectsCollector.FoodCollecting += OnFoodCollecting;
+            _interactableObjectsCollector.LifeCollecting += OnLivesCollecting;
+            _interactableObjectsCollector.DamageCollecting += OnDamageCollecting;
+            _player.Death += OnPlayerDeath;
             //UpdateHud();
-            if(ControlsPanel != null)
-                ControlsPanel.Show();
+            if(_controlsPanel != null)
+                _controlsPanel.Show();
         }
 
         private void OnPlayerDeath(int delta)
@@ -51,17 +57,17 @@ namespace Infrastructure
         private void OnDamageCollecting(int amount)
         {
             _currentHealth -= amount;
-            Player.TakeDamage(amount);
+            _player.TakeDamage(amount);
             UpdateHealthBar(_currentHealth);
         }
 
         private void OnDestroy()
         {
-            InteractableObjectsCollector.FruitCollecting -= OnFruitCollecting;
-            InteractableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
-            InteractableObjectsCollector.FoodCollecting -= OnFoodCollecting;
-            InteractableObjectsCollector.LifeCollecting -= OnLivesCollecting;
-            InteractableObjectsCollector.DamageCollecting += OnDamageCollecting;
+            _interactableObjectsCollector.FruitCollecting -= OnFruitCollecting;
+            _interactableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
+            _interactableObjectsCollector.FoodCollecting -= OnFoodCollecting;
+            _interactableObjectsCollector.LifeCollecting -= OnLivesCollecting;
+            _interactableObjectsCollector.DamageCollecting += OnDamageCollecting;
         }
 
         private void OnLivesCollecting(int amount)
@@ -69,7 +75,7 @@ namespace Infrastructure
             if(_currentLivesAmount < _maxBonusLivesCount)
             {
                 _currentLivesAmount += amount;
-                Player.TakeBonusLive(amount);
+                _player.TakeBonusLive(amount);
                 UpdateBonusLivesCount();
             }
             else
@@ -86,15 +92,15 @@ namespace Infrastructure
 
         private void UpdateBonusLivesCount()
         {
-            Instantiate(Hud.LivesPanel.BonusLifeUI, Hud.LivesPanel.transform);
+            Instantiate(_hud.LivesPanel.BonusLifeUI, _hud.LivesPanel.transform);
         }
 
 
         private void InitializeBonusLifeAmount(int currentLivesAmount)
         {
-            if (Hud.LivesPanel.transform.childCount != _currentLivesAmount)
+            if (_hud.LivesPanel.transform.childCount != _currentLivesAmount)
             {
-                var items = Hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
+                var items = _hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
                 foreach (Component item in items)
                 {
                     Destroy(item.gameObject);
@@ -102,7 +108,7 @@ namespace Infrastructure
 
                 for (int i = 0; i < currentLivesAmount; i++)
                 {
-                    Instantiate(Hud.LivesPanel.BonusLifeUI, Hud.LivesPanel.transform);
+                    Instantiate(_hud.LivesPanel.BonusLifeUI, _hud.LivesPanel.transform);
                 }
             }
         }
@@ -112,14 +118,14 @@ namespace Infrastructure
             if(_currentHealth < _maxHealth)
             {
                 _currentHealth += amount;
-                Player.TakeHealth(amount);
+                _player.TakeHealth(amount);
                 UpdateHealthBar(_currentHealth);
             }
         }
 
         private void UpdateHealthBar(int currentHealth)
         {
-            Hud.HealthBar.value = (float) currentHealth / _maxHealth;
+            _hud.HealthBar.value = (float) currentHealth / _maxHealth;
         }
 
         private void OnCrystalCollecting(int amount)
@@ -130,7 +136,7 @@ namespace Infrastructure
 
         private void UpdateCrystalsAmount(int amount)
         {
-            Hud.CrystalsAmount.text = amount.ToString();
+            _hud.CrystalsAmount.text = amount.ToString();
         }
 
         private void OnFruitCollecting(int amount)
@@ -141,7 +147,7 @@ namespace Infrastructure
 
         private void UpdateFruitAmount(int amount)
         {
-            Hud.FruitsAmount.text = amount.ToString();
+            _hud.FruitsAmount.text = amount.ToString();
         }
 
         private void UpdateHud()

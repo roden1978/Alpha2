@@ -1,17 +1,19 @@
 ﻿using System;
 using Common;
 using Infrastructure.Factories;
+using Infrastructure.Services;
 
 namespace Infrastructure.GameStates
 {
-    public class LoadControlsPanelState : IPayloadState<StatesPayload>
+    public class LoadControlsPanelState : IState
     {
         private readonly GamesStateMachine _stateMachine;
-        private IGameFactory _gameFactory;
+        private readonly ServiceLocator _serviceLocator;
 
-        public LoadControlsPanelState(GamesStateMachine stateMachine)
+        public LoadControlsPanelState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
+            _serviceLocator = serviceLocator;
         }
 
         public Type Update()
@@ -23,20 +25,20 @@ namespace Infrastructure.GameStates
         {
         }
 
-        public void Enter(StatesPayload statesPayload)
+        public void Enter()
         {
-            LoadControlsPanel(statesPayload, OnLoaded);
+            LoadControlsPanel(OnLoaded);
         }
 
-        private void OnLoaded(StatesPayload statesPayload)
+        private void OnLoaded()
         {
-            _stateMachine.Enter<LoadLevelState, StatesPayload>(statesPayload);
+            _stateMachine.Enter<LoadLevelState>();
         }
 
-        private void LoadControlsPanel(StatesPayload statesPayload, Action<StatesPayload> onLoaded)
+        private void LoadControlsPanel(Action onLoaded)
         {
-            statesPayload.ControlsPanel = _gameFactory.CreateControlsPanel();
-            onLoaded?.Invoke(statesPayload);
+            _serviceLocator.Single<IGameFactory>().CreateControlsPanel();
+            onLoaded?.Invoke();
         }
     }
 }

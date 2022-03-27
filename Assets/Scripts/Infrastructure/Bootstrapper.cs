@@ -11,8 +11,8 @@ namespace Infrastructure
 
         private void Awake()
         {
-            //Start fader in Game class (this, _fader)
-            _game = new Game(this);
+            Fader fader = Instantiate(_fader).GetComponent<Fader>();
+            _game = new Game(this, fader);
             DontDestroyOnLoad(this);
         }
 

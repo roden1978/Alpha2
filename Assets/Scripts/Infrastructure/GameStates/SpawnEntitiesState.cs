@@ -57,7 +57,7 @@ namespace Infrastructure.GameStates
             SpawnEnemies(levelStaticData.EnemySpawners);
             SpawnPickableObjects(levelStaticData.PickableObjectSpawners);
             SpawnSaveProgressPoints(levelStaticData.SaveProgressPointSpawners);
-            SpawnPortal();
+            //SpawnPortal();
         }
 
         private void SpawnPickableObjects(IEnumerable<PickableObjectSpawnData> pickableObjectSpawners)
@@ -89,8 +89,8 @@ namespace Infrastructure.GameStates
         private void SpawnPortal()
         {
             Portal portal = Object.FindObjectOfType<Portal>();
-            if (portal != null)
-                _gameFactory.AddProgressWriter(portal);
+            /*if (portal != null)
+                _gameFactory.AddProgressWriter(portal);*/
         }
 
         private void ActivateCurrentScene()

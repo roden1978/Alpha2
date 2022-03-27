@@ -2,6 +2,7 @@
 using Infrastructure.Services;
 using PlayerScripts;
 using Services.PersistentProgress;
+using Services.Pools;
 using StaticData;
 using UI;
 using UnityEngine;
@@ -26,5 +27,10 @@ namespace Infrastructure.Factories
         void CreatePickableObjectSpawner(string spawnerId, PickableObjectTypeId pickableObjectTypeId, Vector3 position);
         GameObject CreateSavePoint(SaveProgressPointTypeId pointTypeId, float width, float height, Transform parent, bool isUsed);
         void CreateSaveProgressPointSpawner(string spawnerId, SaveProgressPointTypeId pointTypeId, float width, float height, Vector3 position);
+        PoolService CreatePool();
+        public Player Player { get;}
+        void CreateHud();
+        public Hud Hud { get; }
+        ControlsPanel ControlsPanel { get; }
     }
 }

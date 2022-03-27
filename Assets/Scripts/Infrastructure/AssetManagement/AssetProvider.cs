@@ -3,6 +3,7 @@ using Infrastructure.EnemySpawners;
 using Infrastructure.PickableObjectSpawners;
 using Infrastructure.SavePointSpawners;
 using PlayerScripts;
+using Services.Pools;
 using UI;
 using UnityEngine;
 
@@ -62,6 +63,18 @@ namespace Infrastructure.AssetManagement
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.SaveProgressSpawnPoint);
             return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<SaveProgressPointSpawner>();
+        }
+
+        public PoolService InstantiatePool()
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.PoolPath);
+            return Object.Instantiate(prefab).GetComponent<PoolService>();
+        }
+
+        public Hud InstantiateHud()
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.HudPath);
+            return Object.Instantiate(prefab).GetComponent<Hud>();
         }
     }
 }

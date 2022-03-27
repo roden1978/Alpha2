@@ -7,20 +7,32 @@ using Infrastructure.PickableObjectSpawners;
 using Infrastructure.SavePointSpawners;
 using PlayerScripts;
 using Services.PersistentProgress;
+using Services.Pools;
 using Services.StaticData;
 using StaticData;
 using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Factories
 {
     public class GameFactory : IGameFactory
     {
-        private readonly IAssetProvider _assetProvider;
-        private readonly IStaticDataService _staticDataService;
+        public Player Player { get; private set; }
+        public Hud Hud { get; private set; }
+        public ControlsPanel ControlsPanel { get; private set; }
+
+        public void CreateHud()
+        {
+            Hud = _assetProvider.InstantiateHud();
+            RegisterInSaveLoadRepositories(Hud.gameObject);
+        }
+
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
+
+        private readonly IAssetProvider _assetProvider;
+        private readonly IStaticDataService _staticDataService;
+
 
         public GameFactory(IAssetProvider assetProvider, IStaticDataService staticDataService)
         {
@@ -30,8 +42,11 @@ namespace Infrastructure.Factories
             ProgressWriters = new List<ISavedProgress>();
         }
 
-        public ControlsPanel CreateControlsPanel() =>
-            _assetProvider.InstantiateControlsPanel();
+        public ControlsPanel CreateControlsPanel()
+        {
+            ControlsPanel = _assetProvider.InstantiateControlsPanel();
+            return ControlsPanel;
+        }
 
         public Crowbar CreateCrowbar()
         {
@@ -40,11 +55,17 @@ namespace Infrastructure.Factories
             return crowbar;
         }
 
+        public PoolService CreatePool()
+        {
+            PoolService pool = _assetProvider.InstantiatePool();
+            return pool;
+        }
+
         public Player CreatePlayer()
         {
-            Player player = _assetProvider.InstantiatePlayer();
-            RegisterInSaveLoadRepositories(player.gameObject);
-            return player;
+            Player = _assetProvider.InstantiatePlayer();
+            RegisterInSaveLoadRepositories(Player.gameObject);
+            return Player;
         }
 
         public Crosshair CreateCrosshair() => _assetProvider.InstantiateCrosshair();
