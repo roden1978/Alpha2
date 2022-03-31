@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 namespace Infrastructure.GameStates
 {
@@ -11,8 +14,9 @@ namespace Infrastructure.GameStates
         private readonly Fader _fader;
         private readonly ServiceLocator _serviceLocator;
         private readonly GamesStateMachine _stateMachine;
+        private const string FadeInAnimation = "FadeInAnimation";
 
-        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader, 
+        public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader,
             ServiceLocator serviceLocator)
         {
             _sceneLoader = sceneLoader;
@@ -20,10 +24,11 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
             _stateMachine = stateMachine;
         }
+
         public void Enter(string sceneName)
         {
             _serviceLocator.Single<IGameFactory>().CleanUp();
-            _fader.FadeIn();
+            _fader.Show();
             LoadScene(sceneName, OnLoaded);
         }
 
@@ -34,17 +39,18 @@ namespace Infrastructure.GameStates
 
         public void Exit()
         {
-            _fader.FadeOut();
+            _fader.Hide();
         }
-        
+
         private void OnLoaded()
         {
+            Debug.Log("On loaded");
             _stateMachine.Enter<CreatePlayerState>();
         }
+
         private void LoadScene(string sceneName, Action onLoaded)
         {
             _sceneLoader.Load(sceneName, onLoaded);
         }
-        
     }
 }

@@ -1,33 +1,34 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Common
 {
     public class Fader : MonoBehaviour
     {
-        private const string FadeOutAnimation = "FadeOutAnimation";
-        private const string FadeInAnimation = "FadeInAnimation";
-        [SerializeField] private Animator _animator;
-
+        [SerializeField] private CanvasGroup _curtain;
         private void Awake()
         {
             DontDestroyOnLoad(this);
         }
 
-        public void FadeIn()
+        public IEnumerator FadeIn()
         {
-            gameObject.SetActive(true);
-            _animator.Play(FadeInAnimation);
-        }
-
-        public void FadeOut()
-        {
-            _animator.Play(FadeOutAnimation);
-        }
-
-        public void Hide()
-        {
+            while (_curtain.alpha > 0)
+            {
+                _curtain.alpha -= 0.01f;
+                yield return null;
+            }
             gameObject.SetActive(false);
         }
+
+        public void Hide() => 
+            StartCoroutine(FadeIn());
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+            _curtain.alpha = 1.0f;
+        }
+
     }
 }
