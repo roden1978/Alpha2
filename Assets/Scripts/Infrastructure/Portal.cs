@@ -1,7 +1,6 @@
 using Data;
 using Infrastructure.GameStates;
 using Infrastructure.Services;
-using PlayerScripts;
 using Services.PersistentProgress;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ namespace Infrastructure
     [RequireComponent(typeof(BoxCollider2D))]
     public class Portal : MonoBehaviour
     {
+        private const string PlayerLayerName = "Player";
         [SerializeField] private string _portalTo;
         [SerializeField] private BoxCollider2D _boxCollider;
         private IGamesStateMachine _stateMachine;
@@ -23,7 +23,7 @@ namespace Infrastructure
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Player player))
+            if (other.gameObject.layer == LayerMask.NameToLayer(PlayerLayerName))
             {
                 Transit();
             }
