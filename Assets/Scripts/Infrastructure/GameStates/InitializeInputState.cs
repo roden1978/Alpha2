@@ -1,9 +1,7 @@
 ﻿using System;
 using Common;
-using Infrastructure.Factories;
 using Infrastructure.Services;
 using Services.Input;
-using Services.PersistentProgress;
 using UnityEngine;
 
 namespace Infrastructure.GameStates
@@ -41,8 +39,8 @@ namespace Infrastructure.GameStates
         }
         private IInputService InputService()
         {
-            if (Application.isEditor)
-                return new KeyboardInputService();
+            //if (Application.isEditor)
+             //  return new KeyboardInputService();
 
             _mobile = true;
             return new UiInputService();
@@ -50,12 +48,12 @@ namespace Infrastructure.GameStates
 
         private void NextState()
         {
-            string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneName;
+            //string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+             //   .PositionOnLevel.SceneName;
             if (_mobile)
                 _stateMachine.Enter<LoadControlsPanelState>();
-            else
-                _stateMachine.Enter<LoadLevelState, string>(levelName);
+            //else
+            //   _stateMachine.Enter<LoadLevelState, string>("MainMenu");
         }
     }
 }

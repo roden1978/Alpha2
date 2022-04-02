@@ -3,16 +3,20 @@ using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
 using Services.PersistentProgress;
-using Services.SaveLoad;
+using UI;
+using UnityEngine;
 
 namespace Infrastructure.GameStates
 {
     public class UpdateProgressState : IState
     {
         private readonly ServiceLocator _serviceLocator;
-        public UpdateProgressState(ServiceLocator serviceLocator)
+        private readonly Fader _fader;
+
+        public UpdateProgressState(ServiceLocator serviceLocator, Fader fader)
         {
             _serviceLocator = serviceLocator;
+            _fader = fader;
         }
         public Type Update()
         {
@@ -24,9 +28,26 @@ namespace Infrastructure.GameStates
         }
         public void Enter()
         {
-            UpdatePlayerProgress();
+            UpdatePlayerProgress(HideFader);
+            ControlsPanel controlPanel = _serviceLocator.Single<IGameFactory>().ControlsPanel;
+            if(controlPanel != null)
+                ResetJoystick(controlPanel);
+            
         }
-        private void UpdatePlayerProgress()
+
+        private static void ResetJoystick(ControlsPanel controlPanel)
+        {
+            controlPanel.gameObject.SetActive(true);
+            RectTransform rectTransform = (RectTransform)controlPanel.OnScreenStick.transform;
+            rectTransform.anchoredPosition = controlPanel.JoystickStartPosition;
+        }
+
+        private void HideFader()
+        {
+            _fader.Hide();
+        }
+
+        private void UpdatePlayerProgress(Action callback)
         {
             IPersistentProgressService persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
             IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();
@@ -35,7 +56,7 @@ namespace Infrastructure.GameStates
             {
                 readers.LoadProgress(persistentProgressService.PlayerProgress);
             }
-            
+            callback?.Invoke();
         }
     }
 }

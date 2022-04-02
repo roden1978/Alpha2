@@ -48,7 +48,6 @@ namespace Infrastructure.SavePointSpawners
             if (_saveProgressPoint != null)
                 _saveProgressPoint.Used -= OnUsed;
             _isUsed = true;
-            Debug.Log("Progress saved");
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)

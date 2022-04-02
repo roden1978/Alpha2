@@ -198,7 +198,7 @@ namespace PlayerScripts
 
         private async Task<ICinemachineCamera> GetVCamera()
         {
-            await Task.Delay(100);
+            await Task.Delay(200);
             return _camera.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
         }
     }

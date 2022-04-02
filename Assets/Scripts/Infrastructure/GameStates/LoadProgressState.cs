@@ -4,14 +4,15 @@ using Data;
 using Infrastructure.Services;
 using Services.PersistentProgress;
 using Services.SaveLoad;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure.GameStates
 {
     public class LoadProgressState : IState
     {
+        private const string SceneName = "Level1";
         private readonly GamesStateMachine _gamesStateMachine;
         private readonly ServiceLocator _serviceLocator;
+        private IPersistentProgressService _persistentProgressService;
 
         public LoadProgressState(GamesStateMachine gamesStateMachine, ServiceLocator serviceLocator)
         {
@@ -23,23 +24,23 @@ namespace Infrastructure.GameStates
 
         private void NextState()
         {
-            _gamesStateMachine.Enter<InitializeInputState>();
+            string levelName = _persistentProgressService.PlayerProgress.WorldData.PositionOnLevel.SceneName;
+            _gamesStateMachine.Enter<LoadLevelState, string>(levelName);
         }
 
-        private void LoadProgress(Action callback = null)
+        private void LoadProgress(Action callback)
         {
             ISaveLoadService saveLoadService = _serviceLocator.Single<ISaveLoadService>();
-            IPersistentProgressService persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
+            _persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
             
-            persistentProgressService.PlayerProgress = saveLoadService.LoadProgress() ?? CreatePlayerProgress();
+            _persistentProgressService.PlayerProgress = saveLoadService.LoadProgress() ?? CreatePlayerProgress();
             
             callback?.Invoke();
         }
 
         private PlayerProgress CreatePlayerProgress()
         {
-            string sceneName = SceneManager.GetActiveScene().name;
-            PlayerProgress playerProgress = new PlayerProgress(sceneName);
+            PlayerProgress playerProgress = new PlayerProgress(SceneName);
 
             playerProgress.PlayerState.CurrentHealth = playerProgress.StaticPlayerData.Health;
             playerProgress.PlayerState.CurrentCrystalsAmount = playerProgress.StaticPlayerData.CrystalsAmount;

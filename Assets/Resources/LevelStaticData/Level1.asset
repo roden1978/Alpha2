@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   LevelKey: Level1
-  PlayerSpawnPoint: {x: -21.32, y: -0.76, z: 0}
+  PlayerSpawnPoint: {x: 26.84, y: 13.22, z: 0}
   EnemySpawners:
   - Id: Level1_3c64d83f-59a4-4842-bba2-2a5efcefd1be
     EnemyTypeId: 0
@@ -22,6 +22,18 @@ MonoBehaviour:
     EnemyTypeId: 0
     Position: {x: -5.23, y: -3.18, z: 0}
   PickableObjectSpawners:
+  - Id: Level1_b0d80881-c40d-45d2-a676-14b36f4cb391
+    PickableObjectTypeId: 100
+    Position: {x: 34.05, y: 12.87, z: 0}
+  - Id: Level1_ba34a2f0-034c-4098-87cf-1cca6a24247c
+    PickableObjectTypeId: 110
+    Position: {x: 32.06, y: 13.01, z: 0}
+  - Id: Level1_11593d95-28b2-4478-9426-b98c0e027942
+    PickableObjectTypeId: 0
+    Position: {x: 30.55, y: 12.87, z: 0}
+  - Id: Level1_3893e9c9-27e8-411f-a5d4-b976decdf4af
+    PickableObjectTypeId: 0
+    Position: {x: 29.55, y: 12.87, z: 0}
   - Id: Level1_ef024266-885a-4b36-b7b9-c23262c5cf0d
     PickableObjectTypeId: 110
     Position: {x: -13.38, y: 4.01, z: 0}

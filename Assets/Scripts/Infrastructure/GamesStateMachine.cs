@@ -16,16 +16,16 @@ namespace Infrastructure
             _states = new Dictionary<Type, IUpdateableState>
             {
                 [typeof(InitializeServicesState)] = new InitializeServicesState(this, serviceLocator),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator),
                 [typeof(InitializeInputState)] = new InitializeInputState(this, serviceLocator),
                 [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this, serviceLocator),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, fader, serviceLocator),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this, serviceLocator),
                 [typeof(CreateCrowbarState)] = new CreateCrowbarState(this, serviceLocator),
                 [typeof(CreateHudState)] = new CreateHudState(this, serviceLocator),
                 [typeof(CreateMediatorState)] = new CreateMediatorState(this, serviceLocator),
                 [typeof(SpawnEntitiesState)] = new SpawnEntitiesState(this, serviceLocator),
-                [typeof(UpdateProgressState)] = new UpdateProgressState(serviceLocator)
+                [typeof(UpdateProgressState)] = new UpdateProgressState(serviceLocator, fader)
             };
         }
 

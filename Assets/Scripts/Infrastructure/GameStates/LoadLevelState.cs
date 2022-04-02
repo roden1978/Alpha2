@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 
 namespace Infrastructure.GameStates
 {
@@ -14,7 +11,6 @@ namespace Infrastructure.GameStates
         private readonly Fader _fader;
         private readonly ServiceLocator _serviceLocator;
         private readonly GamesStateMachine _stateMachine;
-        private const string FadeInAnimation = "FadeInAnimation";
 
         public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader,
             ServiceLocator serviceLocator)
@@ -39,12 +35,10 @@ namespace Infrastructure.GameStates
 
         public void Exit()
         {
-            _fader.Hide();
         }
 
         private void OnLoaded()
         {
-            Debug.Log("On loaded");
             _stateMachine.Enter<CreatePlayerState>();
         }
 

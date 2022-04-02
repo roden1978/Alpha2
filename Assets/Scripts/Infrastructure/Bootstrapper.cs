@@ -1,5 +1,7 @@
 using Common;
 using Infrastructure.GameStates;
+using Infrastructure.Services;
+using Services.PersistentProgress;
 using UnityEngine;
 
 namespace Infrastructure
@@ -12,6 +14,7 @@ namespace Infrastructure
         private void Awake()
         {
             Fader fader = Instantiate(_fader).GetComponent<Fader>();
+            fader.gameObject.SetActive(false);
             _game = new Game(this, fader);
             DontDestroyOnLoad(this);
         }
@@ -19,6 +22,11 @@ namespace Infrastructure
         private void Start()
         {
             _game.GamesStateMachine.Enter<InitializeServicesState>();
+        }
+
+        public void LoadLevelState()
+        {
+            _game.GamesStateMachine.Enter<LoadProgressState>();
         }
     }
 }

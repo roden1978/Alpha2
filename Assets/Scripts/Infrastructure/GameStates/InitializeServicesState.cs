@@ -68,7 +68,7 @@ namespace Infrastructure.GameStates
 
         private void NextState()
         {
-            _stateMachine.Enter<LoadProgressState>();
+            _stateMachine.Enter<InitializeInputState>();
         }
     }
 }
