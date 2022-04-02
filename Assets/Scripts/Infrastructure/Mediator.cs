@@ -38,8 +38,8 @@ namespace Infrastructure
             _interactableObjectsCollector.DamageCollecting += OnDamageCollecting;
             _player.Death += OnPlayerDeath;
             //UpdateHud();
-            if(_controlsPanel != null)
-                _controlsPanel.Show();
+            //if(_controlsPanel != null)
+            //    _controlsPanel.Show();
         }
 
         private void OnPlayerDeath(int delta)

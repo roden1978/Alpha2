@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7335992753901305778}
   - component: {fileID: 6011203490932415058}
   - component: {fileID: 1547285455976333456}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoubleJumpSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,8 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42bdd7586b551f4b87629f82415f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolService: {fileID: 0}
-  Crosshair: {fileID: 0}
   _pooledObject: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
   _shootPoint: {fileID: 4171628852495872756}
   _radarDistance: 8
@@ -288,7 +286,7 @@ GameObject:
   - component: {fileID: 1085142949364207502}
   - component: {fileID: 1085142949364207503}
   - component: {fileID: 9025148493700913212}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9018033563079481065}
   - component: {fileID: 9189263911681132038}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}

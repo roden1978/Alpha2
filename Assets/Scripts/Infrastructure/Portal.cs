@@ -1,7 +1,9 @@
 using Data;
+using Infrastructure.Factories;
 using Infrastructure.GameStates;
 using Infrastructure.Services;
 using Services.PersistentProgress;
+using Services.SaveLoad;
 using UnityEngine;
 
 namespace Infrastructure
@@ -37,9 +39,11 @@ namespace Infrastructure
 
         private void UpdateProgressData()
         {
+            ServiceLocator.Container.Single<ISaveLoadService>().SaveProgress();
             _persistentProgressService.PlayerProgress.WorldData.PositionOnLevel.Position = Vector3.zero.AsVector3Data();
             _persistentProgressService.PlayerProgress.WorldData.PositionOnLevel.SceneName = _portalTo;
             _persistentProgressService.PlayerProgress.SaveProgressPointData.UsedSavePoints.Clear();
+            ServiceLocator.Container.Single<IGameFactory>().ControlsPanel.gameObject.SetActive(false);
         }
 
         private void OnDrawGizmos()

@@ -33,9 +33,9 @@ namespace Infrastructure.GameStates
 
         private void OnLoaded()
         {
-            string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-                .PositionOnLevel.SceneName;
-            _stateMachine.Enter<LoadLevelState, string>(levelName);
+            //string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
+            //    .PositionOnLevel.SceneName;
+            //_stateMachine.Enter<LoadLevelState, string>("MainMenu");
         }
 
         private void LoadControlsPanel(Action onLoaded)

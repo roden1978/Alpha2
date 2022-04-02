@@ -1,5 +1,6 @@
 using System;
 using Infrastructure.Services;
+using PlayerScripts;
 using Services.SaveLoad;
 using UnityEngine;
 
@@ -26,10 +27,13 @@ namespace Infrastructure
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Used?.Invoke();
-            _saveLoadService.SaveProgress();
-            Debug.Log("Progress saved");
-            _collider.enabled = false;
+            if(other.TryGetComponent(out Player player))
+            {
+                Used?.Invoke();
+                _saveLoadService.SaveProgress();
+                Debug.Log("Progress saved");
+                _collider.enabled = false;
+            }
         }
         
     }
