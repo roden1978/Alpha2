@@ -34,10 +34,7 @@ namespace PlayerScripts
         }
         private void Update()
         {
-            Vector2 rayDirection = Direction(_shootPoint.transform);
-            if (rayDirection.x != 0) _lastDirection = rayDirection.x;
-
-            _target = _radar.Target(_lastDirection, _shootPoint.transform.position);
+            _target = CalculateTarget();
             DrawCrosshair(_target);
             //remove before production
             if(_target != Vector2.zero)
@@ -46,6 +43,14 @@ namespace PlayerScripts
                 Debug.DrawRay(position, DirectionToTarget(_target, position) * _radarDistance, Color.red);
             }
             //remove before production
+        }
+
+        private Vector2 CalculateTarget()
+        {
+            Vector2 rayDirection = Direction(_shootPoint.transform);
+            if (rayDirection.x != 0) _lastDirection = rayDirection.x;
+
+            return _radar.Target(_lastDirection, _shootPoint.transform.position);
         }
 
         public void ThrowWeapon()
