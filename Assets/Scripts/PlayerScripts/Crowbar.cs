@@ -95,7 +95,7 @@ namespace PlayerScripts
             }
         }
 
-        private void Jump()
+        public void Jump()
         {
             if (StayOnGround())
             {
