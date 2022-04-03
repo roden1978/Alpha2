@@ -20,19 +20,10 @@ namespace Infrastructure.Factories
         public Player Player { get; private set; }
         public Hud Hud { get; private set; }
         public ControlsPanel ControlsPanel { get; private set; }
-
-        public void CreateHud()
-        {
-            Hud = _assetProvider.InstantiateHud();
-            RegisterInSaveLoadRepositories(Hud.gameObject);
-        }
-
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
-
         private readonly IAssetProvider _assetProvider;
         private readonly IStaticDataService _staticDataService;
-
 
         public GameFactory(IAssetProvider assetProvider, IStaticDataService staticDataService)
         {
@@ -40,6 +31,12 @@ namespace Infrastructure.Factories
             _staticDataService = staticDataService;
             ProgressReaders = new List<ISavedProgressReader>();
             ProgressWriters = new List<ISavedProgress>();
+        }
+
+        public void CreateHud()
+        {
+            Hud = _assetProvider.InstantiateHud();
+            RegisterInSaveLoadRepositories(Hud.gameObject);
         }
 
         public ControlsPanel CreateControlsPanel()
@@ -53,6 +50,7 @@ namespace Infrastructure.Factories
             Crowbar crowbar = _assetProvider.InstantiateCrowbar();
             crowbar.Construct(Player, _staticDataService);
             RegisterInSaveLoadRepositories(crowbar.gameObject);
+            ControlsPanel.Construct(crowbar);
             return crowbar;
         }
 

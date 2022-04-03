@@ -9,11 +9,15 @@ namespace PlayerScripts
     [RequireComponent(typeof(InteractableObjectsCollector))]
     public class Player : MonoBehaviour, ISavedProgress, IHealth
     {
-        private int _currentLivesAmount;
+        [field: SerializeField] public DoubleJumpSign DoubleJumpSign { get; private set; }
+        [field: SerializeField] public Rigidbody2D Rigidbody2D { get; private set; }
+        [field: SerializeField] public Animator Animator { get; private set; }
+        [field: SerializeField] public PlayerView PlayerView { get; private set; }
         public Action<int> Death;
-
         public int HP { get; private set; }
         public int MaxHealth { get; private set; }
+        private int _currentLivesAmount;
+
         public void TakeDamage(int damage)
         {
             HP -= damage;

@@ -18,6 +18,7 @@ namespace PlayerScripts
     public class Crowbar : MonoBehaviour, ISavedProgress
     {
         private const int DoubleSingWaitTime = 1200;
+        
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocity;
         [SerializeField] private float _jumpForce;
@@ -25,24 +26,17 @@ namespace PlayerScripts
 
         private StateMachine _stateMachine;
         private IInputService _inputService;
-        private PlayerView _playerView;
         private IFlipView _flipView;
-        private Rigidbody2D _rigidbody;
-        private Animator _animator;
         private IDipstick _dipstick;
         private PlayerStateData _playerStateData;
-        private DoubleJumpSign _doubleJumpSign;
-
-        private bool _doubleJump;
-
         private Camera _camera;
         private ICinemachineCamera _virtualCamera;
         private IStaticDataService _staticDataService;
         private Player _player;
+        private bool _doubleJump;
 
         private void Awake()
         {
-            Debug.Log("Awake");
             _stateMachine = new StateMachine();
             _camera = Camera.main;
         }
@@ -52,12 +46,7 @@ namespace PlayerScripts
             _player = player;
             _staticDataService = staticDataService;
             _dipstick = new Dipstick(_player);
-            _playerView = _player.GetComponentInChildren<PlayerView>();
-            _doubleJumpSign = _playerView.GetComponentInChildren<DoubleJumpSign>(true);
-            _flipView = new FlipView(_playerView);
-            _animator = _player.GetComponentInChildren<Animator>();
-            _rigidbody = _player.GetComponent<Rigidbody2D>();
-
+            _flipView = new FlipView(_player.PlayerView);
             _inputService = ServiceLocator.Container.Single<IInputService>();
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
@@ -69,14 +58,14 @@ namespace PlayerScripts
 
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
-                { typeof(IdleState), new IdleState(_rigidbody, _playerStateData) },
-                { typeof(WalkState), new WalkState(_rigidbody, _animator, _playerStateData) },
-                { typeof(JumpState), new JumpState(_animator, _playerStateData) },
-                { typeof(IdleThrowState), new IdleThrowState(_animator) },
-                { typeof(JumpThrowState), new JumpThrowState(_animator) },
-                { typeof(JumpProxyState), new JumpProxyState(_animator) },
-                { typeof(WalkThrowState), new WalkThrowState(_animator) },
-                { typeof(WalkProxyState), new WalkProxyState(_animator) }
+                { typeof(IdleState), new IdleState(_player.Rigidbody2D, _playerStateData) },
+                { typeof(WalkState), new WalkState(_player.Rigidbody2D, _player.Animator, _playerStateData) },
+                { typeof(JumpState), new JumpState(_player.Animator, _playerStateData) },
+                { typeof(IdleThrowState), new IdleThrowState(_player.Animator) },
+                { typeof(JumpThrowState), new JumpThrowState(_player.Animator) },
+                { typeof(JumpProxyState), new JumpProxyState(_player.Animator) },
+                { typeof(WalkThrowState), new WalkThrowState(_player.Animator) },
+                { typeof(WalkProxyState), new WalkProxyState(_player.Animator) }
             });
         }
 
@@ -101,8 +90,8 @@ namespace PlayerScripts
         {
             if (StayOnGround() && _inputService.Move() != 0)
             {
-                if (Mathf.Abs(_rigidbody.velocity.magnitude) > _maxVelocity) return;
-                _rigidbody.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
+                if (Mathf.Abs(_player.Rigidbody2D.velocity.magnitude) > _maxVelocity) return;
+                _player.Rigidbody2D.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
             }
         }
 
@@ -122,7 +111,7 @@ namespace PlayerScripts
 
         private void DoubleJump()
         {
-            bool canJump = Vector2.Dot(_rigidbody.velocity, Vector2.up) < 0;
+            bool canJump = Vector2.Dot(_player.Rigidbody2D.velocity, Vector2.up) < 0;
 
             if (canJump && _doubleJump)
             {
@@ -140,10 +129,10 @@ namespace PlayerScripts
         private void AddForceToJump()
         {
             Vector2 jumpForce = Vector2.up * _jumpForce;
-            _rigidbody.AddForce(jumpForce, ForceMode2D.Impulse);
+            _player.Rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        private void Shoot()
+        public void Shoot()
         {
             _playerStateData.IsShoot = true;
         }
@@ -158,9 +147,9 @@ namespace PlayerScripts
 
         private async void DoubleJumpSignShow()
         {
-            _doubleJumpSign.Show();
+            _player.DoubleJumpSign.Show();
             await Task.Delay(DoubleSingWaitTime);
-            _doubleJumpSign.Hide();
+            _player.DoubleJumpSign.Hide();
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)

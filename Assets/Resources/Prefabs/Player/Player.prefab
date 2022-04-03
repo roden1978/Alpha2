@@ -228,6 +228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c570d870a8f0a43ae3248276eca9f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DoubleJumpSign>k__BackingField: {fileID: 6011203490932415058}
+  <Rigidbody2D>k__BackingField: {fileID: 1085142949310770210}
+  <Animator>k__BackingField: {fileID: 1085142949364207502}
+  <PlayerView>k__BackingField: {fileID: 9025148493700913212}
 --- !u!70 &1085142949310770209
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -271,7 +275,7 @@ MonoBehaviour:
   _pooledObject: {fileID: 4134564574214666431, guid: d5bca0461526b414a920b265a44e93d5, type: 3}
   _shootPoint: {fileID: 4171628852495872756}
   _radarDistance: 8
-  _deltaDegree: 0.2
+  _deltaDegree: 0.5
   _startDegree: 45
   _releaseDistance: 2
 --- !u!1 &1085142949364207504
