@@ -10,11 +10,13 @@ namespace Infrastructure.GameStates
 {
     public class UpdateProgressState : IState
     {
+        private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
         private readonly Fader _fader;
 
-        public UpdateProgressState(ServiceLocator serviceLocator, Fader fader)
+        public UpdateProgressState(GamesStateMachine stateMachine, ServiceLocator serviceLocator, Fader fader)
         {
+            _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
             _fader = fader;
         }
@@ -32,7 +34,12 @@ namespace Infrastructure.GameStates
             ControlsPanel controlPanel = _serviceLocator.Single<IGameFactory>().ControlsPanel;
             if(controlPanel != null)
                 ResetJoystick(controlPanel);
-            
+            LoadGameMenu();
+        }
+
+        private void LoadGameMenu()
+        {
+            _stateMachine.Enter<CreateGameMenuState>();
         }
 
         private static void ResetJoystick(ControlsPanel controlPanel)

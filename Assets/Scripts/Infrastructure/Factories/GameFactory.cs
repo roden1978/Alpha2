@@ -20,9 +20,14 @@ namespace Infrastructure.Factories
         public Player Player { get; private set; }
         public Hud Hud { get; private set; }
         public ControlsPanel ControlsPanel { get; private set; }
+        public GameMenu GameMenu { get; private set; }
+
         public List<ISavedProgressReader> ProgressReaders { get; }
+
         public List<ISavedProgress> ProgressWriters { get; }
+
         private readonly IAssetProvider _assetProvider;
+
         private readonly IStaticDataService _staticDataService;
 
         public GameFactory(IAssetProvider assetProvider, IStaticDataService staticDataService)
@@ -43,6 +48,12 @@ namespace Infrastructure.Factories
         {
             ControlsPanel = _assetProvider.InstantiateControlsPanel();
             return ControlsPanel;
+        }
+
+        public void CreateGameMenu()
+        {
+           GameMenu = _assetProvider.InstantiateGameMenu();
+           GameMenu.Construct(ControlsPanel);
         }
 
         public Crowbar CreateCrowbar()

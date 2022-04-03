@@ -32,5 +32,6 @@ namespace Infrastructure.Factories
         void CreateHud();
         public Hud Hud { get; }
         ControlsPanel ControlsPanel { get; }
+        void CreateGameMenu();
     }
 }

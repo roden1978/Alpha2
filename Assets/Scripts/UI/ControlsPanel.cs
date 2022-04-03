@@ -14,7 +14,8 @@ namespace UI
         [field: SerializeField] public OnScreenStick OnScreenStick { get; private set; }
         public Vector2 JoystickStartPosition { get; private set; }
         private Crowbar _crowbar;
-
+        private GameMenu _gameMenu;
+        public GameMenu GameMenu => _gameMenu;
         public void Construct(Crowbar crowbar)
         {
             _crowbar = crowbar;
@@ -42,10 +43,15 @@ namespace UI
         {
             _crowbar.Shoot();
         }
+        public void SetGameMenu(GameMenu gameMenu)
+        {
+            _gameMenu = gameMenu;
+        }
 
         private void Pause()
         {
-            throw new NotImplementedException();
+            _gameMenu.Pause.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
