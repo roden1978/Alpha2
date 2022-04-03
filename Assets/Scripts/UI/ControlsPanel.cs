@@ -1,5 +1,7 @@
 using System;
+using System.Data;
 using GameObjectsScripts;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem.OnScreen;
 using UnityEngine.UI;
@@ -10,9 +12,9 @@ namespace UI
     {
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _shootButton;
+        private Crowbar _crowbar;
         [field: SerializeField] public OnScreenStick OnScreenStick { get; private set; } 
         public Vector2 JoystickStartPosition { get; private set; }
-        
         private void Awake()
         {
             DontDestroyOnLoad(this);
@@ -25,9 +27,13 @@ namespace UI
             JoystickStartPosition = ((RectTransform)OnScreenStick.transform).anchoredPosition;
         }
 
+        public void Construct(Crowbar crowbar)
+        {
+            _crowbar = crowbar;
+        }
         private void Shoot()
         {
-            throw new NotImplementedException();
+            _crowbar.Shoot();
         }
 
         private void Pause()
