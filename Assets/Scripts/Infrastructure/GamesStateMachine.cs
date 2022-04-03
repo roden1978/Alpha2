@@ -25,7 +25,8 @@ namespace Infrastructure
                 [typeof(CreateHudState)] = new CreateHudState(this, serviceLocator),
                 [typeof(CreateMediatorState)] = new CreateMediatorState(this, serviceLocator),
                 [typeof(SpawnEntitiesState)] = new SpawnEntitiesState(this, serviceLocator),
-                [typeof(UpdateProgressState)] = new UpdateProgressState(serviceLocator, fader)
+                [typeof(UpdateProgressState)] = new UpdateProgressState(this,serviceLocator, fader),
+                [typeof(CreateGameMenuState)] = new CreateGameMenuState(this, serviceLocator)
             };
         }
 

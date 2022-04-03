@@ -13,5 +13,6 @@
         public const string SaveProgressSpawnPoint = @"Prefabs/Common/SaveProgressSpawnPoint";
         public const string PoolPath = @"Prefabs/Common/PlayersPools";
         public const string HudPath = @"Prefabs/UI/HUD";
+        public const string GameMenuPath = @"Prefabs/UI/GameMenu";
     }
 }

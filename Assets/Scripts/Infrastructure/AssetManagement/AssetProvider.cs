@@ -76,5 +76,11 @@ namespace Infrastructure.AssetManagement
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.HudPath);
             return Object.Instantiate(prefab).GetComponent<Hud>();
         }
+
+        public GameMenu InstantiateGameMenu()
+        {
+            GameObject prefab = Resources.Load<GameObject>(AssetPaths.GameMenuPath);
+            return Object.Instantiate(prefab).GetComponent<GameMenu>();
+        }
     }
 }

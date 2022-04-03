@@ -23,5 +23,6 @@ namespace Infrastructure.AssetManagement
         SaveProgressPointSpawner InstantiateSaveProgressSpawner(Vector3 position);
         PoolService InstantiatePool();
         Hud InstantiateHud();
+        GameMenu InstantiateGameMenu();
     }
 }

@@ -26,8 +26,8 @@ namespace Common
 
         public void Show()
         {
-            gameObject.SetActive(true);
             _curtain.alpha = 1.0f;
+            gameObject.SetActive(true);
         }
 
     }

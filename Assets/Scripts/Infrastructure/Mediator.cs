@@ -44,13 +44,17 @@ namespace Infrastructure
 
         private void OnPlayerDeath(int delta)
         {
-            _currentLivesAmount -= delta;
+            _currentLivesAmount = delta;
             if (_currentLivesAmount < 0)
             {
-                Debug.Log("GameOver");
+                Time.timeScale = 0f;
+                _controlsPanel.GameMenu.Died.gameObject.SetActive(true);
                 //Open GameOver panel
             }
             Debug.Log("Death");
+            _player.TakeHealth(_maxHealth);
+            _currentHealth = _maxHealth;
+            UpdateHud();
             //Reload Level
         }
 
@@ -98,7 +102,6 @@ namespace Infrastructure
 
         private void InitializeBonusLifeAmount(int currentLivesAmount)
         {
-            //Debug.Log(_hud);
             if (_hud != null && _hud.LivesPanel.transform.childCount != _currentLivesAmount)
             {
                 var items = _hud.LivesPanel.GetComponentsInChildren(typeof(BonusLifeUI));
