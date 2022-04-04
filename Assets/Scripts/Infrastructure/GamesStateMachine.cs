@@ -17,7 +17,7 @@ namespace Infrastructure
             {
                 [typeof(InitializeServicesState)] = new InitializeServicesState(this, serviceLocator),
                 [typeof(InitializeInputState)] = new InitializeInputState(this, serviceLocator),
-                [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(this, serviceLocator),
+                [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(serviceLocator),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, fader, serviceLocator),
                 [typeof(CreatePlayerState)] = new CreatePlayerState(this, serviceLocator),
@@ -26,7 +26,7 @@ namespace Infrastructure
                 [typeof(CreateMediatorState)] = new CreateMediatorState(this, serviceLocator),
                 [typeof(SpawnEntitiesState)] = new SpawnEntitiesState(this, serviceLocator),
                 [typeof(UpdateProgressState)] = new UpdateProgressState(this,serviceLocator, fader),
-                [typeof(CreateGameMenuState)] = new CreateGameMenuState(this, serviceLocator)
+                [typeof(CreateGameMenuState)] = new CreateGameMenuState(serviceLocator)
             };
         }
 

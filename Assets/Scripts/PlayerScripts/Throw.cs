@@ -55,17 +55,23 @@ namespace PlayerScripts
 
         public void ThrowWeapon()
         {
-            PooledObject weapon = _poolService.GetPooledObject(_pooledObject.GetType());
+            Axe weapon = (Axe)_poolService.GetPooledObject(_pooledObject.GetType());
+            Throwing(weapon);                
+        }
+
+        private void Throwing(Axe weapon)
+        {
             if (weapon.TryGetComponent(out Rigidbody2D weaponRigidbody))
             {
                 Vector3 position = _shootPoint.transform.position;
                 weapon.transform.position = position;
-                Vector2 direction = _target != Vector2.zero ? 
-                    DirectionToTarget(_target, position) : 
-                    Direction(_shootPoint.transform);
-                
+                Vector2 direction = _target != Vector2.zero
+                    ? DirectionToTarget(_target, position)
+                    : Direction(_shootPoint.transform);
+                weapon.SetRotateDirection(direction);
+                weapon.Show();
                 weaponRigidbody.AddForce(direction * _pooledObject.Speed, ForceMode2D.Impulse);
-            }                
+            }
         }
 
         private Vector2 Direction(Transform shootPoint)
