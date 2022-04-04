@@ -8,12 +8,10 @@ namespace Infrastructure.GameStates
 {
     public class LoadControlsPanelState : IState
     {
-        private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
 
-        public LoadControlsPanelState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
+        public LoadControlsPanelState(ServiceLocator serviceLocator)
         {
-            _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
 
@@ -28,20 +26,12 @@ namespace Infrastructure.GameStates
 
         public void Enter()
         {
-            LoadControlsPanel(OnLoaded);
+            LoadControlsPanel();
         }
-
-        private void OnLoaded()
-        {
-            //string levelName = _serviceLocator.Single<IPersistentProgressService>().PlayerProgress.WorldData
-            //    .PositionOnLevel.SceneName;
-            //_stateMachine.Enter<LoadLevelState, string>("MainMenu");
-        }
-
-        private void LoadControlsPanel(Action onLoaded)
+     
+        private void LoadControlsPanel()
         {
             _serviceLocator.Single<IGameFactory>().CreateControlsPanel();
-            onLoaded?.Invoke();
         }
     }
 }

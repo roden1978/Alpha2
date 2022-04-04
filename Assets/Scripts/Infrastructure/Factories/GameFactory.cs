@@ -61,7 +61,8 @@ namespace Infrastructure.Factories
             Crowbar crowbar = _assetProvider.InstantiateCrowbar();
             crowbar.Construct(Player, _staticDataService);
             RegisterInSaveLoadRepositories(crowbar.gameObject);
-            ControlsPanel.Construct(crowbar);
+            if(ControlsPanel != null)
+                ControlsPanel.Construct(crowbar);
             return crowbar;
         }
 

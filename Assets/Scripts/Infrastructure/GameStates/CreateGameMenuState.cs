@@ -7,38 +7,26 @@ namespace Infrastructure.GameStates
 {
     public class CreateGameMenuState : IState
     {
-        private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-
-        public CreateGameMenuState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
+        public CreateGameMenuState(ServiceLocator serviceLocator)
         {
-            _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
         public void Enter()
         {
-            CreateGameMenu(OnLoaded);
+            CreateGameMenu();
         }
-
         public Type Update()
         {
             return null;
         }
-
         public void Exit()
         {
             
         }
-
-        private void CreateGameMenu(Action onLoaded)
+        private void CreateGameMenu()
         {
             _serviceLocator.Single<IGameFactory>().CreateGameMenu();
-            onLoaded?.Invoke();
-        }
-
-        private void OnLoaded()
-        {
-            
         }
     }
 }
