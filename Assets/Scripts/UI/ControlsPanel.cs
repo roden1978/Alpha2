@@ -13,9 +13,9 @@ namespace UI
         [SerializeField] private Button _jumpButton;
         [field: SerializeField] public OnScreenStick OnScreenStick { get; private set; }
         public Vector2 JoystickStartPosition { get; private set; }
+        public GameMenu GameMenu { get; private set; }
         private Crowbar _crowbar;
-        private GameMenu _gameMenu;
-        public GameMenu GameMenu => _gameMenu;
+
         public void Construct(Crowbar crowbar)
         {
             _crowbar = crowbar;
@@ -45,12 +45,12 @@ namespace UI
         }
         public void SetGameMenu(GameMenu gameMenu)
         {
-            _gameMenu = gameMenu;
+            GameMenu = gameMenu;
         }
 
         private void Pause()
         {
-            _gameMenu.Pause.gameObject.SetActive(true);
+            GameMenu.Pause.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
     }
