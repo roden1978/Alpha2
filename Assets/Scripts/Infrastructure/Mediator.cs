@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using System;
+using Data;
 using PlayerScripts;
 using Services.PersistentProgress;
 using UI;
@@ -129,7 +130,17 @@ namespace Infrastructure
 
         private void UpdateHealthBar(int currentHealth)
         {
-            _hud.HealthBar.value = (float) currentHealth / _maxHealth;
+            float hp = Convert.ToSingle(currentHealth) / Convert.ToSingle(_maxHealth);
+            Debug.Log(hp);
+            _hud.HealthBar.fillAmount = hp;
+            SetColour(hp);
+        }
+        private void SetColour(float current)
+        {
+            float twoThirds = Convert.ToSingle(_maxHealth) / 3 * 2 / _maxHealth; 
+            float oneThird = Convert.ToSingle(_maxHealth) / 3 / _maxHealth;
+            _hud.HealthBar.color = current <  twoThirds  && current > oneThird ? Color.yellow :
+                current < oneThird ? Color.red : Color.green;
         }
 
         private void OnCrystalCollecting(int amount)
