@@ -10,7 +10,7 @@ namespace EnemyScripts
 
         public void SetValue(int current, int max)
         {
-            _image.fillAmount = Convert.ToSingle(current / max);
+            _image.fillAmount = Convert.ToSingle(current) / max;
             SetColour(current, max);
         }
 
