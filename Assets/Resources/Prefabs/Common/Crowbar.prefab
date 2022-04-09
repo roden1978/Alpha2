@@ -45,6 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _maxVelocity: 4
-  _jumpForce: 6.5
+  _jumpForce: 6.8
   _damping: {x: 0.3, y: 4}
-  _doubleSingWaitTime: 1.2

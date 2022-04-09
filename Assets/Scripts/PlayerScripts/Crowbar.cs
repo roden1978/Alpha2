@@ -34,6 +34,7 @@ namespace PlayerScripts
         private IStaticDataService _staticDataService;
         private Player _player;
         private bool _doubleJump;
+        private bool _resetVelocity;
 
         private void Awake()
         {
@@ -92,6 +93,12 @@ namespace PlayerScripts
             {
                 if (Mathf.Abs(_player.Rigidbody2D.velocity.magnitude) > _maxVelocity) return;
                 _player.Rigidbody2D.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
+                _resetVelocity = true;
+            }
+            else if (_inputService.Move() == 0 && _resetVelocity && StayOnGround())
+            {
+                _player.Rigidbody2D.velocity = Vector2.zero;
+                _resetVelocity = false;
             }
         }
 
