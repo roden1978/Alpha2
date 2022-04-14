@@ -54,7 +54,7 @@ namespace EnemyScripts
             while(gameObject.activeInHierarchy)
             {
                 Vector3 position = _shootPoint.transform.position;
-                Vector2 direction = DirectionToTarget(target.position, position);
+                Vector2 direction = DirectionToTarget(target.position  + Vector3.up, position);
                 Bullet bullet = Instantiate(_bullet, position, Quaternion.identity);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(direction * bullet.Speed, ForceMode2D.Impulse);
