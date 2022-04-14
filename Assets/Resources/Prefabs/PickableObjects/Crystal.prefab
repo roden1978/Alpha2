@@ -157,3 +157,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33dd5ce62ec94b9d944b6f6b6d4e9121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CollectFX>k__BackingField: {fileID: 19807532, guid: 16d4b504584fb1d4784bc23462900274, type: 3}
