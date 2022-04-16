@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Cinemachine;
 using Common;
 using Data;
+using GameObjectsScripts;
 using Infrastructure.Services;
 using PlayerScripts.States;
 using Services.Input;
@@ -35,6 +36,8 @@ namespace PlayerScripts
         private Player _player;
         private bool _doubleJump;
         private bool _resetVelocity;
+        private IShowable _footstepFx;
+        private IShowable _groundingFx;
 
         private void Awake()
         {
@@ -42,9 +45,12 @@ namespace PlayerScripts
             _camera = Camera.main;
         }
 
-        public void Construct(Player player, IStaticDataService staticDataService)
+        public void Construct(Player player, IStaticDataService staticDataService,
+                                IShowable footstepFx, IShowable groundingFx)
         {
             _player = player;
+            _footstepFx = footstepFx;
+            _groundingFx = groundingFx;
             _staticDataService = staticDataService;
             _dipstick = new Dipstick(_player);
             _flipView = new FlipView(_player.PlayerView);
@@ -60,12 +66,12 @@ namespace PlayerScripts
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
                 { typeof(IdleState), new IdleState(_player.Rigidbody2D, _playerStateData) },
-                { typeof(WalkState), new WalkState(_player.Rigidbody2D, _player.Animator, _playerStateData) },
-                { typeof(JumpState), new JumpState(_player.Animator, _playerStateData) },
+                { typeof(WalkState), new WalkState(_player.Rigidbody2D, _player.Animator, _playerStateData, _footstepFx) },
+                { typeof(JumpState), new JumpState(_player.Animator, _playerStateData, _groundingFx) },
                 { typeof(IdleThrowState), new IdleThrowState(_player.Animator) },
                 { typeof(JumpThrowState), new JumpThrowState(_player.Animator) },
                 { typeof(JumpProxyState), new JumpProxyState(_player.Animator) },
-                { typeof(WalkThrowState), new WalkThrowState(_player.Animator) },
+                { typeof(WalkThrowState), new WalkThrowState(_player.Animator, _footstepFx) },
                 { typeof(WalkProxyState), new WalkProxyState(_player.Animator) }
             });
         }

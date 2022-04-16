@@ -1,5 +1,6 @@
 using System;
 using Common;
+using GameObjectsScripts;
 using UnityEngine;
 
 namespace PlayerScripts.States
@@ -8,10 +9,13 @@ namespace PlayerScripts.States
     {
         private readonly Animator _animator;
         private readonly PlayerStateData _playerStateData;
-        public JumpState(Animator animator, PlayerStateData playerStateData)
+        private readonly IShowable _groundingFx;
+
+        public JumpState(Animator animator, PlayerStateData playerStateData, IShowable groundingFx)
         {
             _animator = animator;
             _playerStateData = playerStateData;
+            _groundingFx = groundingFx;
         }
 
         public void Enter()
@@ -34,6 +38,7 @@ namespace PlayerScripts.States
         {
             if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
             _animator.SetBool(PlayerAnimationConstants.Jump, false);
+            _groundingFx.Show();
         }
     }
 }
