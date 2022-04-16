@@ -61,7 +61,8 @@ namespace Infrastructure.Factories
             Crowbar crowbar = _assetProvider.InstantiateCrowbar();
             FootstepFX footstepFx = Player.GetComponent<FootstepFX>();
             GroundingFx groundingFx = Player.GetComponent<GroundingFx>();
-            crowbar.Construct(Player, _staticDataService, footstepFx, groundingFx);
+            JumpFx jumpFx = Player.GetComponent<JumpFx>();
+            crowbar.Construct(Player, _staticDataService, footstepFx, groundingFx, jumpFx);
             RegisterInSaveLoadRepositories(crowbar.gameObject);
             if(ControlsPanel != null)
                 ControlsPanel.Construct(crowbar);
