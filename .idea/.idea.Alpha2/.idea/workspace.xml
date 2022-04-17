@@ -3,25 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Materials/Basics/triangle_soft_ADD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Materials/Basics/triangle_soft_ADD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Lightning/lightning_spritesheet_3x3_ADD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Lightning/lightning_spritesheet_3x3_ADD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Unsorted/aura_punch_ADD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Unsorted/aura_punch_ADD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/Cartoony/CartoonyBodySlam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/Cartoony/CartoonyBodySlam.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/RoundHit/RoundHitMagenta.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/RoundHit/RoundHitMagenta.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/RoundHit/RoundHitRed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/RoundHit/RoundHitRed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/RoundHit/RoundHitYellow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/RoundHit/RoundHitYellow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Healing/BonusLifeFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Healing/BonusLifeFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Stars/StarTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Stars/StarTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/FireFloorTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/FireFloorTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/IceFloorTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/IceFloorTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/LightningFloorBlueTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/LightningFloorBlueTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/SaveProgressPoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/SaveProgressPoint.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid/Materials/PixelDustMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid/Materials/PixelDustMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Healing/HealOnce.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Healing/HealOnce.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/JumpPlayerTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Interactive/Trails/JumpPlayerTrail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/LevelStaticData/Level1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/LevelStaticData/Level1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/Portal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Common/Portal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Food.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Food.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SaveProgressPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SaveProgressPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Crowbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Crowbar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/States/JumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Portal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Portal.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,6 +223,7 @@
       <workItem from="1650085282251" duration="272000" />
       <workItem from="1650085585108" duration="2325000" />
       <workItem from="1650089751422" duration="1826000" />
+      <workItem from="1650166716648" duration="1433000" />
     </task>
     <task id="LOCAL-00001" summary="Разнес скрипты по папкам">
       <created>1648276466666</created>
