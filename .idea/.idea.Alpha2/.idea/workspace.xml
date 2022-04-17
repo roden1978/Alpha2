@@ -2,29 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Misc/Unsorted/bonusLife.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Misc/Unsorted/bonusLife.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitMagenta.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitMagenta.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Healing/BonusLifeFX.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Healing/BonusLifeFX.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SpriteSheets/bonusLifeTex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SpriteSheets/bonusLifeTex.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/LostLifeFx.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/LostLifeFx.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Misc/Unsorted/healing_AB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Misc/Unsorted/healing_AB.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodExplosionRoundAnimated.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodExplosionRoundAnimated.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitGreen.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitGreen.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitRed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitRed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitYellow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/RoundHit/RoundHitYellow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Healing/HealOnce.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Healing/HealOnce.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Bullets/Poison.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Bullets/Poison.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/BonusLife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/BonusLife.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Crystal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Crystal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Food.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Food.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Fruit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/PickableObjects/Fruit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Bubbles/bubble_half_thick_ADD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Bubbles/bubble_half_thick_ADD.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs 2D/Blood/Red/BloodExplosion2D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs 2D/Blood/Red/BloodExplosion2D.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/Stun/StunnedCirclingStars.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/Stun/StunnedCirclingStars.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Explosions/- Misc/PoisonSkullExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Explosions/- Misc/PoisonSkullExplosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/CartoonFireTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/CartoonFireTrail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SoftFireTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SoftFireTrail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SpikyFireTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SpikyFireTrail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Water/Boiling/AcidBoiling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Water/Boiling/AcidBoiling.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Snake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Snake.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Traps/Tar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Traps/Tar.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapon/Axe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapon/Axe.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyDeath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Axe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Axe.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +53,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af218701fe324032b521ddd91f13662b13b600/bd/ae9ea0f9/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ControlsPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Extensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/FootstepFX.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/LostLifeFx.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Trap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/Fader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb62560c330e4d74aa195b471206277f17a320/0b/3c21f797/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -232,6 +229,11 @@
       <workItem from="1649349842205" duration="4352000" />
       <workItem from="1649477795770" duration="8622000" />
       <workItem from="1649953291553" duration="2314000" />
+      <workItem from="1650085282251" duration="272000" />
+      <workItem from="1650085585108" duration="2325000" />
+      <workItem from="1650089751422" duration="1826000" />
+      <workItem from="1650166716648" duration="1433000" />
+      <workItem from="1650169800484" duration="2269000" />
     </task>
     <task id="LOCAL-00001" summary="Разнес скрипты по папкам">
       <created>1648276466666</created>

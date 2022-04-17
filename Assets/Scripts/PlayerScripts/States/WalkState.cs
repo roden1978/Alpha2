@@ -1,5 +1,6 @@
 ﻿using System;
 using Common;
+using GameObjectsScripts;
 using UnityEngine;
 
 namespace PlayerScripts.States
@@ -10,17 +11,21 @@ namespace PlayerScripts.States
         private readonly Animator _animator;
         private readonly Rigidbody2D _rigidbody;
         private readonly PlayerStateData _playerStateData;
+        private readonly IShowable _footstepFx;
 
-        public WalkState(Rigidbody2D rigidbody2D, Animator animator, PlayerStateData playerStateData)
+        public WalkState(Rigidbody2D rigidbody2D, Animator animator, PlayerStateData playerStateData,
+            IShowable footstepFx)
         {
             _rigidbody = rigidbody2D;
             _animator = animator;
             _playerStateData = playerStateData;
+            _footstepFx = footstepFx;
         }
 
         public void Enter()
         {
             _animator.SetBool(PlayerAnimationConstants.Walk, true);
+            _footstepFx.Show();
         }
 
        
@@ -42,6 +47,7 @@ namespace PlayerScripts.States
         {
             if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
             _animator.SetBool(PlayerAnimationConstants.Walk, false);
+            _footstepFx.Hide();
         }
     }
 }

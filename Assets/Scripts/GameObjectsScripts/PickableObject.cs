@@ -11,15 +11,15 @@ namespace GameObjectsScripts
         {
             if (other.gameObject.TryGetComponent(out InteractableObjectsCollector collector))
             {
-                ShowCollectFX();
+                ShowCollectFX(other.transform);
                 collector.Collect(this);
                 PickUp?.Invoke();
             }
         }
 
-        private void ShowCollectFX()
+        private void ShowCollectFX(Transform otherTransform)
         {
-            Instantiate(CollectFX, transform.position, Quaternion.identity);
+            Instantiate(CollectFX, otherTransform.position + Vector3.up , Quaternion.identity);
         }
     }
 }

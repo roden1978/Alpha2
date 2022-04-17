@@ -39,8 +39,8 @@ namespace Infrastructure.GameStates
         }
         private IInputService InputService()
         {
-            //if (Application.isEditor)
-             //  return new KeyboardInputService();
+            if (Application.isEditor)
+               return new KeyboardInputService();
 
             _mobile = true;
             return new UiInputService();

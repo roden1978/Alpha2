@@ -22,6 +22,9 @@ MonoBehaviour:
     EnemyTypeId: 0
     Position: {x: -5.23, y: -3.18, z: 0}
   PickableObjectSpawners:
+  - Id: Level1_7dd33b23-529d-4702-a59d-2a68396304c3
+    PickableObjectTypeId: 70
+    Position: {x: -16.3, y: -2.22, z: 0}
   - Id: Level1_b0d80881-c40d-45d2-a676-14b36f4cb391
     PickableObjectTypeId: 100
     Position: {x: 34.05, y: 12.87, z: 0}
