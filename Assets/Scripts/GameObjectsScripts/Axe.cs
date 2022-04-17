@@ -10,7 +10,8 @@ namespace GameObjectsScripts
         [SerializeField] private int _damage;
         [SerializeField] private float _speed;
         [SerializeField] private int _lifeTime;
-        
+        [SerializeField] private ParticleSystem _hitFx;
+        [SerializeField] private ParticleSystem _otherHitFx;
         public float Speed => _speed;
         public int Damage => _damage;
 
@@ -31,7 +32,13 @@ namespace GameObjectsScripts
 
         public override void ReturnToPool()
         {
+            PlayOtherFx();
             Hide();
+        }
+
+        private void PlayOtherFx()
+        {
+            Instantiate(_otherHitFx, transform.position, Quaternion.identity);
         }
 
         private IEnumerator LifeTime(int lifeTime)
@@ -44,9 +51,15 @@ namespace GameObjectsScripts
         {
             if (other.gameObject.TryGetComponent(out IHealth health))
             {
+                PlayHitFx();
                 health.TakeDamage(Damage);
             }
             ReturnToPool();
+        }
+
+        private void PlayHitFx()
+        {
+            Instantiate(_hitFx, transform.position, Quaternion.identity);
         }
 
         public void SetRotateDirection(Vector2 direction)

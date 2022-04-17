@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Data;
 using Services.PersistentProgress;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace PlayerScripts
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public PlayerView PlayerView { get; private set; }
+        [SerializeField] private LostLifeFx _lostLifeFx;
         public Action<int> Death;
         public int HP { get; private set; }
         public int MaxHealth { get; private set; }
@@ -23,6 +25,7 @@ namespace PlayerScripts
             HP -= damage;
             if(HP < 0)
             {
+                StartCoroutine(LostLifeFxShow());
                 Death?.Invoke(_currentLivesAmount -= 1);
             }
         } 
@@ -50,6 +53,13 @@ namespace PlayerScripts
         {
             playerProgress.PlayerState.CurrentHealth = HP;
             playerProgress.PlayerState.CurrentLivesAmount = _currentLivesAmount;
+        }
+
+        private IEnumerator LostLifeFxShow()
+        {
+            _lostLifeFx.Show();
+            yield return new WaitForSeconds(1f);
+            _lostLifeFx.Hide();
         }
     }
 }
