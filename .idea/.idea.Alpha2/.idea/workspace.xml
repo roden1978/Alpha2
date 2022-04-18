@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/LostLifeFx.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/LostLifeFx.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Bubbles/bubble_half_thick_ADD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Materials/Misc/Bubbles/bubble_half_thick_ADD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs 2D/Blood/Red/BloodExplosion2D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs 2D/Blood/Red/BloodExplosion2D.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/Stun/StunnedCirclingStars.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Brawling/Stun/StunnedCirclingStars.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Explosions/- Misc/PoisonSkullExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Combat/Explosions/- Misc/PoisonSkullExplosion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/CartoonFireTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/CartoonFireTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SoftFireTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SoftFireTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SpikyFireTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Fire/Trails/SpikyFireTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Water/Boiling/AcidBoiling.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Prefabs/Environment/Water/Boiling/AcidBoiling.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Snake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Snake/Snake.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Traps/Tar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Traps/Tar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapon/Axe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapon/Axe.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/EnemyDeath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Axe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Axe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,6 +219,7 @@
       <workItem from="1650089751422" duration="1826000" />
       <workItem from="1650166716648" duration="1433000" />
       <workItem from="1650169800484" duration="2269000" />
+      <workItem from="1650190079859" duration="6222000" />
     </task>
     <task id="LOCAL-00001" summary="Разнес скрипты по папкам">
       <created>1648276466666</created>
