@@ -10,6 +10,7 @@ namespace EnemyScripts
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] private Bullet _bullet;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         private float _cooldown;
         private Coroutine _shooting;
 
@@ -54,18 +55,24 @@ namespace EnemyScripts
             while(gameObject.activeInHierarchy)
             {
                 Vector3 position = _shootPoint.transform.position;
-                Vector2 direction = DirectionToTarget(target.position  + Vector3.up, position);
+                Vector2 lookDirection = LookDirection();
+                Vector2 targetSide = TargetSide(target);
+                if(targetSide != lookDirection)
+                    Flip();
                 Bullet bullet = Instantiate(_bullet, position, Quaternion.identity);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(direction * bullet.Speed, ForceMode2D.Impulse);
+                Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+                Vector2 direction = DirectionToTarget(target.position  + Vector3.up, position);
+                bulletRigidbody.AddForce(direction * bullet.Speed, ForceMode2D.Impulse);
                 yield return new WaitForSeconds(_cooldown);
             }
         }
         private Vector2 DirectionToTarget(Vector3 target, Vector3 position)
         {
-            return (target - position).normalized;
+            Vector3 direction = target - position;
+            Debug.Log($"Direction to player {direction.normalized}");
+            return direction.normalized;
         }
-        /*private void Flip()
+        private void Flip()
         {
             transform.Rotate(0f, 180f, 0f);
         }
@@ -73,9 +80,14 @@ namespace EnemyScripts
         private Vector2 LookDirection()
         {
             float shootPointPosition = _shootPoint.transform.position.x;
-            float viewTransformPosition = _viewTransform.position.x; 
+            float viewTransformPosition = transform.position.x;
             return shootPointPosition > viewTransformPosition ? Vector2.right : Vector2.left;
-        }*/
+        }
+
+        private Vector2 TargetSide(Transform target)
+        {
+            return target.position.x > transform.position.x ? Vector2.right : Vector2.left;
+        }
     }
 
     /*public class LookAt
