@@ -1,54 +1,76 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Common
 {
-    public sealed class StateMachine
+    public class StateMachine
     {
-        private Dictionary<Type, IState> _availableStates;
-        private readonly Stack<IState> _stack;
+        private readonly Dictionary<Type, List<Transition>> _transitions;
+        private readonly List<Transition> _anyTransitions;
+        private IState _currentState;
+        private List<Transition> _currentTransitions;
+        private static List<Transition> EmptyTransitions;
 
         public StateMachine()
         {
-            _stack = new Stack<IState>();
-        }
-        public void Initialize(Dictionary<Type, IState> states)
-        {
-            _availableStates = states;
-            PushState(_availableStates.Values.First().GetType());
+            _transitions = new Dictionary<Type, List<Transition>>();
+            _currentTransitions = new List<Transition>();
+            _anyTransitions = new List<Transition>();
+            EmptyTransitions = new List<Transition>(0);
         }
 
-        public void Update()
-        { 
-            Type state = GetCurrentState()?.Update();
-            AnalyzeState(state);
+        public void Tick()
+        {
+            Transition transition = GetTransition();
+            if(transition != null)
+                SetState(transition.To);
+
+            _currentState?.Tick();
         }
 
-        private void AnalyzeState(Type state)
+        public void SetState(IState state)
         {
-            if (state == typeof(EmptyState)
-                || state == GetCurrentState()?.GetType()) return;
+            if(state == _currentState) return;
+
+            _currentState?.Exit();
+
+            _currentState = state;
+            _transitions.TryGetValue(_currentState.GetType(), out _currentTransitions);
+        
+            _currentTransitions ??= EmptyTransitions;
+
+            _currentState.Enter();
+        }
+
+        public void AddTransition(IState from, IState to, ICondition condition)
+        {
+            bool result = _transitions.TryGetValue(from.GetType(), out var value);
+            if(result == false)
+            {
+                value = new List<Transition>();
             
-            CompletionAndRemoveCurrentState();
-            PushState(state);
-        }
+                Type type = from.GetType();
+                _transitions[type] = value;
+            }
 
-        private void CompletionAndRemoveCurrentState()
+            value.Add(new Transition(to, condition));
+        }
+        public void AddAnyTransition(IState to, ICondition condition)
         {
-            GetCurrentState()?.Exit();
-            PopState();
+            _anyTransitions.Add(new Transition(to, condition));
         }
 
-        private void PushState(Type state)
+        private Transition GetTransition()
         {
-            _stack?.Push(_availableStates[state]);
-            GetCurrentState()?.Enter();
+            foreach(Transition transition in _anyTransitions)
+                if(transition.Condition.Examination())
+                    return transition;
+        
+            foreach(Transition transition in _currentTransitions)
+                if(transition.Condition.Examination())
+                    return transition;
+
+            return null;
         }
-
-        private void PopState() => _stack?.Pop();
-
-        private IState GetCurrentState() => _stack?.Peek();
     }
-    
 }

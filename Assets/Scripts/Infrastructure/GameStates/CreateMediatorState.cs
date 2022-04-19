@@ -9,35 +9,19 @@ namespace Infrastructure.GameStates
 {
     public class CreateMediatorState : IState
     {
-        
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-
         public CreateMediatorState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-
-        public void Enter()
-        {
+        public void Enter() => 
             CreateMediator(OnLoaded);
-        }
-
-        private void OnLoaded()
-        {
+        private void OnLoaded() => 
             _stateMachine.Enter<SpawnEntitiesState>();
-        }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-        }
-
+        public void Tick(){}
+        public void Exit(){}
         private void CreateMediator(Action onLoaded)
         {
             IGameFactory gameFactory = _serviceLocator.Single<IGameFactory>();

@@ -29,13 +29,14 @@ namespace PlayerScripts
         private IInputService _inputService;
         private IFlipView _flipView;
         private IDipstick _dipstick;
-        private PlayerStateData _playerStateData;
+        //private PlayerStateData _playerStateData;
         private Camera _camera;
         private ICinemachineCamera _virtualCamera;
         private IStaticDataService _staticDataService;
         private Player _player;
         private bool _doubleJump;
         private bool _resetVelocity;
+        private bool _isShoot;
         private IShowable _footstepFx;
         private IShowable _groundingFx;
         private IShowable _jumpFx;
@@ -60,14 +61,14 @@ namespace PlayerScripts
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
 
-            _playerStateData = new PlayerStateData
+            /*_playerStateData = new PlayerStateData
             {
                 Damping = _damping
-            };
+            };*/
 
             _stateMachine.Initialize(new Dictionary<Type, IState>
             {
-                { typeof(IdleState), new IdleState(_player.Rigidbody2D, _playerStateData) },
+                { typeof(IdleState), new IdleState(_isShoot) },
                 { typeof(WalkState), new WalkState(_player.Rigidbody2D, _player.Animator, _playerStateData, _footstepFx) },
                 { typeof(JumpState), new JumpState(_player.Animator, _playerStateData, _groundingFx, jumpFx) },
                 { typeof(IdleThrowState), new IdleThrowState(_player.Animator) },
@@ -80,7 +81,7 @@ namespace PlayerScripts
 
         private void Update()
         {
-            _stateMachine.Update();
+            _stateMachine.Tick();
             FLip();
         }
 
@@ -147,18 +148,9 @@ namespace PlayerScripts
             _player.Rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        public void Shoot()
-        {
-            _playerStateData.IsShoot = true;
-        }
+        public void Shoot() => _isShoot = true;
 
-        private bool StayOnGround()
-        {
-            bool result = _dipstick.Contact();
-            _playerStateData.IsOnGround = result;
-
-            return result;
-        }
+        private bool StayOnGround() => _dipstick.Contact();
 
         private async void DoubleJumpSignShow()
         {

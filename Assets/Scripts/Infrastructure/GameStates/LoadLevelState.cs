@@ -11,7 +11,6 @@ namespace Infrastructure.GameStates
         private readonly Fader _fader;
         private readonly ServiceLocator _serviceLocator;
         private readonly GamesStateMachine _stateMachine;
-
         public LoadLevelState(GamesStateMachine stateMachine, ISceneLoader sceneLoader, Fader fader,
             ServiceLocator serviceLocator)
         {
@@ -20,31 +19,17 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
             _stateMachine = stateMachine;
         }
-
         public void Enter(string sceneName)
         {
             _serviceLocator.Single<IGameFactory>().CleanUp();
             _fader.Show();
             LoadScene(sceneName, OnLoaded);
         }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-        }
-
-        private void OnLoaded()
-        {
+        public void Tick(){}
+        public void Exit(){}
+        private void OnLoaded() => 
             _stateMachine.Enter<CreatePlayerState>();
-        }
-
-        private void LoadScene(string sceneName, Action onLoaded)
-        {
+        private void LoadScene(string sceneName, Action onLoaded) => 
             _sceneLoader.Load(sceneName, onLoaded);
-        }
     }
 }

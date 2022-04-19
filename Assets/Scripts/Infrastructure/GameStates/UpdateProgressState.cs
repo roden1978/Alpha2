@@ -13,21 +13,14 @@ namespace Infrastructure.GameStates
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
         private readonly Fader _fader;
-
         public UpdateProgressState(GamesStateMachine stateMachine, ServiceLocator serviceLocator, Fader fader)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
             _fader = fader;
         }
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-        }
+        public void Tick(){}
+        public void Exit(){}
         public void Enter()
         {
             UpdatePlayerProgress(HideFader);
@@ -36,24 +29,16 @@ namespace Infrastructure.GameStates
                 ResetJoystick(controlPanel);
             LoadGameMenu();
         }
-
-        private void LoadGameMenu()
-        {
+        private void LoadGameMenu() => 
             _stateMachine.Enter<CreateGameMenuState>();
-        }
-
         private static void ResetJoystick(ControlsPanel controlPanel)
         {
             controlPanel.gameObject.SetActive(true);
             RectTransform rectTransform = (RectTransform)controlPanel.OnScreenStick.transform;
             rectTransform.anchoredPosition = controlPanel.JoystickStartPosition;
         }
-
-        private void HideFader()
-        {
+        private void HideFader() => 
             _fader.Hide();
-        }
-
         private void UpdatePlayerProgress(Action callback)
         {
             IPersistentProgressService persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
