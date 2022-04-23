@@ -2,19 +2,22 @@
 
 namespace PlayerScripts.Conditions
 {
-    public class IdleToJump : ICondition
+    public class WalkToJump : ICondition
     {
         private readonly Rigidbody2D _rigidbody2D;
         private readonly IDipstick _dipstick;
         private readonly float _dampingY;
-        
-        public IdleToJump(Rigidbody2D rigidbody2D, IDipstick dipstick, float dampingY)
+
+        public WalkToJump(Rigidbody2D rigidbody2D, IDipstick dipstick, float dampingY)
         {
             _rigidbody2D = rigidbody2D;
             _dipstick = dipstick;
             _dampingY = dampingY;
         }
-        public bool Examination() => 
-            !_dipstick.Contact() && _rigidbody2D.velocity.y > _dampingY;
+
+        public bool Examination()
+        {
+            return !_dipstick.Contact() && _rigidbody2D.velocity.y > _dampingY;
+        }
     }
 }

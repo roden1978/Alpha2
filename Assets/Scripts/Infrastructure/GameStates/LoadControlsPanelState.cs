@@ -11,7 +11,7 @@ namespace Infrastructure.GameStates
         private readonly ServiceLocator _serviceLocator;
         public LoadControlsPanelState(ServiceLocator serviceLocator) => 
             _serviceLocator = serviceLocator;
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         public void Enter() => 
             LoadControlsPanel();

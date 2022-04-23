@@ -17,7 +17,7 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
         }
         public void Enter() => RegisterInputService(NextState);
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void RegisterInputService(Action callback = null)
         {

@@ -19,13 +19,13 @@ namespace Common
             EmptyTransitions = new List<Transition>(0);
         }
 
-        public void Tick()
+        public void Update()
         {
             Transition transition = GetTransition();
             if(transition != null)
                 SetState(transition.To);
 
-            _currentState?.Tick();
+            _currentState?.Update();
         }
 
         public void SetState(IState state)

@@ -21,7 +21,7 @@ namespace Infrastructure.GameStates
             _serviceLocator.Single<IGameFactory>().CreateCrowbar();
             onLoaded?.Invoke();
         }
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void OnLoaded() => 
             _stateMachine.Enter<CreateHudState>();

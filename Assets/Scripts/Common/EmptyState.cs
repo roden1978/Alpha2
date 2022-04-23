@@ -9,7 +9,7 @@ namespace Common
             throw new NotImplementedException();
         }
 
-        public void Tick()
+        public void Update()
         {
             throw new NotImplementedException();
         }

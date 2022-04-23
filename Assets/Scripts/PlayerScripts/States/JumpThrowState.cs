@@ -1,4 +1,3 @@
-using System;
 using Common;
 using UnityEngine;
 
@@ -17,11 +16,11 @@ namespace PlayerScripts.States
         {
         }
 
-        public Type Update()
+        public void Update()
         {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(JumpState) : 
-                typeof(EmptyState);
+            //return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
+            //    typeof(JumpState) : 
+            //    typeof(EmptyState);
         }
 
         public void Exit()

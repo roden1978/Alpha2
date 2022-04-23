@@ -2,10 +2,11 @@
 
 namespace PlayerScripts.Conditions
 {
-    public class IdleToIdleThrow : ICondition
+    public class WalkToWalkThrow : ICondition
     {
         private bool _isShoot;
-        public IdleToIdleThrow(IInputService inputService)
+
+        public WalkToWalkThrow(IInputService inputService)
         {
             inputService.OnShoot += Shoot;
         }

@@ -48,7 +48,7 @@ namespace Infrastructure.GameStates
            
             return playerProgress;
         }
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
     }
 }

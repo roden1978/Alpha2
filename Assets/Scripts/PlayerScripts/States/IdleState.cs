@@ -8,7 +8,7 @@ namespace PlayerScripts.States
         public IdleState(bool isShoot) => 
             _isShoot = isShoot;
         public void Enter(){}
-        public void Tick(){}
+        public void Update(){}
         public void Exit()
         {
             if(_isShoot)

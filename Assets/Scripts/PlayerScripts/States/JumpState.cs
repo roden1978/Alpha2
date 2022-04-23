@@ -8,14 +8,14 @@ namespace PlayerScripts.States
     public class JumpState : IState
     {
         private readonly Animator _animator;
-        private readonly PlayerStateData _playerStateData;
+        private bool _isShoot;
         private readonly IShowable _groundingFx;
         private readonly IShowable _jumpFx;
 
-        public JumpState(Animator animator, PlayerStateData playerStateData, IShowable groundingFx, IShowable jumpFx)
+        public JumpState(Animator animator, bool isShoot, IShowable groundingFx, IShowable jumpFx)
         {
             _animator = animator;
-            _playerStateData = playerStateData;
+            _isShoot = isShoot;
             _groundingFx = groundingFx;
             _jumpFx = jumpFx;
         }
@@ -26,20 +26,24 @@ namespace PlayerScripts.States
             _jumpFx.Show();
         }
 
-        public Type Update()
+        public void Update()
         {
-            if (_playerStateData.IsShoot) 
+            /*if (_playerStateData.IsShoot) 
             {
-                _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);
+                
                 return typeof(JumpProxyState);
-            }
+            }*/
             
-            return _playerStateData.IsOnGround ? typeof(JumpProxyState) : typeof(EmptyState);
+            //return _playerStateData.IsOnGround ? typeof(JumpProxyState) : typeof(EmptyState);
         }
 
         public void Exit()
         {
-            if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
+            if (_isShoot)
+            {
+                _isShoot = false;
+                _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);
+            }
             _animator.SetBool(PlayerAnimationConstants.Jump, false);
             _groundingFx.Show();
             _jumpFx.Hide();

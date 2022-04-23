@@ -12,7 +12,7 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
         public void Enter() =>
             CreateGameMenu();
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void CreateGameMenu()
         {

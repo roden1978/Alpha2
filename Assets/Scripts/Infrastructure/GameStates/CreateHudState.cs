@@ -16,7 +16,7 @@ namespace Infrastructure.GameStates
         }
         public void Enter() => 
             CreateHud(OnLoaded);
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void CreateHud(Action onLoaded)
         {

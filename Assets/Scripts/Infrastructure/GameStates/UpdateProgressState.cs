@@ -19,7 +19,7 @@ namespace Infrastructure.GameStates
             _serviceLocator = serviceLocator;
             _fader = fader;
         }
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         public void Enter()
         {

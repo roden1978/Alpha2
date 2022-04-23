@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Cinemachine;
 using Common;
 using Data;
 using GameObjectsScripts;
 using Infrastructure.Services;
+using PlayerScripts.Conditions;
 using PlayerScripts.States;
 using Services.Input;
 using Services.PersistentProgress;
@@ -29,7 +28,6 @@ namespace PlayerScripts
         private IInputService _inputService;
         private IFlipView _flipView;
         private IDipstick _dipstick;
-        //private PlayerStateData _playerStateData;
         private Camera _camera;
         private ICinemachineCamera _virtualCamera;
         private IStaticDataService _staticDataService;
@@ -37,6 +35,7 @@ namespace PlayerScripts
         private bool _doubleJump;
         private bool _resetVelocity;
         private bool _isShoot;
+        private bool _stayOnGround;
         private IShowable _footstepFx;
         private IShowable _groundingFx;
         private IShowable _jumpFx;
@@ -61,27 +60,50 @@ namespace PlayerScripts
             _inputService.OnJump += Jump;
             _inputService.OnShoot += Shoot;
 
-            /*_playerStateData = new PlayerStateData
-            {
-                Damping = _damping
-            };*/
-
-            _stateMachine.Initialize(new Dictionary<Type, IState>
-            {
-                { typeof(IdleState), new IdleState(_isShoot) },
-                { typeof(WalkState), new WalkState(_player.Rigidbody2D, _player.Animator, _playerStateData, _footstepFx) },
-                { typeof(JumpState), new JumpState(_player.Animator, _playerStateData, _groundingFx, jumpFx) },
-                { typeof(IdleThrowState), new IdleThrowState(_player.Animator) },
-                { typeof(JumpThrowState), new JumpThrowState(_player.Animator) },
-                { typeof(JumpProxyState), new JumpProxyState(_player.Animator) },
-                { typeof(WalkThrowState), new WalkThrowState(_player.Animator, _footstepFx) },
-                { typeof(WalkProxyState), new WalkProxyState(_player.Animator) }
-            });
+            IState idleState = new IdleState(_isShoot);
+            IState walkState = new WalkState(_player.Animator, _isShoot, _footstepFx);
+            IState jumpState = new JumpState(_player.Animator, _isShoot, _groundingFx, _jumpFx);
+            IState idleThrowState = new IdleThrowState(_player.Animator);
+            IState jumpThrowState = new JumpThrowState(_player.Animator);
+            IState walkThrowState = new WalkThrowState(_player.Animator, _footstepFx);
+            IState jumpProxyState = new JumpProxyState();
+            IState walkProxyState = new WalkProxyState();
+            
+            _stateMachine.AddTransition(idleState, jumpState, 
+                new IdleToJump(_player.Rigidbody2D, _dipstick, _damping.y));
+            _stateMachine.AddTransition(idleState, walkState, 
+                new IdleToWalk(_player.Rigidbody2D, _damping.x));
+            _stateMachine.AddTransition(idleState, idleThrowState, 
+                new IdleToIdleThrow(_inputService));
+            _stateMachine.AddTransition(idleThrowState, idleState, 
+                new IdleThrowToIdle(_player.Animator));
+            _stateMachine.AddTransition(jumpProxyState, idleState, 
+                new JumpProxyToIdle(_player.Animator));
+            _stateMachine.AddTransition(jumpProxyState, jumpThrowState, 
+                new JumpProxyToJumpThrow(_player.Animator));
+            _stateMachine.AddTransition(jumpThrowState, jumpState, 
+                new JumpThrowToJump(_player.Animator));
+            _stateMachine.AddTransition(jumpState, jumpProxyState, 
+                new JumpToJumpProxy(_dipstick));
+            _stateMachine.AddTransition(walkProxyState, idleState, 
+                new WalkProxyToIdle(_player.Animator));
+            _stateMachine.AddTransition(walkProxyState, walkThrowState, 
+                new WalkProxyToWalkThrow(_player.Animator));
+            _stateMachine.AddTransition(walkThrowState, walkState, 
+                new WalkThrowToWalk(_player.Animator));
+            _stateMachine.AddTransition(walkState, idleState, 
+                new WalkToIdle(_player.Rigidbody2D, _damping.x));
+            _stateMachine.AddTransition(walkState, jumpState, 
+                new WalkToJump(_player.Rigidbody2D, _dipstick, _damping.y));
+            _stateMachine.AddTransition(walkState, walkProxyState, 
+                new WalkToWalkThrow(_inputService));
+            
+            _stateMachine.SetState(idleState);
         }
 
         private void Update()
         {
-            _stateMachine.Tick();
+            _stateMachine.Update();
             FLip();
         }
 
@@ -98,13 +120,14 @@ namespace PlayerScripts
 
         private void Move()
         {
-            if (StayOnGround() && _inputService.Move() != 0)
+            _stayOnGround = StayOnGround();
+            if (_stayOnGround && _inputService.Move() != 0)
             {
                 if (Mathf.Abs(_player.Rigidbody2D.velocity.magnitude) > _maxVelocity) return;
                 _player.Rigidbody2D.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
                 _resetVelocity = true;
             }
-            else if (_inputService.Move() == 0 && _resetVelocity && StayOnGround())
+            else if (_inputService.Move() == 0 && _resetVelocity && _stayOnGround)
             {
                 _player.Rigidbody2D.velocity = Vector2.zero;
                 _resetVelocity = false;
@@ -113,7 +136,8 @@ namespace PlayerScripts
 
         public void Jump()
         {
-            if (StayOnGround())
+            _stayOnGround = StayOnGround();
+            if (_stayOnGround)
             {
                 AddForceToJump();
                 DoubleJumpSignShow();
@@ -148,9 +172,11 @@ namespace PlayerScripts
             _player.Rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        public void Shoot() => _isShoot = true;
+        public void Shoot() => 
+            _isShoot = true;
 
-        private bool StayOnGround() => _dipstick.Contact();
+        private bool StayOnGround() => 
+            _dipstick.Contact();
 
         private async void DoubleJumpSignShow()
         {

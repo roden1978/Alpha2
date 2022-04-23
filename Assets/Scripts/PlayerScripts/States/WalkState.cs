@@ -1,5 +1,4 @@
-﻿using System;
-using Common;
+﻿using Common;
 using GameObjectsScripts;
 using UnityEngine;
 
@@ -9,16 +8,14 @@ namespace PlayerScripts.States
     public class WalkState : IState
     {
         private readonly Animator _animator;
-        private readonly Rigidbody2D _rigidbody;
-        private readonly PlayerStateData _playerStateData;
+        private bool _isShoot;
         private readonly IShowable _footstepFx;
 
-        public WalkState(Rigidbody2D rigidbody2D, Animator animator, PlayerStateData playerStateData,
+        public WalkState(Animator animator, bool isShoot,
             IShowable footstepFx)
         {
-            _rigidbody = rigidbody2D;
             _animator = animator;
-            _playerStateData = playerStateData;
+            _isShoot = isShoot;
             _footstepFx = footstepFx;
         }
 
@@ -29,23 +26,27 @@ namespace PlayerScripts.States
         }
 
        
-        public Type Update()
+        public void Update()
         {
-            if (_playerStateData.IsShoot) 
-            {
-                _animator.SetBool(PlayerAnimationConstants.WalkThrow, true);
-                return typeof(WalkProxyState);
-            }
+            //if (_playerStateData.IsShoot) 
+            //{
+           //     _animator.SetBool(PlayerAnimationConstants.WalkThrow, true);
+           //     return typeof(WalkProxyState);
+           // }
 
-            if (!_playerStateData.IsOnGround && _rigidbody.velocity.y > _playerStateData.Damping.y)
-                return typeof(JumpState);
+            //if (!_playerStateData.IsOnGround && _rigidbody.velocity.y > _playerStateData.Damping.y)
+            //    return typeof(JumpState);
             
-            return Mathf.Abs(_rigidbody.velocity.x) < _playerStateData.Damping.x ? typeof(IdleState) : typeof(EmptyState);
+            //return Mathf.Abs(_rigidbody.velocity.x) < _playerStateData.Damping.x ? typeof(IdleState) : typeof(EmptyState);
         }
 
         public void Exit()
         {
-            if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
+            if (_isShoot)
+            {
+                _animator.SetBool(PlayerAnimationConstants.WalkThrow, true);
+                _isShoot = false;
+            }
             _animator.SetBool(PlayerAnimationConstants.Walk, false);
             _footstepFx.Hide();
         }

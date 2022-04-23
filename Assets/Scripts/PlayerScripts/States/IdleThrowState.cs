@@ -18,12 +18,7 @@ namespace PlayerScripts.States
             _animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
         }
 
-        public Type Update()
-        {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(IdleState) : 
-                typeof(EmptyState);
-        }
+        public void Update(){}
 
         public void Exit()
         {

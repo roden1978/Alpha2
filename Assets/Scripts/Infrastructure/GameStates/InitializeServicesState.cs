@@ -20,7 +20,7 @@ namespace Infrastructure.GameStates
         }
         public void Enter() => 
             RegisterServices(NextState);
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void RegisterServices(Action callback = null)
         {

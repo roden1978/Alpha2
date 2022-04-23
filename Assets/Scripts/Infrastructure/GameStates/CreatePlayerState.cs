@@ -29,7 +29,7 @@ namespace Infrastructure.GameStates
         }
         public void Enter() => 
             CreatePlayer(OnLoaded);
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void OnLoaded() => 
             _stateMachine.Enter<CreateCrowbarState>();

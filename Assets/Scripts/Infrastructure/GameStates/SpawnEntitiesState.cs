@@ -26,7 +26,7 @@ namespace Infrastructure.GameStates
             InitSpawners();
             callback?.Invoke();
         }
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void OnLoaded() => 
             _stateMachine.Enter<UpdateProgressState>();

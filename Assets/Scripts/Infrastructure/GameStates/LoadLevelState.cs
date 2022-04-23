@@ -25,7 +25,7 @@ namespace Infrastructure.GameStates
             _fader.Show();
             LoadScene(sceneName, OnLoaded);
         }
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void OnLoaded() => 
             _stateMachine.Enter<CreatePlayerState>();

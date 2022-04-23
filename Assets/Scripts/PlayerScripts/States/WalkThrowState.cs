@@ -1,4 +1,3 @@
-using System;
 using Common;
 using GameObjectsScripts;
 using UnityEngine;
@@ -21,11 +20,11 @@ namespace PlayerScripts.States
             _footstepFx.Show();
         }
 
-        public Type Update()
+        public void Update()
         {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(WalkState) : 
-                typeof(EmptyState);
+            //return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
+            //    typeof(WalkState) : 
+            //    typeof(EmptyState);
         }
 
         public void Exit()

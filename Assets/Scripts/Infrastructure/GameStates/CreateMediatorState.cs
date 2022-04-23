@@ -20,7 +20,7 @@ namespace Infrastructure.GameStates
             CreateMediator(OnLoaded);
         private void OnLoaded() => 
             _stateMachine.Enter<SpawnEntitiesState>();
-        public void Tick(){}
+        public void Update(){}
         public void Exit(){}
         private void CreateMediator(Action onLoaded)
         {

@@ -4,7 +4,7 @@ namespace Common
 {
     public interface IUpdateableState
     {
-        public void Tick();
+        public void Update();
         public void Exit();
     }
 }
