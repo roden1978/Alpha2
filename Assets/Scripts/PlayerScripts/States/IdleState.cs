@@ -1,4 +1,5 @@
 using Common;
+using UnityEngine;
 
 namespace PlayerScripts.States
 {
@@ -7,12 +8,17 @@ namespace PlayerScripts.States
         private bool _isShoot;
         public IdleState(bool isShoot) => 
             _isShoot = isShoot;
-        public void Enter(){}
+
+        public void Enter()
+        {
+            //Debug.Log("IdleState enter");
+            if(_isShoot)
+                _isShoot = false;
+        }
         public void Update(){}
         public void Exit()
         {
-            if(_isShoot)
-                _isShoot = false;
+            //Debug.Log("IdleState exit");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace PlayerScripts.Conditions
 {
@@ -14,7 +15,7 @@ namespace PlayerScripts.Conditions
             _dipstick = dipstick;
             _dampingY = dampingY;
         }
-        public bool Examination() => 
+        public bool Result() => 
             !_dipstick.Contact() && _rigidbody2D.velocity.y > _dampingY;
     }
 }

@@ -12,9 +12,10 @@ namespace PlayerScripts.Conditions
             _animator = animator;
         }
 
-        public bool Examination()
+        public bool Result()
         {
-            return _animator.GetBool(PlayerAnimationConstants.Jump) == false;
+            Debug.Log("JumpToIdle");
+            return !_animator.GetBool(PlayerAnimationConstants.Jump);
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using Common;
 using UnityEngine;
 
@@ -15,6 +14,7 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
+            //Debug.Log("IdleThrowState enter");
             _animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
         }
 
@@ -22,6 +22,7 @@ namespace PlayerScripts.States
 
         public void Exit()
         {
+            //Debug.Log("IdleThrowState exit");
             _animator.SetBool(PlayerAnimationConstants.IdleThrow, false);
         }
     }

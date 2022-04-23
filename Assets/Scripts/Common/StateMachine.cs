@@ -63,11 +63,11 @@ namespace Common
         private Transition GetTransition()
         {
             foreach(Transition transition in _anyTransitions)
-                if(transition.Condition.Examination())
+                if(transition.Condition.Result())
                     return transition;
         
             foreach(Transition transition in _currentTransitions)
-                if(transition.Condition.Examination())
+                if(transition.Condition.Result())
                     return transition;
 
             return null;

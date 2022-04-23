@@ -1,6 +1,7 @@
 using System;
 using Common;
 using GameObjectsScripts;
+using Services.Input;
 using UnityEngine;
 
 namespace PlayerScripts.States
@@ -12,10 +13,12 @@ namespace PlayerScripts.States
         private readonly IShowable _groundingFx;
         private readonly IShowable _jumpFx;
 
-        public JumpState(Animator animator, bool isShoot, IShowable groundingFx, IShowable jumpFx)
+        public JumpState(Animator animator, IInputService inputService, IShowable groundingFx, IShowable jumpFx)
         {
+            
             _animator = animator;
-            _isShoot = isShoot;
+            inputService.OnShoot += () => _isShoot = true;
+            inputService.OnStopShoot += () => _isShoot = false;
             _groundingFx = groundingFx;
             _jumpFx = jumpFx;
         }
@@ -41,7 +44,6 @@ namespace PlayerScripts.States
         {
             if (_isShoot)
             {
-                _isShoot = false;
                 _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);
             }
             _animator.SetBool(PlayerAnimationConstants.Jump, false);

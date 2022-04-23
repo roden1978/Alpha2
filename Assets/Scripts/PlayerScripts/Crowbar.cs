@@ -35,7 +35,6 @@ namespace PlayerScripts
         private bool _doubleJump;
         private bool _resetVelocity;
         private bool _isShoot;
-        private bool _stayOnGround;
         private IShowable _footstepFx;
         private IShowable _groundingFx;
         private IShowable _jumpFx;
@@ -58,11 +57,11 @@ namespace PlayerScripts
             _flipView = new FlipView(_player.PlayerView);
             _inputService = ServiceLocator.Container.Single<IInputService>();
             _inputService.OnJump += Jump;
-            _inputService.OnShoot += Shoot;
+            //_inputService.OnShoot += Shoot;
 
             IState idleState = new IdleState(_isShoot);
             IState walkState = new WalkState(_player.Animator, _isShoot, _footstepFx);
-            IState jumpState = new JumpState(_player.Animator, _isShoot, _groundingFx, _jumpFx);
+            IState jumpState = new JumpState(_player.Animator, _inputService, _groundingFx, _jumpFx);
             IState idleThrowState = new IdleThrowState(_player.Animator);
             IState jumpThrowState = new JumpThrowState(_player.Animator);
             IState walkThrowState = new WalkThrowState(_player.Animator, _footstepFx);
@@ -84,7 +83,7 @@ namespace PlayerScripts
             _stateMachine.AddTransition(jumpThrowState, jumpState, 
                 new JumpThrowToJump(_player.Animator));
             _stateMachine.AddTransition(jumpState, jumpProxyState, 
-                new JumpToJumpProxy(_dipstick));
+                new JumpToJumpProxy(_dipstick, _inputService));
             _stateMachine.AddTransition(walkProxyState, idleState, 
                 new WalkProxyToIdle(_player.Animator));
             _stateMachine.AddTransition(walkProxyState, walkThrowState, 
@@ -115,19 +114,18 @@ namespace PlayerScripts
         private void OnDestroy()
         {
             _inputService.OnJump -= Jump;
-            _inputService.OnShoot -= Shoot;
+            //_inputService.OnShoot -= Shoot;
         }
 
         private void Move()
         {
-            _stayOnGround = StayOnGround();
-            if (_stayOnGround && _inputService.Move() != 0)
+            if (StayOnGround() && _inputService.Move() != 0)
             {
                 if (Mathf.Abs(_player.Rigidbody2D.velocity.magnitude) > _maxVelocity) return;
                 _player.Rigidbody2D.AddForce(new Vector2(_inputService.Move(), 0) * _speed, ForceMode2D.Impulse);
                 _resetVelocity = true;
             }
-            else if (_inputService.Move() == 0 && _resetVelocity && _stayOnGround)
+            else if (_inputService.Move() == 0 && _resetVelocity && StayOnGround())
             {
                 _player.Rigidbody2D.velocity = Vector2.zero;
                 _resetVelocity = false;
@@ -136,8 +134,7 @@ namespace PlayerScripts
 
         public void Jump()
         {
-            _stayOnGround = StayOnGround();
-            if (_stayOnGround)
+            if (StayOnGround())
             {
                 AddForceToJump();
                 DoubleJumpSignShow();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace PlayerScripts.Conditions
 {
@@ -11,7 +12,7 @@ namespace PlayerScripts.Conditions
             _animator = animator;
         }
 
-        public bool Examination()
+        public bool Result()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
         }

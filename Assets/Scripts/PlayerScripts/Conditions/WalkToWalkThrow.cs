@@ -1,4 +1,5 @@
-﻿using Services.Input;
+﻿using Common;
+using Services.Input;
 
 namespace PlayerScripts.Conditions
 {
@@ -9,6 +10,12 @@ namespace PlayerScripts.Conditions
         public WalkToWalkThrow(IInputService inputService)
         {
             inputService.OnShoot += Shoot;
+            inputService.OnStopShoot += StopShoot;
+        }
+
+        private void StopShoot()
+        {
+            _isShoot = false;
         }
 
         private void Shoot()
@@ -16,7 +23,7 @@ namespace PlayerScripts.Conditions
             _isShoot = true;
         }
 
-        public bool Examination()
+        public bool Result()
         {
             return _isShoot;
         }

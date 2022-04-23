@@ -12,7 +12,7 @@ namespace PlayerScripts.Conditions
             _animator = animator;
         }
 
-        public bool Examination()
+        public bool Result()
         {
             return _animator.GetBool(PlayerAnimationConstants.Walk) == false;
         }

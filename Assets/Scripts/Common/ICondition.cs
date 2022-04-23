@@ -1,4 +1,7 @@
-public interface ICondition
+namespace Common
 {
-    bool Examination();
+    public interface ICondition
+    {
+        bool Result();
+    }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace PlayerScripts.Conditions
 {
@@ -13,7 +14,7 @@ namespace PlayerScripts.Conditions
             _dampingX = dampingX;
         }
 
-        public bool Examination()
+        public bool Result()
         {
             return Mathf.Abs(_rigidbody2D.velocity.x) < _dampingX;
         }
