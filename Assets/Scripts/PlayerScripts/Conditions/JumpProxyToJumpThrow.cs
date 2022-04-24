@@ -1,4 +1,5 @@
 ﻿using Common;
+using Services.Input;
 using UnityEngine;
 
 namespace PlayerScripts.Conditions
@@ -6,14 +7,17 @@ namespace PlayerScripts.Conditions
     public class JumpProxyToJumpThrow : ICondition
     {
         private readonly Animator _animator;
-        public JumpProxyToJumpThrow(Animator animator)
+        private bool _isShoot;
+        public JumpProxyToJumpThrow(Animator animator, IInputService inputService)
         {
             _animator = animator;
+            inputService.OnShoot += () => _isShoot = true;
+            inputService.OnStopShoot += () => _isShoot = false;
         }
 
         public bool Result()
         {
-            return JumpThrow() && Jump();
+            return JumpThrow() && _isShoot;
         }
 
         private bool Jump()

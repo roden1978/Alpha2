@@ -59,7 +59,7 @@ namespace PlayerScripts
             _inputService.OnJump += Jump;
             //_inputService.OnShoot += Shoot;
 
-            IState idleState = new IdleState(_isShoot);
+            IState idleState = new IdleState();
             IState walkState = new WalkState(_player.Animator, _isShoot, _footstepFx);
             IState jumpState = new JumpState(_player.Animator, _inputService, _groundingFx, _jumpFx);
             IState idleThrowState = new IdleThrowState(_player.Animator);
@@ -79,7 +79,7 @@ namespace PlayerScripts
             _stateMachine.AddTransition(jumpProxyState, idleState, 
                 new JumpProxyToIdle(_player.Animator));
             _stateMachine.AddTransition(jumpProxyState, jumpThrowState, 
-                new JumpProxyToJumpThrow(_player.Animator));
+                new JumpProxyToJumpThrow(_player.Animator, _inputService));
             _stateMachine.AddTransition(jumpThrowState, jumpState, 
                 new JumpThrowToJump(_player.Animator));
             _stateMachine.AddTransition(jumpState, jumpProxyState, 

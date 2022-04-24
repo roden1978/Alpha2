@@ -25,6 +25,7 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
+            Debug.Log("JumpState enter");
             _animator.SetBool(PlayerAnimationConstants.Jump, true);
             _jumpFx.Show();
         }
@@ -42,6 +43,7 @@ namespace PlayerScripts.States
 
         public void Exit()
         {
+            Debug.Log("JumpState exit");
             if (_isShoot)
             {
                 _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);

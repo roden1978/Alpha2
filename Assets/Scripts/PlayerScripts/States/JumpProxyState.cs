@@ -1,4 +1,5 @@
 ﻿using Common;
+using UnityEngine;
 
 namespace PlayerScripts.States
 {
@@ -13,6 +14,7 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
+            Debug.Log("JumpProxyState enter");
         }
 
         public void Update()
@@ -28,6 +30,7 @@ namespace PlayerScripts.States
 
         public void Exit()
         {
+            Debug.Log("JumpProxyState exit");
         }
     }
 }

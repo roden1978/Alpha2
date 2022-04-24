@@ -14,7 +14,7 @@ namespace PlayerScripts.Conditions
 
         public bool Result()
         {
-            Debug.Log("JumpToIdle");
+            //Debug.Log("JumpToIdle");
             return !_animator.GetBool(PlayerAnimationConstants.Jump);
         }
     }
