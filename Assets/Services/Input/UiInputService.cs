@@ -26,6 +26,11 @@ namespace Services.Input
             OnShoot?.Invoke();
         }
 
+        public void StopShoot()
+        {
+            OnStopShoot?.Invoke();
+        }
+
         public float Move()
         {
             return Mathf.Round(_input.Joystick.Move.ReadValue<float>());

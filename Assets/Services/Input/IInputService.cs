@@ -11,5 +11,6 @@ namespace Services.Input
         void Jump();
         void Shoot();
         float Move();
+        void StopShoot();
     }
 }

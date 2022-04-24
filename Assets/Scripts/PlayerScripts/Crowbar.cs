@@ -34,7 +34,6 @@ namespace PlayerScripts
         private Player _player;
         private bool _doubleJump;
         private bool _resetVelocity;
-        private bool _isShoot;
         private IShowable _footstepFx;
         private IShowable _groundingFx;
         private IShowable _jumpFx;
@@ -160,7 +159,10 @@ namespace PlayerScripts
         }
 
         public void Shoot() => 
-            _isShoot = true;
+            _inputService.Shoot();
+
+        public void StopShoot() => 
+            _inputService.StopShoot();
 
         private bool StayOnGround() => 
             _dipstick.Contact();
