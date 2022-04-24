@@ -14,21 +14,11 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
-            Debug.Log("JumpThrowState enter");
-            _animator.SetBool(PlayerAnimationConstants.JumpThrow, true);
+            _animator.Play(PlayerAnimationConstants.JumpThrowWithAxe);
         }
 
-        public void Update()
-        {
-            //return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-            //    typeof(JumpState) : 
-            //    typeof(EmptyState);
-        }
+        public void Update() { }
 
-        public void Exit()
-        {
-            Debug.Log("JumpThrowState exit");
-            _animator.SetBool(PlayerAnimationConstants.JumpThrow, false);
-        }
+        public void Exit() { }
     }
 }

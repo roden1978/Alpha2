@@ -17,22 +17,12 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
-            Debug.Log("Walk throw state enter");
-            _animator.Play("WalkThrowWithAxe");
+            _animator.Play(PlayerAnimationConstants.WalkThrowWithAxe);
             _footstepFx.Show();
         }
 
-        public void Update()
-        {
-            //return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-            //    typeof(WalkState) : 
-            //    typeof(EmptyState);
-        }
+        public void Update() { }
 
-        public void Exit()
-        {
-            Debug.Log("Walk throw state exit");
-            _footstepFx.Hide();
-        }
+        public void Exit() => _footstepFx.Hide();
     }
 }

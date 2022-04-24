@@ -14,17 +14,11 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
-            Debug.Log("IdleThrowState enter");
-            //_animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
-            _animator.Play("IdleThrowWithAxe");
+            _animator.Play(PlayerAnimationConstants.IdleThrowWithAxe);
         }
 
         public void Update(){}
 
-        public void Exit()
-        {
-            Debug.Log("IdleThrowState exit");
-            //_animator.SetBool(PlayerAnimationConstants.IdleThrow, false);
-        }
+        public void Exit() { }
     }
 }

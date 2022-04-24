@@ -1,5 +1,4 @@
 ﻿using Common;
-using Services.Input;
 using UnityEngine;
 
 namespace PlayerScripts.Conditions
@@ -8,19 +7,14 @@ namespace PlayerScripts.Conditions
     {
         private readonly Rigidbody2D _rigidbody2D;
         private readonly float _dampingX;
-        private bool _isShoot;
 
-        public IdleToWalk(Rigidbody2D rigidbody2D, float dampingX, IInputService inputService)
+        public IdleToWalk(Rigidbody2D rigidbody2D, float dampingX)
         {
             _rigidbody2D = rigidbody2D;
             _dampingX = dampingX;
-            //inputService.OnShoot += () => _isShoot = true;
-            //inputService.OnStopShoot += () => _isShoot = false;
         }
 
-        public bool Result()
-        {
-            return Mathf.Abs(_rigidbody2D.velocity.x) > _dampingX;
-        }
+        public bool Result() => 
+            Mathf.Abs(_rigidbody2D.velocity.x) > _dampingX;
     }
 }

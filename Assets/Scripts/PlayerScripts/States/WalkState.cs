@@ -4,38 +4,25 @@ using UnityEngine;
 
 namespace PlayerScripts.States
 {
-    
-    public class WalkState : IState
+        public class WalkState : IState
     {
         private readonly Animator _animator;
-        private bool _isShoot;
         private readonly IShowable _footstepFx;
 
-        public WalkState(Animator animator, bool isShoot,
-            IShowable footstepFx)
+        public WalkState(Animator animator, IShowable footstepFx)
         {
             _animator = animator;
-            _isShoot = isShoot;
             _footstepFx = footstepFx;
         }
 
         public void Enter()
         {
-            Debug.Log("Walk state enter");
-            _animator.Play("WalkWithAxe");
+            _animator.Play(PlayerAnimationConstants.WalkWithAxe);
             _footstepFx.Show();
         }
-
        
-        public void Update()
-        {
-         
-        }
+        public void Update(){}
 
-        public void Exit()
-        {
-            Debug.Log("Walk state exit");
-            _footstepFx.Hide();
-        }
+        public void Exit() => _footstepFx.Hide();
     }
 }

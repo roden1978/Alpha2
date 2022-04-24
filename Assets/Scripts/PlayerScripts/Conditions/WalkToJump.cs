@@ -16,9 +16,7 @@ namespace PlayerScripts.Conditions
             _dampingY = dampingY;
         }
 
-        public bool Result()
-        {
-            return !_dipstick.Contact() && _rigidbody2D.velocity.y > _dampingY;
-        }
+        public bool Result() => 
+            !_dipstick.Contact() && _rigidbody2D.velocity.y > _dampingY;
     }
 }

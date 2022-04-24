@@ -18,9 +18,7 @@ namespace PlayerScripts.Conditions
             inputService.OnStopShoot += () => _isShoot = false;
         }
 
-        public bool Result()
-        {
-            return Mathf.Abs(_rigidbody2D.velocity.x) > _dampingX && _isShoot;
-        }
+        public bool Result() => 
+            Mathf.Abs(_rigidbody2D.velocity.x) > _dampingX && _isShoot;
     }
 }

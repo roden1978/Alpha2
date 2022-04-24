@@ -14,9 +14,7 @@ namespace PlayerScripts.Conditions
             _dampingX = dampingX;
         }
 
-        public bool Result()
-        {
-            return Mathf.Abs(_rigidbody2D.velocity.x) < _dampingX;
-        }
+        public bool Result() => 
+            Mathf.Abs(_rigidbody2D.velocity.x) < _dampingX;
     }
 }

@@ -14,14 +14,10 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
-            Debug.Log("IdleState enter");
             if(!_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleWithAxe"))
-                _animator.Play("IdleWithAxe");
+                _animator.Play(PlayerAnimationConstants.IdleWithAxe);
         }
         public void Update(){}
-        public void Exit()
-        {
-            Debug.Log("IdleState exit");
-        }
+        public void Exit() { }
     }
 }
