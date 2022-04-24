@@ -14,7 +14,9 @@ namespace PlayerScripts.Conditions
 
         public bool Result()
         {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
+            Debug.Log("WalkThrowToWalk");
+            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && 
+                   _animator.GetCurrentAnimatorStateInfo(0).IsName("WalkThrowWithAxe");
         }
     }
 }

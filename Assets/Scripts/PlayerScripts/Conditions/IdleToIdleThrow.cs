@@ -7,27 +7,22 @@ namespace PlayerScripts.Conditions
     public class IdleToIdleThrow : ICondition
     {
         private bool _isShoot;
-        public IdleToIdleThrow(IInputService inputService)
-        {
-            inputService.OnShoot += Shoot;
-            inputService.OnStopShoot += StopShoot;
-        }
+        private readonly Rigidbody2D _rigidbody2D;
+        private readonly float _dampingX;
 
-        private void StopShoot()
+        public IdleToIdleThrow(IInputService inputService, Rigidbody2D rigidbody2D, float dampingX)
         {
-            _isShoot = false;
-        }
-
-        private void Shoot()
-        {
-            _isShoot = true;
+            _rigidbody2D = rigidbody2D;
+            _dampingX = dampingX;
+            inputService.OnShoot += () => _isShoot = true;
+            inputService.OnStopShoot += () => _isShoot = false;
         }
 
         public bool Result()
         {
             //Debug.Log($"IdleToIdleThrow {_isShoot}");
             
-            return _isShoot;
+            return Mathf.Abs(_rigidbody2D.velocity.x) < _dampingX && _isShoot;
         }
     }
 }

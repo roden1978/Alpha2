@@ -17,6 +17,8 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
+            Debug.Log("Walk throw state enter");
+            _animator.Play("WalkThrowWithAxe");
             _footstepFx.Show();
         }
 
@@ -29,7 +31,7 @@ namespace PlayerScripts.States
 
         public void Exit()
         {
-            _animator.SetBool(PlayerAnimationConstants.WalkThrow, false);
+            Debug.Log("Walk throw state exit");
             _footstepFx.Hide();
         }
     }

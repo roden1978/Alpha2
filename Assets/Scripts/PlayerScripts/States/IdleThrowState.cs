@@ -15,7 +15,8 @@ namespace PlayerScripts.States
         public void Enter()
         {
             Debug.Log("IdleThrowState enter");
-            _animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
+            //_animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
+            _animator.Play("IdleThrowWithAxe");
         }
 
         public void Update(){}
@@ -23,7 +24,7 @@ namespace PlayerScripts.States
         public void Exit()
         {
             Debug.Log("IdleThrowState exit");
-            _animator.SetBool(PlayerAnimationConstants.IdleThrow, false);
+            //_animator.SetBool(PlayerAnimationConstants.IdleThrow, false);
         }
     }
 }

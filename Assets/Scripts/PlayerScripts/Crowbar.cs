@@ -59,43 +59,43 @@ namespace PlayerScripts
             _inputService.OnJump += Jump;
             //_inputService.OnShoot += Shoot;
 
-            IState idleState = new IdleState();
+            IState idleState = new IdleState(player.Animator);
             IState walkState = new WalkState(_player.Animator, _isShoot, _footstepFx);
             IState jumpState = new JumpState(_player.Animator, _inputService, _groundingFx, _jumpFx);
             IState idleThrowState = new IdleThrowState(_player.Animator);
             IState jumpThrowState = new JumpThrowState(_player.Animator);
             IState walkThrowState = new WalkThrowState(_player.Animator, _footstepFx);
-            IState jumpProxyState = new JumpProxyState();
-            IState walkProxyState = new WalkProxyState();
+            //IState jumpProxyState = new JumpProxyState();
+            //IState walkProxyState = new WalkProxyState();
             
             _stateMachine.AddTransition(idleState, jumpState, 
                 new IdleToJump(_player.Rigidbody2D, _dipstick, _damping.y));
             _stateMachine.AddTransition(idleState, walkState, 
-                new IdleToWalk(_player.Rigidbody2D, _damping.x));
+                new IdleToWalk(_player.Rigidbody2D, _damping.x, _inputService));
             _stateMachine.AddTransition(idleState, idleThrowState, 
-                new IdleToIdleThrow(_inputService));
+                new IdleToIdleThrow(_inputService, _player.Rigidbody2D, _damping.x));
             _stateMachine.AddTransition(idleThrowState, idleState, 
                 new IdleThrowToIdle(_player.Animator));
-            _stateMachine.AddTransition(jumpProxyState, idleState, 
-                new JumpProxyToIdle(_player.Animator));
-            _stateMachine.AddTransition(jumpProxyState, jumpThrowState, 
-                new JumpProxyToJumpThrow(_player.Animator, _inputService));
+            //_stateMachine.AddTransition(jumpProxyState, idleState, 
+            //    new JumpProxyToIdle(_player.Animator));
+            //_stateMachine.AddTransition(jumpProxyState, jumpThrowState, 
+            //    new JumpProxyToJumpThrow(_player.Animator, _inputService));
             _stateMachine.AddTransition(jumpThrowState, jumpState, 
                 new JumpThrowToJump(_player.Animator));
-            _stateMachine.AddTransition(jumpState, jumpProxyState, 
-                new JumpToJumpProxy(_dipstick, _inputService));
-            _stateMachine.AddTransition(walkProxyState, idleState, 
-                new WalkProxyToIdle(_player.Animator));
-            _stateMachine.AddTransition(walkProxyState, walkThrowState, 
-                new WalkProxyToWalkThrow(_player.Animator));
+            //_stateMachine.AddTransition(jumpState, jumpProxyState, 
+            //    new JumpToJumpProxy(_dipstick, _inputService));
+            //_stateMachine.AddTransition(walkProxyState, idleState, 
+            //    new WalkProxyToIdle(_player.Animator));
+            //_stateMachine.AddTransition(walkProxyState, walkThrowState, 
+            //    new WalkProxyToWalkThrow(_player.Animator));
             _stateMachine.AddTransition(walkThrowState, walkState, 
                 new WalkThrowToWalk(_player.Animator));
             _stateMachine.AddTransition(walkState, idleState, 
                 new WalkToIdle(_player.Rigidbody2D, _damping.x));
             _stateMachine.AddTransition(walkState, jumpState, 
                 new WalkToJump(_player.Rigidbody2D, _dipstick, _damping.y));
-            _stateMachine.AddTransition(walkState, walkProxyState, 
-                new WalkToWalkThrow(_inputService));
+            _stateMachine.AddTransition(walkState, walkThrowState, 
+                new WalkToWalkThrow(_inputService, _player.Rigidbody2D, _damping.x));
             
             _stateMachine.SetState(idleState);
         }
