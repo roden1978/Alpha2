@@ -6,12 +6,14 @@ namespace Services.Input
     {
         private readonly PlayerInput _input;
         public event Action OnShoot;
+        public event Action OnStopShoot;
         public event Action OnJump;
         public KeyboardInputService()
         {
             _input = new PlayerInput();
             _input.Enable();
-            _input.Player.Shoot.performed += _ => Shoot();
+            _input.Player.Shoot.started += _ => Shoot();
+            _input.Player.Shoot.canceled += _ => StopShoot();
             _input.Player.Jump.performed += _ => Jump();
         }
 
@@ -23,6 +25,11 @@ namespace Services.Input
         public void Shoot()
         {
             OnShoot?.Invoke();
+        }
+        
+        public void StopShoot()
+        {
+            OnStopShoot?.Invoke();
         }
 
         public float Move()

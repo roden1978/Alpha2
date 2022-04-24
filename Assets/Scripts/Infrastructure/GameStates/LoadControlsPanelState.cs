@@ -9,29 +9,13 @@ namespace Infrastructure.GameStates
     public class LoadControlsPanelState : IState
     {
         private readonly ServiceLocator _serviceLocator;
-
-        public LoadControlsPanelState(ServiceLocator serviceLocator)
-        {
+        public LoadControlsPanelState(ServiceLocator serviceLocator) => 
             _serviceLocator = serviceLocator;
-        }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-        }
-
-        public void Enter()
-        {
+        public void Update(){}
+        public void Exit(){}
+        public void Enter() => 
             LoadControlsPanel();
-        }
-     
-        private void LoadControlsPanel()
-        {
+        private void LoadControlsPanel() => 
             _serviceLocator.Single<IGameFactory>().CreateControlsPanel();
-        }
     }
 }

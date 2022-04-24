@@ -1,4 +1,3 @@
-using System;
 using Common;
 using GameObjectsScripts;
 using UnityEngine;
@@ -18,20 +17,12 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
+            _animator.Play(PlayerAnimationConstants.WalkThrowWithAxe);
             _footstepFx.Show();
         }
 
-        public Type Update()
-        {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(WalkState) : 
-                typeof(EmptyState);
-        }
+        public void Update() { }
 
-        public void Exit()
-        {
-            _animator.SetBool(PlayerAnimationConstants.WalkThrow, false);
-            _footstepFx.Hide();
-        }
+        public void Exit() => _footstepFx.Hide();
     }
 }

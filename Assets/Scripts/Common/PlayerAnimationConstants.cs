@@ -4,10 +4,12 @@ namespace Common
 {
     public static class PlayerAnimationConstants
     {
-        public static readonly int Walk = Animator.StringToHash("Walk");
-        public static readonly int Jump = Animator.StringToHash("Jump");
-        public static readonly int IdleThrow = Animator.StringToHash("IdleThrow");
-        public static readonly int WalkThrow = Animator.StringToHash("WalkThrow");
-        public static readonly int JumpThrow = Animator.StringToHash("JumpThrow");
+        public static readonly int IdleWithAxe = Animator.StringToHash("IdleWithAxe");
+        public static readonly int IdleThrowWithAxe = Animator.StringToHash("IdleThrowWithAxe");
+        public static readonly int WalkWithAxe = Animator.StringToHash("WalkWithAxe");
+        public static readonly int WalkThrowWithAxe = Animator.StringToHash("WalkThrowWithAxe");
+        public static readonly int JumpWithAxe = Animator.StringToHash("JumpWithAxe");
+        public static readonly int JumpThrowWithAxe = Animator.StringToHash("JumpThrowWithAxe");
+        
     }
 }

@@ -9,36 +9,21 @@ namespace Infrastructure.GameStates
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-
         public CreateHudState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-        public void Enter()
-        {
+        public void Enter() => 
             CreateHud(OnLoaded);
-        }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-            
-        }
-
+        public void Update(){}
+        public void Exit(){}
         private void CreateHud(Action onLoaded)
         {
             _serviceLocator.Single<IGameFactory>().CreateHud();
             onLoaded?.Invoke();
         }
-
-        private void OnLoaded()
-        {
+        private void OnLoaded() => 
             _stateMachine.Enter<CreateMediatorState>();
-        }
     }
 }

@@ -11,14 +11,11 @@ namespace Infrastructure.GameStates
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-
-
         public CreatePlayerState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-
         private void CreatePlayer(Action onLoaded)
         {
             PoolService pool = _serviceLocator.Single<IGameFactory>().CreatePool();
@@ -30,26 +27,11 @@ namespace Infrastructure.GameStates
             
             onLoaded?.Invoke();
         }
-      
-        public void Enter()
-        {
+        public void Enter() => 
             CreatePlayer(OnLoaded);
-        }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-            
-        }
-
-        private void OnLoaded()
-        {
+        public void Update(){}
+        public void Exit(){}
+        private void OnLoaded() => 
             _stateMachine.Enter<CreateCrowbarState>();
-        }
-        
     }
 }

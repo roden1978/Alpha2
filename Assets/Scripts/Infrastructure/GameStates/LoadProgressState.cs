@@ -13,21 +13,18 @@ namespace Infrastructure.GameStates
         private readonly GamesStateMachine _gamesStateMachine;
         private readonly ServiceLocator _serviceLocator;
         private IPersistentProgressService _persistentProgressService;
-
         public LoadProgressState(GamesStateMachine gamesStateMachine, ServiceLocator serviceLocator)
         {
             _gamesStateMachine = gamesStateMachine;
             _serviceLocator = serviceLocator;
         }
-
-        public void Enter() => LoadProgress(NextState);
-
+        public void Enter() => 
+            LoadProgress(NextState);
         private void NextState()
         {
             string levelName = _persistentProgressService.PlayerProgress.WorldData.PositionOnLevel.SceneName;
             _gamesStateMachine.Enter<LoadLevelState, string>(levelName);
         }
-
         private void LoadProgress(Action callback)
         {
             ISaveLoadService saveLoadService = _serviceLocator.Single<ISaveLoadService>();
@@ -37,7 +34,6 @@ namespace Infrastructure.GameStates
             
             callback?.Invoke();
         }
-
         private PlayerProgress CreatePlayerProgress()
         {
             PlayerProgress playerProgress = new PlayerProgress(SceneName);
@@ -52,15 +48,7 @@ namespace Infrastructure.GameStates
            
             return playerProgress;
         }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-            //throw new NotImplementedException();
-        }
+        public void Update(){}
+        public void Exit(){}
     }
 }

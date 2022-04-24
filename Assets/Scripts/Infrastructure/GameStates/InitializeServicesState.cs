@@ -13,27 +13,15 @@ namespace Infrastructure.GameStates
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-
         public InitializeServicesState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-
-        public void Enter()
-        {
+        public void Enter() => 
             RegisterServices(NextState);
-        }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-        }
-        
+        public void Update(){}
+        public void Exit(){}
         private void RegisterServices(Action callback = null)
         {
             _serviceLocator.RegisterSingle<IGamesStateMachine>(_stateMachine);
@@ -57,7 +45,6 @@ namespace Infrastructure.GameStates
             
             callback?.Invoke();
         }
-
         private void RegisterStaticData(IStaticDataService staticDataService)
         {
             staticDataService.LoadEnemies();
@@ -65,10 +52,7 @@ namespace Infrastructure.GameStates
             staticDataService.LoadLevelStaticData();
             staticDataService.LoadSaveProgressPointStaticData();
         }
-
-        private void NextState()
-        {
+        private void NextState() => 
             _stateMachine.Enter<InitializeInputState>();
-        }
     }
 }

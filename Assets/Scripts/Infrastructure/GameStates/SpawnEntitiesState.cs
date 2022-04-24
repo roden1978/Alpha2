@@ -14,38 +14,22 @@ namespace Infrastructure.GameStates
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
         private IGameFactory _gameFactory;
-
         public SpawnEntitiesState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-
-        public void Enter()
-        {
+        public void Enter() => 
             SpawnGameEntities(OnLoaded);
-        }
-
         private void SpawnGameEntities(Action callback)
         {
             InitSpawners();
             callback?.Invoke();
         }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-        }
-
-        private void OnLoaded()
-        {
+        public void Update(){}
+        public void Exit(){}
+        private void OnLoaded() => 
             _stateMachine.Enter<UpdateProgressState>();
-        }
-
         private void InitSpawners()
         {
             _gameFactory = _serviceLocator.Single<IGameFactory>();
@@ -54,9 +38,7 @@ namespace Infrastructure.GameStates
             SpawnEnemies(levelStaticData.EnemySpawners);
             SpawnPickableObjects(levelStaticData.PickableObjectSpawners);
             SpawnSaveProgressPoints(levelStaticData.SaveProgressPointSpawners);
-            //SpawnPortal();
         }
-
         private void SpawnPickableObjects(IEnumerable<PickableObjectSpawnData> pickableObjectSpawners)
         {
             foreach (PickableObjectSpawnData spawnerData in pickableObjectSpawners)
@@ -65,7 +47,6 @@ namespace Infrastructure.GameStates
                     spawnerData.Position);
             }
         }
-
         private void SpawnEnemies(IEnumerable<EnemySpawnerData> enemySpawners)
         {
             foreach (EnemySpawnerData spawnerData in enemySpawners)
@@ -73,7 +54,6 @@ namespace Infrastructure.GameStates
                 _gameFactory.CreateEnemySpawner(spawnerData.Id, spawnerData.EnemyTypeId, spawnerData.Position);
             }
         }
-
         private void SpawnSaveProgressPoints(IEnumerable<SaveProgressPointSpawnData> saveProgressPointSpawners)
         {
             foreach (SaveProgressPointSpawnData spawnerData in saveProgressPointSpawners)
@@ -82,6 +62,5 @@ namespace Infrastructure.GameStates
                     spawnerData.Width, spawnerData.Height, spawnerData.Position);
             }
         }
-
     }
 }

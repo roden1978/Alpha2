@@ -1,4 +1,3 @@
-using System;
 using Common;
 using UnityEngine;
 
@@ -15,18 +14,11 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
+            _animator.Play(PlayerAnimationConstants.JumpThrowWithAxe);
         }
 
-        public Type Update()
-        {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(JumpState) : 
-                typeof(EmptyState);
-        }
+        public void Update() { }
 
-        public void Exit()
-        {
-            _animator.SetBool(PlayerAnimationConstants.JumpThrow, false);
-        }
+        public void Exit() { }
     }
 }

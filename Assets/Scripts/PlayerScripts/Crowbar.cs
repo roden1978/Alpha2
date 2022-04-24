@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Cinemachine;
 using Common;
 using Data;
 using GameObjectsScripts;
 using Infrastructure.Services;
+using PlayerScripts.Conditions;
 using PlayerScripts.States;
 using Services.Input;
 using Services.PersistentProgress;
@@ -29,7 +28,6 @@ namespace PlayerScripts
         private IInputService _inputService;
         private IFlipView _flipView;
         private IDipstick _dipstick;
-        private PlayerStateData _playerStateData;
         private Camera _camera;
         private ICinemachineCamera _virtualCamera;
         private IStaticDataService _staticDataService;
@@ -58,24 +56,38 @@ namespace PlayerScripts
             _flipView = new FlipView(_player.PlayerView);
             _inputService = ServiceLocator.Container.Single<IInputService>();
             _inputService.OnJump += Jump;
-            _inputService.OnShoot += Shoot;
 
-            _playerStateData = new PlayerStateData
-            {
-                Damping = _damping
-            };
-
-            _stateMachine.Initialize(new Dictionary<Type, IState>
-            {
-                { typeof(IdleState), new IdleState(_player.Rigidbody2D, _playerStateData) },
-                { typeof(WalkState), new WalkState(_player.Rigidbody2D, _player.Animator, _playerStateData, _footstepFx) },
-                { typeof(JumpState), new JumpState(_player.Animator, _playerStateData, _groundingFx, jumpFx) },
-                { typeof(IdleThrowState), new IdleThrowState(_player.Animator) },
-                { typeof(JumpThrowState), new JumpThrowState(_player.Animator) },
-                { typeof(JumpProxyState), new JumpProxyState(_player.Animator) },
-                { typeof(WalkThrowState), new WalkThrowState(_player.Animator, _footstepFx) },
-                { typeof(WalkProxyState), new WalkProxyState(_player.Animator) }
-            });
+            IState idleState = new IdleState(player.Animator);
+            IState walkState = new WalkState(_player.Animator, _footstepFx);
+            IState jumpState = new JumpState(_player.Animator, _dipstick, _groundingFx, _jumpFx);
+            IState idleThrowState = new IdleThrowState(_player.Animator);
+            IState jumpThrowState = new JumpThrowState(_player.Animator);
+            IState walkThrowState = new WalkThrowState(_player.Animator, _footstepFx);
+            
+            _stateMachine.AddTransition(idleState, jumpState, 
+                new IdleToJump(_player.Rigidbody2D, _dipstick, _damping.y));
+            _stateMachine.AddTransition(idleState, walkState, 
+                new IdleToWalk(_player.Rigidbody2D, _damping.x));
+            _stateMachine.AddTransition(idleState, idleThrowState, 
+                new IdleToIdleThrow(_inputService, _player.Rigidbody2D, _damping.x));
+            _stateMachine.AddTransition(idleThrowState, idleState, 
+                new IdleThrowToIdle(_player.Animator));
+            _stateMachine.AddTransition(jumpState, jumpThrowState, 
+                new JumpToJumpThrow(_dipstick, _inputService));
+            _stateMachine.AddTransition(jumpThrowState, jumpState, 
+                new JumpThrowToJump(_player.Animator));
+            _stateMachine.AddTransition(jumpState, idleState, 
+                new JumpToIdle(_dipstick));
+            _stateMachine.AddTransition(walkThrowState, walkState, 
+                new WalkThrowToWalk(_player.Animator));
+            _stateMachine.AddTransition(walkState, idleState, 
+                new WalkToIdle(_player.Rigidbody2D, _damping.x));
+            _stateMachine.AddTransition(walkState, jumpState, 
+                new WalkToJump(_player.Rigidbody2D, _dipstick, _damping.y));
+            _stateMachine.AddTransition(walkState, walkThrowState, 
+                new WalkToWalkThrow(_inputService, _player.Rigidbody2D, _damping.x));
+            
+            _stateMachine.SetState(idleState);
         }
 
         private void Update()
@@ -92,7 +104,6 @@ namespace PlayerScripts
         private void OnDestroy()
         {
             _inputService.OnJump -= Jump;
-            _inputService.OnShoot -= Shoot;
         }
 
         private void Move()
@@ -147,18 +158,14 @@ namespace PlayerScripts
             _player.Rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
-        public void Shoot()
-        {
-            _playerStateData.IsShoot = true;
-        }
+        public void Shoot() => 
+            _inputService.Shoot();
 
-        private bool StayOnGround()
-        {
-            bool result = _dipstick.Contact();
-            _playerStateData.IsOnGround = result;
+        public void StopShoot() => 
+            _inputService.StopShoot();
 
-            return result;
-        }
+        private bool StayOnGround() => 
+            _dipstick.Contact();
 
         private async void DoubleJumpSignShow()
         {

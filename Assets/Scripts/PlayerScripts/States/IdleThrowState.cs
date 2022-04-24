@@ -1,4 +1,3 @@
-using System;
 using Common;
 using UnityEngine;
 
@@ -15,19 +14,11 @@ namespace PlayerScripts.States
 
         public void Enter()
         {
-            _animator.SetBool(PlayerAnimationConstants.IdleThrow, true);
+            _animator.Play(PlayerAnimationConstants.IdleThrowWithAxe);
         }
 
-        public Type Update()
-        {
-            return _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ? 
-                typeof(IdleState) : 
-                typeof(EmptyState);
-        }
+        public void Update(){}
 
-        public void Exit()
-        {
-            _animator.SetBool(PlayerAnimationConstants.IdleThrow, false);
-        }
+        public void Exit() { }
     }
 }

@@ -16,51 +16,72 @@ namespace UI
         public GameMenu GameMenu { get; private set; }
         private Crowbar _crowbar;
 
-        public void Construct(Crowbar crowbar)
-        {
+        public void Construct(Crowbar crowbar) => 
             _crowbar = crowbar;
-        }
 
-        private void Awake()
-        {
+        private void Awake() => 
             DontDestroyOnLoad(this);
-        }
 
         private void Start()
         {
-            _pauseButton.onClick.AddListener(Pause);
-            EventTrigger.Entry entryJump = new EventTrigger.Entry
-            {
-                eventID = EventTriggerType.PointerDown
-            };
-            entryJump.callback.AddListener( ( _ ) => { Jump(); } );
-            _jumpTrigger.triggers.Add(entryJump);
+            RegisterPauseButton();
+            RegisterJumpTrigger();
+            RegisterShootTrigger();
+            RegisterStopShootTrigger();
+            RegisterJoystickPosition();
+        }
 
+        private void RegisterPauseButton()
+        {
+            _pauseButton.onClick.AddListener(Pause);
+        }
+
+        private void RegisterJoystickPosition()
+        {
+            JoystickStartPosition = ((RectTransform)OnScreenStick.transform).anchoredPosition;
+        }
+
+        private void RegisterStopShootTrigger()
+        {
+            EventTrigger.Entry entryStopShoot = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerUp
+            };
+            entryStopShoot.callback.AddListener((_) => { StopShoot(); });
+            _shootTrigger.triggers.Add(entryStopShoot);
+        }
+
+        private void RegisterShootTrigger()
+        {
             EventTrigger.Entry entryShoot = new EventTrigger.Entry
             {
                 eventID = EventTriggerType.PointerDown
             };
-            entryShoot.callback.AddListener( ( _ ) => { Shoot(); } );
+            entryShoot.callback.AddListener((_) => { Shoot(); });
             _shootTrigger.triggers.Add(entryShoot);
-            
-            JoystickStartPosition = ((RectTransform)OnScreenStick.transform).anchoredPosition;
         }
 
-        private void Jump()
+        private void RegisterJumpTrigger()
         {
-            Debug.Log("Jump");
+            EventTrigger.Entry entryJump = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+            entryJump.callback.AddListener((_) => { Jump(); });
+            _jumpTrigger.triggers.Add(entryJump);
+        }
+
+        private void StopShoot() => 
+            _crowbar.StopShoot();
+
+        private void Jump() => 
             _crowbar.Jump();
-        }
 
-        private void Shoot()
-        {
-            Debug.Log("Shoot");
+        private void Shoot() => 
             _crowbar.Shoot();
-        }
-        public void SetGameMenu(GameMenu gameMenu)
-        {
+
+        public void SetGameMenu(GameMenu gameMenu) => 
             GameMenu = gameMenu;
-        }
 
         private void Pause()
         {

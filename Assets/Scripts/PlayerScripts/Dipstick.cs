@@ -17,8 +17,9 @@ namespace PlayerScripts
 
         private int DrawDipstick()
         {
-            Vector2 position = new Vector2(_player.transform.position.x, _player.transform.position.y + .35f);
-            return Physics2D.OverlapCircleNonAlloc(position, .4f, _results, GroundLayerMask);
+            Vector3 playerPosition = _player.transform.position;
+            Vector2 position = new Vector2(playerPosition.x, playerPosition.y + .1f);
+            return Physics2D.OverlapCircleNonAlloc(position, .2f, _results, GroundLayerMask);
         }
 
         public bool Contact()

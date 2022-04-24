@@ -1,4 +1,3 @@
-using System;
 using Common;
 using UnityEngine;
 
@@ -6,31 +5,19 @@ namespace PlayerScripts.States
 {
     public class IdleState : IState
     {
-        private readonly Rigidbody2D _rigidbody;
-        private readonly PlayerStateData _playerStateData;
-        public IdleState(Rigidbody2D rigidbody2D, PlayerStateData playerStateData)
+        private readonly Animator _animator;
+
+        public IdleState(Animator animator)
         {
-            _rigidbody = rigidbody2D;
-            _playerStateData = playerStateData;
+            _animator = animator;
         }
 
         public void Enter()
         {
+            if(!_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleWithAxe"))
+                _animator.Play(PlayerAnimationConstants.IdleWithAxe);
         }
-
-        public Type Update()
-        {
-            if (Mathf.Abs(_rigidbody.velocity.x) > _playerStateData.Damping.x)
-                return typeof(WalkState);
-            if(!_playerStateData.IsOnGround && _rigidbody.velocity.y > _playerStateData.Damping.y)
-                return typeof(JumpState);
-            return _playerStateData.IsShoot ? typeof(IdleThrowState) : typeof(EmptyState);
-        }
-
-        public void Exit()
-       {
-           if (_playerStateData.IsShoot) _playerStateData.IsShoot = false;
-       }
-       
+        public void Update(){}
+        public void Exit() { }
     }
 }

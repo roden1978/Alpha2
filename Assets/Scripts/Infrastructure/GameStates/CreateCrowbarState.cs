@@ -9,38 +9,21 @@ namespace Infrastructure.GameStates
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-
         public CreateCrowbarState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-        public void Enter()
-        {
+        public void Enter() => 
             CreateCrowbar(OnLoaded);
-        }
-
         private void CreateCrowbar(Action onLoaded)
         {
             _serviceLocator.Single<IGameFactory>().CreateCrowbar();
             onLoaded?.Invoke();
         }
-
-        public Type Update()
-        {
-            return null;
-        }
-
-        public void Exit()
-        {
-           
-        }
-
-        private void OnLoaded()
-        {
+        public void Update(){}
+        public void Exit(){}
+        private void OnLoaded() => 
             _stateMachine.Enter<CreateHudState>();
-        }
-        
-        
     }
 }

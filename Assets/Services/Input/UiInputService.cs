@@ -6,6 +6,7 @@ namespace Services.Input
     public class UiInputService : IDisposable, IInputService
     {
         private readonly UIInput _input;
+        public event Action OnStopShoot;
         public event Action OnJump;
         public event Action OnShoot;
         public UiInputService()
@@ -23,6 +24,11 @@ namespace Services.Input
         public void Shoot()
         {
             OnShoot?.Invoke();
+        }
+
+        public void StopShoot()
+        {
+            OnStopShoot?.Invoke();
         }
 
         public float Move()
