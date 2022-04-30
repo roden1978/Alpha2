@@ -459,6 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyDeath: {fileID: 1028766350381105354}
   _spawnedLootObjectStaticData: {fileID: 11400000, guid: 3eb76841ff2977e41a56bb2df2820773, type: 2}
+  _chance: 50
 --- !u!1 &4869633849192914784
 GameObject:
   m_ObjectHideFlags: 0

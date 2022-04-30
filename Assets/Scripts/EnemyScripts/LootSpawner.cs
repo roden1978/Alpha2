@@ -1,4 +1,5 @@
-﻿using Infrastructure.Factories;
+﻿using Data;
+using Infrastructure.Factories;
 using StaticData;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace EnemyScripts
     {
         [SerializeField] private EnemyDeath _enemyDeath;
         [SerializeField] private PickableObjectStaticData _spawnedLootObjectStaticData;
+        [SerializeField] [Range(0, 100)] private int _chance = 100;
         private IGameFactory _gameFactory;
 
         public void Construct(IGameFactory gameFactory)
@@ -22,8 +24,12 @@ namespace EnemyScripts
 
         private void OnEnemyDeath()
         {
-            GameObject loot = _gameFactory.CreatePickableObject(_spawnedLootObjectStaticData.PickableObjectTypeId, transform);
-            loot.transform.parent = null;
+            if(Extensions.Random100() >= _chance)
+            {
+                GameObject loot =
+                    _gameFactory.CreatePickableObject(_spawnedLootObjectStaticData.PickableObjectTypeId, transform);
+                loot.transform.parent = null;
+            }
         }
 
         private void OnDestroy()
