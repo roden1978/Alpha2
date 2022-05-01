@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7501301055620225599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.008, y: -0.086, z: 0}
+  m_LocalPosition: {x: 0.008, y: -0.055, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7501301057331088494}
@@ -140,7 +140,7 @@ Animator:
   m_GameObject: {fileID: 7501301056858739855}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a17c2c350d63fb4c80acbfebfa2acf6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8ff802957094ec54c8b64294e2e14911, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,6 +161,9 @@ GameObject:
   - component: {fileID: 7501301057331088500}
   - component: {fileID: 7501301057331088503}
   - component: {fileID: 7501301057331088502}
+  - component: {fileID: 5256258515954055719}
+  - component: {fileID: 1055482644079142521}
+  - component: {fileID: 861896393309960872}
   m_Layer: 13
   m_Name: RedOctonoid
   m_TagString: Untagged
@@ -242,3 +245,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6395787, y: 0.40144348}
   m_EdgeRadius: 0
+--- !u!114 &5256258515954055719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501301057331088489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d31fed4baa43d189f00485460f3568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1055482644079142521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501301057331088489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154230d07c324c6caa0a9bb138247282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+--- !u!114 &861896393309960872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501301057331088489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9164606894464aaa9d069b63493b290b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 5256258515954055719}
+  _deathFx: {fileID: 0}

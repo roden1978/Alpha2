@@ -19,7 +19,8 @@ namespace GameObjectsScripts
 
         private void ShowCollectFX(Transform otherTransform)
         {
-            Instantiate(CollectFX, otherTransform.position + Vector3.up , Quaternion.identity);
+            if(CollectFX != null)
+                Instantiate(CollectFX, otherTransform.position + Vector3.up , Quaternion.identity);
         }
     }
 }

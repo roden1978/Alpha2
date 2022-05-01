@@ -146,8 +146,8 @@ namespace Infrastructure.Factories
             ActorUI actorUI = enemy.GetComponent<ActorUI>();
             actorUI.Construct(enemyHealth);
 
-            Aggro aggro = enemy.GetComponent<Aggro>();
-            aggro.Construct(enemyStaticData.Cooldown);
+            if(enemy.TryGetComponent(out Aggro aggro))
+                aggro.Construct(enemyStaticData.Cooldown);
 
             LootSpawner loopSpawner = enemy.GetComponentInChildren<LootSpawner>();
             loopSpawner.Construct(this);

@@ -49,6 +49,7 @@ namespace GameObjectsScripts
 
         private IEnumerator Damage(Component other)
         {
+            Debug.Log("trap");
             InteractableObjectsCollector player = other.GetComponent<InteractableObjectsCollector>();
             while(player.gameObject.activeInHierarchy)
             {
