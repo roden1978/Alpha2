@@ -24,8 +24,7 @@ namespace PlayerScripts
                 { typeof(Food), FoodCollect },
                 { typeof(Bullet), DamageCollect },
                 { typeof(Life), LifeCollect },
-                { typeof(Trap), DamageCollect},
-                { typeof(OctonoidAttack), DamageCollect}
+                { typeof(DamageOnTouch), DamageCollect},
             };
         }
 

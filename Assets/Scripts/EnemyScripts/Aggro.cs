@@ -63,17 +63,12 @@ namespace EnemyScripts
                 yield return new WaitForSeconds(_cooldown);
             }
         }
-        private Vector2 DirectionToTarget(Vector3 target, Vector3 position)
-        {
-            Vector3 direction = target - position;
-            //Debug.Log($"Direction to player {direction.normalized}");
-            return direction.normalized;
-        }
-        private void Flip()
-        {
+        private Vector2 DirectionToTarget(Vector3 target, Vector3 position) => 
+            (target - position).normalized;
+
+        private void Flip() => 
             transform.Rotate(0f, 180f, 0f);
-        }
-        
+
         private Vector2 LookDirection()
         {
             float shootPointPosition = _shootPoint.transform.position.x;
@@ -81,9 +76,7 @@ namespace EnemyScripts
             return shootPointPosition > viewTransformPosition ? Vector2.right : Vector2.left;
         }
 
-        private Vector2 TargetSide(Transform target)
-        {
-            return target.position.x > transform.position.x ? Vector2.right : Vector2.left;
-        }
+        private Vector2 TargetSide(Transform target) => 
+            target.position.x > transform.position.x ? Vector2.right : Vector2.left;
     }
 }

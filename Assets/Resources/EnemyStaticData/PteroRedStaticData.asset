@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2ceed86007a4cf3ba8a0016f2d7245c, type: 3}
-  m_Name: OctonoidStaticData
+  m_Name: PteroRedStaticData
   m_EditorClassIdentifier: 
-  EnemyTypeId: 30
-  Health: 20
-  Cooldown: 0.5
-  DamageOnTouch: 5
+  EnemyTypeId: 10
+  Health: 30
+  Cooldown: 1
+  DamageOnTouch: 10
   SelfDamageOnTouch: 5
-  Prefab: {fileID: 4605202590794624795, guid: f3b374c01ac8f6445a96b2f47d19b699, type: 3}
+  Prefab: {fileID: 4551130164006599500, guid: 5ed399595ae964b43860ec7b5580e4a9, type: 3}
