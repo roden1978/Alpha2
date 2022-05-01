@@ -30,5 +30,10 @@ namespace Data
             texture.Apply();
             return texture;
         }
+
+        public static int Random100()
+        {
+            return Random.Range(0, 101);
+        }
     }
 }

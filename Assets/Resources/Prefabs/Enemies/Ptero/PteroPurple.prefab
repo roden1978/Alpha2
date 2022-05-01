@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2790348767718862325}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PteroPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2801891124667463896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4261465, y: -0.5666789, z: -2.9206111}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4575867932563195620}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4575867932563195620}
   - component: {fileID: 8276171755493647282}
   - component: {fileID: 7500212757348438211}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
