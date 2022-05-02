@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerObserver: {fileID: 2785083891221265202}
   _shootPoint: {fileID: 551904140479985524}
-  _bullet: {fileID: 54632348347774190, guid: eaa9d80cb50ed104983499b3ddd975d8, type: 3}
+  _bullet: {fileID: 54632348347774190, guid: 7f92b9dc0b77eb3409a73cbd2151ae74, type: 3}
   _spriteRenderer: {fileID: 170797857662134982}
 --- !u!1 &7605201950872879745
 GameObject:
@@ -124,11 +124,11 @@ PrefabInstance:
       objectReference: {fileID: 19867628, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Size.x
-      value: 8
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Size.y
-      value: 0.6606074
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Offset.x
@@ -159,6 +159,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1028766350381105354, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: _deathFx
+      value: 
+      objectReference: {fileID: 8836457220734403286, guid: cc3a660f58844b343b462140d33e87ad, type: 3}
     - target: {fileID: 3653590319846758297, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Name
       value: Spider
@@ -205,6 +209,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3653590319846758298, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Radius
+      value: 0.41758537
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.025938451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640804994478835688, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
