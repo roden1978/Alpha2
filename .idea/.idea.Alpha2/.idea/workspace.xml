@@ -2,50 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f4c8fd-a44c-475c-9ecb-abb5f8ec4e6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/FireTrapStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/FireTrapStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/PteroPurpleStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/PteroPurpleStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/PteroRedStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/PteroRedStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/SpiderStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/SpiderStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/SpikyTrapStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/SpikyTrapStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/TarTrapStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/TarTrapStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/WaterTrapStaticData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/WaterTrapStaticData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Attack.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Attack.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroPurple.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroPurple.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroRed.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroRed.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FlEnemyAI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FlEnemyAI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/AI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/AI/Conditions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/AI/States.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Alpha2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/OctonoidStaticData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/EnemyStaticData/OctonoidStaticData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid/RedOctonoid.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Octonoid/RedOctonoid.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroPurple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroPurple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroPurple.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroPurple.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroRed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroRed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider/Animation/spider.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider/Animation/spider.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Traps/Tar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Traps/Tar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/Aggro.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/OctonoidAttack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyScripts/OctonoidAttack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/PickableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Trap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/DamageOnTouch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/Trap.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjectsScripts/DamageOnTouch.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Mediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Mediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InteractableObjectsCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InteractableObjectsCollector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyStaticData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyStaticData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyTypeId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticData/EnemyTypeId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticData/TrapStaticData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticData/TrapStaticData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticData/TrapTypeId.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticData/TrapTypeId.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroRed.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Ptero/PteroRed.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroPurple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroPurple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroRed.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/PteroRed.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider/Spider.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider/Spider.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider/Spider.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemies/Spider/Spider.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameFactory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,6 +253,7 @@
       <workItem from="1651294965564" duration="6309000" />
       <workItem from="1651382180625" duration="11119000" />
       <workItem from="1651406709746" duration="4120000" />
+      <workItem from="1651466955971" duration="6327000" />
     </task>
     <task id="LOCAL-00001" summary="Разнес скрипты по папкам">
       <created>1648276466666</created>

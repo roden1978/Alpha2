@@ -152,6 +152,10 @@ namespace Infrastructure.Factories
             LootSpawner loopSpawner = enemy.GetComponentInChildren<LootSpawner>();
             loopSpawner.Construct(this);
 
+            EnemyAI enemyAI = enemy.GetComponentInChildren<EnemyAI>();
+            if(enemyAI != null)
+                enemyAI.Construct(Player);
+
             return enemy;
         }
 
