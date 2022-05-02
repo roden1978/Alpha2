@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ceed86007a4cf3ba8a0016f2d7245c, type: 3}
+  m_Name: OctonoidStaticData
+  m_EditorClassIdentifier: 
+  EnemyTypeId: 30
+  Health: 20
+  Cooldown: 0.5
+  DamageOnTouch: 5
+  SelfDamageOnTouch: 5
+  Prefab: {fileID: 4605202590794624795, guid: f3b374c01ac8f6445a96b2f47d19b699, type: 3}

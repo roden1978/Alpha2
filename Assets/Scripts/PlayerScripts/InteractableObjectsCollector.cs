@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EnemyScripts;
 using GameObjectsScripts;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace PlayerScripts
                 { typeof(Food), FoodCollect },
                 { typeof(Bullet), DamageCollect },
                 { typeof(Life), LifeCollect },
-                { typeof(Trap), DamageCollect}
+                { typeof(DamageOnTouch), DamageCollect},
             };
         }
 

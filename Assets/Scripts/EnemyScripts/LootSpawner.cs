@@ -24,7 +24,7 @@ namespace EnemyScripts
 
         private void OnEnemyDeath()
         {
-            if(Extensions.Random100() >= _chance)
+            if(Extensions.Random100() <= _chance)
             {
                 GameObject loot =
                     _gameFactory.CreatePickableObject(_spawnedLootObjectStaticData.PickableObjectTypeId, transform);

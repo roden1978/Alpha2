@@ -38,9 +38,6 @@ namespace Infrastructure
             _interactableObjectsCollector.LifeCollecting += OnLivesCollecting;
             _interactableObjectsCollector.DamageCollecting += OnDamageCollecting;
             _player.Death += OnPlayerDeath;
-            //UpdateHud();
-            //if(_controlsPanel != null)
-            //    _controlsPanel.Show();
         }
 
         private void OnPlayerDeath(int delta)
@@ -72,7 +69,7 @@ namespace Infrastructure
             _interactableObjectsCollector.CrystalCollecting -= OnCrystalCollecting;
             _interactableObjectsCollector.FoodCollecting -= OnFoodCollecting;
             _interactableObjectsCollector.LifeCollecting -= OnLivesCollecting;
-            _interactableObjectsCollector.DamageCollecting += OnDamageCollecting;
+            _interactableObjectsCollector.DamageCollecting -= OnDamageCollecting;
         }
 
         private void OnLivesCollecting(int amount)
