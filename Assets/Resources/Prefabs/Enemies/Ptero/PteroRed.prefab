@@ -73,6 +73,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _seeker: {fileID: 5288313019440890501}
   _rigidbody: {fileID: 5887353950119996221}
+  _model: {fileID: 4551130162800488786}
+  _patrolSpeed: 100
+  _patrolDistance: 5
+  _attackSpeed: 300
 --- !u!1001 &980929078090018005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,6 +92,10 @@ PrefabInstance:
       propertyPath: _deathFx
       value: 
       objectReference: {fileID: 19892836, guid: cbf6e26bfae3a4f48acb9bb79ce1e5da, type: 3}
+    - target: {fileID: 3653590318636457351, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
     - target: {fileID: 3653590318636457369, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Controller
       value: 
@@ -158,7 +166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Radius
-      value: 0.4
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -182,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265163232034777280, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Size.y
-      value: 0.15323438
+      value: 0.4793649
       objectReference: {fileID: 0}
     - target: {fileID: 6265163232034777280, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Offset.x
@@ -190,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265163232034777280, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Offset.y
-      value: -0.06033299
+      value: -0.01015906
       objectReference: {fileID: 0}
     - target: {fileID: 6408868162890229873, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: _enemyStaticData
@@ -202,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6640804994478835688, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_LinearDrag
-      value: 1.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6640804994478835688, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Constraints
@@ -243,5 +255,10 @@ Transform:
 --- !u!50 &5887353950119996221 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6640804994478835688, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+  m_PrefabInstance: {fileID: 980929078090018005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4551130162800488786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3653590318636457351, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
   m_PrefabInstance: {fileID: 980929078090018005}
   m_PrefabAsset: {fileID: 0}

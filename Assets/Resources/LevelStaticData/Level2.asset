@@ -15,18 +15,12 @@ MonoBehaviour:
   LevelKey: Level2
   PlayerSpawnPoint: {x: -21.34, y: -0.7, z: 0}
   EnemySpawners:
-  - Id: Level2_1e816e9b-044a-4665-8d59-38048cfb4036
+  - Id: Level2_2f1f8e00-c967-4e6a-abde-932387aa0e36
     EnemyTypeId: 40
-    Position: {x: -3.46, y: -3.56, z: 0}
-  - Id: Level2_9396b30b-43e7-4e16-bd75-c8ad25b8f3bb
-    EnemyTypeId: 20
-    Position: {x: -6.58, y: -2.61, z: 0}
+    Position: {x: -7.79, y: -3.53, z: 0}
   - Id: Level2_42521c00-022b-43ec-915a-70e65ad21504
     EnemyTypeId: 10
-    Position: {x: -12.08, y: -3.18, z: 0}
-  - Id: Level2_be05b417-ca5f-41aa-a77e-958e0cd034af
-    EnemyTypeId: 30
-    Position: {x: -9.58, y: -3.18, z: 0}
+    Position: {x: -20.5, y: 2.05, z: 0}
   PickableObjectSpawners: []
   SaveProgressPointSpawners:
   - Id: Level2_95071af1-ba3e-4187-aba5-0619bd4f40c4
