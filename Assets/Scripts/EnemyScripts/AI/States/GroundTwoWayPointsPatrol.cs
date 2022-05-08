@@ -13,6 +13,7 @@ namespace EnemyScripts.AI.States
 
         private bool _reachedEndOfPath;
         private int _wayPointsCount;
+        private Vector3 _lastPosition;
 
         public GroundTwoWayPointsPatrol(Transform transform, Rigidbody2D rigidbody, GameObject view,
             float patrolDistance, float speed)
@@ -28,6 +29,7 @@ namespace EnemyScripts.AI.States
 
         public void Enter()
         {
+            _lastPosition = _transform.position;
         }
 
         public void Update()
@@ -50,6 +52,7 @@ namespace EnemyScripts.AI.States
             //_rigidbody.AddForce(force);
             _rigidbody.MovePosition(position + direction * _speed * Time.deltaTime);
             FlipView();
+            _lastPosition = position;
         }
 
         public void Exit()
@@ -60,13 +63,14 @@ namespace EnemyScripts.AI.States
 
         private void FlipView()
         {
-            if (_rigidbody.velocity.x >= 0.01f)
-            {
-                _view.transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-            else if (_rigidbody.velocity.x <= -0.01f)
+            //Debug.Log($"position {_lastPosition.x - _transform.position.x}");
+            if (_lastPosition.x - _transform.position.x >= 0.01f)
             {
                 _view.transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (_lastPosition.x - _transform.position.x <= -0.01f)
+            {
+                _view.transform.localScale = new Vector3(1f, 1f, 1f);
             }
         }
     }
