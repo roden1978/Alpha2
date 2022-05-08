@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerObserver: {fileID: 2785083891221265202}
   _shootPoint: {fileID: 551904140479985524}
-  _bullet: {fileID: 54632348347774190, guid: 7f92b9dc0b77eb3409a73cbd2151ae74, type: 3}
+  _bullet: {fileID: 6082999555684933527, guid: feee845aff0b9164f92dae3203311b7c, type: 3}
   _spriteRenderer: {fileID: 170797857662134982}
 --- !u!114 &3495779478844792830
 MonoBehaviour:
@@ -69,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7605201950872879745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.487, y: 0.033, z: 0}
+  m_LocalPosition: {x: 0.128, y: 0.033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 170797857662134980}
@@ -182,19 +182,19 @@ PrefabInstance:
       objectReference: {fileID: 19867628, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Size.x
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Offset.x
-      value: 0.15459871
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6475757901197840271, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
       propertyPath: m_Offset.y
-      value: 0.15007827
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6330944937906343742, guid: 05ea479c96fb02442987fd211ae655e9, type: 3}
@@ -225,6 +225,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3653590318636457370, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5574079029978300261, guid: d2657a68e51a5d741919f7802e731ed2, type: 3}
     - target: {fileID: 3653590319846758297, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Name
       value: Spider
@@ -281,6 +285,22 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.098662466
       objectReference: {fileID: 0}
+    - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.5963
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.0417
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0146
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.3188
+      objectReference: {fileID: 0}
     - target: {fileID: 6408868162890229873, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: _enemyStaticData
       value: 
@@ -304,6 +324,22 @@ PrefabInstance:
     - target: {fileID: 6640804994478835688, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_GravityScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021810449668413340, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.59633
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021810449668413340, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.0417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021810449668413340, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021810449668413340, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}

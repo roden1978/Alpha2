@@ -27,8 +27,8 @@ namespace EnemyScripts.AI
             Transform enemyTransform = transform;
             IState twoWayPointsPatrol = new TwoWayPointsPatrol(enemyTransform, _rigidbody,_model, _patrolDistance, _patrolSpeed, _pathBuilder);
             IState chase = new ChaseState(enemyTransform, _pathBuilder,_attackSpeed, Player, _rigidbody,_model);
-            StateMachine.AddTransition(twoWayPointsPatrol, chase, new ChaseDistance(Player, this, 4));
-            StateMachine.AddTransition(chase, twoWayPointsPatrol, new PatrolDistance(Player, this, 7));
+            StateMachine.AddTransition(twoWayPointsPatrol, chase, new ChaseDistance(Player, this, 5));
+            StateMachine.AddTransition(chase, twoWayPointsPatrol, new PatrolDistance(Player, this, 10));
             StateMachine.SetState(twoWayPointsPatrol);
         }
 

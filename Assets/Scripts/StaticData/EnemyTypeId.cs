@@ -7,6 +7,7 @@
         PteroPurple = 20,
         Octonoid = 30,
         Spider = 40,
+        Crab = 50,
         FireTrap = 100,
         SpikyTrap = 110,
         TarTrap = 120,

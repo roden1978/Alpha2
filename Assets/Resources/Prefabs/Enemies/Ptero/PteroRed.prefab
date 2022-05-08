@@ -76,7 +76,7 @@ MonoBehaviour:
   _model: {fileID: 4551130162800488786}
   _patrolSpeed: 100
   _patrolDistance: 5
-  _attackSpeed: 300
+  _attackSpeed: 350
 --- !u!1001 &980929078090018005
 PrefabInstance:
   m_ObjectHideFlags: 0
