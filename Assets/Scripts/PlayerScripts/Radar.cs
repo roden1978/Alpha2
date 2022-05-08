@@ -8,12 +8,13 @@ namespace PlayerScripts
         private const int EnemyLayerMask = 1 << 13;
         
         private readonly float _distance;
-        private readonly float _delta;
+        private float _delta;
         private readonly int _endDegree;
         private readonly int _degree;
         private readonly int _releaseDistance;
 
         private float _currentDegree;
+        private float _initDeltaDegree;
         
         private Vector3 _direction;
         private Vector2 _currentHit;
@@ -28,6 +29,7 @@ namespace PlayerScripts
             _endDegree = FullDegree - _degree;
             _currentDegree = _degree;
             _delta = delta;
+            _initDeltaDegree = delta;
             _clockwise = true;
         }
         public Vector2 Target(float lookDirection, Vector3 position)
@@ -36,7 +38,7 @@ namespace PlayerScripts
             //uncomment all strings for stay crosshair on target
             //if(_currentHit == Vector2.zero)
                 _currentHit = SearchTarget(lookDirection, position);
-            
+                _delta = _currentHit != Vector2.zero ? _delta / 5 : _initDeltaDegree;
             /*if (_currentHit != Vector2.zero)
             {
                 Vector2 direction = (_currentHit - new Vector2(position.x * lookDirection, position.y));

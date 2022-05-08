@@ -56,7 +56,7 @@ namespace PlayerScripts
 
         private void DamageCollect(int damage)
         {
-            Debug.Log($"Damage {damage.ToString()}");
+            //Debug.Log($"Damage {damage.ToString()}");
             DamageCollecting?.Invoke(damage);
         }
 
