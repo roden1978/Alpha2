@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5319785986843009190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605202590794624795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42113689c6f54bd4821bf5fd694df02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerObserver: {fileID: 2853070062019064736}
+  _shootPoint: {fileID: 4177869852895726569}
+  _bullet: {fileID: 6082999555684933527, guid: 096421714ad11ec429e4e55980370c33, type: 3}
 --- !u!1 &1704250572067670382
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,22 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22524c024cd407f89eeba2f683064c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5319785986843009190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4605202590794624795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42113689c6f54bd4821bf5fd694df02d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerObserver: {fileID: 2853070062019064736}
-  _shootPoint: {fileID: 4177869852895726569}
-  _bullet: {fileID: 6082999555684933527, guid: 096421714ad11ec429e4e55980370c33, type: 3}
-  _spriteRenderer: {fileID: 4605202589324272920}
 --- !u!1 &6130561270377691541
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5869385104317300586}
   _model: {fileID: 4605202589324272901}
-  _patrolSpeed: 5
+  _patrolSpeed: 3
   _patrolDistance: 5
 --- !u!1001 &962888866505701506
 PrefabInstance:
@@ -261,15 +260,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Radius
-      value: 0.25298885
+      value: 0.4101508
       objectReference: {fileID: 0}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 491c6553bdceaad4a847538842237faa, type: 2}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.011225849
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Offset.y
-      value: 0.0091582835
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -360,11 +363,6 @@ GameObject:
 --- !u!4 &4605202589324272922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3653590318636457368, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
-  m_PrefabInstance: {fileID: 962888866505701506}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &4605202589324272920 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3653590318636457370, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
   m_PrefabInstance: {fileID: 962888866505701506}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5924326089225095654 stripped

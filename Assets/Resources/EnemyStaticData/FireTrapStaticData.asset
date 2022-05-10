@@ -15,6 +15,6 @@ MonoBehaviour:
   EnemyTypeId: 100
   Health: 0
   Cooldown: 1
-  DamageOnTouch: 10
+  DamageOnTouch: 5
   SelfDamageOnTouch: 0
   Prefab: {fileID: 0}

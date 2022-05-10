@@ -37,11 +37,11 @@ namespace PlayerScripts
             _target = CalculateTarget();
             DrawCrosshair(_target);
             //remove before production
-            if(_target != Vector2.zero)
+            /*if(_target != Vector2.zero)
             {
                 Vector3 position = _shootPoint.transform.position;
                 Debug.DrawRay(position, DirectionToTarget(_target, position) * _radarDistance, Color.red);
-            }
+            }*/
             //remove before production
         }
 

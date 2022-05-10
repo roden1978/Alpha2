@@ -15,6 +15,6 @@ MonoBehaviour:
   EnemyTypeId: 20
   Health: 35
   Cooldown: 0.7
-  DamageOnTouch: 12
-  SelfDamageOnTouch: 3
+  DamageOnTouch: 10
+  SelfDamageOnTouch: 5
   Prefab: {fileID: 4551130164006599500, guid: 0294e575b0c2f594b9cbed5089c9890e, type: 3}

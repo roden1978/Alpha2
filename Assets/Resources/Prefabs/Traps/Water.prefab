@@ -228,6 +228,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c832c72fa9988b34dbf49bed485414f2, type: 2}
     - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: _enemyStaticData
+      value: 
+      objectReference: {fileID: 11400000, guid: a152caa5c0c05a549b7b6652e20dd4f9, type: 2}
+    - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: _triggerObserver
       value: 
       objectReference: {fileID: 1405307635293624655}
@@ -301,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461849284856294590, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.86
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 942d42f8a4c090f439dc938176155c62, type: 3}

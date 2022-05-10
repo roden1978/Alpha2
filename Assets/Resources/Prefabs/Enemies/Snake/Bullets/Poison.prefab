@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: _lifeTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54632348347774190, guid: eaa9d80cb50ed104983499b3ddd975d8, type: 3}
+      propertyPath: _rotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7010136939603797808, guid: eaa9d80cb50ed104983499b3ddd975d8, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -10,8 +10,8 @@ namespace EnemyScripts
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private ShootPoint _shootPoint;
         [SerializeField] private Bullet _bullet;
-        [SerializeField] private SpriteRenderer _spriteRenderer;
         private float _cooldown;
+        
         private Coroutine _shooting;
 
         private void Start()
@@ -59,6 +59,7 @@ namespace EnemyScripts
                 Bullet bullet = Instantiate(_bullet, position, Quaternion.identity);
                 Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
                 Vector2 direction = DirectionToTarget(target.position  + Vector3.up, position);
+                bullet.SetRotateDirection(direction);
                 bulletRigidbody.AddForce(direction * bullet.Speed, ForceMode2D.Impulse);
                 yield return new WaitForSeconds(_cooldown);
             }
@@ -78,5 +79,7 @@ namespace EnemyScripts
 
         private Vector2 TargetSide(Transform target) => 
             target.position.x > transform.position.x ? Vector2.right : Vector2.left;
+        
+       
     }
 }

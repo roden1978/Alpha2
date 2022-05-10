@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CrabStaticData
   m_EditorClassIdentifier: 
   EnemyTypeId: 50
-  Health: 30
+  Health: 20
   Cooldown: 1
   DamageOnTouch: 5
-  SelfDamageOnTouch: 2
+  SelfDamageOnTouch: 5
   Prefab: {fileID: 4605202590794624795, guid: 524abd3dbf858f24d92f4229d72e2119, type: 3}

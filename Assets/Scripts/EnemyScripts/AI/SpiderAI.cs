@@ -2,7 +2,6 @@
 using EnemyScripts.AI.Conditions;
 using EnemyScripts.AI.States;
 using PlayerScripts;
-using PlayerScripts.States;
 using UnityEngine;
 
 namespace EnemyScripts.AI
@@ -21,9 +20,9 @@ namespace EnemyScripts.AI
             StateMachine = new StateMachine();
             IState groundTwoWayPointsPatrol = new GroundTwoWayPointsPatrol(transform, _rigidbody,
                 _model, _patrolDistance, _patrolSpeed);
-            IState nothingState = new NothingState();
-            StateMachine.AddTransition(groundTwoWayPointsPatrol, nothingState, new PatrolToNothing(_triggerObserver));
-            StateMachine.AddTransition(nothingState, groundTwoWayPointsPatrol, new NothingToPatrol(_triggerObserver));
+            IState attackState = new SpiderAttackState(_model.GetComponent<Animator>());
+            StateMachine.AddTransition(groundTwoWayPointsPatrol, attackState, new PatrolToAttack(_triggerObserver));
+            StateMachine.AddTransition(attackState, groundTwoWayPointsPatrol, new AttackToPatrol(_triggerObserver));
             StateMachine.SetState(groundTwoWayPointsPatrol);
         }
 
