@@ -89,6 +89,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: _enemyStaticData
+      value: 
+      objectReference: {fileID: 11400000, guid: 19205f38254d8a04ca93e5c02e6d8397, type: 2}
+    - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: _triggerObserver
+      value: 
+      objectReference: {fileID: 8155388621036508348}
     - target: {fileID: 1827881482054808, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_Name
       value: Spiky
@@ -176,3 +184,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4334263990546180, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
   m_PrefabInstance: {fileID: 1239252487069374780}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8155388621036508348 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6926385799238700416, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+  m_PrefabInstance: {fileID: 1239252487069374780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22524c024cd407f89eeba2f683064c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

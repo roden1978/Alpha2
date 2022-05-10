@@ -15,16 +15,25 @@ MonoBehaviour:
   LevelKey: Level1
   PlayerSpawnPoint: {x: -21.18, y: -0.95, z: 0}
   EnemySpawners:
+  - Id: Level1_6566121b-8800-4ff1-aebf-62ed5b14ee5b
+    EnemyTypeId: 10
+    Position: {x: -12.99, y: 5.88, z: 0}
+  - Id: Level1_547da9c2-c945-4c1b-b759-59ec990fff49
+    EnemyTypeId: 40
+    Position: {x: 32.32, y: 12.28, z: 0}
   - Id: Level1_3c64d83f-59a4-4842-bba2-2a5efcefd1be
     EnemyTypeId: 0
     Position: {x: -5.42, y: 3.84, z: 0}
+  - Id: Level1_5bb56aca-a9c5-4eb5-8d6e-b6c6054fac6b
+    EnemyTypeId: 50
+    Position: {x: -10.33, y: -3.61, z: 0}
   - Id: SpawnMarker_5856ac56-0807-4fe3-a351-cb118145e36c
-    EnemyTypeId: 0
-    Position: {x: -5.23, y: -3.18, z: 0}
+    EnemyTypeId: 30
+    Position: {x: -1.66, y: 2.35, z: 0}
+  - Id: Level1_2e67afbb-4428-4c03-baa5-8fb915c005c3
+    EnemyTypeId: 20
+    Position: {x: 19.03, y: 11.12, z: 0}
   PickableObjectSpawners:
-  - Id: Level1_7dd33b23-529d-4702-a59d-2a68396304c3
-    PickableObjectTypeId: 70
-    Position: {x: -16.3, y: -2.22, z: 0}
   - Id: Level1_b0d80881-c40d-45d2-a676-14b36f4cb391
     PickableObjectTypeId: 100
     Position: {x: 34.05, y: 12.87, z: 0}
@@ -34,7 +43,7 @@ MonoBehaviour:
   - Id: Level1_1f2dba81-81aa-4169-803e-a7f57a2f5b43
     PickableObjectTypeId: 0
     Position: {x: -7.91, y: 4.89, z: 0}
-  - Id: _16589ee1-5c76-4b46-b68d-95e387264637
+  - Id: _e9e57b1e-b50e-4556-a1ac-d547c4c7ea54
     PickableObjectTypeId: 0
     Position: {x: -9.91, y: 4.89, z: 0}
   - Id: Level1_d140b628-f153-4344-a2b1-3e513d6cfa2e
@@ -49,6 +58,9 @@ MonoBehaviour:
   - Id: Level1_11593d95-28b2-4478-9426-b98c0e027942
     PickableObjectTypeId: 0
     Position: {x: 30.55, y: 12.87, z: 0}
+  - Id: Level1_7dd33b23-529d-4702-a59d-2a68396304c3
+    PickableObjectTypeId: 70
+    Position: {x: -16.3, y: -2.22, z: 0}
   - Id: Level1_ba34a2f0-034c-4098-87cf-1cca6a24247c
     PickableObjectTypeId: 110
     Position: {x: 32.06, y: 13.01, z: 0}

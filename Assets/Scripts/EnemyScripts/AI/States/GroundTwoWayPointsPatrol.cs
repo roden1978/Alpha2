@@ -48,9 +48,8 @@ namespace EnemyScripts.AI.States
 
             Vector2 position = _transform.position;
             Vector2 direction = new Vector2(_patrolPoints[_wayPointsCount] - position.x, position.y);
-            //Vector2 force = direction * _speed * Time.deltaTime;
-            //_rigidbody.AddForce(force);
-            _rigidbody.MovePosition(position + direction * _speed * Time.deltaTime);
+            Vector2 delta = direction.x > 0 ? Vector2.right : Vector2.left;
+            _rigidbody.MovePosition(position + delta * _speed * Time.deltaTime);
             FlipView();
             _lastPosition = position;
         }
@@ -63,7 +62,6 @@ namespace EnemyScripts.AI.States
 
         private void FlipView()
         {
-            //Debug.Log($"position {_lastPosition.x - _transform.position.x}");
             if (_lastPosition.x - _transform.position.x >= 0.01f)
             {
                 _view.transform.localScale = new Vector3(-1f, 1f, 1f);

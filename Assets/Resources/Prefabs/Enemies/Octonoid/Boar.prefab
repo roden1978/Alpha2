@@ -45,9 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5869385104317300586}
   _model: {fileID: 4605202589324272901}
-  _transform: {fileID: 4605202590794624792}
-  _patrolSpeed: 5
-  _patrolDistance: 5
+  _patrolSpeed: 2
+  _patrolDistance: 4
 --- !u!1001 &962888866505701506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,14 +73,14 @@ PrefabInstance:
     - target: {fileID: 3653590318636457370, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1444654978925757705, guid: 2a8305d0304ff1e46b7b2826311853c1, type: 3}
+      objectReference: {fileID: -9031013373911081068, guid: 0bb8bb55409868a478fc7ccf0bbf5832, type: 3}
     - target: {fileID: 3653590318636457370, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3653590319846758297, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Name
-      value: Octonoid
+      value: Boar
       objectReference: {fileID: 0}
     - target: {fileID: 3653590319846758298, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_RootOrder
@@ -133,15 +132,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Radius
-      value: 0.25298885
+      value: 0.32209533
       objectReference: {fileID: 0}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 491c6553bdceaad4a847538842237faa, type: 2}
     - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0027642846
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875355097619466698, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Offset.y
-      value: 0.0091582835
+      value: 0.00999999
       objectReference: {fileID: 0}
     - target: {fileID: 6182696289898256204, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_SizeDelta.x

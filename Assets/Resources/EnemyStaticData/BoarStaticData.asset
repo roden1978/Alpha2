@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2ceed86007a4cf3ba8a0016f2d7245c, type: 3}
-  m_Name: OctonoidStaticData
+  m_Name: BoarStaticData
   m_EditorClassIdentifier: 
   EnemyTypeId: 30
-  Health: 20
+  Health: 30
   Cooldown: 0.5
   DamageOnTouch: 5
   SelfDamageOnTouch: 5

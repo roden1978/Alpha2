@@ -5,7 +5,7 @@
         Snake = 0,
         PteroRed = 10,
         PteroPurple = 20,
-        Octonoid = 30,
+        Boar = 30,
         Spider = 40,
         Crab = 50,
         FireTrap = 100,

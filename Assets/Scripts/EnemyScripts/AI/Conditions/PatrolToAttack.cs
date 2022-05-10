@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace EnemyScripts.AI.Conditions
 {
-    public class NothingToPatrol : ICondition
+    public class PatrolToAttack : ICondition
     {
         private bool _inTrigger;
-        public NothingToPatrol(TriggerObserver triggerObserver)
+        public PatrolToAttack(TriggerObserver triggerObserver)
         {
             triggerObserver.TriggerEnter += OnTriggerEnter;
             triggerObserver.TriggerExit += OnTriggerExit;
@@ -14,12 +14,12 @@ namespace EnemyScripts.AI.Conditions
 
         private void OnTriggerExit(Collider2D obj)
         {
-            _inTrigger = true;
+            _inTrigger = false;
         }
 
         private void OnTriggerEnter(Collider2D obj)
         {
-            _inTrigger = false;
+            _inTrigger = true;
         }
 
         public bool Result()

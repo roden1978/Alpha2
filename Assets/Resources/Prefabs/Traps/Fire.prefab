@@ -114,6 +114,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d0c37f4e077eaa747b9e47470db6c17c, type: 2}
     - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: _enemyStaticData
+      value: 
+      objectReference: {fileID: 11400000, guid: e588e0543d3c2c549b6b2535e2e2a17e, type: 2}
+    - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: _triggerObserver
       value: 
       objectReference: {fileID: 7845180496893191800}
