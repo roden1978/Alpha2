@@ -121,6 +121,10 @@ PrefabInstance:
       propertyPath: _triggerObserver
       value: 
       objectReference: {fileID: 7845180496893191800}
+    - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: <CollectFX>k__BackingField
+      value: 
+      objectReference: {fileID: 19867628, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
     - target: {fileID: 1827881482054808, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_Name
       value: Fire

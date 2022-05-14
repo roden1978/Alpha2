@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1554302687
-  m_SortingLayer: 2
+  m_SortingLayerID: 1410646433
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1a54e5f2743c00b4bbb7a3c07fb94b69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,6 +97,10 @@ PrefabInstance:
       propertyPath: _triggerObserver
       value: 
       objectReference: {fileID: 8155388621036508348}
+    - target: {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: <CollectFX>k__BackingField
+      value: 
+      objectReference: {fileID: 19867628, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
     - target: {fileID: 1827881482054808, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_Name
       value: Spiky
