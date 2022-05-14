@@ -4,7 +4,7 @@ namespace PlayerScripts
 {
     public class Dipstick : IDipstick
     {
-        private const int GroundLayerMask = 1 << 7;
+        private const int GroundLayerMask = 1 << 7 | 1 << 16;
         
         private readonly Player _player;
         private readonly Collider2D[] _results;
