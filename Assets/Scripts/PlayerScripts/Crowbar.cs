@@ -67,7 +67,7 @@ namespace PlayerScripts
             _stateMachine.AddTransition(idleState, jumpState, 
                 new IdleToJump(_player.Rigidbody2D, _dipstick, _damping.y));
             _stateMachine.AddTransition(idleState, walkState, 
-                new IdleToWalk(_player.Rigidbody2D, _damping.x));
+                new IdleToWalk(_player.Rigidbody2D, _damping.x, _inputService));
             _stateMachine.AddTransition(idleState, idleThrowState, 
                 new IdleToIdleThrow(_inputService, _player.Rigidbody2D, _damping.x));
             _stateMachine.AddTransition(idleThrowState, idleState, 
