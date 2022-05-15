@@ -11,7 +11,7 @@ namespace Infrastructure.Factories
 {
     public interface IGameFactory : IService
     {
-        public ControlsPanel CreateControlsPanel();
+        ControlsPanel CreateControlsPanel();
         List<ISavedProgressReader> ProgressReaders { get; }
         List<ISavedProgress> ProgressWriters { get; }
         void CleanUp();

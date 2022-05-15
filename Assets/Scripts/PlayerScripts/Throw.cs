@@ -11,7 +11,6 @@ namespace PlayerScripts
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
         [SerializeField] [Range(.1f, 1f)] private float _deltaDegree;
         [SerializeField] [Range(45, 90)] private int _startDegree;
-        [SerializeField] [Range(1, 3)] private int _releaseDistance;
 
         private PoolService _poolService;
         private Crosshair _crosshair;
@@ -30,26 +29,17 @@ namespace PlayerScripts
         private void Start()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _radar = new Radar(_radarDistance, _deltaDegree, _startDegree, _releaseDistance);
+            _radar = new Radar(_radarDistance, _deltaDegree, _startDegree);
         }
         private void Update()
         {
             _target = CalculateTarget();
             DrawCrosshair(_target);
-            //remove before production
-            /*if(_target != Vector2.zero)
-            {
-                Vector3 position = _shootPoint.transform.position;
-                Debug.DrawRay(position, DirectionToTarget(_target, position) * _radarDistance, Color.red);
-            }*/
-            //remove before production
         }
 
         private Vector2 CalculateTarget()
         {
-            Vector2 rayDirection = Direction(_shootPoint.transform);
-            if (rayDirection.x != 0) _lastDirection = rayDirection.x;
-
+            _lastDirection = Direction(_shootPoint.transform).x;
             return _radar.Target(_lastDirection, _shootPoint.transform.position);
         }
 

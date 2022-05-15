@@ -581,10 +581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e735f35ed5e29419a282e4f231c2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OnScreenStick>k__BackingField: {fileID: 1721887003013444998}
   _pauseButton: {fileID: 2493668734307435839}
   _jumpTrigger: {fileID: 5252466526761613456}
   _shootTrigger: {fileID: 5417518666100665189}
-  <OnScreenStick>k__BackingField: {fileID: 1721887003013444998}
 --- !u!1 &1721887004057431542
 GameObject:
   m_ObjectHideFlags: 0

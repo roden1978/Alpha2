@@ -1,8 +1,6 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using Services.PersistentProgress;
 
 namespace Infrastructure.GameStates
 {

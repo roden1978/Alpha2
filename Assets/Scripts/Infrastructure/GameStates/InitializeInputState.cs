@@ -10,13 +10,13 @@ namespace Infrastructure.GameStates
     {
         private readonly GamesStateMachine _stateMachine;
         private readonly ServiceLocator _serviceLocator;
-        private bool _mobile;
         public InitializeInputState(GamesStateMachine stateMachine, ServiceLocator serviceLocator)
         {
             _stateMachine = stateMachine;
             _serviceLocator = serviceLocator;
         }
-        public void Enter() => RegisterInputService(NextState);
+        public void Enter() => 
+            RegisterInputService(NextState);
         public void Update(){}
         public void Exit(){}
         private void RegisterInputService(Action callback = null)
@@ -29,13 +29,9 @@ namespace Infrastructure.GameStates
             if (Application.isEditor)
                return new KeyboardInputService();
 
-            _mobile = true;
             return new UiInputService();
         }
-        private void NextState()
-        {
-            if (_mobile)
-                _stateMachine.Enter<LoadControlsPanelState>();
-        }
+        private void NextState() => 
+            _stateMachine.Enter<LoadControlsPanelState>();
     }
 }

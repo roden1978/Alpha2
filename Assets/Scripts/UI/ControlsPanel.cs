@@ -1,3 +1,4 @@
+using System;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,8 +20,10 @@ namespace UI
         public void Construct(Crowbar crowbar) => 
             _crowbar = crowbar;
 
-        private void Awake() => 
+        private void Awake()
+        {
             DontDestroyOnLoad(this);
+        }
 
         private void Start()
         {
@@ -88,6 +91,11 @@ namespace UI
             GameMenu.Pause.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
-        
+
+        private void OnEnable()
+        {
+            if (SystemInfo.deviceType == DeviceType.Desktop)
+                gameObject.SetActive(false);
+        }
     }
 }
