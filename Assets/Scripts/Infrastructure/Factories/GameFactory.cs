@@ -20,7 +20,7 @@ namespace Infrastructure.Factories
         public Player Player { get; private set; }
         public Hud Hud { get; private set; }
         public ControlsPanel ControlsPanel { get; private set; }
-        public GameMenu GameMenu { get; private set; }
+        private GameMenu _gameMenu;
 
         public List<ISavedProgressReader> ProgressReaders { get; }
 
@@ -52,8 +52,8 @@ namespace Infrastructure.Factories
 
         public void CreateGameMenu()
         {
-           GameMenu = _assetProvider.InstantiateGameMenu();
-           GameMenu.Construct(ControlsPanel);
+           _gameMenu = _assetProvider.InstantiateGameMenu();
+           _gameMenu.Construct(ControlsPanel);
         }
 
         public Crowbar CreateCrowbar()

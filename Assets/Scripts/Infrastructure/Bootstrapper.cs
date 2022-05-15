@@ -1,7 +1,5 @@
 using Common;
 using Infrastructure.GameStates;
-using Infrastructure.Services;
-using Services.PersistentProgress;
 using UnityEngine;
 
 namespace Infrastructure

@@ -49,7 +49,6 @@ namespace Infrastructure
                 _controlsPanel.GameMenu.Died.gameObject.SetActive(true);
                 //Open GameOver panel
             }
-            Debug.Log("Death");
             _player.TakeHealth(_maxHealth);
             _currentHealth = _maxHealth;
             UpdateHud();
@@ -128,7 +127,6 @@ namespace Infrastructure
         private void UpdateHealthBar(int currentHealth)
         {
             float hp = Convert.ToSingle(currentHealth) / Convert.ToSingle(_maxHealth);
-            Debug.Log(hp);
             _hud.HealthBar.fillAmount = hp;
             SetColour(hp);
         }

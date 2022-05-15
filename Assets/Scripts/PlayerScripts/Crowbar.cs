@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Threading.Tasks;
 using Cinemachine;
 using Common;
 using Data;
@@ -12,16 +13,16 @@ using Services.StaticData;
 using StaticData;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 namespace PlayerScripts
 {
     public class Crowbar : MonoBehaviour, ISavedProgress
     {
-        private const int DoubleSingWaitTime = 1200;
-        
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocity;
         [SerializeField] private float _jumpForce;
+        [SerializeField] [Range(1f, 2f)] private float _doubleSingWaitTime;
         [SerializeField] private Vector2 _damping;
 
         private StateMachine _stateMachine;
@@ -126,7 +127,7 @@ namespace PlayerScripts
             if (StayOnGround())
             {
                 AddForceToJump();
-                DoubleJumpSignShow();
+                StartCoroutine(DoubleJumpSignShow());
                 _doubleJump = true;
             }
             else
@@ -167,10 +168,10 @@ namespace PlayerScripts
         private bool StayOnGround() => 
             _dipstick.Contact();
 
-        private async void DoubleJumpSignShow()
+        private  IEnumerator DoubleJumpSignShow()
         {
             _player.DoubleJumpSign.Show();
-            await Task.Delay(DoubleSingWaitTime);
+            yield return new WaitForSeconds(_doubleSingWaitTime);
             _player.DoubleJumpSign.Hide();
         }
 
@@ -197,7 +198,9 @@ namespace PlayerScripts
                 _player.transform.position = spawnPoint != Vector3.zero ? spawnPoint : Vector3.zero;
             else
                 _player.transform.position = position.AsVector3();
+            
             _virtualCamera = await GetVCamera();
+            
             if (_virtualCamera.Follow == null)
             {
                 _virtualCamera.VirtualCameraGameObject.transform.position = position.AsVector3();
@@ -209,7 +212,9 @@ namespace PlayerScripts
 
         private async Task<ICinemachineCamera> GetVCamera()
         {
-            await Task.Delay(200);
+            while (_camera.GetComponent<CinemachineBrain>().ActiveVirtualCamera == null)
+                await Task.Yield();    
+            
             return _camera.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
         }
     }

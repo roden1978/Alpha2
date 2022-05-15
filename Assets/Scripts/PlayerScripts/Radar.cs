@@ -6,69 +6,51 @@ namespace PlayerScripts
     {
         private const int FullDegree = 360;
         private const int EnemyLayerMask = 1 << 13;
-        
+
         private readonly float _distance;
         private readonly float _initDeltaDegree;
         private readonly int _endDegree;
         private readonly int _degree;
-        private readonly int _releaseDistance;
 
         private float _delta;
         private float _currentDegree;
 
         private Vector3 _direction;
         private Vector2 _currentHit;
-        
+
         private bool _clockwise;
-        
-        public Radar(float distance, float delta, int degree, int releaseDistance)
+
+        public Radar(float distance, float delta, int degree)
         {
             _distance = distance;
             _degree = degree;
-            _releaseDistance = releaseDistance;
             _endDegree = FullDegree - _degree;
             _currentDegree = degree;
             _delta = delta;
             _initDeltaDegree = delta;
             _clockwise = true;
         }
+
         public Vector2 Target(float lookDirection, Vector3 position)
         {
-            RaycastHit2D hit = default;
-            //uncomment all strings for stay crosshair on target
-            //if(_currentHit == Vector2.zero)
-                _currentHit = SearchTarget(lookDirection, position);
-                _delta = _currentHit != Vector2.zero ? _initDeltaDegree / 100 : _initDeltaDegree;
-                //Debug.Log($"delta {_delta}");
-            /*if (_currentHit != Vector2.zero)
-            {
-                Vector2 direction = (_currentHit - new Vector2(position.x * lookDirection, position.y));
-                hit = Physics2D.Raycast(position, direction, _distance, EnemyLayerMask);
-            }*/
-            //replace _currentHit != Vector2.zero to hit.point != null
-            if(_currentHit != Vector2.zero && Vector2.Distance(position, hit.point) > _releaseDistance)
-            {
-                //_currentHit = hit.point;
+            _currentHit = SearchTarget(lookDirection, position);
+            _delta = _currentHit != Vector2.zero ? _initDeltaDegree / 100 : _initDeltaDegree;
+
+            if (_currentHit != Vector2.zero)
                 return _currentHit;
-            }
+
             _currentHit = Vector2.zero;
             return Vector2.zero;
         }
 
         private Vector2 SearchTarget(float lookDirection, Vector3 position)
         {
-            RaycastHit2D hit = default;
-            
-            if (_currentDegree < _degree || _currentDegree > _endDegree)
-            {
-                _direction.x = Mathf.Cos(DegreeToRadians(_currentDegree)) * lookDirection;
-                _direction.y = Mathf.Sin(DegreeToRadians(_currentDegree));
-                hit = Physics2D.Raycast(position, _direction, _distance, EnemyLayerMask);
-                //remove before production
-                //Debug.DrawRay(position, _direction * _distance, Color.red);
-                //remove before production
-            }
-
+            _direction.x = Mathf.Cos(DegreeToRadians(_currentDegree)) * lookDirection;
+            _direction.y = Mathf.Sin(DegreeToRadians(_currentDegree));
+            RaycastHit2D hit = Physics2D.Raycast(position, _direction, _distance, EnemyLayerMask);
+            //remove before production
+            Debug.DrawRay(position, _direction * _distance, Color.red);
+            //remove before production
             _currentDegree = _clockwise ? NextDegreeClockwise() : NextDegreeCounterclockwise();
 
             return hit.collider != null ? hit.point : Vector2.zero;
