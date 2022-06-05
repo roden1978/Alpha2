@@ -10,6 +10,7 @@ namespace EnemyScripts
         [SerializeField] private Color _feedbackColor;
         [SerializeField] private InteractableObjectsCollector _interactableObjectsCollector;
         [SerializeField] [Range(.1f, 1f)]private float _delay;
+        [SerializeField] private AudioSource _damageSoundFx;
         private Color _originalColor;
 
         private void Awake()
@@ -20,6 +21,7 @@ namespace EnemyScripts
         private void OnHealthUpdate(int damage)
         {
             StartCoroutine(ChangeColor());
+            _damageSoundFx.Play();
         }
 
         private IEnumerator ChangeColor()

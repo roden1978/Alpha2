@@ -28,7 +28,7 @@ namespace Infrastructure
         {
             if(other.TryGetComponent(out Player player))
             {
-                PlayFx();
+                PlayFx(transform);
                 SaveProgress();
             }
         }
@@ -41,9 +41,10 @@ namespace Infrastructure
             _collider.enabled = false;
         }
 
-        private void PlayFx()
+        protected void PlayFx(Transform otherTransform)
         {
-            _firework.Play(true);
+            if (_firework != null)
+                Instantiate(_firework, otherTransform.position + Vector3.up, Quaternion.identity);
         }
     }
 }
