@@ -12,6 +12,7 @@ namespace GameObjectsScripts
         [SerializeField] private int _lifeTime;
         [SerializeField] private ParticleSystem _hitFx;
         [SerializeField] private ParticleSystem _otherHitFx;
+        [SerializeField] private AudioSource _hitSound;
         public float Speed => _speed;
         public int Damage => _damage;
 
@@ -32,13 +33,7 @@ namespace GameObjectsScripts
 
         public override void ReturnToPool()
         {
-            PlayOtherFx();
             Hide();
-        }
-
-        private void PlayOtherFx()
-        {
-            Instantiate(_otherHitFx, transform.position, Quaternion.identity);
         }
 
         private IEnumerator LifeTime(int lifeTime)
@@ -54,12 +49,28 @@ namespace GameObjectsScripts
                 PlayHitFx();
                 health.TakeDamage(Damage);
             }
+            else
+            {
+                OtherHitFx();
+            }
             ReturnToPool();
+        }
+
+        private void PlayHitSoundFx()
+        {
+            _hitSound.Play();
         }
 
         private void PlayHitFx()
         {
             Instantiate(_hitFx, transform.position, Quaternion.identity);
+            PlayHitSoundFx();
+        }
+
+        private void OtherHitFx()
+        {
+            Instantiate(_otherHitFx, transform.position, Quaternion.identity);
+            PlayHitSoundFx();
         }
 
         public void SetRotateDirection(Vector2 direction)

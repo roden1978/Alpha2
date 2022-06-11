@@ -13,7 +13,6 @@ using Services.StaticData;
 using StaticData;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms;
 
 namespace PlayerScripts
 {
