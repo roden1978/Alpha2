@@ -1,14 +1,13 @@
 ﻿using Data;
 using GameObjectsScripts;
 using Infrastructure.Factories;
-using PlayerScripts;
 using Services.PersistentProgress;
 using StaticData;
 using UnityEngine;
 
 namespace Infrastructure.PickableObjectSpawners
 {
-    public class PickableObjectSpawner : MonoBehaviour, ISavedProgress
+    public class PickableObjectSpawner : MonoBehaviour, ISavedProgress, IActivator
     {
         private bool _pickedUp;
         private string _id;
@@ -35,6 +34,7 @@ namespace Infrastructure.PickableObjectSpawners
             GameObject pickableObject = _gameFactory.CreatePickableObject(_pickableObjectTypeId, transform);
             _pickableObject = pickableObject.GetComponent<PickableObject>();
             _pickableObject.PickUp += OnPickUp;
+            Disable();
         }
 
         private void OnPickUp()
@@ -48,6 +48,18 @@ namespace Infrastructure.PickableObjectSpawners
         {
             if (_pickedUp)
                 playerProgress.PickableObjectData.ClearedSpawners.Add(_id);
+        }
+
+        public void Enable()
+        {
+            if(!_pickedUp)
+                _pickableObject.gameObject.SetActive(true);
+        }
+
+        public void Disable()
+        {
+            if(!_pickedUp)
+                _pickableObject.gameObject.SetActive(false);
         }
     }
 }
