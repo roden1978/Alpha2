@@ -11,6 +11,7 @@ namespace PlayerScripts
         [SerializeField] [Range(5f, 10f)] private float _radarDistance;
         [SerializeField] [Range(.1f, 1f)] private float _deltaDegree;
         [SerializeField] [Range(45, 90)] private int _startDegree;
+        [SerializeField] private AudioSource _throwSoundFx;
 
         private PoolService _poolService;
         private Crosshair _crosshair;
@@ -46,7 +47,8 @@ namespace PlayerScripts
         public void ThrowWeapon()
         {
             Axe weapon = (Axe)_poolService.GetPooledObject(_pooledObject.GetType());
-            Throwing(weapon);                
+            Throwing(weapon);
+            PlayThrowWeaponSoundFx();
         }
 
         private void Throwing(Axe weapon)
@@ -87,6 +89,11 @@ namespace PlayerScripts
                 _crosshair.Hide();
 
             _crosshairPrevPosition = position;
+        }
+
+        private void PlayThrowWeaponSoundFx()
+        {
+            _throwSoundFx.Play();
         }
     }
 }

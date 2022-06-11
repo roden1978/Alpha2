@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 1028766350381105354, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: _deathFx
       value: 
-      objectReference: {fileID: 1304114806017586023, guid: ed9c4b0f25bdc884492f74b7762d0282, type: 3}
+      objectReference: {fileID: 1304114806017586023, guid: e17be5304ae02364ab5bcd3714301567, type: 3}
     - target: {fileID: 3653590318636457369, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Controller
       value: 
@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6408868162890229873, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
+      propertyPath: _enemyStaticData
+      value: 
+      objectReference: {fileID: 11400000, guid: e581800ac060be149b4ba0e2f3aad708, type: 2}
     - target: {fileID: 6640804994478835688, guid: dcdae958664289d40bf8772ad68aa0c2, type: 3}
       propertyPath: m_Mass
       value: 1

@@ -45,7 +45,8 @@ namespace GameObjectsScripts
 
         private void StopDamageOnTouch()
         {
-            StopCoroutine(_coroutine);
+            if(_coroutine != null)
+                StopCoroutine(_coroutine);
         }
 
         private IEnumerator Damage(Component other)

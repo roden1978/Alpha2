@@ -13,7 +13,6 @@ using Services.StaticData;
 using StaticData;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms;
 
 namespace PlayerScripts
 {
@@ -38,6 +37,7 @@ namespace PlayerScripts
         private IShowable _footstepFx;
         private IShowable _groundingFx;
         private IShowable _jumpFx;
+        private IShowable _jumpSoundFx;
 
         private void Awake()
         {
@@ -46,12 +46,13 @@ namespace PlayerScripts
         }
 
         public void Construct(Player player, IStaticDataService staticDataService,
-                                IShowable footstepFx, IShowable groundingFx, IShowable jumpFx)
+                                IShowable footstepFx, IShowable groundingFx, IShowable jumpFx, IShowable jumpSoundFx)
         {
             _player = player;
             _footstepFx = footstepFx;
             _groundingFx = groundingFx;
             _jumpFx = jumpFx;
+            _jumpSoundFx = jumpSoundFx;
             _staticDataService = staticDataService;
             _dipstick = new Dipstick(_player);
             _flipView = new FlipView(_player.PlayerView);
@@ -127,6 +128,7 @@ namespace PlayerScripts
             if (StayOnGround())
             {
                 AddForceToJump();
+                PlayJumpSoundFx();
                 StartCoroutine(DoubleJumpSignShow());
                 _doubleJump = true;
             }
@@ -143,6 +145,7 @@ namespace PlayerScripts
             if (canJump && _doubleJump)
             {
                 AddForceToJump();
+                PlayJumpSoundFx();
                 _doubleJump = false;
             }
         }
@@ -216,6 +219,11 @@ namespace PlayerScripts
                 await Task.Yield();    
             
             return _camera.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
+        }
+
+        private void PlayJumpSoundFx()
+        {
+            _jumpSoundFx.Show();
         }
     }
 }
