@@ -47,22 +47,25 @@ namespace Infrastructure.AssetManagement
             return Object.Instantiate(prefab).GetComponent<PickableObject>();
         }
 
-        public EnemySpawnPoint InstantiateEnemySpawner(Vector3 position)
+        public EnemySpawnPoint InstantiateEnemySpawner(Vector3 position, Transform parentObjectTransform)
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.EnemySpawnPoint);
-            return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<EnemySpawnPoint>();
+            return Object.Instantiate(prefab, position, Quaternion.identity, parentObjectTransform)
+                .GetComponent<EnemySpawnPoint>();
         }
 
-        public PickableObjectSpawner InstantiatePickableObjectSpawner(Vector3 position)
+        public PickableObjectSpawner InstantiatePickableObjectSpawner(Vector3 position, Transform parentObjectTransform)
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.PickableObjectSpawnPoint);
-            return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<PickableObjectSpawner>();
+            return Object.Instantiate(prefab, position, Quaternion.identity, parentObjectTransform)
+                .GetComponent<PickableObjectSpawner>();
         }
 
-        public SaveProgressPointSpawner InstantiateSaveProgressSpawner(Vector3 position)
+        public SaveProgressPointSpawner InstantiateSaveProgressSpawner(Vector3 position, Transform parentObjectTransform)
         {
             GameObject prefab = Resources.Load<GameObject>(AssetPaths.SaveProgressSpawnPoint);
-            return Object.Instantiate(prefab, position, Quaternion.identity).GetComponent<SaveProgressPointSpawner>();
+            return Object.Instantiate(prefab, position, Quaternion.identity, parentObjectTransform)
+                .GetComponent<SaveProgressPointSpawner>();
         }
 
         public PoolService InstantiatePool()
