@@ -1,13 +1,14 @@
 ﻿using Data;
 using EnemyScripts;
 using Infrastructure.Factories;
+using Infrastructure.PickableObjectSpawners;
 using Services.PersistentProgress;
 using StaticData;
 using UnityEngine;
 
 namespace Infrastructure.EnemySpawners
 {
-    public class EnemySpawnPoint : MonoBehaviour, ISavedProgress
+    public class EnemySpawnPoint : MonoBehaviour, ISavedProgress, IActivator
     {
         private string _spawnerId;
         private EnemyTypeId _enemyTypeId;
@@ -36,6 +37,7 @@ namespace Infrastructure.EnemySpawners
             GameObject enemy = _gameFactory.CreateEnemy(_enemyTypeId, transform);
             _enemyDeath = enemy.GetComponent<EnemyDeath>();
             _enemyDeath.Death += OnEnemyDeath;
+            Disable();
         }
 
         private void OnEnemyDeath()
@@ -49,6 +51,18 @@ namespace Infrastructure.EnemySpawners
         {
             if (_slain)
                 playerProgress.KillData.ClearedSpawners.Add(_spawnerId);
+        }
+
+        public void Enable()
+        {
+            if(!_slain)
+                _enemyDeath.gameObject.SetActive(true);
+        }
+
+        public void Disable()
+        {
+            if(!_slain)
+                _enemyDeath.gameObject.SetActive(false);
         }
     }
 }
