@@ -92,25 +92,26 @@ namespace Infrastructure.Factories
             return mediator;
         }
 
-        public void CreateEnemySpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position)
+        public void CreateEnemySpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position,
+            Transform parentObjectTransform)
         {
-            EnemySpawnPoint spawnPoint = _assetProvider.InstantiateEnemySpawner(position);
+            EnemySpawnPoint spawnPoint = _assetProvider.InstantiateEnemySpawner(position, parentObjectTransform);
             spawnPoint.Construct(this, spawnerId, enemyTypeId);
             RegisterInSaveLoadRepositories(spawnPoint.gameObject);
         }
 
         public void CreatePickableObjectSpawner(string spawnerId, PickableObjectTypeId pickableObjectTypeId,
-            Vector3 position)
+            Vector3 position, Transform parentObjectTransform)
         {
-            PickableObjectSpawner pickableObjectSpawner = _assetProvider.InstantiatePickableObjectSpawner(position);
+            PickableObjectSpawner pickableObjectSpawner = _assetProvider.InstantiatePickableObjectSpawner(position, parentObjectTransform);
             pickableObjectSpawner.Construct(this, spawnerId, pickableObjectTypeId);
             RegisterInSaveLoadRepositories(pickableObjectSpawner.gameObject);
         }
 
         public void CreateSaveProgressPointSpawner(string spawnerId, SaveProgressPointTypeId pointTypeId, float width,
-            float height, Vector3 position)
+            float height, Vector3 position, Transform parentObjectTransform)
         {
-            SaveProgressPointSpawner saveProgressPointSpawner = _assetProvider.InstantiateSaveProgressSpawner(position);
+            SaveProgressPointSpawner saveProgressPointSpawner = _assetProvider.InstantiateSaveProgressSpawner(position, parentObjectTransform);
             saveProgressPointSpawner.Construct(this, spawnerId, width, height, pointTypeId);
             RegisterInSaveLoadRepositories(saveProgressPointSpawner.gameObject);
         }

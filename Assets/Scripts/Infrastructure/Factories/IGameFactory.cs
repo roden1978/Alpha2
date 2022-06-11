@@ -22,11 +22,14 @@ namespace Infrastructure.Factories
         void AddProgressReader(ISavedProgressReader progressReader);
         void AddProgressWriter(ISavedProgress progressWriter);
         GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent);
-        void CreateEnemySpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position);
+        void CreateEnemySpawner(string spawnerId, EnemyTypeId enemyTypeId, Vector3 position,
+            Transform parentObjectTransform);
         GameObject CreatePickableObject(PickableObjectTypeId objectTypeId, Transform parent);
-        void CreatePickableObjectSpawner(string spawnerId, PickableObjectTypeId pickableObjectTypeId, Vector3 position);
+        void CreatePickableObjectSpawner(string spawnerId, PickableObjectTypeId pickableObjectTypeId, Vector3 position,
+            Transform parentObjectTransform);
         GameObject CreateSavePoint(SaveProgressPointTypeId pointTypeId, float width, float height, Transform parent, bool isUsed);
-        void CreateSaveProgressPointSpawner(string spawnerId, SaveProgressPointTypeId pointTypeId, float width, float height, Vector3 position);
+        void CreateSaveProgressPointSpawner(string spawnerId, SaveProgressPointTypeId pointTypeId, float width,
+            float height, Vector3 position, Transform parentObjectTransform);
         PoolService CreatePool();
         public Player Player { get;}
         void CreateHud();
