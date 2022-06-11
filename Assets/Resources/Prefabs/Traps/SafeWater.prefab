@@ -237,7 +237,7 @@ PrefabInstance:
       objectReference: {fileID: 1405307635293624655}
     - target: {fileID: 1827881482054808, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_Name
-      value: Water
+      value: SafeWater
       objectReference: {fileID: 0}
     - target: {fileID: 4334263990546180, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_RootOrder
@@ -295,6 +295,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4374014466337413918, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4546887866971117893, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_Offset.x
       value: 0
@@ -305,9 +309,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461849284856294590, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.23
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4996259678047168444, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 942d42f8a4c090f439dc938176155c62, type: 3}
 --- !u!4 &8327354773828811723 stripped
 Transform:
