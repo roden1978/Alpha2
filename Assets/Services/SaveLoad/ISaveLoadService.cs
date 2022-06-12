@@ -5,7 +5,9 @@ namespace Services.SaveLoad
 {
     public interface ISaveLoadService : IService
     {
-        public void SaveProgress();
-        public PlayerProgress LoadProgress();
+        void SaveProgress();
+        PlayerProgress LoadProgress();
+        public void SaveSettings();
+        Settings LoadSettings();
     }
 }

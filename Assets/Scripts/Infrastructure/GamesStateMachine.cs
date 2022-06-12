@@ -16,6 +16,7 @@ namespace Infrastructure
             _states = new Dictionary<Type, IUpdateableState>
             {
                 [typeof(InitializeServicesState)] = new InitializeServicesState(this, serviceLocator),
+                [typeof(LoadGameSettingsState)] = new LoadGameSettingsState(this, serviceLocator),
                 [typeof(InitializeInputState)] = new InitializeInputState(this, serviceLocator),
                 [typeof(LoadControlsPanelState)] = new LoadControlsPanelState(serviceLocator),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, serviceLocator),

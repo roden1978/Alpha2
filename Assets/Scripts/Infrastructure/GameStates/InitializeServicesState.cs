@@ -53,6 +53,6 @@ namespace Infrastructure.GameStates
             staticDataService.LoadSaveProgressPointStaticData();
         }
         private void NextState() => 
-            _stateMachine.Enter<InitializeInputState>();
+            _stateMachine.Enter<LoadGameSettingsState>();
     }
 }
