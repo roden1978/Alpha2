@@ -14,7 +14,7 @@ namespace EnemyScripts
         
         private Coroutine _shooting;
 
-        private void Start()
+        private void OnEnable()
         {
             _triggerObserver.TriggerEnter += OnAggroTriggerEnter;
             _triggerObserver.TriggerExit += OnAggroTriggerExit;

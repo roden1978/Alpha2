@@ -9,12 +9,12 @@ namespace EnemyScripts
         [SerializeField] private ParticleSystem _deathFx;
         public Action Death;
 
-        private void Start()
+        private void OnEnable()
         {
             _health.HealthUpdate += OnHealthUpdate;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             _health.HealthUpdate -= OnHealthUpdate;
         }

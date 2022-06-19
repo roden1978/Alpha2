@@ -5,7 +5,7 @@ namespace Data
     [Serializable]
     public class StaticSoundSetting
     {
-        public int Mute = 0;
+        public int Mute;
         public float Volume = 1;
     }
 }

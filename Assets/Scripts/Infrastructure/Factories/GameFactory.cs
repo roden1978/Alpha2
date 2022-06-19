@@ -140,7 +140,7 @@ namespace Infrastructure.Factories
         public GameObject CreateEnemy(EnemyTypeId enemyTypeId, Transform parent)
         {
             EnemyStaticData enemyStaticData = _staticDataService.GetStaticData(enemyTypeId);
-            GameObject enemy = Object.Instantiate(enemyStaticData.Prefab, parent.position, Quaternion.identity, parent);
+            GameObject enemy = Object.Instantiate(enemyStaticData.Prefab, parent.position, Quaternion.identity);
 
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             enemyHealth.Construct(enemyStaticData.Health);

@@ -39,14 +39,24 @@ namespace UI
 
         private void OnVolumeChanged(float value)
         {
+            SetVolume(value);
+        }
+
+        public void SetVolume(float value)
+        {
             _mixer.audioMixer.SetFloat(Master, Mathf.Lerp(MinValue, MaxValue, value));
         }
 
         private void OnMuteChanged(bool enable)
         {
-            _mixer.audioMixer.SetFloat(Music, enable ? MinValue : MaxValue);
-            _mixer.audioMixer.SetFloat(Effects, enable ? MinValue : MaxValue);
-            _mixer.audioMixer.SetFloat(UI, enable ? MinValue : MaxValue);
+            SetMute(enable);
+        }
+
+        public void SetMute(bool enable)
+        {
+            _mixer.audioMixer.SetFloat(Music, enable ?  MaxValue : MinValue);
+            _mixer.audioMixer.SetFloat(Effects, enable ? MaxValue : MinValue);
+            _mixer.audioMixer.SetFloat(UI, enable ? MaxValue : MinValue);
         }
 
         private void OnBackButton()
@@ -59,7 +69,7 @@ namespace UI
         private void SaveSoundSettings()
         {
             IPersistentProgressService persistentProgressService = ServiceLocator.Container.Single<IPersistentProgressService>();
-            persistentProgressService.Settings.SoundSettings.Mute = _mute.isOn ? 1 : 0;
+            persistentProgressService.Settings.SoundSettings.Mute = _mute.isOn ? 0 : 1;
             persistentProgressService.Settings.SoundSettings.Volume = _volume.value;
             ServiceLocator.Container.Single<ISaveLoadService>().SaveSettings();
         }
@@ -72,6 +82,12 @@ namespace UI
         private void HideSettings()
         {
             gameObject.SetActive(false);
+        }
+
+        public void UpdateSettingsControls(float volume, bool mute)
+        {
+            _volume.value = volume;
+            _mute.isOn = mute;
         }
     }
 }

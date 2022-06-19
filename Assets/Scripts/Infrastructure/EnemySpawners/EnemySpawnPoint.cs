@@ -24,6 +24,12 @@ namespace Infrastructure.EnemySpawners
             _enemyTypeId = enemyTypeId;
         }
 
+        private void Update()
+        {
+            if(_enemyDeath != null)
+                transform.position = _enemyDeath.gameObject.transform.position;
+        }
+
         public void LoadProgress(PlayerProgress playerProgress)
         {
             if (playerProgress.KillData.ClearedSpawners.Contains(_spawnerId))
@@ -37,6 +43,7 @@ namespace Infrastructure.EnemySpawners
             GameObject enemy = _gameFactory.CreateEnemy(_enemyTypeId, transform);
             _enemyDeath = enemy.GetComponent<EnemyDeath>();
             _enemyDeath.Death += OnEnemyDeath;
+            gameObject.name += _enemyDeath.gameObject.name;
             Disable();
         }
 
@@ -45,6 +52,7 @@ namespace Infrastructure.EnemySpawners
             if (_enemyDeath != null)
                 _enemyDeath.Death -= OnEnemyDeath;
             _slain = true;
+            Destroy(gameObject);
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
