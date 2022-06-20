@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93db826b26064c79ad51c752eb5a4bde, type: 3}
+  m_Name: Forest
+  m_EditorClassIdentifier: 
+  LevelKey: Forest
+  PlayerSpawnPoint: {x: 1.62, y: 2.93, z: 0}
+  EnemySpawners:
+  - Id: Forest_dfe5210f-9d1a-41bc-8250-eb472f67aa2e
+    EnemyTypeId: 10
+    Position: {x: 197.12, y: 15.81, z: 0}
+  - Id: Level1_6566121b-8800-4ff1-aebf-62ed5b14ee5b
+    EnemyTypeId: 10
+    Position: {x: 45.31, y: 13.8, z: 0}
+  - Id: Forest_e9b08c39-ffd7-4b55-8aaf-8cf77043492e
+    EnemyTypeId: 30
+    Position: {x: 154.46, y: 7.29, z: 0}
+  - Id: Forest_6f4f2cb1-e0fe-491c-8f37-2712016a19dc
+    EnemyTypeId: 10
+    Position: {x: 231.05, y: 15.81, z: 0}
+  - Id: Forest_54005d84-89ad-4011-ae74-42807d10b716
+    EnemyTypeId: 10
+    Position: {x: 311.06, y: 9.29, z: 0}
+  - Id: Forest_a6d6a940-7177-407e-bdf0-1e6c88217b04
+    EnemyTypeId: 40
+    Position: {x: 338.23, y: 3.24, z: 0}
+  - Id: Forest_5394077d-c771-44f2-8f61-35ec324bf9d8
+    EnemyTypeId: 10
+    Position: {x: 277.82, y: 15.81, z: 0}
+  - Id: Forest_2818542e-540f-4d14-b1fe-c452d44e1177
+    EnemyTypeId: 30
+    Position: {x: 160.27, y: 7.29, z: 0}
+  - Id: Forest_4ff39423-4da7-4c6a-8033-4359200d90a6
+    EnemyTypeId: 10
+    Position: {x: 185.52, y: 10.15, z: 0}
+  - Id: Forest_4e4d60e0-c18c-42f3-aa4f-ecbd3c8b1b2c
+    EnemyTypeId: 30
+    Position: {x: 276.53, y: 3.33, z: 0}
+  - Id: Forest_4dbf53ed-505d-4b80-a506-c6a1c5a6e9d3
+    EnemyTypeId: 30
+    Position: {x: 165.98, y: 7.29, z: 0}
+  - Id: Forest_785c1084-2266-46a3-8a34-56444df3e124
+    EnemyTypeId: 10
+    Position: {x: 324.56, y: 9.29, z: 0}
+  - Id: Forest_f08eca01-c7c6-4428-98d7-cc407f9e98b0
+    EnemyTypeId: 30
+    Position: {x: 172.53, y: 7.29, z: 0}
+  - Id: SpawnMarker_5856ac56-0807-4fe3-a351-cb118145e36c
+    EnemyTypeId: 30
+    Position: {x: 61.41, y: 2.278, z: 0}
+  - Id: Forest_0dc5a84f-4718-4038-95ac-546268f377c0
+    EnemyTypeId: 10
+    Position: {x: 299.06, y: 9.29, z: 0}
+  - Id: Forest_c01afc03-7b8b-4e8a-8bca-5dd11ad32fa7
+    EnemyTypeId: 10
+    Position: {x: 261.16, y: 15.81, z: 0}
+  - Id: Forest_a0a2ea54-db80-429d-b42d-a0acff835ac4
+    EnemyTypeId: 40
+    Position: {x: 332.98, y: 3.24, z: 0}
+  - Id: Forest_04620365-8cff-440b-9f24-c41c69063b01
+    EnemyTypeId: 10
+    Position: {x: 177.45, y: 16.08, z: 0}
+  - Id: Forest_203edf5b-9750-4d80-9bee-97efd7db9c50
+    EnemyTypeId: 30
+    Position: {x: 285.48, y: 3.33, z: 0}
+  - Id: Forest_21232a09-d6a9-49fb-b769-56bca7854a0a
+    EnemyTypeId: 10
+    Position: {x: 245.54, y: 15.81, z: 0}
+  PickableObjectSpawners: []
+  SaveProgressPointSpawners:
+  - Id: Level1_50a3d256-7036-4c72-b076-2db049a22698
+    SaveProgressPointTypeId: 0
+    Width: 1
+    Height: 5
+    Position: {x: 176.09, y: 9.33, z: 0}
