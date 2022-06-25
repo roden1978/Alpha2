@@ -14,6 +14,7 @@ namespace EnemyScripts.AI.States
         private bool _reachedEndOfPath;
         private int _wayPointsCount;
         private Vector3 _lastPosition;
+        private Vector2 _direction;
 
         public GroundTwoWayPointsPatrol(Transform transform, Rigidbody2D rigidbody, GameObject view,
             float patrolDistance, float speed)
@@ -47,11 +48,18 @@ namespace EnemyScripts.AI.States
                 _wayPointsCount = 0;
 
             Vector2 position = _transform.position;
-            Vector2 direction = new Vector2(_patrolPoints[_wayPointsCount] - position.x, position.y);
+            Vector2 direction = Direction(position);
             Vector2 delta = direction.x > 0 ? Vector2.right : Vector2.left;
             _rigidbody.MovePosition(position + delta * _speed * Time.deltaTime);
             FlipView();
             _lastPosition = position;
+        }
+
+        private Vector2 Direction(Vector2 position)
+        {
+            _direction.x = _patrolPoints[_wayPointsCount] - position.x;
+            _direction.y = position.y;
+            return _direction;
         }
 
         public void Exit()

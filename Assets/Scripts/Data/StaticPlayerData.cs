@@ -6,7 +6,7 @@ namespace Data
     public class StaticPlayerData
     {
         public int StartLivesAmount = 3;
-        public int Health = 50;
+        public int Health = 70;
         public int FruitScoresAmount;
         public int CrystalsAmount;
         public int MaxHealth = 100;

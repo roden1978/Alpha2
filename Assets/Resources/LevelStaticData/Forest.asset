@@ -13,17 +13,26 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   LevelKey: Forest
-  PlayerSpawnPoint: {x: 1.62, y: 2.93, z: 0}
+  PlayerSpawnPoint: {x: 0.99, y: 2.1, z: 0}
   EnemySpawners:
   - Id: Forest_dfe5210f-9d1a-41bc-8250-eb472f67aa2e
     EnemyTypeId: 10
     Position: {x: 197.12, y: 15.81, z: 0}
+  - Id: Forest_70ec2806-58b8-424f-9eb1-884b7bc6deb9
+    EnemyTypeId: 50
+    Position: {x: 324.473, y: 3.449, z: 0}
+  - Id: Forest_132d9e77-5519-4f7d-81e0-7500fccc7934
+    EnemyTypeId: 50
+    Position: {x: 308.473, y: 3.449, z: 0}
   - Id: Level1_6566121b-8800-4ff1-aebf-62ed5b14ee5b
     EnemyTypeId: 10
-    Position: {x: 45.31, y: 13.8, z: 0}
+    Position: {x: 37.56, y: 13.64, z: 0}
   - Id: Forest_e9b08c39-ffd7-4b55-8aaf-8cf77043492e
     EnemyTypeId: 30
     Position: {x: 154.46, y: 7.29, z: 0}
+  - Id: Forest_bf5277be-ea2e-422c-ae01-13deee37fece
+    EnemyTypeId: 30
+    Position: {x: 56.55, y: 2.278, z: 0}
   - Id: Forest_6f4f2cb1-e0fe-491c-8f37-2712016a19dc
     EnemyTypeId: 10
     Position: {x: 231.05, y: 15.81, z: 0}
@@ -32,19 +41,25 @@ MonoBehaviour:
     Position: {x: 311.06, y: 9.29, z: 0}
   - Id: Forest_a6d6a940-7177-407e-bdf0-1e6c88217b04
     EnemyTypeId: 40
-    Position: {x: 338.23, y: 3.24, z: 0}
+    Position: {x: 341.8, y: 3.24, z: 0}
   - Id: Forest_5394077d-c771-44f2-8f61-35ec324bf9d8
     EnemyTypeId: 10
     Position: {x: 277.82, y: 15.81, z: 0}
   - Id: Forest_2818542e-540f-4d14-b1fe-c452d44e1177
     EnemyTypeId: 30
     Position: {x: 160.27, y: 7.29, z: 0}
+  - Id: Forest_96ef183a-1d06-4a19-bf53-5f8facba767a
+    EnemyTypeId: 50
+    Position: {x: 316.473, y: 3.449, z: 0}
   - Id: Forest_4ff39423-4da7-4c6a-8033-4359200d90a6
     EnemyTypeId: 10
     Position: {x: 185.52, y: 10.15, z: 0}
   - Id: Forest_4e4d60e0-c18c-42f3-aa4f-ecbd3c8b1b2c
     EnemyTypeId: 30
     Position: {x: 276.53, y: 3.33, z: 0}
+  - Id: Forest_379ed01f-f1cf-4185-b52c-48d7cdf7f00b
+    EnemyTypeId: 50
+    Position: {x: 300.473, y: 3.449, z: 0}
   - Id: Forest_4dbf53ed-505d-4b80-a506-c6a1c5a6e9d3
     EnemyTypeId: 30
     Position: {x: 165.98, y: 7.29, z: 0}
@@ -53,10 +68,13 @@ MonoBehaviour:
     Position: {x: 324.56, y: 9.29, z: 0}
   - Id: Forest_f08eca01-c7c6-4428-98d7-cc407f9e98b0
     EnemyTypeId: 30
-    Position: {x: 172.53, y: 7.29, z: 0}
+    Position: {x: 171.84, y: 7.29, z: 0}
   - Id: SpawnMarker_5856ac56-0807-4fe3-a351-cb118145e36c
     EnemyTypeId: 30
-    Position: {x: 61.41, y: 2.278, z: 0}
+    Position: {x: 61.58, y: 2.278, z: 0}
+  - Id: Forest_2be41160-6214-411a-8de0-ecc4d8095794
+    EnemyTypeId: 10
+    Position: {x: 53.56, y: 13.64, z: 0}
   - Id: Forest_0dc5a84f-4718-4038-95ac-546268f377c0
     EnemyTypeId: 10
     Position: {x: 299.06, y: 9.29, z: 0}
@@ -65,17 +83,449 @@ MonoBehaviour:
     Position: {x: 261.16, y: 15.81, z: 0}
   - Id: Forest_a0a2ea54-db80-429d-b42d-a0acff835ac4
     EnemyTypeId: 40
-    Position: {x: 332.98, y: 3.24, z: 0}
+    Position: {x: 334.22, y: 3.24, z: 0}
   - Id: Forest_04620365-8cff-440b-9f24-c41c69063b01
     EnemyTypeId: 10
     Position: {x: 177.45, y: 16.08, z: 0}
   - Id: Forest_203edf5b-9750-4d80-9bee-97efd7db9c50
     EnemyTypeId: 30
     Position: {x: 285.48, y: 3.33, z: 0}
+  - Id: Forest_99d5ff96-9cff-4e28-977b-720f9a70ba25
+    EnemyTypeId: 50
+    Position: {x: 292.473, y: 3.449, z: 0}
   - Id: Forest_21232a09-d6a9-49fb-b769-56bca7854a0a
     EnemyTypeId: 10
     Position: {x: 245.54, y: 15.81, z: 0}
-  PickableObjectSpawners: []
+  PickableObjectSpawners:
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 248.49, y: 8.42, z: 0}
+  - Id: Forest_6501fd6d-6663-4332-9e36-a1ad2c9c5263
+    PickableObjectTypeId: 100
+    Position: {x: 74.99, y: 8.37, z: 0}
+  - Id: Forest_2cb209fb-6909-4943-aa60-4c6d881ada1a
+    PickableObjectTypeId: 20
+    Position: {x: 241.51, y: 14.5, z: 0}
+  - Id: Forest_65b64772-068a-4b89-a56d-6b11353b6568
+    PickableObjectTypeId: 20
+    Position: {x: 28.86, y: 5.23, z: 0}
+  - Id: Forest_f843e9b8-c1f4-4a86-91e1-86b706ea03f7
+    PickableObjectTypeId: 80
+    Position: {x: 253.47, y: 6.51, z: 0}
+  - Id: Forest_d801d9e3-6de6-4804-8d40-fc0fb0d4a434
+    PickableObjectTypeId: 100
+    Position: {x: 155.1, y: 10.69, z: 0}
+  - Id: Forest_ea18b46c-4593-4bdc-bffc-3c36cd153d69
+    PickableObjectTypeId: 20
+    Position: {x: 257.51, y: 14.5, z: 0}
+  - Id: Forest_6e44e878-b4b5-44d4-9239-3f3bdd4b831f
+    PickableObjectTypeId: 20
+    Position: {x: 269.51, y: 14.5, z: 0}
+  - Id: Forest_ff156540-3322-4bc8-a3ea-e2e810bf682a
+    PickableObjectTypeId: 50
+    Position: {x: 223.66, y: 6.53, z: 0}
+  - Id: Forest_5928f2a9-e584-4d19-972e-56a3dc726981
+    PickableObjectTypeId: 20
+    Position: {x: 227.54, y: 14.89, z: 0}
+  - Id: Forest_1facc5f5-97db-427f-ad9b-8c781a60bbc5
+    PickableObjectTypeId: 40
+    Position: {x: 150.65, y: 7.52, z: 0}
+  - Id: Forest_012379c9-2c60-4901-afeb-f4f7e4c0886a
+    PickableObjectTypeId: 20
+    Position: {x: 272.51, y: 14.5, z: 0}
+  - Id: Forest_d1dde7af-87a9-4f59-b842-eab7044090c3
+    PickableObjectTypeId: 100
+    Position: {x: 142.57, y: 8.94, z: 0}
+  - Id: Forest_3230c885-fcdc-4270-8410-379f9475eb3c
+    PickableObjectTypeId: 0
+    Position: {x: 210.58, y: 5, z: 0}
+  - Id: Level1_b0d80881-c40d-45d2-a676-14b36f4cb391
+    PickableObjectTypeId: 0
+    Position: {x: 38.46, y: 11.12, z: 0}
+  - Id: Forest_f0841e0e-b9b1-4d07-b76e-c2a8d3171cd1
+    PickableObjectTypeId: 80
+    Position: {x: 65.99, y: 3.38, z: 0}
+  - Id: Forest_0ee723cb-1fed-4dd1-a213-8dbc0eab371c
+    PickableObjectTypeId: 100
+    Position: {x: 268.51, y: 10.44, z: 0}
+  - Id: Forest_e9782fc8-2f7d-4a37-a89f-7ca8ea693873
+    PickableObjectTypeId: 80
+    Position: {x: 228.47, y: 6.51, z: 0}
+  - Id: Forest_224c07d3-44a9-422e-8ace-6e77881520e8
+    PickableObjectTypeId: 20
+    Position: {x: 111.96, y: 7.52, z: 0}
+  - Id: Forest_7c4b6bb4-a0e9-4a71-b831-92c97475c938
+    PickableObjectTypeId: 20
+    Position: {x: 85, y: 6.49, z: 0}
+  - Id: Forest_cdd30f07-8c4d-4159-8b01-c1a75c5d8589
+    PickableObjectTypeId: 0
+    Position: {x: 198.59, y: 11.45, z: 0}
+  - Id: Forest_a2fa0d06-af67-4cc0-8073-63a4e5e64262
+    PickableObjectTypeId: 0
+    Position: {x: 208.51, y: 5.99, z: 0}
+  - Id: Forest_694b5aee-9928-4342-b6f7-b01f7d343e8f
+    PickableObjectTypeId: 20
+    Position: {x: 95.03, y: 6.52, z: 0}
+  - Id: Forest_9e1d38a8-5755-4528-adf9-9f713bc23188
+    PickableObjectTypeId: 100
+    Position: {x: 188.86, y: 11.9, z: 0}
+  - Id: Forest_f91ce96d-1a98-4aac-af06-63ed53f2b9f5
+    PickableObjectTypeId: 100
+    Position: {x: 103.99, y: 8.37, z: 0}
+  - Id: Forest_f47985b9-2afe-4082-8af6-8a52175b90ad
+    PickableObjectTypeId: 20
+    Position: {x: 112.96999, y: 6.49, z: 0}
+  - Id: Forest_6e44e878-b4b5-44d4-9239-3f3bdd4b831f
+    PickableObjectTypeId: 20
+    Position: {x: 239.51, y: 14.5, z: 0}
+  - Id: Forest_d1dde7af-87a9-4f59-b842-eab7044090c3
+    PickableObjectTypeId: 100
+    Position: {x: 160.25, y: 8.94, z: 0}
+  - Id: Forest_450533d1-f7b7-4005-818e-32f483bbf262
+    PickableObjectTypeId: 100
+    Position: {x: 218.41, y: 12.44, z: 0}
+  - Id: Forest_ec3ae9e7-c28d-4ff2-bf99-ddc601ab908a
+    PickableObjectTypeId: 70
+    Position: {x: 280.97, y: 10.39, z: 0}
+  - Id: Forest_694b5aee-9928-4342-b6f7-b01f7d343e8f
+    PickableObjectTypeId: 20
+    Position: {x: 81.03, y: 6.52, z: 0}
+  - Id: Forest_d801d9e3-6de6-4804-8d40-fc0fb0d4a434
+    PickableObjectTypeId: 100
+    Position: {x: 142.57, y: 10.69, z: 0}
+  - Id: Forest_c55a75ad-f121-40f9-9ee8-30879ddc681f
+    PickableObjectTypeId: 20
+    Position: {x: 82.97, y: 8.67, z: 0}
+  - Id: Forest_6697275b-3b88-41a9-89a9-530c25bcaab4
+    PickableObjectTypeId: 0
+    Position: {x: 54.54, y: 11.12, z: 0}
+  - Id: Forest_61ddc8b3-bed7-4936-8a6c-5b83ac265e18
+    PickableObjectTypeId: 100
+    Position: {x: 171.76, y: 10.69, z: 0}
+  - Id: Forest_96f05573-37a4-4dbd-a46a-7eaff1132948
+    PickableObjectTypeId: 50
+    Position: {x: 223.66, y: 10.48, z: 0}
+  - Id: Forest_9d12e239-d1fb-463e-a885-169d708e0978
+    PickableObjectTypeId: 40
+    Position: {x: 122.57, y: 7.52, z: 0}
+  - Id: Forest_1c7b02e8-a8d9-42da-b354-effd5925311d
+    PickableObjectTypeId: 80
+    Position: {x: 56.04, y: 3.38, z: 0}
+  - Id: Forest_c55a75ad-f121-40f9-9ee8-30879ddc681f
+    PickableObjectTypeId: 20
+    Position: {x: 96.97, y: 8.67, z: 0}
+  - Id: Forest_d80a6617-bc33-46d1-ad72-8f3f577cbe2f
+    PickableObjectTypeId: 10
+    Position: {x: 22.48, y: 6.03, z: 0}
+  - Id: Forest_967d8920-7680-470c-bf4e-7aed4f9ed977
+    PickableObjectTypeId: 100
+    Position: {x: 166, y: 10.69, z: 0}
+  - Id: Forest_b81542c8-1435-4e5d-944a-23f7fab141ff
+    PickableObjectTypeId: 10
+    Position: {x: 20.49, y: 7.28, z: 0}
+  - Id: Forest_d801d9e3-6de6-4804-8d40-fc0fb0d4a434
+    PickableObjectTypeId: 100
+    Position: {x: 129.55, y: 10.69, z: 0}
+  - Id: Forest_91bb388f-3ece-4ab7-b115-e9b2ea0e0e38
+    PickableObjectTypeId: 20
+    Position: {x: 258.26, y: 14.5, z: 0}
+  - Id: Forest_13050d80-d705-4862-8652-ed685a3a10b6
+    PickableObjectTypeId: 40
+    Position: {x: 147.65, y: 7.52, z: 0}
+  - Id: Forest_dc6db958-4558-4a79-8abf-41fd988cd432
+    PickableObjectTypeId: 40
+    Position: {x: 121.57, y: 7.52, z: 0}
+  - Id: Forest_32fcac86-b7b4-4ebc-9e62-3f9959883d84
+    PickableObjectTypeId: 100
+    Position: {x: 160.25, y: 10.69, z: 0}
+  - Id: Forest_239271f0-5fe5-4032-af7c-1cf399e72248
+    PickableObjectTypeId: 40
+    Position: {x: 126.57, y: 7.52, z: 0}
+  - Id: Forest_4dc08be5-c1b4-43a7-90a3-1d3c2e9a8f3f
+    PickableObjectTypeId: 40
+    Position: {x: 144.65, y: 7.52, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 238.51, y: 6.42, z: 0}
+  - Id: Forest_7bcb819c-6fe8-4822-ae7f-4916afe8b8c0
+    PickableObjectTypeId: 0
+    Position: {x: 198.59, y: 9.2, z: 0}
+  - Id: Forest_3ea4eb63-374d-4cfb-8b07-7baf3a0881ce
+    PickableObjectTypeId: 30
+    Position: {x: 45.62, y: 11.12, z: 0}
+  - Id: Forest_9d12e239-d1fb-463e-a885-169d708e0978
+    PickableObjectTypeId: 40
+    Position: {x: 145.65, y: 7.52, z: 0}
+  - Id: Forest_b848d844-4ad3-4f8e-ad5d-a4ddd104bd9f
+    PickableObjectTypeId: 90
+    Position: {x: 135.95, y: 9.26, z: 0}
+  - Id: Level1_1f2dba81-81aa-4169-803e-a7f57a2f5b43
+    PickableObjectTypeId: 0
+    Position: {x: 5.4700003, y: 12.39, z: 0}
+  - Id: Forest_c96d758b-e3b8-4a8b-9d8e-4cdd4717a47f
+    PickableObjectTypeId: 0
+    Position: {x: 206.53, y: 7.02, z: 0}
+  - Id: Forest_4ecfeef6-4c37-4765-8cf7-d32c56871c7b
+    PickableObjectTypeId: 20
+    Position: {x: 254.51001, y: 14.5, z: 0}
+  - Id: PickableObjectMarker_2ef766eb-df19-4b6e-a904-07061576b11f
+    PickableObjectTypeId: 0
+    Position: {x: 3.47, y: 12.39, z: 0}
+  - Id: Forest_450533d1-f7b7-4005-818e-32f483bbf262
+    PickableObjectTypeId: 100
+    Position: {x: 263.5, y: 12.44, z: 0}
+  - Id: Forest_9945eed4-28df-41a0-9494-7847a3aa9875
+    PickableObjectTypeId: 100
+    Position: {x: 188.86, y: 16.15, z: 0}
+  - Id: Forest_fe8c9d6e-663b-48d6-a425-b6eb8c794114
+    PickableObjectTypeId: 0
+    Position: {x: 198.59, y: 13.45, z: 0}
+  - Id: Forest_4557291f-850f-4ea3-bc0b-81e1c2b02b9b
+    PickableObjectTypeId: 20
+    Position: {x: 52.86, y: 5.23, z: 0}
+  - Id: Forest_ec851f3e-5e2b-4d32-8209-c236926b26e5
+    PickableObjectTypeId: 20
+    Position: {x: 223.54, y: 14.89, z: 0}
+  - Id: Forest_0ee723cb-1fed-4dd1-a213-8dbc0eab371c
+    PickableObjectTypeId: 100
+    Position: {x: 273.51, y: 10.44, z: 0}
+  - Id: Forest_319b8d48-d069-4119-ab10-310ac1d5a889
+    PickableObjectTypeId: 100
+    Position: {x: 171.76, y: 8.94, z: 0}
+  - Id: Forest_85aaadcc-3262-4954-b748-f52123c4d6e6
+    PickableObjectTypeId: 10
+    Position: {x: 8.91, y: 5.4, z: 0}
+  - Id: Forest_cdd30f07-8c4d-4159-8b01-c1a75c5d8589
+    PickableObjectTypeId: 0
+    Position: {x: 179.34, y: 11.45, z: 0}
+  - Id: Forest_29380ffb-bf67-44ee-9f61-85f80d73f61f
+    PickableObjectTypeId: 10
+    Position: {x: 21.58, y: 6.72, z: 0}
+  - Id: Forest_7bcb819c-6fe8-4822-ae7f-4916afe8b8c0
+    PickableObjectTypeId: 0
+    Position: {x: 179.34, y: 9.2, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 233.51, y: 8.42, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 218.41, y: 8.42, z: 0}
+  - Id: Forest_9d044c6b-5821-4887-9c81-16f81d42cdb0
+    PickableObjectTypeId: 20
+    Position: {x: 240.51, y: 14.5, z: 0}
+  - Id: Forest_f695c666-847c-4db7-aab0-cb42afb8f295
+    PickableObjectTypeId: 20
+    Position: {x: 242.51, y: 14.5, z: 0}
+  - Id: Forest_3444df2d-ffc3-4bec-abef-1eb9b93789fd
+    PickableObjectTypeId: 80
+    Position: {x: 143.08, y: 5.36, z: 0}
+  - Id: Level1_d140b628-f153-4344-a2b1-3e513d6cfa2e
+    PickableObjectTypeId: 0
+    Position: {x: 4.47, y: 13.64, z: 0}
+  - Id: Forest_e4c67d0f-8de2-4323-ae54-67fd0114a9f8
+    PickableObjectTypeId: 100
+    Position: {x: 89.99, y: 8.37, z: 0}
+  - Id: Forest_0ee723cb-1fed-4dd1-a213-8dbc0eab371c
+    PickableObjectTypeId: 100
+    Position: {x: 258.51, y: 10.44, z: 0}
+  - Id: Forest_03ddd02e-f998-4d91-979c-20e7ea9b260d
+    PickableObjectTypeId: 0
+    Position: {x: 198.59, y: 10.45, z: 0}
+  - Id: Forest_a3631ca9-e4c8-49a3-8c4a-175c7daf87f7
+    PickableObjectTypeId: 0
+    Position: {x: 13.07, y: 7.43, z: 0}
+  - Id: Forest_709163dc-1a13-46ba-8a26-c456ebcef6f9
+    PickableObjectTypeId: 20
+    Position: {x: 238.51, y: 14.5, z: 0}
+  - Id: Forest_1e3a7701-cfb6-416b-a0fa-31129a752995
+    PickableObjectTypeId: 20
+    Position: {x: 110.95, y: 8.67, z: 0}
+  - Id: Forest_6bb424d5-fa74-4bc5-82c7-d3f598f7b9c2
+    PickableObjectTypeId: 20
+    Position: {x: 228.54, y: 14.89, z: 0}
+  - Id: Forest_450533d1-f7b7-4005-818e-32f483bbf262
+    PickableObjectTypeId: 100
+    Position: {x: 248.49, y: 12.44, z: 0}
+  - Id: Forest_920aa63d-0ef5-428e-9ed5-d0b94a391b56
+    PickableObjectTypeId: 10
+    Position: {x: 23.28, y: 4.89, z: 0}
+  - Id: Forest_13050d80-d705-4862-8652-ed685a3a10b6
+    PickableObjectTypeId: 40
+    Position: {x: 124.57, y: 7.52, z: 0}
+  - Id: Level1_31ceb3de-f88c-4e5d-87fb-47ec64059185
+    PickableObjectTypeId: 0
+    Position: {x: 4.47, y: 12.39, z: 0}
+  - Id: Forest_97ade23e-a179-4918-98ce-c618423055a3
+    PickableObjectTypeId: 40
+    Position: {x: 125.57, y: 7.52, z: 0}
+  - Id: Forest_81d3fa1c-4d17-43e9-a558-44aa0f039dfb
+    PickableObjectTypeId: 80
+    Position: {x: 129.14, y: 5.35, z: 0}
+  - Id: Forest_ece20b5a-6ad7-4e58-93b4-d182d85c2327
+    PickableObjectTypeId: 90
+    Position: {x: 198.51, y: 19.53, z: 0}
+  - Id: Forest_e3067c4d-111f-4355-8fea-7d0cf02d78bd
+    PickableObjectTypeId: 20
+    Position: {x: 97.98, y: 7.52, z: 0}
+  - Id: Forest_acdf76e0-a4b7-4790-9b5d-dd62f0e0a910
+    PickableObjectTypeId: 40
+    Position: {x: 146.65, y: 7.52, z: 0}
+  - Id: Forest_759a01c5-4a8d-43c8-af31-1bdc534fd075
+    PickableObjectTypeId: 0
+    Position: {x: 179.34, y: 12.45, z: 0}
+  - Id: Forest_df46a2ef-91ff-4388-bcea-68a1b32e5e11
+    PickableObjectTypeId: 20
+    Position: {x: 95.91, y: 7.57, z: 0}
+  - Id: Forest_97ade23e-a179-4918-98ce-c618423055a3
+    PickableObjectTypeId: 40
+    Position: {x: 148.65, y: 7.52, z: 0}
+  - Id: Level1_3893e9c9-27e8-411f-a5d4-b976decdf4af
+    PickableObjectTypeId: 0
+    Position: {x: 36.47, y: 11.12, z: 0}
+  - Id: Forest_d1dde7af-87a9-4f59-b842-eab7044090c3
+    PickableObjectTypeId: 100
+    Position: {x: 155.1, y: 8.94, z: 0}
+  - Id: Forest_dfa020e8-cf2e-4944-bff3-820a22f1bc8a
+    PickableObjectTypeId: 20
+    Position: {x: 268.51, y: 14.5, z: 0}
+  - Id: Forest_08d8b47d-43ed-4058-8361-5596ce059e44
+    PickableObjectTypeId: 20
+    Position: {x: 224.54, y: 14.89, z: 0}
+  - Id: Forest_9029d639-4303-4c35-94b3-7cddce33bb8a
+    PickableObjectTypeId: 30
+    Position: {x: 46.62, y: 11.12, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 273.51, y: 6.42, z: 0}
+  - Id: Forest_75104189-3867-4d0e-b9b1-7497747c6554
+    PickableObjectTypeId: 100
+    Position: {x: 233.51, y: 12.44, z: 0}
+  - Id: Forest_ce15c282-b6d5-44e4-8e7c-1ed6502d0f74
+    PickableObjectTypeId: 40
+    Position: {x: 127.57, y: 7.52, z: 0}
+  - Id: Forest_c9be4109-937c-4bb9-8362-4cad508bb36a
+    PickableObjectTypeId: 100
+    Position: {x: 238.51, y: 10.44, z: 0}
+  - Id: Forest_75feafe6-c193-4007-8611-07768375fa84
+    PickableObjectTypeId: 0
+    Position: {x: 9.48, y: 11.38, z: 0}
+  - Id: Forest_03ddd02e-f998-4d91-979c-20e7ea9b260d
+    PickableObjectTypeId: 0
+    Position: {x: 179.34, y: 10.45, z: 0}
+  - Id: Forest_c3180716-bf1d-4dea-8b73-4c254144d5bf
+    PickableObjectTypeId: 20
+    Position: {x: 226.54, y: 14.89, z: 0}
+  - Id: Forest_f32986fa-8726-4e90-9e30-ddb982f8b3d0
+    PickableObjectTypeId: 20
+    Position: {x: 271.51, y: 14.5, z: 0}
+  - Id: Forest_7af7c395-aa4d-40e3-9ff1-1ad21a5d37d6
+    PickableObjectTypeId: 100
+    Position: {x: 37.36, y: 5.23, z: 0}
+  - Id: Forest_bd04675b-de8d-468d-9a3b-651c163ac87a
+    PickableObjectTypeId: 20
+    Position: {x: 243.51, y: 14.5, z: 0}
+  - Id: Forest_fe4dd627-2ca2-45b2-9f30-4b7359862619
+    PickableObjectTypeId: 90
+    Position: {x: 179.38, y: 19.53, z: 0}
+  - Id: Forest_98657563-ac3f-4739-a22a-5287e548db3b
+    PickableObjectTypeId: 100
+    Position: {x: 166, y: 8.94, z: 0}
+  - Id: Forest_239271f0-5fe5-4032-af7c-1cf399e72248
+    PickableObjectTypeId: 40
+    Position: {x: 149.65, y: 7.52, z: 0}
+  - Id: Forest_8bab589b-fbf3-4570-b4ad-7386869a5992
+    PickableObjectTypeId: 20
+    Position: {x: 98.99, y: 6.49, z: 0}
+  - Id: Forest_0ee723cb-1fed-4dd1-a213-8dbc0eab371c
+    PickableObjectTypeId: 100
+    Position: {x: 243.51, y: 10.44, z: 0}
+  - Id: Forest_af63c421-d1f7-4278-9534-d72a763b2396
+    PickableObjectTypeId: 20
+    Position: {x: 253.51001, y: 14.5, z: 0}
+  - Id: Forest_051788fa-c004-4396-951d-b9fc798d2588
+    PickableObjectTypeId: 100
+    Position: {x: 188.86, y: 13.9, z: 0}
+  - Id: Forest_9d044c6b-5821-4887-9c81-16f81d42cdb0
+    PickableObjectTypeId: 20
+    Position: {x: 270.51, y: 14.5, z: 0}
+  - Id: Forest_9ef8a2c8-f138-4d84-910e-a888da9fb567
+    PickableObjectTypeId: 20
+    Position: {x: 225.54, y: 14.89, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 243.51, y: 6.42, z: 0}
+  - Id: Forest_ea010998-f5b9-49c0-97c3-cc34b0eefc17
+    PickableObjectTypeId: 20
+    Position: {x: 273.51, y: 14.5, z: 0}
+  - Id: Forest_8ac7022b-89ff-4f09-a460-7fd51932c1b1
+    PickableObjectTypeId: 0
+    Position: {x: 52.550003, y: 11.12, z: 0}
+  - Id: Forest_e57d0d73-d4f1-4fda-b17c-6c32b6e3ae3b
+    PickableObjectTypeId: 80
+    Position: {x: 268.51, y: 6.42, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 263.5, y: 8.42, z: 0}
+  - Id: Forest_759a01c5-4a8d-43c8-af31-1bdc534fd075
+    PickableObjectTypeId: 0
+    Position: {x: 198.59, y: 12.45, z: 0}
+  - Id: Forest_4d7c7739-92c8-4d49-893e-fe372845d01a
+    PickableObjectTypeId: 0
+    Position: {x: 37.52, y: 11.12, z: 0}
+  - Id: Forest_7ca1e464-6ecf-42ff-8d0e-2285e70eb67c
+    PickableObjectTypeId: 70
+    Position: {x: 331.03, y: 7.36, z: 0}
+  - Id: Forest_dfbce87f-aba8-4a86-b891-057e16936461
+    PickableObjectTypeId: 100
+    Position: {x: 188.86, y: 9.65, z: 0}
+  - Id: Forest_9d044c6b-5821-4887-9c81-16f81d42cdb0
+    PickableObjectTypeId: 20
+    Position: {x: 255.51001, y: 14.5, z: 0}
+  - Id: Forest_e3067c4d-111f-4355-8fea-7d0cf02d78bd
+    PickableObjectTypeId: 20
+    Position: {x: 83.98, y: 7.52, z: 0}
+  - Id: Forest_df46a2ef-91ff-4388-bcea-68a1b32e5e11
+    PickableObjectTypeId: 20
+    Position: {x: 109.89, y: 7.57, z: 0}
+  - Id: Level1_7dd33b23-529d-4702-a59d-2a68396304c3
+    PickableObjectTypeId: 70
+    Position: {x: 16.1, y: 3.39, z: 0}
+  - Id: Forest_8fc05e0c-bb93-408f-9681-467b884c1925
+    PickableObjectTypeId: 0
+    Position: {x: 179.34, y: 13.45, z: 0}
+  - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
+    PickableObjectTypeId: 100
+    Position: {x: 258.51, y: 6.42, z: 0}
+  - Id: Forest_fc433f59-7730-4586-8628-890558c4db53
+    PickableObjectTypeId: 100
+    Position: {x: 45.11, y: 5.23, z: 0}
+  - Id: Forest_8cc4af20-0e42-4328-95c3-4cf7065f9a82
+    PickableObjectTypeId: 20
+    Position: {x: 81.91, y: 7.57, z: 0}
+  - Id: Forest_369f792d-db0d-4c4c-b1a9-943f3388beef
+    PickableObjectTypeId: 20
+    Position: {x: 256.51, y: 14.5, z: 0}
+  - Id: Forest_d1dde7af-87a9-4f59-b842-eab7044090c3
+    PickableObjectTypeId: 100
+    Position: {x: 129.55, y: 8.94, z: 0}
+  - Id: Forest_040cc1ab-2f71-45ec-8bc0-dc11e3216548
+    PickableObjectTypeId: 30
+    Position: {x: 44.62, y: 11.12, z: 0}
+  - Id: Forest_694b5aee-9928-4342-b6f7-b01f7d343e8f
+    PickableObjectTypeId: 20
+    Position: {x: 109.009995, y: 6.52, z: 0}
+  - Id: Level1_ba34a2f0-034c-4098-87cf-1cca6a24247c
+    PickableObjectTypeId: 110
+    Position: {x: 204.13, y: 17.66, z: 0}
+  - Id: Level1_11593d95-28b2-4478-9426-b98c0e027942
+    PickableObjectTypeId: 0
+    Position: {x: 53.600002, y: 11.12, z: 0}
+  - Id: Forest_0fa0d625-fe99-4c9c-b7b6-1b365c6c8280
+    PickableObjectTypeId: 80
+    Position: {x: 17.03, y: 9.31, z: 0}
+  - Id: Forest_acdf76e0-a4b7-4790-9b5d-dd62f0e0a910
+    PickableObjectTypeId: 40
+    Position: {x: 123.57, y: 7.52, z: 0}
   SaveProgressPointSpawners:
   - Id: Level1_50a3d256-7036-4c72-b076-2db049a22698
     SaveProgressPointTypeId: 0
