@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4242845883964544}
   - component: {fileID: 212115881793048690}
-  m_Layer: 0
+  - component: {fileID: 244906595891414885}
+  m_Layer: 18
   m_Name: Evergreen_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 955365419
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300308, guid: 2c06fc137f4d6824aa6eaaf5fc8ec5ad, type: 3}
   m_Color: {r: 0.4705882, g: 0.39215687, b: 0.25605536, a: 1}
@@ -83,6 +84,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &244906595891414885
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122744418784312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.024706513, y: 1.3670938}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6541088, y: 4.7341866}
+  m_EdgeRadius: 0
 --- !u!1 &1966232437501232
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680099402548546}
   - component: {fileID: 212577987332408456}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Evergreen_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,8 +178,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 955365419
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300240, guid: 2c06fc137f4d6824aa6eaaf5fc8ec5ad, type: 3}
   m_Color: {r: 0.011353818, g: 0.5147059, b: 0.3272506, a: 1}

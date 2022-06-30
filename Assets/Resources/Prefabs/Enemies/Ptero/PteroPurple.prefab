@@ -74,9 +74,11 @@ MonoBehaviour:
   _seeker: {fileID: 2039363918414257816}
   _rigidbody: {fileID: 5887353950119996221}
   _model: {fileID: 4551130162800488786}
-  _patrolSpeed: 100
+  _patrolSpeed: 250
   _patrolDistance: 7
+  _distanceToPatrol: 10
   _attackSpeed: 400
+  _distanceToAttack: 7
 --- !u!1001 &980929078090018005
 PrefabInstance:
   m_ObjectHideFlags: 0

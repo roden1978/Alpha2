@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148ef7e31a5860e419bff045c2d75837, type: 3}
   m_Name: RibsStaticData
   m_EditorClassIdentifier: 
-  Value: 5
+  Value: 10
   Prefab: {fileID: 5251603127210265769, guid: 05d8089a84a24c846a459295118fd4ae, type: 3}
   PickableObjectTypeId: 70

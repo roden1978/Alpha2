@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using EnemyScripts;
 using PlayerScripts;
@@ -17,9 +18,13 @@ namespace GameObjectsScripts
         {
             Value = _enemyStaticData.DamageOnTouch;
             Hide = false;
+            _waitForSeconds = new WaitForSeconds(_enemyStaticData.Cooldown);
+        }
+
+        private void OnEnable()
+        {
             _triggerObserver.TriggerEnter += OnDamageTriggerEnter;
             _triggerObserver.TriggerExit += OnDamageTriggerExit;
-            _waitForSeconds = new WaitForSeconds(_enemyStaticData.Cooldown);
         }
 
         private void OnDisable()

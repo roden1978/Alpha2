@@ -29,7 +29,7 @@ TagManager:
   - Aggro
   - Platform
   - Activator
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GridBackgroundDown
+    uniqueID: 2581845635
     locked: 0
   - name: GridBackground
     uniqueID: 1619834301

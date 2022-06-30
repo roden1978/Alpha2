@@ -15,8 +15,11 @@ namespace EnemyScripts.AI
         [Header("Patrol")]
         [SerializeField] private float _patrolSpeed;
         [SerializeField] private int _patrolDistance;
+        [SerializeField] private int _distanceToPatrol;
+
         [Header("Attack")]
         [SerializeField] private float _attackSpeed;
+        [SerializeField] private int _distanceToAttack;
         private PathBuilder _pathBuilder;
 
         public override void Construct(Player player)
@@ -27,8 +30,8 @@ namespace EnemyScripts.AI
             Transform enemyTransform = transform;
             IState twoWayPointsPatrol = new TwoWayPointsPatrol(enemyTransform, _rigidbody,_model, _patrolDistance, _patrolSpeed, _pathBuilder);
             IState chase = new ChaseState(enemyTransform, _pathBuilder,_attackSpeed, Player, _rigidbody,_model);
-            StateMachine.AddTransition(twoWayPointsPatrol, chase, new ChaseDistance(Player, this, 5));
-            StateMachine.AddTransition(chase, twoWayPointsPatrol, new PatrolDistance(Player, this, 10));
+            StateMachine.AddTransition(twoWayPointsPatrol, chase, new ChaseDistance(Player, this, _distanceToAttack));
+            StateMachine.AddTransition(chase, twoWayPointsPatrol, new PatrolDistance(Player, this, _distanceToPatrol));
             StateMachine.SetState(twoWayPointsPatrol);
         }
 

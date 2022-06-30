@@ -4,6 +4,7 @@ using Data;
 using Infrastructure.Services;
 using Services.PersistentProgress;
 using Services.SaveLoad;
+using UnityEngine;
 
 namespace Infrastructure.GameStates
 {
@@ -29,7 +30,6 @@ namespace Infrastructure.GameStates
             ISaveLoadService saveLoadService = _serviceLocator.Single<ISaveLoadService>();
             _persistentProgressService = _serviceLocator.Single<IPersistentProgressService>();
             _persistentProgressService.Settings = saveLoadService.LoadSettings() ?? CreateSettings();
-            
             callback?.Invoke();
         }
 

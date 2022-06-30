@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5869385104317300586}
   _model: {fileID: 4605202589324272901}
-  _patrolSpeed: 2
+  _patrolSpeed: 15
   _patrolDistance: 4
 --- !u!1001 &962888866505701506
 PrefabInstance:

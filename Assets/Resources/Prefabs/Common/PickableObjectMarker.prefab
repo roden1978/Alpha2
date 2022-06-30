@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cd5b4efff44a01bdd479e09f295edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: _e9e57b1e-b50e-4556-a1ac-d547c4c7ea54
+  Id: PickableObjectMarker_2ef766eb-df19-4b6e-a904-07061576b11f
 --- !u!114 &1506530886660037094
 MonoBehaviour:
   m_ObjectHideFlags: 0

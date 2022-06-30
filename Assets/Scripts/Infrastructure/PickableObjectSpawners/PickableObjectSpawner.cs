@@ -42,6 +42,7 @@ namespace Infrastructure.PickableObjectSpawners
             if (_pickableObject != null)
                 _pickableObject.PickUp -= OnPickUp;
             _pickedUp = true;
+            Destroy(gameObject);
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)

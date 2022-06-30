@@ -17,9 +17,14 @@ namespace EnemyScripts
             _gameFactory = gameFactory;
         }
 
-        private void Start()
+        private void OnEnable()
         {
             _enemyDeath.Death += OnEnemyDeath;
+        }
+
+        private void OnDisable()
+        {
+            _enemyDeath.Death -= OnEnemyDeath;
         }
 
         private void OnEnemyDeath()
@@ -30,11 +35,6 @@ namespace EnemyScripts
                     _gameFactory.CreatePickableObject(_spawnedLootObjectStaticData.PickableObjectTypeId, transform);
                 loot.transform.parent = null;
             }
-        }
-
-        private void OnDestroy()
-        {
-            _enemyDeath.Death -= OnEnemyDeath;
         }
     }
 }
