@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   LevelKey: Forest
-  PlayerSpawnPoint: {x: 0.99, y: 2.1, z: 0}
+  PlayerSpawnPoint: {x: 0.742, y: 1.931, z: 0}
   EnemySpawners:
   - Id: Forest_dfe5210f-9d1a-41bc-8250-eb472f67aa2e
     EnemyTypeId: 10
@@ -97,6 +97,30 @@ MonoBehaviour:
     EnemyTypeId: 10
     Position: {x: 245.54, y: 15.81, z: 0}
   PickableObjectSpawners:
+  - Id: Forest_f5f52221-8959-4452-8792-77a8ddf5ead9
+    PickableObjectTypeId: 90
+    Position: {x: 338.29, y: 7.82, z: 0}
+  - Id: Forest_d8fb6072-d517-40b3-b6f2-e5c0ae1b8c57
+    PickableObjectTypeId: 70
+    Position: {x: 323.06, y: 7.41, z: 0}
+  - Id: Forest_ba1d5f5a-975d-4943-bb7a-76bcf849429a
+    PickableObjectTypeId: 70
+    Position: {x: 315.06, y: 7.41, z: 0}
+  - Id: Forest_01066af5-223f-49bb-90a1-fd55f392df05
+    PickableObjectTypeId: 70
+    Position: {x: 307.06, y: 7.41, z: 0}
+  - Id: Forest_2b4ac8a2-57a6-4643-a969-420f255dc275
+    PickableObjectTypeId: 70
+    Position: {x: 299.06, y: 7.41, z: 0}
+  - Id: Forest_31394167-4369-4161-bba1-2bef189d1e49
+    PickableObjectTypeId: 70
+    Position: {x: 291.06, y: 7.41, z: 0}
+  - Id: Forest_16fa8003-f0fd-4972-85a2-1a0dc3294735
+    PickableObjectTypeId: 80
+    Position: {x: 253.47, y: 10.35, z: 0}
+  - Id: Forest_510fbe89-f8df-4681-8e4f-71488457167b
+    PickableObjectTypeId: 80
+    Position: {x: 228.47, y: 10.48, z: 0}
   - Id: Forest_a9316c6c-acb6-4582-b62d-78b048123de6
     PickableObjectTypeId: 100
     Position: {x: 248.49, y: 8.42, z: 0}
@@ -261,7 +285,7 @@ MonoBehaviour:
     Position: {x: 135.95, y: 9.26, z: 0}
   - Id: Level1_1f2dba81-81aa-4169-803e-a7f57a2f5b43
     PickableObjectTypeId: 0
-    Position: {x: 5.4700003, y: 12.39, z: 0}
+    Position: {x: 5.4700003, y: 12.05, z: 0}
   - Id: Forest_c96d758b-e3b8-4a8b-9d8e-4cdd4717a47f
     PickableObjectTypeId: 0
     Position: {x: 206.53, y: 7.02, z: 0}
@@ -270,7 +294,7 @@ MonoBehaviour:
     Position: {x: 254.51001, y: 14.5, z: 0}
   - Id: PickableObjectMarker_2ef766eb-df19-4b6e-a904-07061576b11f
     PickableObjectTypeId: 0
-    Position: {x: 3.47, y: 12.39, z: 0}
+    Position: {x: 3.47, y: 12.05, z: 0}
   - Id: Forest_450533d1-f7b7-4005-818e-32f483bbf262
     PickableObjectTypeId: 100
     Position: {x: 263.5, y: 12.44, z: 0}
@@ -321,7 +345,7 @@ MonoBehaviour:
     Position: {x: 143.08, y: 5.36, z: 0}
   - Id: Level1_d140b628-f153-4344-a2b1-3e513d6cfa2e
     PickableObjectTypeId: 0
-    Position: {x: 4.47, y: 13.64, z: 0}
+    Position: {x: 4.47, y: 13.3, z: 0}
   - Id: Forest_e4c67d0f-8de2-4323-ae54-67fd0114a9f8
     PickableObjectTypeId: 100
     Position: {x: 89.99, y: 8.37, z: 0}
@@ -354,7 +378,7 @@ MonoBehaviour:
     Position: {x: 124.57, y: 7.52, z: 0}
   - Id: Level1_31ceb3de-f88c-4e5d-87fb-47ec64059185
     PickableObjectTypeId: 0
-    Position: {x: 4.47, y: 12.39, z: 0}
+    Position: {x: 4.47, y: 12.05, z: 0}
   - Id: Forest_97ade23e-a179-4918-98ce-c618423055a3
     PickableObjectTypeId: 40
     Position: {x: 125.57, y: 7.52, z: 0}

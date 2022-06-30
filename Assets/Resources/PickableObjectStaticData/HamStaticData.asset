@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148ef7e31a5860e419bff045c2d75837, type: 3}
   m_Name: HamStaticData
   m_EditorClassIdentifier: 
-  Value: 5
+  Value: 20
   Prefab: {fileID: 5251603127210265769, guid: b4e09f9dbb2670c44ad528f3b3c08a54, type: 3}
   PickableObjectTypeId: 90
