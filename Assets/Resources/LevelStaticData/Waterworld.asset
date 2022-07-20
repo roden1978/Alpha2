@@ -1,0 +1,614 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93db826b26064c79ad51c752eb5a4bde, type: 3}
+  m_Name: Waterworld
+  m_EditorClassIdentifier: 
+  LevelKey: Waterworld
+  PlayerSpawnPoint: {x: 0.742, y: 1.931, z: 0}
+  EnemySpawners:
+  - Id: Waterworld_8276a4ad-de71-4051-8e20-c314c7607738
+    EnemyTypeId: 40
+    Position: {x: 135.03, y: 5.33, z: 0}
+  - Id: Waterworld_7f38a16f-3842-46cd-9d89-2a2297fc2de8
+    EnemyTypeId: 30
+    Position: {x: 89.53, y: 17.32, z: 0}
+  - Id: Waterworld_e9997f1b-0622-495c-8739-d13619071446
+    EnemyTypeId: 50
+    Position: {x: 210.1, y: 4.88, z: 0}
+  - Id: Waterworld_253031ce-788d-4b89-93dd-c682aa6fff73
+    EnemyTypeId: 50
+    Position: {x: 61.493, y: 4.88, z: 0}
+  - Id: Waterworld_098f890a-42d4-445b-b511-f587fe25993e
+    EnemyTypeId: 50
+    Position: {x: 203.85, y: 4.88, z: 0}
+  - Id: Waterworld_4248f15d-3f66-4336-aa99-d1da54874c30
+    EnemyTypeId: 20
+    Position: {x: 124.3, y: 31.9, z: 0}
+  - Id: Level1_6566121b-8800-4ff1-aebf-62ed5b14ee5b
+    EnemyTypeId: 10
+    Position: {x: 20.3, y: 7.57, z: 0}
+  - Id: Waterworld_be12316e-289e-4422-a08b-de2c9ccb1569
+    EnemyTypeId: 20
+    Position: {x: 59.9, y: 41.3, z: 0}
+  - Id: Waterworld_b839c2b1-a0b4-40f1-b53b-a1dfba0150e4
+    EnemyTypeId: 50
+    Position: {x: 99.44, y: 4.88, z: 0}
+  - Id: Waterworld_c5958f25-3d4a-400a-9786-37fc7c1423f9
+    EnemyTypeId: 20
+    Position: {x: 82.5, y: 41.4, z: 0}
+  - Id: Waterworld_87addbee-85d5-4a75-9f4e-c3c498b9b5c9
+    EnemyTypeId: 10
+    Position: {x: 58.27, y: 17.41, z: 0}
+  - Id: Waterworld_6143b95c-cc80-4e31-808d-ecc63b9b6d1b
+    EnemyTypeId: 20
+    Position: {x: 202.8, y: 21, z: 0}
+  - Id: Waterworld_56a35e56-121c-4b0b-ab99-e302f8c31c24
+    EnemyTypeId: 50
+    Position: {x: 87.69, y: 4.88, z: 0}
+  - Id: Waterworld_ca98ab81-7b53-4e30-93fe-1cb1cc5f248a
+    EnemyTypeId: 20
+    Position: {x: 106.2, y: 42, z: 0}
+  - Id: Waterworld_50ff60ec-5773-41a6-8395-17cfbbb10d8d
+    EnemyTypeId: 10
+    Position: {x: 92.29, y: 21, z: 0}
+  - Id: Waterworld_3fa1186a-9014-4985-a9a4-5f155d154871
+    EnemyTypeId: 20
+    Position: {x: 233.35, y: 11.92, z: 0}
+  - Id: Waterworld_2a7e2f2f-482d-4b94-8e9d-5a92aba5a388
+    EnemyTypeId: 0
+    Position: {x: 269.52, y: 12.81, z: 0}
+  - Id: Waterworld_28966e7e-9bb6-4160-8cb6-4d6ea3a970c6
+    EnemyTypeId: 50
+    Position: {x: 358.42, y: 4.88, z: 0}
+  - Id: Waterworld_10cc617e-4f8f-40c1-9266-f0e1d05cd0e8
+    EnemyTypeId: 40
+    Position: {x: 315.68, y: 21.31, z: 0}
+  - Id: Waterworld_9e772299-c6d9-4e7f-9dc5-41323b487fe8
+    EnemyTypeId: 50
+    Position: {x: 206.85, y: 4.88, z: 0}
+  - Id: Waterworld_0b4e4fc4-ff5e-4d5e-be95-dfac749e262f
+    EnemyTypeId: 50
+    Position: {x: 66.743, y: 4.88, z: 0}
+  - Id: Waterworld_3eace2d6-f176-4891-9cfa-351eca9f90da
+    EnemyTypeId: 0
+    Position: {x: 92.187, y: 28.799, z: 0}
+  - Id: Waterworld_eba86c04-62c9-4f0e-834e-5fdbc88032e5
+    EnemyTypeId: 50
+    Position: {x: 263.26, y: 4.88, z: 0}
+  - Id: Waterworld_7d39bd76-304c-4c55-ac13-23e92caa6653
+    EnemyTypeId: 50
+    Position: {x: 164.35, y: 4.88, z: 0}
+  - Id: Waterworld_5132d666-c4fb-4308-950a-84bedec3d804
+    EnemyTypeId: 50
+    Position: {x: 82.19, y: 4.88, z: 0}
+  - Id: Waterworld_fb4f068d-902c-4fce-9800-4ef0081f5d37
+    EnemyTypeId: 50
+    Position: {x: 153.17, y: 4.88, z: 0}
+  - Id: Waterworld_c64bfe41-38a7-451c-b770-d33b7f3b5b4a
+    EnemyTypeId: 40
+    Position: {x: 303.07, y: 21.31, z: 0}
+  - Id: Waterworld_2e3cd0bb-b6a8-4fad-9942-ce495dfa413c
+    EnemyTypeId: 50
+    Position: {x: 285.01, y: 4.88, z: 0}
+  - Id: Waterworld_e9a33370-4661-4d9e-9f69-a90fafce8548
+    EnemyTypeId: 0
+    Position: {x: 333, y: 12.82, z: 0}
+  - Id: Waterworld_e498d4a0-3b6e-4e70-a49a-7e985e6d32ff
+    EnemyTypeId: 50
+    Position: {x: 111.69, y: 4.88, z: 0}
+  - Id: Waterworld_37e5f1fa-dfb1-4bd1-91c1-22e609936f7e
+    EnemyTypeId: 20
+    Position: {x: 214.87, y: 12.04, z: 0}
+  - Id: Waterworld_2c3e05a3-357a-4abc-90dd-90deee3545f9
+    EnemyTypeId: 50
+    Position: {x: 353.35, y: 4.88, z: 0}
+  - Id: Waterworld_975f492e-4e9e-4ca7-b66c-9f98fd14f38a
+    EnemyTypeId: 50
+    Position: {x: 348.18, y: 4.88, z: 0}
+  - Id: Waterworld_b0d8fcae-ee5a-4606-9cb2-5bddbed9b141
+    EnemyTypeId: 50
+    Position: {x: 282.01, y: 4.88, z: 0}
+  - Id: Waterworld_5a702719-efbd-441b-94fb-d938ed602aa9
+    EnemyTypeId: 30
+    Position: {x: 81.78, y: 17.32, z: 0}
+  - Id: Waterworld_c268210b-29d7-46c3-b047-a2332b983356
+    EnemyTypeId: 50
+    Position: {x: 182.1, y: 4.88, z: 0}
+  - Id: Waterworld_2a51d082-eb54-4ff4-aea6-fa2051d5d4ae
+    EnemyTypeId: 50
+    Position: {x: 230.1, y: 4.88, z: 0}
+  - Id: Waterworld_64e88b43-2ad4-480e-a666-0f1d544696f2
+    EnemyTypeId: 0
+    Position: {x: 246.91, y: 5.79, z: 0}
+  - Id: Waterworld_cfd35efb-69e4-4ff4-958d-69eeff43edbc
+    EnemyTypeId: 0
+    Position: {x: 223.3, y: 16.84, z: 0}
+  - Id: Waterworld_0d7f04cd-30a5-43b4-ba63-915d57856df6
+    EnemyTypeId: 50
+    Position: {x: 150.85, y: 4.88, z: 0}
+  - Id: Waterworld_cda1fb30-7d34-4334-840d-f6c76708c8d7
+    EnemyTypeId: 50
+    Position: {x: 105.69, y: 4.88, z: 0}
+  - Id: Waterworld_9759689d-e562-4f33-a7ed-207c51b4ba4e
+    EnemyTypeId: 20
+    Position: {x: 245.98, y: 18.34, z: 0}
+  - Id: Waterworld_67843524-f940-4dc6-a13a-39e96f06951d
+    EnemyTypeId: 20
+    Position: {x: 165.96, y: 25.99, z: 0}
+  - Id: Waterworld_746170a4-510a-460e-8ab5-fe086a932d88
+    EnemyTypeId: 50
+    Position: {x: 72.743, y: 4.88, z: 0}
+  - Id: Waterworld_beae7f98-bdf5-44a1-a40f-f80755762ff7
+    EnemyTypeId: 50
+    Position: {x: 167.35, y: 4.88, z: 0}
+  - Id: Waterworld_219fd037-a928-42df-b5d3-e27ed264f09d
+    EnemyTypeId: 50
+    Position: {x: 179.6, y: 4.88, z: 0}
+  - Id: Waterworld_41902db9-95bd-42cf-b305-ff18a6b0f6b0
+    EnemyTypeId: 20
+    Position: {x: 132.2, y: 42.4, z: 0}
+  - Id: Waterworld_dce6815f-3a1f-455b-9d43-a8c9c5559db7
+    EnemyTypeId: 20
+    Position: {x: 172.7, y: 16.6, z: 0}
+  - Id: Waterworld_3e7ad995-5314-4434-a436-2cf5922850ee
+    EnemyTypeId: 0
+    Position: {x: 138.6, y: 38.83, z: 0}
+  - Id: Waterworld_7c838cfc-cc2b-4d5c-963c-01320be625b9
+    EnemyTypeId: 10
+    Position: {x: 32.31, y: 10.68, z: 0}
+  - Id: Waterworld_0ce5243c-1848-4ab4-9cf4-30a3a1f55334
+    EnemyTypeId: 50
+    Position: {x: 288.51, y: 4.88, z: 0}
+  - Id: Waterworld_52433aef-033f-45ce-b903-5dd998c8dcd7
+    EnemyTypeId: 50
+    Position: {x: 373.18, y: 4.88, z: 0}
+  - Id: Waterworld_d578463e-1f60-41c1-8849-c780a7cae1d6
+    EnemyTypeId: 30
+    Position: {x: 98.28, y: 17.32, z: 0}
+  - Id: Waterworld_467a321a-5c2f-4931-aa32-9e80468516c6
+    EnemyTypeId: 40
+    Position: {x: 125.28, y: 5.33, z: 0}
+  - Id: Waterworld_19196acb-b522-459e-876c-a1ffdea0987f
+    EnemyTypeId: 50
+    Position: {x: 260.76, y: 4.88, z: 0}
+  - Id: Waterworld_ea733b55-5ff6-4bee-b4db-ea6573353c47
+    EnemyTypeId: 50
+    Position: {x: 226.85, y: 4.88, z: 0}
+  - Id: Waterworld_e090c2a5-f52f-465f-a7cc-0e10863999ba
+    EnemyTypeId: 50
+    Position: {x: 223.85, y: 4.88, z: 0}
+  - Id: Waterworld_3aa516ba-5a7a-4a2c-8f13-22976518d7c0
+    EnemyTypeId: 20
+    Position: {x: 160.3, y: 16.6, z: 0}
+  PickableObjectSpawners:
+  - Id: Waterworld_3b28cc5b-0b41-41dc-8b03-0302e375f7cf
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 27.4, z: 0}
+  - Id: Waterworld_3eb8c820-ca47-4d37-b706-e59f4388e08c
+    PickableObjectTypeId: 30
+    Position: {x: 89.78, y: 18.33, z: 0}
+  - Id: Waterworld_87ecceab-0a40-44ff-b3b5-dce2054209ee
+    PickableObjectTypeId: 60
+    Position: {x: 342.2, y: 16.13, z: 0}
+  - Id: Waterworld_0be53cb2-953b-471b-ac4a-8f240befed4e
+    PickableObjectTypeId: 100
+    Position: {x: 166.34, y: 16.14, z: 0}
+  - Id: Waterworld_10bf08c8-b41c-4305-8dcd-87548784ab6c
+    PickableObjectTypeId: 60
+    Position: {x: 176.59, y: 18.39, z: 0}
+  - Id: Waterworld_ea452d8e-8262-4a81-9932-56f6a06e2596
+    PickableObjectTypeId: 100
+    Position: {x: 74.52, y: 39.3, z: 0}
+  - Id: Waterworld_acfb3f88-7fd9-4c5e-9b1b-346ad4949b69
+    PickableObjectTypeId: 0
+    Position: {x: 8.99, y: 3.31, z: 0}
+  - Id: Waterworld_296857f5-2781-42fe-ae25-21e52fc7d7cd
+    PickableObjectTypeId: 80
+    Position: {x: 78.73, y: 40.3, z: 0}
+  - Id: Waterworld_17f1ddac-23d1-414c-a3d1-3950abdf3037
+    PickableObjectTypeId: 60
+    Position: {x: 176.59, y: 16.39, z: 0}
+  - Id: Waterworld_74e07b2c-1ab9-4308-a722-5d894e4422b7
+    PickableObjectTypeId: 50
+    Position: {x: 67.98, y: 33.03, z: 0}
+  - Id: Waterworld_13363d65-6252-40b6-adb5-4e86ca0c036e
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 21.4, z: 0}
+  - Id: Waterworld_78e47f13-8b6c-4e1f-826a-ca13ef13d459
+    PickableObjectTypeId: 50
+    Position: {x: 183.1, y: 17.36, z: 0}
+  - Id: Waterworld_b39a3b37-f5c1-4e32-b13a-b3c839a12652
+    PickableObjectTypeId: 100
+    Position: {x: 309.98, y: 22.41, z: 0}
+  - Id: Waterworld_3e278a1c-7c4b-434c-bcbf-e292bbc76999
+    PickableObjectTypeId: 100
+    Position: {x: 308.09, y: 11.8, z: 0}
+  - Id: Waterworld_029f408a-abc4-45a6-86fb-ad84293771f1
+    PickableObjectTypeId: 100
+    Position: {x: 348.68, y: 19.22, z: 0}
+  - Id: Waterworld_7b313d26-6c7e-4b4e-8b00-c43946a7060e
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 19.9, z: 0}
+  - Id: Waterworld_fc50b98a-cd77-474a-83fa-0e52a8a73972
+    PickableObjectTypeId: 70
+    Position: {x: 36.73, y: 11.44, z: 0}
+  - Id: Waterworld_0c6f0c10-788f-4676-a1c6-d510982f3fbd
+    PickableObjectTypeId: 100
+    Position: {x: 122.52, y: 39.3, z: 0}
+  - Id: Waterworld_061ae627-42d1-4c4b-bf55-798835ac5b72
+    PickableObjectTypeId: 50
+    Position: {x: 103.03, y: 30.08, z: 0}
+  - Id: Waterworld_96b40d7c-a207-4741-ad73-f527af24740f
+    PickableObjectTypeId: 40
+    Position: {x: 60.47, y: 35.09, z: 0}
+  - Id: Waterworld_a79b0f89-470a-4767-b75f-15bba9a1fd9f
+    PickableObjectTypeId: 80
+    Position: {x: 94.48, y: 40.3, z: 0}
+  - Id: Waterworld_579dfab8-b6a1-464a-a9e1-d72f96c65572
+    PickableObjectTypeId: 40
+    Position: {x: 59.47, y: 35.09, z: 0}
+  - Id: Waterworld_f7bc536f-fc58-4853-8d59-ec110ce2a229
+    PickableObjectTypeId: 100
+    Position: {x: 308.23, y: 22.41, z: 0}
+  - Id: Waterworld_336ce5c8-04d9-47e6-b7bc-63b33c3dd242
+    PickableObjectTypeId: 30
+    Position: {x: 88.53, y: 30.08, z: 0}
+  - Id: Waterworld_98c5d0a4-5d6b-450f-8031-f2407b521e0a
+    PickableObjectTypeId: 100
+    Position: {x: 70.98, y: 16.37, z: 0}
+  - Id: Waterworld_282287ca-dba5-46d3-9311-fb948108a55e
+    PickableObjectTypeId: 100
+    Position: {x: 71.53, y: 32.47, z: 0}
+  - Id: Waterworld_4ac15435-9306-43ef-b533-b22c57202346
+    PickableObjectTypeId: 20
+    Position: {x: 83.78, y: 18.33, z: 0}
+  - Id: Waterworld_b1a425ae-b47f-4437-9caf-1c20a9695bd2
+    PickableObjectTypeId: 0
+    Position: {x: 6.99, y: 3.31, z: 0}
+  - Id: Waterworld_63497c6a-2bdd-4892-a239-80f2d381a091
+    PickableObjectTypeId: 80
+    Position: {x: 94.99, y: 31.23, z: 0}
+  - Id: Waterworld_f4d164ac-9b1b-463f-be48-6cdfec9a45d7
+    PickableObjectTypeId: 60
+    Position: {x: 340.95, y: 16.13, z: 0}
+  - Id: Waterworld_72913aa8-ac6f-4baa-855d-ea693a999f9b
+    PickableObjectTypeId: 90
+    Position: {x: 266.5, y: 13.06, z: 0}
+  - Id: Waterworld_c0bd462d-2882-4e58-96b4-9798e7725099
+    PickableObjectTypeId: 50
+    Position: {x: 233.27, y: 17.02, z: 0}
+  - Id: Waterworld_0a139704-a591-4ba1-8307-feba58541272
+    PickableObjectTypeId: 10
+    Position: {x: 290.22, y: 16.34, z: 0}
+  - Id: Waterworld_3057fb17-1dfb-497a-9aa7-3e601425328c
+    PickableObjectTypeId: 50
+    Position: {x: 189.01, y: 14.55, z: 0}
+  - Id: Waterworld_f9dac314-97af-4971-ac4d-885ca3eef778
+    PickableObjectTypeId: 50
+    Position: {x: 104.28, y: 30.08, z: 0}
+  - Id: Waterworld_e2533374-5775-4be4-9e52-970f81472d8a
+    PickableObjectTypeId: 50
+    Position: {x: 293.74, y: 16.31, z: 0}
+  - Id: Waterworld_f06839cb-fc4f-41ef-bf8c-72b7a3883aa7
+    PickableObjectTypeId: 90
+    Position: {x: 147.02, y: 39.55, z: 0}
+  - Id: Waterworld_e7f54339-84b1-4c24-9383-84a355f724fb
+    PickableObjectTypeId: 100
+    Position: {x: 316.34, y: 11.8, z: 0}
+  - Id: Waterworld_3e0c725f-19b9-4dd5-9a31-5500815e93d7
+    PickableObjectTypeId: 60
+    Position: {x: 176.59, y: 14.639999, z: 0}
+  - Id: Waterworld_8306352e-d92c-4140-a58a-af2ea7af6339
+    PickableObjectTypeId: 40
+    Position: {x: 251.27, y: 17.02, z: 0}
+  - Id: Waterworld_8c667135-5920-4368-b087-fdc37aab598d
+    PickableObjectTypeId: 70
+    Position: {x: 26.95, y: 9.47, z: 0}
+  - Id: Waterworld_cd0e1bc0-8098-4367-b3c2-c8dedc48df5b
+    PickableObjectTypeId: 30
+    Position: {x: 206.07, y: 18.83, z: 0}
+  - Id: Waterworld_4d6428bd-86c2-458a-833c-2654c5ecdd86
+    PickableObjectTypeId: 90
+    Position: {x: 260.52, y: 11.31, z: 0}
+  - Id: Waterworld_8d39be1f-97ae-4a82-954c-5334e9d6f441
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 28.9, z: 0}
+  - Id: Waterworld_19ca3912-86f1-4647-b8f8-bf12c703f79c
+    PickableObjectTypeId: 100
+    Position: {x: 311.73, y: 22.41, z: 0}
+  - Id: Waterworld_24108478-04a3-4f29-903d-8abdbc064325
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 25.9, z: 0}
+  - Id: Waterworld_3caba5b6-0780-463a-9e4a-3d08d558f7f0
+    PickableObjectTypeId: 90
+    Position: {x: 165.53, y: 24.4, z: 0}
+  - Id: Waterworld_336ce5c8-04d9-47e6-b7bc-63b33c3dd242
+    PickableObjectTypeId: 30
+    Position: {x: 88.53, y: 18.33, z: 0}
+  - Id: Waterworld_164cf738-77f2-4ecc-af9e-efdeb90b6a1f
+    PickableObjectTypeId: 100
+    Position: {x: 335.59, y: 21.48, z: 0}
+  - Id: Waterworld_16ae73b0-c3e6-45bf-89e3-18a248bccff1
+    PickableObjectTypeId: 40
+    Position: {x: 100.03, y: 30.08, z: 0}
+  - Id: Waterworld_6f85255a-7d7f-4a9f-9dcd-1e3af6a26aad
+    PickableObjectTypeId: 70
+    Position: {x: 49.1, y: 17.1, z: 0}
+  - Id: Waterworld_b535af6b-37ff-4595-821f-c0479aaac11a
+    PickableObjectTypeId: 0
+    Position: {x: 7.99, y: 3.31, z: 0}
+  - Id: Waterworld_7fb9cf58-af1b-41e5-8a60-d78398f8f415
+    PickableObjectTypeId: 40
+    Position: {x: 101.28, y: 30.08, z: 0}
+  - Id: Waterworld_d5d6ec95-5c5b-42d9-9e0e-0cba5a3601e7
+    PickableObjectTypeId: 40
+    Position: {x: 98.78, y: 30.08, z: 0}
+  - Id: Waterworld_d4d482b7-691d-483f-9998-77b516a0a1f8
+    PickableObjectTypeId: 100
+    Position: {x: 68.98, y: 16.37, z: 0}
+  - Id: Waterworld_650e55eb-2df4-4d94-b89e-7b296bf393dd
+    PickableObjectTypeId: 80
+    Position: {x: 69.52, y: 39.51, z: 0}
+  - Id: Waterworld_0b699a8e-2f5e-43e5-a391-0ed134308ce7
+    PickableObjectTypeId: 50
+    Position: {x: 296.33, y: 15.51, z: 0}
+  - Id: Waterworld_07a28a6c-8a82-4de4-8760-6cc2c8b47e3a
+    PickableObjectTypeId: 20
+    Position: {x: 85.03, y: 30.08, z: 0}
+  - Id: Waterworld_38f8e0e1-a86a-4bbb-ada2-cf315b1780a9
+    PickableObjectTypeId: 100
+    Position: {x: 130.51999, y: 39.3, z: 0}
+  - Id: Waterworld_c9171bd0-0226-4c52-9f00-36207b0c0841
+    PickableObjectTypeId: 100
+    Position: {x: 314.59, y: 11.8, z: 0}
+  - Id: Waterworld_ce488f9f-89e3-47cd-9e54-e945235be2b2
+    PickableObjectTypeId: 100
+    Position: {x: 95.09, y: 19.4, z: 0}
+  - Id: Waterworld_f3772789-3444-44fb-b56b-24dd6383b985
+    PickableObjectTypeId: 20
+    Position: {x: 82.53, y: 30.08, z: 0}
+  - Id: Waterworld_e7e7d131-7953-40e6-9ba6-1a225e3bd67c
+    PickableObjectTypeId: 90
+    Position: {x: 364.6, y: 13.81, z: 0}
+  - Id: Waterworld_d79a58fb-8ea6-4d54-a638-83ec3aaca1e6
+    PickableObjectTypeId: 40
+    Position: {x: 250.02, y: 17.02, z: 0}
+  - Id: PickableObjectMarker_2ef766eb-df19-4b6e-a904-07061576b11f
+    PickableObjectTypeId: 0
+    Position: {x: 5.99, y: 3.31, z: 0}
+  - Id: Waterworld_02996c4a-fbcb-40b8-8008-f7637c7e7cd2
+    PickableObjectTypeId: 80
+    Position: {x: 298.43, y: 14.33, z: 0}
+  - Id: Waterworld_dbb8a495-1ce8-452f-8f4c-58ae57e5c5c9
+    PickableObjectTypeId: 70
+    Position: {x: 197.57, y: 18.83, z: 0}
+  - Id: Waterworld_6305cd0c-5613-4819-9c78-1d835c5e303d
+    PickableObjectTypeId: 80
+    Position: {x: 299.76, y: 11.8, z: 0}
+  - Id: Waterworld_1b40584c-c4d0-47a1-b37b-7729fdbdd2e3
+    PickableObjectTypeId: 70
+    Position: {x: 323.59, y: 11.8, z: 0}
+  - Id: Waterworld_be069d65-bc75-40c8-9a3e-d0f33bd23329
+    PickableObjectTypeId: 100
+    Position: {x: 106.52, y: 39.3, z: 0}
+  - Id: Waterworld_cc51811c-dfab-4f93-a937-306dc4e3eced
+    PickableObjectTypeId: 50
+    Position: {x: 242.27, y: 17.02, z: 0}
+  - Id: Waterworld_ebeff989-33dc-46da-bf7d-5d663e7cc799
+    PickableObjectTypeId: 10
+    Position: {x: 280.01, y: 15.32, z: 0}
+  - Id: Waterworld_d5d6ec95-5c5b-42d9-9e0e-0cba5a3601e7
+    PickableObjectTypeId: 40
+    Position: {x: 98.78, y: 18.33, z: 0}
+  - Id: Waterworld_ec3f749b-fa9d-4364-b3f5-1a2a6e28edc3
+    PickableObjectTypeId: 80
+    Position: {x: 118.05, y: 40.3, z: 0}
+  - Id: Waterworld_4ac15435-9306-43ef-b533-b22c57202346
+    PickableObjectTypeId: 20
+    Position: {x: 83.78, y: 30.08, z: 0}
+  - Id: Waterworld_8ef3be64-963f-4663-9be7-94859d5fd730
+    PickableObjectTypeId: 10
+    Position: {x: 288.97, y: 16.34, z: 0}
+  - Id: Waterworld_faae1ee3-fe38-461a-8efd-9e856ae01c7e
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 24.4, z: 0}
+  - Id: Waterworld_b2030a82-bf80-4d2c-96e9-bec465ce6cc3
+    PickableObjectTypeId: 90
+    Position: {x: 272.5, y: 13.06, z: 0}
+  - Id: Waterworld_0712950b-8b46-4c18-b4fd-9be78b77d184
+    PickableObjectTypeId: 70
+    Position: {x: 193.92, y: 5.92, z: 0}
+  - Id: Waterworld_bb9456c3-5705-4963-a6f6-ba350f2d8c11
+    PickableObjectTypeId: 70
+    Position: {x: 196.17, y: 5.92, z: 0}
+  - Id: Waterworld_d8933263-97fb-4bdb-9b35-a4b1106fc71b
+    PickableObjectTypeId: 100
+    Position: {x: 93.09, y: 19.4, z: 0}
+  - Id: Waterworld_40ff1cb1-1630-49eb-a46b-abc724a7f98a
+    PickableObjectTypeId: 100
+    Position: {x: 56.5, y: 35.46, z: 0}
+  - Id: Waterworld_7b6efcb4-f98f-41d8-8bf2-cb1b05bb8c5e
+    PickableObjectTypeId: 110
+    Position: {x: 292.63, y: 22.48, z: 0}
+  - Id: Waterworld_042e57ff-720b-4b63-a9ae-007772606fa2
+    PickableObjectTypeId: 100
+    Position: {x: 65.57, y: 38.52, z: 0}
+  - Id: Waterworld_3eb8c820-ca47-4d37-b706-e59f4388e08c
+    PickableObjectTypeId: 30
+    Position: {x: 89.78, y: 30.08, z: 0}
+  - Id: Waterworld_b3789809-506a-46ae-945e-986f918214d7
+    PickableObjectTypeId: 80
+    Position: {x: 92.99, y: 31.23, z: 0}
+  - Id: Waterworld_6055a5ea-e0fa-4c89-bc47-b994e32e4f7c
+    PickableObjectTypeId: 90
+    Position: {x: 253.55, y: 9.33, z: 0}
+  - Id: Waterworld_f9dac314-97af-4971-ac4d-885ca3eef778
+    PickableObjectTypeId: 50
+    Position: {x: 104.28, y: 18.33, z: 0}
+  - Id: Waterworld_8fde45d9-5313-4ef5-992d-14527c1b8807
+    PickableObjectTypeId: 80
+    Position: {x: 70.52, y: 39.51, z: 0}
+  - Id: Waterworld_3efaa05a-3561-4013-bbdd-4a51dcda8169
+    PickableObjectTypeId: 70
+    Position: {x: 300.48, y: 22.41, z: 0}
+  - Id: Waterworld_d035485d-f9e4-40f4-953a-2f54f2732ac7
+    PickableObjectTypeId: 90
+    Position: {x: 167.03, y: 24.4, z: 0}
+  - Id: Waterworld_7fb9cf58-af1b-41e5-8a60-d78398f8f415
+    PickableObjectTypeId: 40
+    Position: {x: 101.28, y: 18.33, z: 0}
+  - Id: Waterworld_82baabf8-7f75-4eb5-94b5-57e8096815b1
+    PickableObjectTypeId: 10
+    Position: {x: 52.43, y: 18.28, z: 0}
+  - Id: Waterworld_b6c91e25-ac1d-4b11-904a-68588633ae00
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 19.9, z: 0}
+  - Id: Waterworld_22010a77-5f1e-4875-a1ef-539dcae8d7eb
+    PickableObjectTypeId: 80
+    Position: {x: 95.73, y: 40.3, z: 0}
+  - Id: Waterworld_77ac9340-e097-489e-b666-fa3bc9f79850
+    PickableObjectTypeId: 50
+    Position: {x: 66.98, y: 33.03, z: 0}
+  - Id: Waterworld_07a28a6c-8a82-4de4-8760-6cc2c8b47e3a
+    PickableObjectTypeId: 20
+    Position: {x: 85.03, y: 18.33, z: 0}
+  - Id: Waterworld_326602b9-6f46-4c24-aa65-bb390ebf9f3c
+    PickableObjectTypeId: 100
+    Position: {x: 306.48, y: 22.41, z: 0}
+  - Id: Waterworld_27001441-ddaf-4ec9-a8df-904d87a54084
+    PickableObjectTypeId: 50
+    Position: {x: 232.02, y: 17.02, z: 0}
+  - Id: Waterworld_dc1d51d2-ad4f-4a77-9623-27978eecac2e
+    PickableObjectTypeId: 100
+    Position: {x: 13.52, y: 5.39, z: 0}
+  - Id: Waterworld_e11ff72c-d309-46d1-9cb8-7658c2984de8
+    PickableObjectTypeId: 50
+    Position: {x: 241.02, y: 17.02, z: 0}
+  - Id: Waterworld_ddc3791f-88bc-411e-bb1b-711b613fa725
+    PickableObjectTypeId: 50
+    Position: {x: 105.53, y: 18.33, z: 0}
+  - Id: Waterworld_365e3f73-63aa-4ba1-854b-0f3667126bd9
+    PickableObjectTypeId: 10
+    Position: {x: 59.32, y: 16.78, z: 0}
+  - Id: Waterworld_b50a4c81-bd50-4d39-aab6-f9f8ffa39a19
+    PickableObjectTypeId: 40
+    Position: {x: 147.58, y: 22.9, z: 0}
+  - Id: Waterworld_2085a2d0-7179-4eba-b8d3-d533574d1a73
+    PickableObjectTypeId: 90
+    Position: {x: 148.27, y: 39.55, z: 0}
+  - Id: Waterworld_2a3ebef7-c689-43a9-b822-1f35cb537fc8
+    PickableObjectTypeId: 10
+    Position: {x: 55.01, y: 19.25, z: 0}
+  - Id: Waterworld_0852f7cd-d8fc-44f5-b9ce-7c3e509c6303
+    PickableObjectTypeId: 10
+    Position: {x: 61.11, y: 14.56, z: 0}
+  - Id: Waterworld_67cb197f-abae-4d79-bbd9-c44e87a39142
+    PickableObjectTypeId: 100
+    Position: {x: 11.61, y: 4.36, z: 0}
+  - Id: Waterworld_2f7387cc-0acf-4a94-91a7-cde97ff132f2
+    PickableObjectTypeId: 100
+    Position: {x: 166.34, y: 14.39, z: 0}
+  - Id: Waterworld_93736b87-b612-4ed3-adef-ef7dce025665
+    PickableObjectTypeId: 10
+    Position: {x: 57.52, y: 18.5, z: 0}
+  - Id: Waterworld_b1cd9d4f-5626-431b-a0c4-33ec8c4e1c7f
+    PickableObjectTypeId: 80
+    Position: {x: 119.3, y: 40.3, z: 0}
+  - Id: Waterworld_735f4251-0749-4af9-9a50-7235e176ac19
+    PickableObjectTypeId: 50
+    Position: {x: 105.53, y: 30.08, z: 0}
+  - Id: Waterworld_5989dc41-4077-4f9f-90e9-c3932e097d79
+    PickableObjectTypeId: 100
+    Position: {x: 82.52, y: 39.3, z: 0}
+  - Id: Waterworld_061ae627-42d1-4c4b-bf55-798835ac5b72
+    PickableObjectTypeId: 50
+    Position: {x: 103.03, y: 18.33, z: 0}
+  - Id: Waterworld_fd5dc867-b0b1-41ab-90f5-4eaff3ceec33
+    PickableObjectTypeId: 30
+    Position: {x: 207.07, y: 18.83, z: 0}
+  - Id: Waterworld_706171a2-5b5e-4d84-9b5c-11a34f3d8ef1
+    PickableObjectTypeId: 30
+    Position: {x: 214.27, y: 17.3, z: 0}
+  - Id: Waterworld_16ae73b0-c3e6-45bf-89e3-18a248bccff1
+    PickableObjectTypeId: 40
+    Position: {x: 100.03, y: 18.33, z: 0}
+  - Id: Waterworld_022df858-b94d-424b-8457-4504bb19e540
+    PickableObjectTypeId: 100
+    Position: {x: 114.52, y: 39.3, z: 0}
+  - Id: Waterworld_c59368f4-ceba-4580-a6f2-3046d9aef1a3
+    PickableObjectTypeId: 90
+    Position: {x: 59.53, y: 8.37, z: 0}
+  - Id: Waterworld_744df567-27ab-4f9d-880c-a0fc8a3ef050
+    PickableObjectTypeId: 70
+    Position: {x: 298.48, y: 22.41, z: 0}
+  - Id: Waterworld_2e3862d3-5055-4630-b922-d230c4a50bd9
+    PickableObjectTypeId: 80
+    Position: {x: 77.73, y: 40.3, z: 0}
+  - Id: Waterworld_24d1d2ef-787d-4977-beed-e7c8fdef2a1f
+    PickableObjectTypeId: 30
+    Position: {x: 87.28, y: 18.33, z: 0}
+  - Id: Waterworld_75881c7c-056d-4b42-9180-f704cc3921eb
+    PickableObjectTypeId: 100
+    Position: {x: 94.09, y: 19.4, z: 0}
+  - Id: Waterworld_64a724f6-063d-4783-8bf8-31a7f3953f1a
+    PickableObjectTypeId: 40
+    Position: {x: 259.24, y: 16.13, z: 0}
+  - Id: Waterworld_9bb7c38a-8758-4a8d-a89a-433b142dd0b9
+    PickableObjectTypeId: 10
+    Position: {x: 281.01, y: 15.32, z: 0}
+  - Id: Waterworld_b315a51d-1d6c-409c-86e7-e1f862fd9416
+    PickableObjectTypeId: 110
+    Position: {x: 192.51, y: 20.84, z: 0}
+  - Id: Waterworld_24d1d2ef-787d-4977-beed-e7c8fdef2a1f
+    PickableObjectTypeId: 30
+    Position: {x: 87.28, y: 30.08, z: 0}
+  - Id: Waterworld_cddce1fd-69da-4069-b437-4323ee88bc6e
+    PickableObjectTypeId: 100
+    Position: {x: 98.52, y: 39.3, z: 0}
+  - Id: Waterworld_96a7368d-9112-4330-9035-0a843d44fbb0
+    PickableObjectTypeId: 30
+    Position: {x: 215.27, y: 17.3, z: 0}
+  - Id: Waterworld_6b3e4723-3370-4a65-86e2-7c7feb2541a5
+    PickableObjectTypeId: 100
+    Position: {x: 63.55, y: 33.49, z: 0}
+  - Id: Waterworld_6faebf9e-0725-4c0f-b13b-bd96ef1bdaca
+    PickableObjectTypeId: 100
+    Position: {x: 90.52, y: 39.3, z: 0}
+  - Id: Waterworld_662df3dc-9e8f-46ea-b166-34a489ea1f5d
+    PickableObjectTypeId: 100
+    Position: {x: 306.34, y: 11.8, z: 0}
+  - Id: Waterworld_40fb2069-38f6-4ac7-973c-4554dfb10bc6
+    PickableObjectTypeId: 40
+    Position: {x: 257.99, y: 16.13, z: 0}
+  - Id: Waterworld_21928b8c-6a2b-440c-addb-0d269cbd2a62
+    PickableObjectTypeId: 100
+    Position: {x: 166.34, y: 18.39, z: 0}
+  - Id: Waterworld_7d9350b5-8864-4d48-b7c4-882e1f0fefe5
+    PickableObjectTypeId: 90
+    Position: {x: 58.03, y: 8.37, z: 0}
+  - Id: Waterworld_d8511265-1a94-48e5-8da0-bd59b936a26a
+    PickableObjectTypeId: 80
+    Position: {x: 93.99, y: 31.23, z: 0}
+  - Id: Waterworld_f3772789-3444-44fb-b56b-24dd6383b985
+    PickableObjectTypeId: 20
+    Position: {x: 82.53, y: 18.33, z: 0}
+  SaveProgressPointSpawners:
+  - Id: Level1_50a3d256-7036-4c72-b076-2db049a22698
+    SaveProgressPointTypeId: 20
+    Width: 1
+    Height: 5
+    Position: {x: 3.95, y: 4.33, z: 0}
+  - Id: Waterworld_e13335d0-40c5-42e9-a8c9-15f5c3919bf8
+    SaveProgressPointTypeId: 30
+    Width: 1
+    Height: 5
+    Position: {x: 195.01, y: 12.28, z: 0}

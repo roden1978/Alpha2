@@ -3,7 +3,6 @@ using UnityEngine;
 namespace Infrastructure
 {
     [ExecuteInEditMode]
-   
     public class PlayerSpawnPoint : MonoBehaviour
     {
         private void OnDrawGizmos()

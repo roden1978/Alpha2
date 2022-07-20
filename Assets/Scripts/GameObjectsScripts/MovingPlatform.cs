@@ -57,10 +57,7 @@ namespace GameObjectsScripts
                 Vector3.Lerp(_startPosition, _wayPoints[_wayPointsCount], fractionOfJourney);
             _platformRigidbody2D.MovePosition(position);
             _endWayPointTransform.position = _endWayPointPosition;
-        }
-
-        private void FixedUpdate()
-        {
+            
             if (_playerRigidbody2D != null)
                 _playerRigidbody2D.velocity += _platformRigidbody2D.velocity;
         }

@@ -65,3 +65,6 @@ TagManager:
   - name: GridForeground
     uniqueID: 955365419
     locked: 0
+  - name: GridForegroundUp
+    uniqueID: 51876391
+    locked: 0
