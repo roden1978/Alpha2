@@ -9,18 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 24c83266ce707964a9b8a55561a03d59
   - enabled: 1
-    path: Assets/Scenes/CommonScene.unity
-    guid: 99c04e4ae4dc08347acb5415bb1d449d
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: af786e17430fe1646aeaee40cc58b189
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 19ca7ba037c6a1c488d0b71471b78ed4
-  - enabled: 1
-    path: Assets/Scenes/Level3.unity
-    guid: dc4b100c691aa734cbf4fac361a17b7f
-  - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: c84aa99d73c2ccc4a82dd8d728548bf9
+  - enabled: 1
+    path: Assets/Scenes/Waterworld.unity
+    guid: 5889a535f7a26ec4fafd5a439ee59472
   m_configObjects: {}
