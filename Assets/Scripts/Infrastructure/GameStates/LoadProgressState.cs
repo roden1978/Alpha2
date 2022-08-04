@@ -9,7 +9,7 @@ namespace Infrastructure.GameStates
 {
     public class LoadProgressState : IState
     {
-        private const string SceneName = "Forest";
+        private const string SceneName = "CaveBegin";
         private readonly GamesStateMachine _gamesStateMachine;
         private readonly ServiceLocator _serviceLocator;
         private IPersistentProgressService _persistentProgressService;
