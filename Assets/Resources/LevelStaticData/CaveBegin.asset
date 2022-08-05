@@ -1,0 +1,830 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93db826b26064c79ad51c752eb5a4bde, type: 3}
+  m_Name: CaveBegin
+  m_EditorClassIdentifier: 
+  LevelKey: CaveBegin
+  PlayerSpawnPoint: {x: -6.21, y: 1.974, z: 0}
+  EnemySpawners:
+  - Id: CaveBegin_d1959591-2a3c-492d-a03f-ffcb81412853
+    EnemyTypeId: 40
+    Position: {x: 39.27, y: -23.62, z: 0}
+  - Id: CaveBegin_6036abae-9803-438c-8efd-075c9b702de5
+    EnemyTypeId: 10
+    Position: {x: 30.669998, y: 6.2, z: 0}
+  - Id: CaveBegin_71614976-d1e6-46ae-a206-bedbf31d3cd2
+    EnemyTypeId: 40
+    Position: {x: 110.09, y: -51.64, z: 0}
+  - Id: CaveBegin_d2186605-6835-422c-9048-a5263627163f
+    EnemyTypeId: 10
+    Position: {x: 69.42, y: -35.95, z: 0}
+  - Id: CaveBegin_3475c8a0-d669-4158-b6a2-4db0c920d15f
+    EnemyTypeId: 40
+    Position: {x: 59.66, y: 1.36, z: 0}
+  - Id: CaveBegin_d2186605-6835-422c-9048-a5263627163f
+    EnemyTypeId: 10
+    Position: {x: 74.3, y: -6.3, z: 0}
+  - Id: CaveBegin_0b97bd51-13f2-46d7-a608-faa4add540ab
+    EnemyTypeId: 40
+    Position: {x: 87.99, y: 1.36, z: 0}
+  - Id: CaveBegin_064b983f-a202-4cc7-81fa-bab6f4c412c2
+    EnemyTypeId: 40
+    Position: {x: 3.44, y: -42.674, z: 0}
+  - Id: CaveBegin_b1d20471-c128-4e23-8fb8-5270adc3fa61
+    EnemyTypeId: 40
+    Position: {x: 110.47, y: -10.63, z: 0}
+  - Id: CaveBegin_3951212a-4cb1-45f2-9160-84ef4deb464f
+    EnemyTypeId: 40
+    Position: {x: 111.08, y: -66.637, z: 0}
+  - Id: CaveBegin_abe79d34-8596-4e22-9dd3-414c36aacb05
+    EnemyTypeId: 30
+    Position: {x: 12.5, y: -13.588, z: 0}
+  - Id: Level1_6566121b-8800-4ff1-aebf-62ed5b14ee5b
+    EnemyTypeId: 10
+    Position: {x: 9.26, y: -40.11, z: 0}
+  - Id: CaveBegin_0e4f8573-ab0b-4def-9691-263d31e9d484
+    EnemyTypeId: 20
+    Position: {x: 26.24, y: -48.81, z: 0}
+  - Id: CaveBegin_b38f1d03-7c5f-419e-916f-7ddf375352c6
+    EnemyTypeId: 20
+    Position: {x: 89.42, y: -20.2, z: 0}
+  - Id: CaveBegin_01d91b78-fb29-42ad-968c-9632b7e6f174
+    EnemyTypeId: 40
+    Position: {x: 28.16, y: 1.36, z: 0}
+  - Id: CaveBegin_4069619f-6a59-457a-86f2-2a9b9f251355
+    EnemyTypeId: 10
+    Position: {x: 30.669998, y: -20.2, z: 0}
+  - Id: CaveBegin_f3b66283-c60f-4b46-b332-9ad3309402af
+    EnemyTypeId: 0
+    Position: {x: 100.6, y: 1.98, z: 0}
+  - Id: CaveBegin_65aec331-ac59-42cb-af54-b68c909b0040
+    EnemyTypeId: 20
+    Position: {x: 89.42, y: -35.95, z: 0}
+  - Id: CaveBegin_4f739145-5e6e-4967-a80f-6f871b453346
+    EnemyTypeId: 20
+    Position: {x: 28.54, y: -57.52, z: 0}
+  - Id: CaveBegin_89c10ddb-304c-4b7c-837b-b2282786f5b8
+    EnemyTypeId: 20
+    Position: {x: 94.3, y: -6.3, z: 0}
+  - Id: CaveBegin_9ad5a85a-1fa5-47a1-8749-b803ff10a4ea
+    EnemyTypeId: 20
+    Position: {x: 49.42, y: -35.95, z: 0}
+  - Id: CaveBegin_32a26285-66d2-4eb3-9566-223511374aec
+    EnemyTypeId: 40
+    Position: {x: 107.582, y: -66.637, z: 0}
+  - Id: CaveBegin_89c10ddb-304c-4b7c-837b-b2282786f5b8
+    EnemyTypeId: 20
+    Position: {x: 89.42, y: 6.2, z: 0}
+  - Id: CaveBegin_5aff329d-fc25-4aff-bff1-119907213f2b
+    EnemyTypeId: 40
+    Position: {x: 12.52, y: -68.63, z: 0}
+  - Id: CaveBegin_f9d026b7-dafc-42ad-8739-de126f785b9a
+    EnemyTypeId: 0
+    Position: {x: 43.190002, y: -10.04, z: 0}
+  - Id: CaveBegin_df147d82-7ff5-444c-aab9-83c74029d871
+    EnemyTypeId: 20
+    Position: {x: 60.04, y: -49, z: 0}
+  - Id: CaveBegin_d4af1cab-45e8-4e26-b3d9-2131ce0c0699
+    EnemyTypeId: 0
+    Position: {x: 30.69, y: -10.04, z: 0}
+  - Id: CaveBegin_218cc553-5152-47f4-ba27-37512ffbf582
+    EnemyTypeId: 0
+    Position: {x: 120.14, y: -61.99, z: 0}
+  - Id: CaveBegin_aa30c9c8-3de8-4463-bad2-6ce80748d351
+    EnemyTypeId: 10
+    Position: {x: 3.95, y: -60.61, z: 0}
+  - Id: CaveBegin_d2186605-6835-422c-9048-a5263627163f
+    EnemyTypeId: 10
+    Position: {x: 69.42, y: 6.2, z: 0}
+  - Id: CaveBegin_97e6d1ad-d01c-4a37-be16-a2991d9a8780
+    EnemyTypeId: 40
+    Position: {x: 110.99, y: 1.36, z: 0}
+  - Id: CaveBegin_9ad5a85a-1fa5-47a1-8749-b803ff10a4ea
+    EnemyTypeId: 20
+    Position: {x: 49.42, y: 6.2, z: 0}
+  - Id: CaveBegin_9ed2ce07-9c3c-4d75-b1ba-c85a10c4943e
+    EnemyTypeId: 0
+    Position: {x: 93.71, y: -66.01, z: 0}
+  - Id: CaveBegin_a6a0ab07-c007-499f-92bb-609c0591f9fa
+    EnemyTypeId: 30
+    Position: {x: 8.490001, y: -23.58, z: 0}
+  - Id: CaveBegin_7635b842-272b-45a1-b53a-5bc8d16c1df3
+    EnemyTypeId: 10
+    Position: {x: -5.51, y: -60.66, z: 0}
+  - Id: CaveBegin_58fd0e06-89c2-45a1-be78-f787e6a0e888
+    EnemyTypeId: 40
+    Position: {x: 87.97, y: -23.62, z: 0}
+  - Id: CaveBegin_87fd8b5c-a827-4323-8768-b6a0f42db3a8
+    EnemyTypeId: 10
+    Position: {x: 6.71, y: -30.66, z: 0}
+  - Id: CaveBegin_d2186605-6835-422c-9048-a5263627163f
+    EnemyTypeId: 10
+    Position: {x: 69.42, y: -20.2, z: 0}
+  - Id: CaveBegin_52df5590-2371-4e22-bb5d-d6d1bf20fdfe
+    EnemyTypeId: 0
+    Position: {x: 72.259995, y: 1.98, z: 0}
+  - Id: CaveBegin_1a4e62f8-8b22-4f4d-b52b-5c770d29b822
+    EnemyTypeId: 20
+    Position: {x: 14.69, y: -52.91, z: 0}
+  - Id: CaveBegin_09120e79-028e-4ce9-8bba-dec9d3782c83
+    EnemyTypeId: 40
+    Position: {x: 68.66, y: -23.62, z: 0}
+  - Id: CaveBegin_9ad5a85a-1fa5-47a1-8749-b803ff10a4ea
+    EnemyTypeId: 20
+    Position: {x: 49.42, y: -20.2, z: 0}
+  - Id: CaveBegin_6120e195-e941-465c-9972-392a9d023de1
+    EnemyTypeId: 40
+    Position: {x: 28.27, y: -23.62, z: 0}
+  - Id: CaveBegin_249dcf23-bb0d-4093-9929-17bb7d50966e
+    EnemyTypeId: 40
+    Position: {x: 113.51, y: -51.64, z: 0}
+  - Id: CaveBegin_b6b6eeb7-2d94-4305-b6f4-d6b5941d93b2
+    EnemyTypeId: 40
+    Position: {x: 46.52, y: -23.62, z: 0}
+  - Id: CaveBegin_4f881d6d-e9db-469d-ae59-7a263be2e956
+    EnemyTypeId: 20
+    Position: {x: 69.32, y: -57.52, z: 0}
+  - Id: CaveBegin_b1d20471-c128-4e23-8fb8-5270adc3fa61
+    EnemyTypeId: 40
+    Position: {x: 110.47, y: -23.62, z: 0}
+  - Id: CaveBegin_2d8fdc65-5ac7-49ec-8de5-06b23338ea92
+    EnemyTypeId: 20
+    Position: {x: 49.94, y: -57.52, z: 0}
+  - Id: CaveBegin_26e1327f-4208-4601-8e68-b92c1d408a7f
+    EnemyTypeId: 20
+    Position: {x: 87.31, y: -49, z: 0}
+  - Id: CaveBegin_4069619f-6a59-457a-86f2-2a9b9f251355
+    EnemyTypeId: 10
+    Position: {x: 30.669998, y: -6.3, z: 0}
+  - Id: CaveBegin_abe79d34-8596-4e22-9dd3-414c36aacb05
+    EnemyTypeId: 30
+    Position: {x: 11.89, y: -23.58, z: 0}
+  - Id: CaveBegin_01d7794e-be06-4216-afc0-6bca68d98a69
+    EnemyTypeId: 40
+    Position: {x: 68.66, y: -10.63, z: 0}
+  - Id: CaveBegin_3735a07c-7eaf-4ce7-9d18-dd85e32e5734
+    EnemyTypeId: 40
+    Position: {x: 20.57, y: -66.61, z: 0}
+  - Id: CaveBegin_9e749725-9622-4e32-bb41-8194fbdcbd70
+    EnemyTypeId: 30
+    Position: {x: 9.1, y: -13.588, z: 0}
+  - Id: CaveBegin_4af02398-6f7c-418b-90ff-7b66e6172a6b
+    EnemyTypeId: 0
+    Position: {x: 48.26, y: 1.98, z: 0}
+  - Id: CaveBegin_f57586e6-5565-4ace-989c-1e359acea3e1
+    EnemyTypeId: 0
+    Position: {x: 117.36, y: -63.99, z: 0}
+  - Id: CaveBegin_ac91ef09-0a3d-42dd-abbc-0a6c90ca1ee4
+    EnemyTypeId: 40
+    Position: {x: 30.26, y: -66.61, z: 0}
+  - Id: CaveBegin_9ad5a85a-1fa5-47a1-8749-b803ff10a4ea
+    EnemyTypeId: 20
+    Position: {x: 49.42, y: -6.3, z: 0}
+  - Id: CaveBegin_171254b8-2133-4fe7-a373-5e70619bf51d
+    EnemyTypeId: 20
+    Position: {x: 39.46, y: -48.81, z: 0}
+  - Id: CaveBegin_ac2cbe0f-f825-4c30-99fa-007d4ee5cf43
+    EnemyTypeId: 20
+    Position: {x: 87.31, y: -57.52, z: 0}
+  - Id: CaveBegin_8a41dba3-7755-4f85-a975-6a0fc60f2e8e
+    EnemyTypeId: 40
+    Position: {x: 65.5, y: -51.69, z: 0}
+  - Id: CaveBegin_1c59c3cc-6086-4100-986c-93191671f122
+    EnemyTypeId: 40
+    Position: {x: 32.25, y: -51.69, z: 0}
+  - Id: CaveBegin_9ff3b80e-59f8-4de2-a680-0eedf71e0c08
+    EnemyTypeId: 0
+    Position: {x: 53.85, y: -65.98, z: 0}
+  - Id: CaveBegin_49877ea3-d171-4ab2-8333-eed3183e462e
+    EnemyTypeId: 0
+    Position: {x: 73.77, y: -65.98, z: 0}
+  - Id: CaveBegin_baec56fa-ecc0-4011-a9c6-75dc85b0750a
+    EnemyTypeId: 40
+    Position: {x: 87.97, y: -10.63, z: 0}
+  - Id: CaveBegin_4069619f-6a59-457a-86f2-2a9b9f251355
+    EnemyTypeId: 10
+    Position: {x: 30.669998, y: -35.95, z: 0}
+  - Id: CaveBegin_b66b67b9-2846-40a2-9364-7c844dbc80e7
+    EnemyTypeId: 40
+    Position: {x: 48.5, y: -51.69, z: 0}
+  - Id: CaveBegin_17d73d34-ca0f-4cde-9afc-85e8f6ebde6c
+    EnemyTypeId: 0
+    Position: {x: 29.44, y: -38.98, z: 0}
+  PickableObjectSpawners:
+  - Id: CaveBegin_0c0829e0-71a6-4974-a067-fd50bb4a6083
+    PickableObjectTypeId: 90
+    Position: {x: 112.4, y: 3.48, z: 0}
+  - Id: CaveBegin_c082d32c-f604-4649-968b-9a20c9fcc6de
+    PickableObjectTypeId: 90
+    Position: {x: 113.4, y: 3.48, z: 0}
+  - Id: CaveBegin_5f3d4a23-f6ac-4dd1-8857-f827f760024a
+    PickableObjectTypeId: 90
+    Position: {x: 113.4, y: 4.48, z: 0}
+  - Id: CaveBegin_3b14337b-0a00-41c7-bfdb-0b9770879bc0
+    PickableObjectTypeId: 90
+    Position: {x: 112.4, y: 4.48, z: 0}
+  - Id: CaveBegin_ba5669a5-43a8-4b3b-a35e-5e283fe7c79f
+    PickableObjectTypeId: 100
+    Position: {x: 106.45, y: 5, z: 0}
+  - Id: CaveBegin_3ea67f17-0f1a-40e1-b3a0-c03e57050ce7
+    PickableObjectTypeId: 100
+    Position: {x: 85.45, y: 5, z: 0}
+  - Id: CaveBegin_b25f54b4-4b9a-4e3c-92c5-6f491e158271
+    PickableObjectTypeId: 100
+    Position: {x: 69.45, y: 5, z: 0}
+  - Id: CaveBegin_d5e42b62-d51d-4007-a13c-ff62cab4e523
+    PickableObjectTypeId: 100
+    Position: {x: 56.45, y: 5, z: 0}
+  - Id: CaveBegin_86788aca-a3ff-4916-9929-87e0e93cbd99
+    PickableObjectTypeId: 100
+    Position: {x: 43.45, y: 5, z: 0}
+  - Id: CaveBegin_c3813773-cea1-4006-bd4f-c150c5537e43
+    PickableObjectTypeId: 100
+    Position: {x: 34.45, y: 5, z: 0}
+  - Id: CaveBegin_1ff3f198-2b8f-4869-a3ed-ad5ec9e2879b
+    PickableObjectTypeId: 30
+    Position: {x: 64.869995, y: -7.959999, z: 0}
+  - Id: CaveBegin_9f16012d-f44b-4593-8ebe-875730795a0d
+    PickableObjectTypeId: 30
+    Position: {x: 63.62, y: -7.959999, z: 0}
+  - Id: CaveBegin_500e20bf-930a-4d87-9c9f-a66b1aa0efe9
+    PickableObjectTypeId: 30
+    Position: {x: 66.99, y: -9.139999, z: 0}
+  - Id: CaveBegin_3bfdcf53-c38e-4818-b4a9-4430e307f1e8
+    PickableObjectTypeId: 30
+    Position: {x: 61.51, y: -9.160004, z: 0}
+  - Id: CaveBegin_888a132a-256c-4632-ab84-d15e08e073fb
+    PickableObjectTypeId: 30
+    Position: {x: 66.03, y: -8.129997, z: 0}
+  - Id: CaveBegin_6b22c748-0583-4f2c-997e-b6ae4c0d3c4e
+    PickableObjectTypeId: 30
+    Position: {x: 62.519997, y: -8.120003, z: 0}
+  - Id: CaveBegin_32331f2c-e02f-4812-acef-fe61e7164f06
+    PickableObjectTypeId: 50
+    Position: {x: 81.26999, y: -8.120003, z: 0}
+  - Id: CaveBegin_bd05535a-8df8-47a0-a70d-8eca20d95d27
+    PickableObjectTypeId: 50
+    Position: {x: 84.78, y: -8.129997, z: 0}
+  - Id: CaveBegin_835f9b20-9500-405b-b9af-46fb708d4787
+    PickableObjectTypeId: 50
+    Position: {x: 80.259995, y: -9.160004, z: 0}
+  - Id: CaveBegin_44e4d1f1-b0a3-450c-87a0-44243fcf7b90
+    PickableObjectTypeId: 50
+    Position: {x: 85.74, y: -9.139999, z: 0}
+  - Id: CaveBegin_42095ba0-f64d-450f-a503-d5f326cadaec
+    PickableObjectTypeId: 50
+    Position: {x: 82.369995, y: -7.959999, z: 0}
+  - Id: CaveBegin_84d8424e-0dc0-472f-bf00-d8ca4e3e9b42
+    PickableObjectTypeId: 50
+    Position: {x: 83.619995, y: -7.959999, z: 0}
+  - Id: CaveBegin_f52f89f3-de48-4f8e-b917-f3d116d83d67
+    PickableObjectTypeId: 40
+    Position: {x: 104.119995, y: -7.959999, z: 0}
+  - Id: CaveBegin_e5444140-ee4c-4ca8-96f7-6532e4dd28ce
+    PickableObjectTypeId: 40
+    Position: {x: 102.869995, y: -7.959999, z: 0}
+  - Id: CaveBegin_574ec202-e9ac-4ffd-a736-8fdfffd79f33
+    PickableObjectTypeId: 40
+    Position: {x: 106.24, y: -9.139999, z: 0}
+  - Id: CaveBegin_fe8dd15b-a58a-470c-a203-36c898df1fae
+    PickableObjectTypeId: 40
+    Position: {x: 100.759995, y: -9.160004, z: 0}
+  - Id: CaveBegin_8a3a45df-dfd9-4dac-8fbf-496437720415
+    PickableObjectTypeId: 40
+    Position: {x: 105.28, y: -8.129997, z: 0}
+  - Id: CaveBegin_19c8cda9-1358-42d4-9009-acd34aabf0dc
+    PickableObjectTypeId: 40
+    Position: {x: 101.76999, y: -8.120003, z: 0}
+  - Id: CaveBegin_19c8cda9-1358-42d4-9009-acd34aabf0dc
+    PickableObjectTypeId: 40
+    Position: {x: 101.76999, y: -21.120003, z: 0}
+  - Id: CaveBegin_8a3a45df-dfd9-4dac-8fbf-496437720415
+    PickableObjectTypeId: 40
+    Position: {x: 105.28, y: -21.129997, z: 0}
+  - Id: CaveBegin_fe8dd15b-a58a-470c-a203-36c898df1fae
+    PickableObjectTypeId: 40
+    Position: {x: 100.759995, y: -22.160004, z: 0}
+  - Id: CaveBegin_574ec202-e9ac-4ffd-a736-8fdfffd79f33
+    PickableObjectTypeId: 40
+    Position: {x: 106.24, y: -22.14, z: 0}
+  - Id: CaveBegin_e5444140-ee4c-4ca8-96f7-6532e4dd28ce
+    PickableObjectTypeId: 40
+    Position: {x: 102.869995, y: -20.96, z: 0}
+  - Id: CaveBegin_f52f89f3-de48-4f8e-b917-f3d116d83d67
+    PickableObjectTypeId: 40
+    Position: {x: 104.119995, y: -20.96, z: 0}
+  - Id: CaveBegin_84d8424e-0dc0-472f-bf00-d8ca4e3e9b42
+    PickableObjectTypeId: 50
+    Position: {x: 83.619995, y: -20.96, z: 0}
+  - Id: CaveBegin_42095ba0-f64d-450f-a503-d5f326cadaec
+    PickableObjectTypeId: 50
+    Position: {x: 82.369995, y: -20.96, z: 0}
+  - Id: CaveBegin_44e4d1f1-b0a3-450c-87a0-44243fcf7b90
+    PickableObjectTypeId: 50
+    Position: {x: 85.74, y: -22.14, z: 0}
+  - Id: CaveBegin_835f9b20-9500-405b-b9af-46fb708d4787
+    PickableObjectTypeId: 50
+    Position: {x: 80.259995, y: -22.160004, z: 0}
+  - Id: CaveBegin_bd05535a-8df8-47a0-a70d-8eca20d95d27
+    PickableObjectTypeId: 50
+    Position: {x: 84.78, y: -21.129997, z: 0}
+  - Id: CaveBegin_32331f2c-e02f-4812-acef-fe61e7164f06
+    PickableObjectTypeId: 50
+    Position: {x: 81.26999, y: -21.120003, z: 0}
+  - Id: CaveBegin_c6d9ace8-48a7-4388-9124-943e63dcb3a0
+    PickableObjectTypeId: 30
+    Position: {x: 73.17, y: -65.03, z: 0}
+  - Id: CaveBegin_fab69b39-6bb5-440c-a519-4318ebd5994a
+    PickableObjectTypeId: 70
+    Position: {x: 121.98, y: -58.97, z: 0}
+  - Id: CaveBegin_42cd45a8-e987-4cfc-849a-4885f6df92bb
+    PickableObjectTypeId: 50
+    Position: {x: 66.52, y: -50.46, z: 0}
+  - Id: CaveBegin_0db024e3-e1b9-498a-a813-3ade037e5579
+    PickableObjectTypeId: 30
+    Position: {x: 26.1, y: -63.85, z: 0}
+  - Id: CaveBegin_f90f300d-ea57-4d9e-b83d-b30240ed95c0
+    PickableObjectTypeId: 110
+    Position: {x: 83.23, y: -25.5, z: 0}
+  - Id: CaveBegin_4e9bce4f-05d2-4439-a9ca-78212c279d9e
+    PickableObjectTypeId: 40
+    Position: {x: 11.008, y: -31.586, z: 0}
+  - Id: CaveBegin_c6d9ace8-48a7-4388-9124-943e63dcb3a0
+    PickableObjectTypeId: 30
+    Position: {x: 29, y: -65.03, z: 0}
+  - Id: CaveBegin_3e1d0fd6-eef9-4334-a522-a8b40296f471
+    PickableObjectTypeId: 30
+    Position: {x: 25, y: -64.01, z: 0}
+  - Id: CaveBegin_f06e76c7-7a97-4088-a76e-bdae406b7441
+    PickableObjectTypeId: 30
+    Position: {x: 92.92, y: -65.03, z: 0}
+  - Id: CaveBegin_613eca8c-8f51-4524-a5a1-705567a154fe
+    PickableObjectTypeId: 100
+    Position: {x: -2.58, y: -41.05, z: 0}
+  - Id: CaveBegin_80446e56-09b2-46c5-a4e8-fb6e17705fab
+    PickableObjectTypeId: 20
+    Position: {x: 14.02, y: -22.66, z: 0}
+  - Id: CaveBegin_fde954ab-2a81-46ef-a581-3f62cabed453
+    PickableObjectTypeId: 30
+    Position: {x: 68.16, y: -65.05, z: 0}
+  - Id: CaveBegin_61672f09-2791-4db3-813f-1fcee651eb5c
+    PickableObjectTypeId: 100
+    Position: {x: 27.949997, y: -38.45, z: 0}
+  - Id: CaveBegin_c475f4fc-a4e0-4ad1-b6d6-fb1e631c1e17
+    PickableObjectTypeId: 100
+    Position: {x: -7.14, y: -49.73, z: 0}
+  - Id: CaveBegin_dd6ebc83-e79c-4506-8d7c-91d8070e13ab
+    PickableObjectTypeId: 100
+    Position: {x: 47.769997, y: -58.67, z: 0}
+  - Id: CaveBegin_9f16012d-f44b-4593-8ebe-875730795a0d
+    PickableObjectTypeId: 30
+    Position: {x: 50.100002, y: -63.85, z: 0}
+  - Id: CaveBegin_e0f92908-646c-46b7-8bb2-f21ff434fd3a
+    PickableObjectTypeId: 100
+    Position: {x: -1.83, y: -53.08, z: 0}
+  - Id: CaveBegin_8d082262-1155-4bf3-9938-1352fabb78fa
+    PickableObjectTypeId: 40
+    Position: {x: 13.008, y: -30.586, z: 0}
+  - Id: CaveBegin_81cfb4ac-f7cd-4a2b-9858-ef64e103f4c7
+    PickableObjectTypeId: 50
+    Position: {x: 31.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_6b67c117-4873-4798-a3a5-94669373edaf
+    PickableObjectTypeId: 30
+    Position: {x: 53, y: -65.03, z: 0}
+  - Id: CaveBegin_5ffbecd5-40e6-4f73-bb00-70b7d5cb069a
+    PickableObjectTypeId: 80
+    Position: {x: 87.52, y: -58.65, z: 0}
+  - Id: CaveBegin_a17746c2-90e6-463d-83b3-6d8b67f747f7
+    PickableObjectTypeId: 30
+    Position: {x: -4.66, y: -62.48, z: 0}
+  - Id: CaveBegin_840779db-7037-46ed-92cc-0deda5169532
+    PickableObjectTypeId: 90
+    Position: {x: 12.67, y: 2.57, z: 0}
+  - Id: CaveBegin_689ffe87-51e9-4c76-b51a-ac6c0547acea
+    PickableObjectTypeId: 100
+    Position: {x: 17.519997, y: -56.67, z: 0}
+  - Id: CaveBegin_5394e619-6736-4051-b17a-c4d3b356a31e
+    PickableObjectTypeId: 20
+    Position: {x: 11.77, y: -22.66, z: 0}
+  - Id: CaveBegin_a2caa7b7-2fa6-4813-9fe6-9d9915357970
+    PickableObjectTypeId: 50
+    Position: {x: 52.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_80084609-3f13-4217-a8fc-96ebacc6894c
+    PickableObjectTypeId: 100
+    Position: {x: 79.77, y: -58.67, z: 0}
+  - Id: CaveBegin_39bb43c0-3012-417e-b24e-c305fe03f26d
+    PickableObjectTypeId: 80
+    Position: {x: 55.519997, y: -58.65, z: 0}
+  - Id: CaveBegin_178f89bb-70fe-4c0b-b7fb-db67832186a5
+    PickableObjectTypeId: 90
+    Position: {x: 23.94, y: -31.48, z: 0}
+  - Id: CaveBegin_6346ff9e-1069-47aa-9115-27efbca2bd2f
+    PickableObjectTypeId: 40
+    Position: {x: 12.008, y: -30.586, z: 0}
+  - Id: CaveBegin_e7e51685-240c-43da-a5cc-6788dbe16763
+    PickableObjectTypeId: 100
+    Position: {x: -3.45, y: -51.98, z: 0}
+  - Id: CaveBegin_6b9d03b0-1fca-4680-8874-983f5d9832ec
+    PickableObjectTypeId: 80
+    Position: {x: 103.52, y: -50.4, z: 0}
+  - Id: CaveBegin_920abeb0-8958-4401-9cc8-3c90c6f8c2fe
+    PickableObjectTypeId: 60
+    Position: {x: 96.19, y: -38.43, z: 0}
+  - Id: CaveBegin_86d35797-ce73-4f70-a72b-c9199f28c913
+    PickableObjectTypeId: 50
+    Position: {x: 32.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_6b22c748-0583-4f2c-997e-b6ae4c0d3c4e
+    PickableObjectTypeId: 30
+    Position: {x: 62.519997, y: -21.120003, z: 0}
+  - Id: CaveBegin_8fce95f3-d2c0-4335-8297-566daaddf1b1
+    PickableObjectTypeId: 100
+    Position: {x: -4.22, y: -47.69, z: 0}
+  - Id: CaveBegin_6ade22ab-26d1-48fa-9e42-559605f30da3
+    PickableObjectTypeId: 40
+    Position: {x: 14.008, y: -31.586, z: 0}
+  - Id: CaveBegin_de25f754-51be-4ed8-bdbb-d00f31303796
+    PickableObjectTypeId: 60
+    Position: {x: 35.75, y: -38.43, z: 0}
+  - Id: CaveBegin_a91070e5-49f1-423c-be4b-46e6bc14e978
+    PickableObjectTypeId: 40
+    Position: {x: 32.519997, y: -49.46, z: 0}
+  - Id: CaveBegin_124b8bfc-04f6-4872-a011-176dd9959537
+    PickableObjectTypeId: 40
+    Position: {x: 33.519997, y: -49.46, z: 0}
+  - Id: CaveBegin_3677bef6-1a58-435e-a2c7-59c4a3e84ec6
+    PickableObjectTypeId: 90
+    Position: {x: 121.02, y: -17.25, z: 0}
+  - Id: CaveBegin_19681742-ae25-4631-8737-6580a835ef85
+    PickableObjectTypeId: 100
+    Position: {x: -4.51, y: -59.85, z: 0}
+  - Id: CaveBegin_e5161b63-b66a-4228-a7f6-3e368d1f3acf
+    PickableObjectTypeId: 30
+    Position: {x: 92.43, y: -64.02, z: 0}
+  - Id: CaveBegin_98a9c1bd-2f27-41a8-ba6f-8806eb647dac
+    PickableObjectTypeId: 30
+    Position: {x: 90.020004, y: -63.85, z: 0}
+  - Id: CaveBegin_08d04ac6-6c6d-4838-93f1-8f23da5218a8
+    PickableObjectTypeId: 30
+    Position: {x: 69.17, y: -64.01, z: 0}
+  - Id: CaveBegin_41a6569c-2bb8-4eac-a975-82f9e6aeb87c
+    PickableObjectTypeId: 100
+    Position: {x: -5.76, y: -59.85, z: 0}
+  - Id: CaveBegin_107a5c74-cc3c-433d-a9d1-537e4920c66d
+    PickableObjectTypeId: 40
+    Position: {x: 12.008, y: -31.586, z: 0}
+  - Id: CaveBegin_113bf5a7-1a1a-4881-8112-f5dddda6d9dd
+    PickableObjectTypeId: 90
+    Position: {x: 24.060003, y: 0.0800004, z: 0}
+  - Id: CaveBegin_178f89bb-70fe-4c0b-b7fb-db67832186a5
+    PickableObjectTypeId: 90
+    Position: {x: 24.06, y: -1.92, z: 0}
+  - Id: CaveBegin_1ff3f198-2b8f-4869-a3ed-ad5ec9e2879b
+    PickableObjectTypeId: 30
+    Position: {x: 51.350002, y: -63.85, z: 0}
+  - Id: CaveBegin_041df518-6efc-4fa4-b7b3-95f7b84d6345
+    PickableObjectTypeId: 30
+    Position: {x: 91.270004, y: -63.85, z: 0}
+  - Id: CaveBegin_888a132a-256c-4632-ab84-d15e08e073fb
+    PickableObjectTypeId: 30
+    Position: {x: 66.03, y: -21.129997, z: 0}
+  - Id: CaveBegin_178f89bb-70fe-4c0b-b7fb-db67832186a5
+    PickableObjectTypeId: 90
+    Position: {x: 121.02, y: -15, z: 0}
+  - Id: CaveBegin_dcf56366-dbbb-4ebf-9b8d-c697efc4a2fc
+    PickableObjectTypeId: 90
+    Position: {x: 52.910004, y: -37.47, z: 0}
+  - Id: CaveBegin_8dc8f029-fa7d-4bfd-9e85-ade9cf2ce710
+    PickableObjectTypeId: 50
+    Position: {x: 33.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_fe564a27-a2f4-4626-97d2-91fcb0e297b4
+    PickableObjectTypeId: 30
+    Position: {x: -2.6599998, y: -62.48, z: 0}
+  - Id: CaveBegin_0ba3724a-855b-4cad-86be-393131bb389a
+    PickableObjectTypeId: 100
+    Position: {x: 95.27, y: -50.67, z: 0}
+  - Id: CaveBegin_fd534c3b-1c3b-42d0-8dd8-125dab436441
+    PickableObjectTypeId: 100
+    Position: {x: 31.519997, y: -58.67, z: 0}
+  - Id: CaveBegin_ff17814a-2801-4521-81b1-68e3debd3f2a
+    PickableObjectTypeId: 100
+    Position: {x: -4.49, y: -41.59, z: 0}
+  - Id: CaveBegin_88e0d493-2536-4f13-931c-eb17c98d51ba
+    PickableObjectTypeId: 30
+    Position: {x: -5.66, y: -62.48, z: 0}
+  - Id: CaveBegin_1dbbf6a3-1ecb-4ee8-b6fd-b50aad05d051
+    PickableObjectTypeId: 20
+    Position: {x: 13.27, y: -22.66, z: 0}
+  - Id: CaveBegin_07596641-0c48-44c1-be9d-f8a09e603aaf
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -7.2, z: 0}
+  - Id: CaveBegin_a2caa7b7-2fa6-4813-9fe6-9d9915357970
+    PickableObjectTypeId: 50
+    Position: {x: 69.52, y: -50.46, z: 0}
+  - Id: CaveBegin_d6bf0e45-c85f-4c58-9dbc-67d8423c1c72
+    PickableObjectTypeId: 90
+    Position: {x: 120.02, y: -41.43, z: 0}
+  - Id: CaveBegin_a782f7e5-41c7-49ab-bade-f03dd45e4ebe
+    PickableObjectTypeId: 40
+    Position: {x: 13.008, y: -31.586, z: 0}
+  - Id: CaveBegin_4b531ffa-2869-49bc-89c9-cdb904e8b452
+    PickableObjectTypeId: 100
+    Position: {x: 111.52, y: -58.67, z: 0}
+  - Id: CaveBegin_9c7e6602-204b-4b2c-ab64-ece29b6fa9b9
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -2.7, z: 0}
+  - Id: CaveBegin_a91070e5-49f1-423c-be4b-46e6bc14e978
+    PickableObjectTypeId: 40
+    Position: {x: 67.52, y: -49.46, z: 0}
+  - Id: CaveBegin_f4ba6b69-1a24-487f-b24a-0dc9555de434
+    PickableObjectTypeId: 80
+    Position: {x: -0.2, y: -53.72, z: 0}
+  - Id: CaveBegin_1ff3f198-2b8f-4869-a3ed-ad5ec9e2879b
+    PickableObjectTypeId: 30
+    Position: {x: 71.520004, y: -63.85, z: 0}
+  - Id: PickableObjectMarker_2ef766eb-df19-4b6e-a904-07061576b11f
+    PickableObjectTypeId: 0
+    Position: {x: -3.44, y: 3.33, z: 0}
+  - Id: CaveBegin_ae52f9d8-35cd-416e-802c-99b1c47b7c86
+    PickableObjectTypeId: 100
+    Position: {x: 71.45, y: -38.45, z: 0}
+  - Id: CaveBegin_8047e393-d650-469c-a79b-4b126d0aa9e2
+    PickableObjectTypeId: 100
+    Position: {x: 79.77, y: -50.67, z: 0}
+  - Id: CaveBegin_0cd3c859-2359-4d72-ba94-f24e0090fdb9
+    PickableObjectTypeId: 20
+    Position: {x: 10.27, y: -22.66, z: 0}
+  - Id: CaveBegin_2949466b-55a1-4e8b-9219-9cc291c8ae05
+    PickableObjectTypeId: 80
+    Position: {x: 23.519997, y: -58.65, z: 0}
+  - Id: CaveBegin_8dc8f029-fa7d-4bfd-9e85-ade9cf2ce710
+    PickableObjectTypeId: 50
+    Position: {x: 68.52, y: -50.46, z: 0}
+  - Id: CaveBegin_7a99be2c-0744-40fa-be42-f9b15afdc290
+    PickableObjectTypeId: 100
+    Position: {x: 49.449997, y: -38.45, z: 0}
+  - Id: CaveBegin_04b178c9-3d1f-46fb-9717-b78187f5d2b2
+    PickableObjectTypeId: 40
+    Position: {x: 68.52, y: -49.46, z: 0}
+  - Id: CaveBegin_9f4c95b1-38fc-4f3d-819b-d965daa1318a
+    PickableObjectTypeId: 80
+    Position: {x: 103.52, y: -58.65, z: 0}
+  - Id: CaveBegin_a91070e5-49f1-423c-be4b-46e6bc14e978
+    PickableObjectTypeId: 40
+    Position: {x: 50.519997, y: -49.46, z: 0}
+  - Id: CaveBegin_7033c69b-54e4-4242-ac4b-1ee18ea60507
+    PickableObjectTypeId: 70
+    Position: {x: 9.5, y: -31.56, z: 0}
+  - Id: CaveBegin_2d547ef2-25e2-40cb-bfc6-dbb2d8f2ca73
+    PickableObjectTypeId: 100
+    Position: {x: -3.2600002, y: -59.85, z: 0}
+  - Id: CaveBegin_35a45ca1-40dc-4e27-a6b8-9131f2709d46
+    PickableObjectTypeId: 80
+    Position: {x: 71.52, y: -58.65, z: 0}
+  - Id: CaveBegin_8074837c-bd65-4cec-aefd-59af0cb24b4a
+    PickableObjectTypeId: 80
+    Position: {x: 39.519997, y: -58.65, z: 0}
+  - Id: CaveBegin_498703fc-47f2-4798-8919-fbb363da50bb
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -10.45, z: 0}
+  - Id: CaveBegin_124b8bfc-04f6-4872-a011-176dd9959537
+    PickableObjectTypeId: 40
+    Position: {x: 51.519997, y: -49.46, z: 0}
+  - Id: CaveBegin_59c270f2-4817-4e5f-965c-6d29938dffd0
+    PickableObjectTypeId: 100
+    Position: {x: -5.86, y: -48.69, z: 0}
+  - Id: CaveBegin_98e717ec-e1b9-43a7-9543-c2c7adcfcf3c
+    PickableObjectTypeId: 70
+    Position: {x: 121.98, y: -59.97, z: 0}
+  - Id: CaveBegin_3bfdcf53-c38e-4818-b4a9-4430e307f1e8
+    PickableObjectTypeId: 30
+    Position: {x: 61.51, y: -22.160004, z: 0}
+  - Id: CaveBegin_0db024e3-e1b9-498a-a813-3ade037e5579
+    PickableObjectTypeId: 30
+    Position: {x: 70.270004, y: -63.85, z: 0}
+  - Id: CaveBegin_02186015-b83d-4b47-ba07-e4e648a0a04e
+    PickableObjectTypeId: 70
+    Position: {x: 121.98, y: -57.97, z: 0}
+  - Id: CaveBegin_17b57d6d-d81e-4abc-ae11-8419ecfee721
+    PickableObjectTypeId: 60
+    Position: {x: 56.190002, y: -38.43, z: 0}
+  - Id: CaveBegin_1ff3f198-2b8f-4869-a3ed-ad5ec9e2879b
+    PickableObjectTypeId: 30
+    Position: {x: 27.35, y: -63.85, z: 0}
+  - Id: CaveBegin_74cab686-5cea-4392-b15d-38c23178ea63
+    PickableObjectTypeId: 100
+    Position: {x: 89.52, y: -38.45, z: 0}
+  - Id: CaveBegin_4e109cf1-718d-4b90-b763-b4df7a04563f
+    PickableObjectTypeId: 90
+    Position: {x: 120.02, y: -45.68, z: 0}
+  - Id: CaveBegin_f77e9f17-f822-4174-8dfd-c67f891163fc
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -4.2, z: 0}
+  - Id: CaveBegin_8dc8f029-fa7d-4bfd-9e85-ade9cf2ce710
+    PickableObjectTypeId: 50
+    Position: {x: 51.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_582c5097-726a-49d7-8768-8cc1812c0e41
+    PickableObjectTypeId: 90
+    Position: {x: 11.35, y: 2.57, z: 0}
+  - Id: CaveBegin_81bffccb-e4c3-4ee7-974e-4358fbdc4faa
+    PickableObjectTypeId: 30
+    Position: {x: 28.51, y: -64.02, z: 0}
+  - Id: CaveBegin_6b9dfb8f-baeb-4b19-891a-17065aac6f2d
+    PickableObjectTypeId: 60
+    Position: {x: 74.69, y: -38.43, z: 0}
+  - Id: CaveBegin_c195dd2b-49f9-4f44-a8c0-036d5617849c
+    PickableObjectTypeId: 100
+    Position: {x: 26.699997, y: -38.45, z: 0}
+  - Id: CaveBegin_05cd80ac-2dde-4394-a439-d2c071b638f5
+    PickableObjectTypeId: 30
+    Position: {x: 47.99, y: -65.05, z: 0}
+  - Id: CaveBegin_83459fe3-b36d-4393-bf7e-512bacf40579
+    PickableObjectTypeId: 50
+    Position: {x: 67.52, y: -50.46, z: 0}
+  - Id: CaveBegin_a2caa7b7-2fa6-4813-9fe6-9d9915357970
+    PickableObjectTypeId: 50
+    Position: {x: 34.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_31add4fe-ad1c-4567-8cc9-b87672e7b711
+    PickableObjectTypeId: 90
+    Position: {x: 100.520004, y: -64.78, z: 0}
+  - Id: CaveBegin_178f89bb-70fe-4c0b-b7fb-db67832186a5
+    PickableObjectTypeId: 90
+    Position: {x: 120.02, y: -43.43, z: 0}
+  - Id: CaveBegin_efd94eaa-6ec5-41d0-b36a-3102f6b902b6
+    PickableObjectTypeId: 90
+    Position: {x: 80.270004, y: -64.78, z: 0}
+  - Id: CaveBegin_83b208d5-4df3-4286-833d-fea87810cb8b
+    PickableObjectTypeId: 60
+    Position: {x: 75.94, y: -38.43, z: 0}
+  - Id: CaveBegin_500e20bf-930a-4d87-9c9f-a66b1aa0efe9
+    PickableObjectTypeId: 30
+    Position: {x: 66.99, y: -22.14, z: 0}
+  - Id: CaveBegin_9f16012d-f44b-4593-8ebe-875730795a0d
+    PickableObjectTypeId: 30
+    Position: {x: 63.62, y: -20.96, z: 0}
+  - Id: CaveBegin_f1fa19c3-a065-4f90-8097-8df0dab56909
+    PickableObjectTypeId: 20
+    Position: {x: 9.52, y: -22.66, z: 0}
+  - Id: CaveBegin_888a132a-256c-4632-ab84-d15e08e073fb
+    PickableObjectTypeId: 30
+    Position: {x: 52.510002, y: -64.02, z: 0}
+  - Id: CaveBegin_98738bd3-c90f-4021-af19-2996c1cc5630
+    PickableObjectTypeId: 30
+    Position: {x: 49, y: -64.01, z: 0}
+  - Id: CaveBegin_5822be06-b94b-44a9-bef5-bebbd738aa57
+    PickableObjectTypeId: 90
+    Position: {x: 23.94, y: -29.48, z: 0}
+  - Id: CaveBegin_3f6398f0-dd54-49a1-a30a-1e4d5fc4f137
+    PickableObjectTypeId: 100
+    Position: {x: 95.52, y: -58.67, z: 0}
+  - Id: CaveBegin_88f3e6ff-1332-4081-9956-b34a9e51e214
+    PickableObjectTypeId: 50
+    Position: {x: 50.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_2c7a4bfd-f353-4d99-b3ef-8a22e189dca4
+    PickableObjectTypeId: 70
+    Position: {x: 15.5, y: -31.56, z: 0}
+  - Id: CaveBegin_99a7e705-7e02-4401-991a-d0211bfb3f9d
+    PickableObjectTypeId: 30
+    Position: {x: -1.6599998, y: -62.48, z: 0}
+  - Id: CaveBegin_ff78ae34-7585-4478-8013-ef2db171d263
+    PickableObjectTypeId: 70
+    Position: {x: 121.98, y: -60.97, z: 0}
+  - Id: CaveBegin_fd0f9300-c5b2-47ec-a0de-f7ec7ff288af
+    PickableObjectTypeId: 20
+    Position: {x: 11.02, y: -22.66, z: 0}
+  - Id: CaveBegin_75812b84-05d2-495e-8ffa-2a3066319129
+    PickableObjectTypeId: 80
+    Position: {x: -8.93, y: -44.7, z: 0}
+  - Id: CaveBegin_113bf5a7-1a1a-4881-8112-f5dddda6d9dd
+    PickableObjectTypeId: 90
+    Position: {x: 121.02, y: -13, z: 0}
+  - Id: CaveBegin_60c670e4-a07f-4de3-9668-41a460b73a68
+    PickableObjectTypeId: 100
+    Position: {x: 70.2, y: -38.45, z: 0}
+  - Id: CaveBegin_d7531a8b-f331-49bc-967e-a0cb5782e49d
+    PickableObjectTypeId: 70
+    Position: {x: 15.489, y: -22.659, z: 0}
+  - Id: CaveBegin_8b7c0784-e692-40c7-98e3-ef984f820121
+    PickableObjectTypeId: 90
+    Position: {x: 33.160004, y: -37.47, z: 0}
+  - Id: CaveBegin_fde954ab-2a81-46ef-a581-3f62cabed453
+    PickableObjectTypeId: 30
+    Position: {x: 87.91, y: -65.05, z: 0}
+  - Id: CaveBegin_6717d69f-8028-4dae-b376-13867781b444
+    PickableObjectTypeId: 100
+    Position: {x: 63.519997, y: -58.67, z: 0}
+  - Id: CaveBegin_1267a0cc-0ec4-4476-9f8c-3477d88be083
+    PickableObjectTypeId: 90
+    Position: {x: 41.52, y: -64.78, z: 0}
+  - Id: CaveBegin_4b103951-e31f-44f3-8457-0bcf752e705b
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -8.95, z: 0}
+  - Id: CaveBegin_e22fbbfb-0547-4e40-be43-894217bf58b0
+    PickableObjectTypeId: 0
+    Position: {x: -1.19, y: 3.33, z: 0}
+  - Id: CaveBegin_f0914ebe-fcc7-4fe9-93df-a57db9c367d6
+    PickableObjectTypeId: 90
+    Position: {x: 92.91, y: -37.47, z: 0}
+  - Id: CaveBegin_833c4742-2d1c-4365-ab35-33f58832c3bc
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -5.7, z: 0}
+  - Id: CaveBegin_813c0763-28cd-45f4-bdc1-8275898ee39a
+    PickableObjectTypeId: 80
+    Position: {x: -0.16, y: -46.8, z: 0}
+  - Id: CaveBegin_e9eaaa93-9653-45f7-977e-ae6ff876a7fa
+    PickableObjectTypeId: 80
+    Position: {x: 87.52, y: -50.4, z: 0}
+  - Id: CaveBegin_12aecbee-cde8-484f-aac1-5ffb1a95e4a4
+    PickableObjectTypeId: 100
+    Position: {x: 90.77, y: -38.45, z: 0}
+  - Id: CaveBegin_ae52f9d8-35cd-416e-802c-99b1c47b7c86
+    PickableObjectTypeId: 100
+    Position: {x: 50.699997, y: -38.45, z: 0}
+  - Id: CaveBegin_46961b0d-f912-4485-918e-8c8f3d84e53f
+    PickableObjectTypeId: 100
+    Position: {x: -4.6, y: -44.7, z: 0}
+  - Id: CaveBegin_8adec1de-ff23-437e-94a2-3840a2639119
+    PickableObjectTypeId: 30
+    Position: {x: -3.6599998, y: -62.48, z: 0}
+  - Id: CaveBegin_1ff3f198-2b8f-4869-a3ed-ad5ec9e2879b
+    PickableObjectTypeId: 30
+    Position: {x: 64.869995, y: -20.96, z: 0}
+  - Id: CaveBegin_98101ffd-f52d-4506-94f8-143c6068157b
+    PickableObjectTypeId: 100
+    Position: {x: -2.82, y: -45.37, z: 0}
+  - Id: CaveBegin_08d04ac6-6c6d-4838-93f1-8f23da5218a8
+    PickableObjectTypeId: 30
+    Position: {x: 88.92, y: -64.01, z: 0}
+  - Id: CaveBegin_b6d1bf02-03f3-4bc8-bb1d-94f5b4fb298a
+    PickableObjectTypeId: 60
+    Position: {x: 54.940002, y: -38.43, z: 0}
+  - Id: CaveBegin_9c9b805f-adf6-414b-9398-a83dd035005a
+    PickableObjectTypeId: 80
+    Position: {x: -8.99, y: -51.69, z: 0}
+  - Id: CaveBegin_e78ca910-f7f8-48e6-9237-f38eec671afa
+    PickableObjectTypeId: 60
+    Position: {x: 94.94, y: -38.43, z: 0}
+  - Id: CaveBegin_16138dd0-0ec1-43ab-95ad-6335be5f05e1
+    PickableObjectTypeId: 100
+    Position: {x: -5.13, y: -51.22, z: 0}
+  - Id: CaveBegin_1e282928-3889-4442-bc26-1d91e2ce6b7a
+    PickableObjectTypeId: 60
+    Position: {x: 34.5, y: -38.43, z: 0}
+  - Id: CaveBegin_3677bef6-1a58-435e-a2c7-59c4a3e84ec6
+    PickableObjectTypeId: 90
+    Position: {x: 24.060003, y: -4.1699996, z: 0}
+  - Id: CaveBegin_3cbc2fbb-7d54-43a7-be0c-744b6606c329
+    PickableObjectTypeId: 90
+    Position: {x: 60.52, y: -64.78, z: 0}
+  - Id: CaveBegin_ad880c70-c943-47e3-a97b-131cbe52bada
+    PickableObjectTypeId: 0
+    Position: {x: -2.69, y: 3.33, z: 0}
+  - Id: CaveBegin_6377c2cd-572e-4b0c-a286-109bfb3d7851
+    PickableObjectTypeId: 30
+    Position: {x: 23.99, y: -65.05, z: 0}
+  - Id: CaveBegin_af14d85a-8bcf-4230-9795-5cee744c79d9
+    PickableObjectTypeId: 0
+    Position: {x: -1.94, y: 3.33, z: 0}
+  - Id: CaveBegin_076a7323-c24a-4a7f-8806-060248f485c6
+    PickableObjectTypeId: 110
+    Position: {x: 7.51, y: -55.23, z: 0}
+  - Id: CaveBegin_99997528-fea8-4216-b002-613e36758e56
+    PickableObjectTypeId: 100
+    Position: {x: 11.98, y: -11.95, z: 0}
+  - Id: CaveBegin_5cb7506d-d09f-4e86-b0b0-49e8d8fb95b3
+    PickableObjectTypeId: 50
+    Position: {x: 49.519997, y: -50.46, z: 0}
+  - Id: CaveBegin_ad07b8a9-0fd5-421f-84c6-b310c5e14f18
+    PickableObjectTypeId: 100
+    Position: {x: -6.01, y: -42.77, z: 0}
+  - Id: CaveBegin_3677bef6-1a58-435e-a2c7-59c4a3e84ec6
+    PickableObjectTypeId: 90
+    Position: {x: 23.94, y: -33.73, z: 0}
+  - Id: CaveBegin_81bffccb-e4c3-4ee7-974e-4358fbdc4faa
+    PickableObjectTypeId: 30
+    Position: {x: 72.68, y: -64.02, z: 0}
+  - Id: CaveBegin_7bc1ba39-7f7d-451b-ac5d-08545710578b
+    PickableObjectTypeId: 20
+    Position: {x: 12.52, y: -22.66, z: 0}
+  - Id: CaveBegin_741af8c9-48fc-40a7-8984-5cea0f5c1a45
+    PickableObjectTypeId: 90
+    Position: {x: 73.16, y: -37.47, z: 0}
+  SaveProgressPointSpawners:
+  - Id: Level1_50a3d256-7036-4c72-b076-2db049a22698
+    SaveProgressPointTypeId: 40
+    Width: 1
+    Height: 5
+    Position: {x: 1.1, y: 4.38, z: 0}
+  - Id: CaveBegin_6ea9211b-433f-4e10-b5fd-791daa08ab86
+    SaveProgressPointTypeId: 40
+    Width: 1
+    Height: 5
+    Position: {x: 112.9, y: -37.5, z: 0}

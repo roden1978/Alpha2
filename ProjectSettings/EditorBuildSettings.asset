@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Waterworld.unity
     guid: 5889a535f7a26ec4fafd5a439ee59472
+  - enabled: 1
+    path: Assets/Scenes/CaveBegin.unity
+    guid: 7fdc9b22c636af34eb791e2d10a6f2a5
   m_configObjects: {}
