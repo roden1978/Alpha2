@@ -2,6 +2,6 @@
 {
     public interface IFlipView
     {
-        public void FLippingPlayerView(float direction);
+        public float FLippingPlayerView(float direction);
     }
 }
