@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Threading.Tasks;
 using Cinemachine;
 using Common;
@@ -54,7 +55,7 @@ namespace PlayerScripts
             _jumpFx = jumpFx;
             _jumpSoundFx = jumpSoundFx;
             _staticDataService = staticDataService;
-            _dipstick = new Dipstick(_player);
+            _dipstick = new Dipstick(_player, _player, player.GetComponentInChildren<SpriteRenderer>().sprite);
             _flipView = new FlipView(_player.PlayerView);
             _inputService = ServiceLocator.Container.Single<IInputService>();
             _inputService.OnJump += Jump;
@@ -153,7 +154,8 @@ namespace PlayerScripts
         private void FLip()
         {
             float direction = _inputService.Move();
-            _flipView.FLippingPlayerView(direction);
+            float lookDirection = _flipView.FLippingPlayerView(direction);
+            _player.LookDirection = Convert.ToInt32(lookDirection);
         }
 
         private void AddForceToJump()

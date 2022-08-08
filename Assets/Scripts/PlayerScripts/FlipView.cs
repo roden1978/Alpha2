@@ -18,12 +18,15 @@ namespace PlayerScripts
             _playerView.transform.Rotate(0f, 180f, 0f);
         }
         
-        public void FLippingPlayerView(float direction)
+        public float FLippingPlayerView(float direction)
         {
-            if(direction == 0) return;
-            if(Math.Abs(_prevDirection - direction) != 0)
-                VerticalFlip();
-            _prevDirection = direction;
+            if(direction != 0)
+            {
+                if (Math.Abs(_prevDirection - direction) != 0)
+                    VerticalFlip();
+                _prevDirection = direction;
+            }
+            return _prevDirection;
         }
     }
 }
