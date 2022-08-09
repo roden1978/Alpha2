@@ -325,5 +325,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parallaxEffectMultiplier: {x: 0.6, y: 0.4}
-  _verticalEffect: 1
+  _verticalEffect: 0
   _horizontalEffect: 1
